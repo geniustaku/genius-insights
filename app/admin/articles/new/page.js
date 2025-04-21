@@ -198,7 +198,7 @@ export default function NewArticlePage() {
             name="title"
             value={article.title}
             onChange={handleChange}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-black"
             required
           />
         </div>
@@ -223,7 +223,7 @@ export default function NewArticlePage() {
             name="slug"
             value={article.slug}
             onChange={handleChange}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-black"
             required
           />
         </div>
@@ -240,7 +240,7 @@ export default function NewArticlePage() {
               name="category"
               value={article.category}
               onChange={handleChange}
-              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-black"
               required
             >
               <option value="">Select a category</option>
@@ -263,7 +263,7 @@ export default function NewArticlePage() {
               name="author"
               value={article.author}
               onChange={handleChange}
-              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-black"
               required
             />
           </div>
@@ -280,7 +280,7 @@ export default function NewArticlePage() {
             value={article.excerpt}
             onChange={handleChange}
             rows={3}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-black"
             placeholder="Brief summary of the article (optional - will be generated from content if left empty)"
           />
         </div>
