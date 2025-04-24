@@ -1,7 +1,7 @@
-// app/articles/page.js
 import Link from 'next/link';
 import { getArticles } from '@/lib/db';
 import ArticleCard from '@/components/ArticleCard';
+import { htmlToText } from 'html-to-text';
 
 export const metadata = {
   title: 'Career Articles | Genius Insights',
@@ -9,6 +9,12 @@ export const metadata = {
 };
 
 export const revalidate = 3600; // Revalidate this page every hour
+
+function stripHtml(html) {
+  return htmlToText(html, {
+    wordwrap: 130,
+  });
+}
 
 export default async function ArticlesPage({ searchParams }) {
   // Get pagination parameters from URL or use defaults
@@ -23,6 +29,12 @@ export default async function ArticlesPage({ searchParams }) {
   // For now, we'll assume there are more articles
   const hasMoreArticles = articles.length === limit;
   
+  // Sanitize the excerpts content
+  const sanitizedArticles = articles.map(article => ({
+    ...article,
+    excerpt: stripHtml(article.excerpt),
+  }));
+
   return (
     <div className="max-w-7xl mx-auto">
       {/* Page Header */}
@@ -61,9 +73,9 @@ export default async function ArticlesPage({ searchParams }) {
       </div>
       
       {/* Articles Grid */}
-      {articles.length > 0 ? (
+      {sanitizedArticles.length > 0 ? (
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {articles.map(article => (
+          {sanitizedArticles.map(article => (
             <ArticleCard key={article.id} article={article} />
           ))}
         </div>

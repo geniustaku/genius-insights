@@ -1,18 +1,31 @@
-// app/page.js
 import Link from 'next/link';
 import Image from 'next/image';
 import { getArticles } from '@/lib/db';
 import ArticleCard from '@/components/ArticleCard';
 import FeaturedArticle from '@/components/FeaturedArticle';
 import CategoryList from '@/components/CategoryList';
+import { htmlToText } from 'html-to-text';
 
 export const revalidate = 3600; // Revalidate this page every hour
+
+function stripHtml(html: string) {
+  return htmlToText(html, {
+    wordwrap: 130,
+  });
+}
 
 export default async function Home() {
   const articles = await getArticles(6);
   const featuredArticle = articles[0]; // Use the first article as featured
   const recentArticles = articles.slice(1); // Rest of the articles
-  
+
+  // Sanitize the excerpt content
+  const sanitizedFeaturedExcerpt = featuredArticle ? stripHtml(featuredArticle.excerpt) : '';
+  const sanitizedRecentArticles = recentArticles.map(article => ({
+    ...article,
+    excerpt: stripHtml(article.excerpt),
+  }));
+
   return (
     <div className="space-y-16">
       {/* Hero Section - Elegant gradient with soft pattern */}
@@ -60,7 +73,7 @@ export default async function Home() {
             <h2 className="text-2xl font-semibold text-gray-800">Featured Insight</h2>
             <div className="ml-4 h-px bg-gray-200 flex-grow"></div>
           </div>
-          <FeaturedArticle article={featuredArticle} />
+          <FeaturedArticle article={{ ...featuredArticle, excerpt: sanitizedFeaturedExcerpt }} />
         </section>
       )}
       
@@ -83,7 +96,7 @@ export default async function Home() {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {recentArticles.map((article: unknown) => (
+          {sanitizedRecentArticles.map((article: unknown) => (
             <ArticleCard key={(article as any).id} article={article} />
           ))}
         </div>
@@ -160,72 +173,25 @@ export default async function Home() {
                 </div>
               </div>
               <p className="text-gray-600 text-sm">
-                "I've used the career roadmaps to plan my professional development. 
-                The South African context makes it so much more relevant."
+                "Thanks to the career guidance and market insights, I was able to successfully pivot into data science and land my dream job!"
               </p>
             </div>
             
             <div className="bg-gray-50 p-6 rounded-lg">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-medium">
-                  JN
+                  ZN
                 </div>
                 <div className="ml-4">
-                  <p className="font-medium text-gray-800">James Naidoo</p>
-                  <p className="text-xs text-gray-500">Cloud Architect, Durban</p>
+                  <p className="font-medium text-gray-800">Zanele Ndlovu</p>
+                  <p className="text-xs text-gray-500">Cloud Engineer, Durban</p>
                 </div>
               </div>
               <p className="text-gray-600 text-sm">
-                "The certification guides saved me months of research. 
-                I followed the AWS path and landed my dream role at a fintech company."
+                "The salary comparison tool gave me a better understanding of my worth in the market and helped me secure an amazing offer."
               </p>
             </div>
           </div>
-        </div>
-      </section>
-      
-      {/* CTA Section - Elegant and clean */}
-      <section className="px-6 py-20 bg-indigo-600 rounded-xl">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">Stay Ahead in Your Career Journey</h2>
-          <p className="text-indigo-100 mb-8">
-            Join thousands of South African professionals receiving our weekly insights and career opportunities.
-          </p>
-          
-          <form className="max-w-md mx-auto">
-            <div className="flex flex-col sm:flex-row gap-2">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="flex-grow px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-indigo-300 focus:outline-none text-sm"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-white text-indigo-600 font-medium px-6 py-3 rounded-lg hover:bg-gray-100 transition-all duration-300 text-sm"
-              >
-                Subscribe
-              </button>
-            </div>
-            <p className="text-xs text-indigo-200 mt-3">
-              We respect your privacy. Unsubscribe at any time.
-            </p>
-          </form>
-        </div>
-      </section>
-      
-      {/* Partners Section - Minimalist */}
-      <section className="px-6 mb-16 max-w-6xl mx-auto">
-        <div className="text-center mb-8">
-          <p className="text-indigo-600 text-sm uppercase tracking-wider font-medium">Trusted by leading companies</p>
-        </div>
-        
-        <div className="grid grid-cols-3 md:grid-cols-5 gap-6 items-center">
-          {['Standard Bank', 'Vodacom', 'Takealot', 'Discovery', 'Investec'].map((company) => (
-            <div key={company} className="text-center text-gray-500 font-medium text-sm">
-              {company}
-            </div>
-          ))}
         </div>
       </section>
     </div>

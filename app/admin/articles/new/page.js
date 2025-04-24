@@ -290,10 +290,13 @@ export default function NewArticlePage() {
           <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-1">
             Content <span className="text-red-500">*</span>
           </label>
-          <RichTextEditor
-            initialValue={article.content}
-            onChange={handleContentChange}
-          />
+          <div className="text-black"> {/* Added wrapper with text-black class */}
+            <RichTextEditor
+              initialValue={article.content}
+              onChange={handleContentChange}
+              className="text-black" /* Added text-black class */
+            />
+          </div>
         </div>
         
         {/* Featured Image */}
@@ -326,6 +329,7 @@ export default function NewArticlePage() {
               onUploadComplete={handleImageUpload}
               allowedTypes={['image/jpeg', 'image/png', 'image/webp']}
               maxSizeMB={5}
+              className="text-black" /* Added text-black class */
             />
           )}
         </div>
