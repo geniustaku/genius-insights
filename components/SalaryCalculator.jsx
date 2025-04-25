@@ -1,4 +1,3 @@
-// components/SalaryCalculator.jsx
 'use client'
 import { useState, useEffect } from 'react';
 
@@ -13,13 +12,11 @@ export default function SalaryCalculator() {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState('south-africa');
   const [cities, setCities] = useState([]);
-  
-  // Fetch available countries on component mount
+
   useEffect(() => {
     fetchCountries();
   }, []);
 
-  // Update cities when country changes
   useEffect(() => {
     if (selectedCountry) {
       fetchCities(selectedCountry);
@@ -45,7 +42,7 @@ export default function SalaryCalculator() {
       if (!response.ok) throw new Error('Failed to fetch cities');
       const data = await response.json();
       setCities(data.cities);
-      setLocation(''); // Reset location when country changes
+      setLocation('');
     } catch (err) {
       setError('Failed to load city data');
       console.error(err);
@@ -53,12 +50,12 @@ export default function SalaryCalculator() {
       setLoading(false);
     }
   };
-  
+
   const handleCalculate = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    
+
     try {
       const response = await fetch('/api/salary-data/calculate', {
         method: 'POST',
@@ -71,11 +68,9 @@ export default function SalaryCalculator() {
           country: selectedCountry
         })
       });
-      
-      if (!response.ok) {
-        throw new Error('Calculation failed');
-      }
-      
+
+      if (!response.ok) throw new Error('Calculation failed');
+
       const data = await response.json();
       setResult(data);
     } catch (err) {
@@ -100,25 +95,25 @@ export default function SalaryCalculator() {
     { value: 'construction', label: 'Construction & Engineering' },
     { value: 'consulting', label: 'Consulting & Professional Services' },
   ];
-  
+
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4">African Salary Calculator</h2>
-      <p className="text-gray-600 mb-6">Get accurate salary estimates based on 2025 market data.</p>
-      
+      <h2 className="text-2xl font-bold mb-4 text-gray-900">African Salary Calculator</h2>
+      <p className="text-gray-800 mb-6">Get accurate salary estimates based on 2025 market data.</p>
+
       {error && (
-        <div className="bg-red-50 text-red-700 p-3 rounded mb-4">
+        <div className="bg-red-100 text-red-800 p-3 rounded mb-4 border border-red-300">
           {error}
         </div>
       )}
-      
-      <form onSubmit={handleCalculate} className="space-y-4">
+
+      <form onSubmit={handleCalculate} className="space-y-4 text-gray-900">
         <div>
-          <label className="block mb-1">Country</label>
+          <label className="block mb-1 font-medium text-gray-900">Country</label>
           <select 
             value={selectedCountry} 
             onChange={(e) => setSelectedCountry(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-gray-900"
             required
             disabled={loading}
           >
@@ -130,13 +125,13 @@ export default function SalaryCalculator() {
             ))}
           </select>
         </div>
-        
+
         <div>
-          <label className="block mb-1">Industry</label>
+          <label className="block mb-1 font-medium text-gray-900">Industry</label>
           <select 
             value={industry} 
             onChange={(e) => setIndustry(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-gray-900"
             required
             disabled={loading}
           >
@@ -148,13 +143,13 @@ export default function SalaryCalculator() {
             ))}
           </select>
         </div>
-        
+
         <div>
-          <label className="block mb-1">Experience Level</label>
+          <label className="block mb-1 font-medium text-gray-900">Experience Level</label>
           <select 
             value={experience} 
             onChange={(e) => setExperience(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-gray-900"
             required
             disabled={loading}
           >
@@ -165,13 +160,13 @@ export default function SalaryCalculator() {
             <option value="executive">Executive (10+ years)</option>
           </select>
         </div>
-        
+
         <div>
-          <label className="block mb-1">Education</label>
+          <label className="block mb-1 font-medium text-gray-900">Education</label>
           <select 
             value={education} 
             onChange={(e) => setEducation(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-gray-900"
             required
             disabled={loading}
           >
@@ -184,13 +179,13 @@ export default function SalaryCalculator() {
             <option value="phd">PhD/Doctorate</option>
           </select>
         </div>
-        
+
         <div>
-          <label className="block mb-1">City/Region</label>
+          <label className="block mb-1 font-medium text-gray-900">City/Region</label>
           <select 
             value={location} 
             onChange={(e) => setLocation(e.target.value)}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border rounded text-gray-900"
             required
             disabled={loading || cities.length === 0}
           >
@@ -202,7 +197,7 @@ export default function SalaryCalculator() {
             ))}
           </select>
         </div>
-        
+
         <button 
           type="submit" 
           className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full disabled:bg-blue-300"
@@ -211,34 +206,34 @@ export default function SalaryCalculator() {
           {loading ? 'Calculating...' : 'Calculate Salary Range'}
         </button>
       </form>
-      
+
       {result && (
-        <div className="mt-6 p-4 bg-blue-50 rounded">
+        <div className="mt-6 p-4 bg-blue-50 rounded text-gray-900">
           <h3 className="text-xl font-bold mb-2">Estimated Salary Range:</h3>
           <div className="grid grid-cols-3 gap-2 text-center">
             <div>
-              <p className="text-sm text-gray-600">Low End</p>
+              <p className="text-sm text-gray-800">Low End</p>
               <p className="font-bold">{result.currency}{result.low.toLocaleString()}</p>
             </div>
             <div className="border-x">
-              <p className="text-sm text-gray-600">Average</p>
+              <p className="text-sm text-gray-800">Average</p>
               <p className="font-bold text-blue-600">{result.currency}{result.average.toLocaleString()}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-600">High End</p>
+              <p className="text-sm text-gray-800">High End</p>
               <p className="font-bold">{result.currency}{result.high.toLocaleString()}</p>
             </div>
           </div>
-          
+
           <div className="mt-4 bg-white p-3 rounded border">
             <h4 className="font-semibold text-lg mb-2">{result.jobTitle} in {result.locationName}</h4>
-            <div className="text-sm text-gray-700 space-y-1">
+            <div className="text-sm text-gray-900 space-y-1">
               <p><span className="font-medium">Industry:</span> {result.industryName}</p>
               <p><span className="font-medium">Experience:</span> {result.experienceName}</p>
               <p><span className="font-medium">In-demand skills:</span> {result.inDemandSkills.join(', ')}</p>
             </div>
           </div>
-          
+
           <div className="mt-4 text-center">
             <a 
               href={`/jobs?industry=${industry}&location=${location}&country=${selectedCountry}`}
@@ -247,8 +242,8 @@ export default function SalaryCalculator() {
               View available jobs in this field →
             </a>
           </div>
-          
-          <p className="mt-4 text-sm text-gray-500">
+
+          <p className="mt-4 text-sm text-gray-800">
             *Based on African market data as of 2025. Actual salaries may vary based on specific company, skills, and market conditions.
           </p>
         </div>

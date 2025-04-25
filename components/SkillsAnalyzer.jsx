@@ -172,9 +172,9 @@ export default function SkillsAnalyzer() {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-2">Skills Gap Analyzer</h2>
-      <p className="text-gray-600 mb-6">
+    <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-indigo-600">
+      <h2 className="text-2xl font-bold mb-2 text-indigo-700">Skills Gap Analyzer</h2>
+      <p className="text-indigo-900 mb-6">
         Identify which skills you need to develop for your target career path in the African job market.
       </p>
 
@@ -182,11 +182,11 @@ export default function SkillsAnalyzer() {
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block mb-2 font-medium">Select Your Target Industry:</label>
+              <label className="block mb-2 font-medium text-indigo-800">Select Your Target Industry:</label>
               <select
                 value={selectedIndustry}
                 onChange={(e) => setSelectedIndustry(e.target.value)}
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border border-indigo-300 rounded focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 disabled={loading}
               >
                 <option value="">Select Industry</option>
@@ -199,11 +199,11 @@ export default function SkillsAnalyzer() {
             </div>
 
             <div>
-              <label className="block mb-2 font-medium">Select Your Target Role:</label>
+              <label className="block mb-2 font-medium text-indigo-800">Select Your Target Role:</label>
               <select
                 value={selectedRole}
                 onChange={(e) => setSelectedRole(e.target.value)}
-                className="w-full p-2 border rounded"
+                className="w-full p-2 border border-indigo-300 rounded focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 disabled={!selectedIndustry || loading || loadingSkills}
               >
                 <option value="">
@@ -223,18 +223,18 @@ export default function SkillsAnalyzer() {
           </div>
 
           <div>
-            <label className="block mb-2 font-medium">Your Skills:</label>
+            <label className="block mb-2 font-medium text-indigo-800">Your Skills:</label>
             {userSkills.length > 0 ? (
               <div className="flex flex-wrap gap-2 mb-4">
                 {userSkills.map((skill) => (
                   <div 
                     key={skill} 
-                    className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full flex items-center"
+                    className="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full flex items-center shadow-sm"
                   >
                     {skill}
                     <button 
                       onClick={() => handleRemoveSkill(skill)}
-                      className="ml-2 text-blue-600 hover:text-blue-800"
+                      className="ml-2 text-indigo-600 hover:text-indigo-800"
                     >
                       &times;
                     </button>
@@ -242,7 +242,7 @@ export default function SkillsAnalyzer() {
                 ))}
               </div>
             ) : (
-              <p className="text-gray-500 mb-4">No skills added yet. Add your skills below.</p>
+              <p className="text-purple-600 mb-4">No skills added yet. Add your skills below.</p>
             )}
 
             <div className="flex">
@@ -250,13 +250,13 @@ export default function SkillsAnalyzer() {
                 type="text"
                 value={customSkill}
                 onChange={(e) => setCustomSkill(e.target.value)}
-                className="flex-grow p-2 border rounded-l"
+                className="flex-grow p-2 border border-indigo-300 rounded-l focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 placeholder="Add a skill (e.g. JavaScript, Project Management)"
                 onKeyPress={(e) => e.key === 'Enter' && handleAddSkill()}
               />
               <button
                 onClick={handleAddSkill}
-                className="bg-blue-600 text-white px-4 py-2 rounded-r hover:bg-blue-700"
+                className="bg-indigo-600 text-white px-4 py-2 rounded-r hover:bg-indigo-700 transition duration-200"
                 disabled={customSkill.trim() === ''}
               >
                 Add
@@ -266,16 +266,16 @@ export default function SkillsAnalyzer() {
 
           {selectedRole && !loadingSkills && (
             <div>
-              <label className="block mb-2 font-medium">Common Skills for {getRoleName(selectedRole)}:</label>
+              <label className="block mb-2 font-medium text-indigo-800">Common Skills for {getRoleName(selectedRole)}:</label>
               <div className="flex flex-wrap gap-2">
                 {industrySkills.map((skill) => (
                   <button
                     key={skill.name}
                     onClick={() => handleSkillSelect(skill.name)}
-                    className={`px-3 py-1 rounded-full border ${
+                    className={`px-3 py-1 rounded-full border transition duration-200 ${
                       userSkills.includes(skill.name)
-                        ? 'bg-blue-100 text-blue-800 border-blue-300'
-                        : 'bg-gray-50 text-gray-700 border-gray-300 hover:bg-gray-100'
+                        ? 'bg-teal-100 text-teal-800 border-teal-300 shadow-sm'
+                        : 'bg-purple-50 text-purple-700 border-purple-300 hover:bg-purple-100'
                     }`}
                   >
                     {skill.name}
@@ -285,7 +285,7 @@ export default function SkillsAnalyzer() {
                   </button>
                 ))}
               </div>
-              <p className="mt-2 text-sm text-gray-500">
+              <p className="mt-2 text-sm text-purple-600">
                 Click on skills you already have to add them to your profile.
               </p>
             </div>
@@ -294,14 +294,14 @@ export default function SkillsAnalyzer() {
           <div className="flex gap-4">
             <button
               onClick={handleAnalyze}
-              className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 disabled:bg-blue-300"
+              className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 disabled:bg-indigo-300 transition duration-200 shadow-md"
               disabled={!selectedIndustry || !selectedRole || userSkills.length === 0 || loading}
             >
               {loading ? 'Analyzing...' : 'Analyze Skills Gap'}
             </button>
             <button
               onClick={handleReset}
-              className="border border-gray-300 px-6 py-2 rounded hover:bg-gray-50"
+              className="border border-purple-300 text-purple-700 px-6 py-2 rounded hover:bg-purple-50 transition duration-200"
               disabled={loading}
             >
               Reset
@@ -310,32 +310,32 @@ export default function SkillsAnalyzer() {
         </div>
       ) : (
         <div className="space-y-6">
-          <div className="bg-gray-50 p-4 rounded">
+          <div className="bg-indigo-50 p-4 rounded shadow-sm border border-indigo-100">
             <div className="flex justify-between items-center mb-3">
-              <h3 className="text-lg font-semibold">Skills Match Analysis</h3>
-              <span className={`text-lg font-bold px-3 py-1 rounded ${
+              <h3 className="text-lg font-semibold text-indigo-800">Skills Match Analysis</h3>
+              <span className={`text-lg font-bold px-3 py-1 rounded shadow-sm ${
                 results.matchPercentage >= 70
-                  ? 'bg-green-100 text-green-800'
+                  ? 'bg-emerald-100 text-emerald-800'
                   : results.matchPercentage >= 40
-                  ? 'bg-yellow-100 text-yellow-800'
-                  : 'bg-red-100 text-red-800'
+                  ? 'bg-amber-100 text-amber-800'
+                  : 'bg-rose-100 text-rose-800'
               }`}>
                 {results.matchPercentage}% Match
               </span>
             </div>
-            <p className="text-gray-700 mb-4">
+            <p className="text-indigo-700 mb-4">
               Based on your current skills, you are <span className="font-medium">{results.matchPercentage}%</span> matched 
               to the role of <span className="font-medium">{getRoleName(selectedRole)}</span> in 
               <span className="font-medium"> {getIndustryName(selectedIndustry)}</span>.
             </p>
-            <div className="w-full bg-gray-200 rounded-full h-2.5">
+            <div className="w-full bg-indigo-200 rounded-full h-2.5">
               <div 
-                className={`h-2.5 rounded-full ${
+                className={`h-2.5 rounded-full shadow-inner ${
                   results.matchPercentage >= 70
-                    ? 'bg-green-600'
+                    ? 'bg-emerald-500'
                     : results.matchPercentage >= 40
-                    ? 'bg-yellow-500'
-                    : 'bg-red-600'
+                    ? 'bg-amber-500'
+                    : 'bg-rose-500'
                 }`} 
                 style={{ width: `${results.matchPercentage}%` }}
               ></div>
@@ -344,28 +344,28 @@ export default function SkillsAnalyzer() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-lg font-semibold mb-3">Your Matching Skills</h3>
+              <h3 className="text-lg font-semibold mb-3 text-indigo-800">Your Matching Skills</h3>
               {results.matchingSkills.length > 0 ? (
                 <ul className="space-y-2">
                   {results.matchingSkills.map((skill) => (
                     <li key={skill} className="flex items-center">
-                      <span className="text-green-600 mr-2">✓</span>
-                      {skill}
+                      <span className="text-emerald-600 mr-2">✓</span>
+                      <span className="text-indigo-700">{skill}</span>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-gray-500">
+                <p className="text-amber-600">
                   You don't have any skills that match this role yet.
                 </p>
               )}
 
               {results.additionalSkills.length > 0 && (
                 <div className="mt-4">
-                  <h4 className="font-medium mb-2">Your Additional Skills</h4>
+                  <h4 className="font-medium mb-2 text-teal-700">Your Additional Skills</h4>
                   <div className="flex flex-wrap gap-2">
                     {results.additionalSkills.map((skill) => (
-                      <span key={skill} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">
+                      <span key={skill} className="bg-teal-100 text-teal-800 px-3 py-1 rounded-full shadow-sm">
                         {skill}
                       </span>
                     ))}
@@ -375,18 +375,18 @@ export default function SkillsAnalyzer() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-3">Skills to Develop</h3>
+              <h3 className="text-lg font-semibold mb-3 text-indigo-800">Skills to Develop</h3>
               
               {results.missingSkills.critical.length > 0 && (
                 <div className="mb-4">
-                  <h4 className="font-medium text-red-700 mb-2">Critical Skills</h4>
+                  <h4 className="font-medium text-rose-700 mb-2">Critical Skills</h4>
                   <ul className="space-y-2">
                     {results.missingSkills.critical.map((skill) => (
-                      <li key={skill.name} className="flex items-start">
-                        <span className="text-red-600 mr-2 mt-1">•</span>
+                      <li key={skill.name} className="flex items-start bg-rose-50 p-2 rounded shadow-sm">
+                        <span className="text-rose-600 mr-2 mt-1">•</span>
                         <div>
-                          <div className="font-medium">{skill.name}</div>
-                          <p className="text-sm text-gray-600">{skill.description}</p>
+                          <div className="font-medium text-rose-800">{skill.name}</div>
+                          <p className="text-sm text-rose-600">{skill.description}</p>
                         </div>
                       </li>
                     ))}
@@ -396,14 +396,14 @@ export default function SkillsAnalyzer() {
               
               {results.missingSkills.important.length > 0 && (
                 <div className="mb-4">
-                  <h4 className="font-medium text-yellow-700 mb-2">Important Skills</h4>
+                  <h4 className="font-medium text-amber-700 mb-2">Important Skills</h4>
                   <ul className="space-y-2">
                     {results.missingSkills.important.map((skill) => (
-                      <li key={skill.name} className="flex items-start">
-                        <span className="text-yellow-600 mr-2 mt-1">•</span>
+                      <li key={skill.name} className="flex items-start bg-amber-50 p-2 rounded shadow-sm">
+                        <span className="text-amber-600 mr-2 mt-1">•</span>
                         <div>
-                          <div className="font-medium">{skill.name}</div>
-                          <p className="text-sm text-gray-600">{skill.description}</p>
+                          <div className="font-medium text-amber-800">{skill.name}</div>
+                          <p className="text-sm text-amber-600">{skill.description}</p>
                         </div>
                       </li>
                     ))}
@@ -416,11 +416,11 @@ export default function SkillsAnalyzer() {
                   <h4 className="font-medium text-blue-700 mb-2">Nice-to-Have Skills</h4>
                   <ul className="space-y-2">
                     {results.missingSkills.niceToHave.map((skill) => (
-                      <li key={skill.name} className="flex items-start">
+                      <li key={skill.name} className="flex items-start bg-blue-50 p-2 rounded shadow-sm">
                         <span className="text-blue-600 mr-2 mt-1">•</span>
                         <div>
-                          <div className="font-medium">{skill.name}</div>
-                          <p className="text-sm text-gray-600">{skill.description}</p>
+                          <div className="font-medium text-blue-800">{skill.name}</div>
+                          <p className="text-sm text-blue-600">{skill.description}</p>
                         </div>
                       </li>
                     ))}
@@ -432,26 +432,26 @@ export default function SkillsAnalyzer() {
 
           {Object.keys(results.learningPaths).length > 0 && (
             <div>
-              <h3 className="text-lg font-semibold mb-3">Learning Resources</h3>
-              <div className="bg-blue-50 p-4 rounded">
-                <p className="mb-4">Here are some resources to help you develop the skills you need:</p>
+              <h3 className="text-lg font-semibold mb-3 text-indigo-800">Learning Resources</h3>
+              <div className="bg-indigo-50 p-4 rounded shadow-sm border border-indigo-100">
+                <p className="mb-4 text-indigo-700">Here are some resources to help you develop the skills you need:</p>
                 
                 <div className="space-y-4">
                   {Object.entries(results.learningPaths).slice(0, 3).map(([skill, resources]) => (
-                    <div key={skill} className="border-t pt-3">
-                      <h4 className="font-medium mb-2">{skill}</h4>
+                    <div key={skill} className="border-t border-indigo-200 pt-3">
+                      <h4 className="font-medium mb-2 text-indigo-700">{skill}</h4>
                       <ul className="space-y-2">
                         {resources.map((resource, index) => (
-                          <li key={index} className="flex items-start">
-                            <span className="text-blue-600 mr-2">•</span>
+                          <li key={index} className="flex items-start bg-white p-2 rounded shadow-sm">
+                            <span className="text-teal-600 mr-2">•</span>
                             <div>
-                              <div className="font-medium">{resource.title}</div>
-                              <p className="text-sm text-gray-600">{resource.type} • {resource.duration}</p>
+                              <div className="font-medium text-indigo-800">{resource.title}</div>
+                              <p className="text-sm text-purple-600">{resource.type} • {resource.duration}</p>
                               <a 
                                 href={resource.url} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="text-sm text-blue-600 hover:underline"
+                                className="text-sm text-indigo-600 hover:text-indigo-800 hover:underline"
                               >
                                 Learn more →
                               </a>
@@ -466,7 +466,7 @@ export default function SkillsAnalyzer() {
                 {Object.keys(results.learningPaths).length > 3 && (
                   <div className="mt-4 text-center">
                     <button 
-                      className="text-blue-600 hover:underline"
+                      className="text-indigo-600 hover:text-indigo-800 hover:underline"
                       onClick={() => {
                         // This would expand to show all learning paths
                         // For now, it's just a placeholder
@@ -483,28 +483,28 @@ export default function SkillsAnalyzer() {
           <div className="flex flex-wrap gap-4 mt-6">
             <button
               onClick={handleReset}
-              className="px-4 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-50"
+              className="px-4 py-2 border border-indigo-600 text-indigo-600 rounded hover:bg-indigo-50 transition duration-200"
             >
               Start Over
             </button>
             
             <Link
               href={`/salary-calculator?industry=${selectedIndustry}&role=${selectedRole}`}
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+              className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition duration-200 shadow-md"
             >
               Check Salary Range
             </Link>
             
             <Link
               href="/courses"
-              className="px-4 py-2 border border-gray-300 bg-gray-50 text-gray-700 rounded hover:bg-gray-100"
+              className="px-4 py-2 border border-teal-500 bg-teal-50 text-teal-700 rounded hover:bg-teal-100 transition duration-200"
             >
               Find Training Courses
             </Link>
             
             <Link
               href={`/jobs?skills=${results.matchingSkills.join(',')}`}
-              className="px-4 py-2 border border-gray-300 bg-gray-50 text-gray-700 rounded hover:bg-gray-100"
+              className="px-4 py-2 border border-purple-500 bg-purple-50 text-purple-700 rounded hover:bg-purple-100 transition duration-200"
             >
               Find Matching Jobs
             </Link>
