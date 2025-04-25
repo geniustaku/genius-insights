@@ -6,6 +6,7 @@ import { getArticleBySlug, getArticles, getRelatedArticles } from '@/lib/db';
 import { formatDate } from '@/lib/utils';
 import CopyLinkButton from '../../../components/CopyLinkButton';
 import SaveButton from '../../../components/Save';
+import ArticleComments from '../../../components/ArticleComments'; 
 
 export const revalidate = 3600; // Revalidate this page every hour
 
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }) {
     };
   }
   
-  // Adding Open Graph metadata for better social sharing
+  // Updated URL with correct domain
   return {
     title: `${article.title} | Genius Insights`,
     description: article.excerpt || article.title,
@@ -37,10 +38,10 @@ export async function generateMetadata({ params }) {
       title: article.title,
       description: article.excerpt || article.title,
       type: 'article',
-      url: `https://geniusinsights.co.za/articles/${article.slug}`,
+      url: `https://www.genius-insights.co.za/articles/${article.slug}`,
       images: [
         {
-          url: article.featured_image || 'https://geniusinsights.co.za/images/default-og.jpg',
+          url: article.featured_image || 'https://www.genius-insights.co.za/images/default-og.jpg',
           width: 1200,
           height: 630,
           alt: article.title,
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: article.title,
       description: article.excerpt || article.title,
-      images: [article.featured_image || 'https://geniusinsights.co.za/images/default-og.jpg'],
+      images: [article.featured_image || 'https://www.genius-insights.co.za/images/default-og.jpg'],
     }
   };
 }
@@ -70,16 +71,16 @@ export default async function ArticlePage({ params }) {
   // Get related articles (same category)
   const relatedArticles = await getRelatedArticles(article.category, article.id, 3);
   
-  // URL encoding for social sharing
+  // Updated URL encoding for social sharing with correct domain
   const encodedTitle = encodeURIComponent(article.title);
-  const encodedUrl = encodeURIComponent(`https://geniusinsights.co.za/articles/${article.slug}`);
+  const encodedUrl = encodeURIComponent(`https://www.genius-insights.co.za/articles/${article.slug}`);
   
   // Social media share URLs
   const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
   const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`;
   const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
   const whatsappShareUrl = `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`;
-  const articleUrl = `https://geniusinsights.co.za/articles/${article.slug}`;
+  const articleUrl = `https://www.genius-insights.co.za/articles/${article.slug}`;
   
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white">
@@ -142,9 +143,8 @@ export default async function ArticlePage({ params }) {
         
         {/* Article Content - Improved for better visibility */}
         <div className="article-content">
-  <div dangerouslySetInnerHTML={{ __html: article.content }} />
-</div>
-
+          <div dangerouslySetInnerHTML={{ __html: article.content }} />
+        </div>
         
         {/* Tags */}
         <div className="my-12">
@@ -257,6 +257,9 @@ export default async function ArticlePage({ params }) {
           {/* Save Button - Using Client Component */}
           <SaveButton />
         </div>
+        
+        {/* Comments Section - Add the comments component here */}
+        <ArticleComments articleSlug={slug} />
       </article>
       
       {/* Related Articles */}
