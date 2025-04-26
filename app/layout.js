@@ -2,7 +2,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import GoogleAnalytics from '@/components/GoogleAnalytics'; // Import the component
+import GoogleAnalytics from '@/components/GoogleAnalytics'; 
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,8 +14,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <GoogleAnalytics /> {/* Add the Google Analytics component */}
+      <head />
       <body className={inter.className}>
+        <GoogleAnalytics GA_MEASUREMENT_ID="G-PWD6J7ZL1E" />
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow container mx-auto px-4 py-8">
