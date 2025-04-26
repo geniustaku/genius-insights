@@ -7,7 +7,7 @@ import GoogleAnalytics from '@/components/GoogleAnalytics';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Genius Insights | South African Career Guidance & Salary Information',
+  title: 'Genius Insights | South African Career and Guidance & Salary Information',
   description: 'Get expert career guidance, South African salary insights, and professional roadmaps tailored for the South African job market.',
 };
 
