@@ -287,7 +287,7 @@ export default async function Home() {
                 </div>
               </div>
               <p className="text-green-800 text-sm">
-                "The skills analyzer gave me a better understanding of my worth in the market and helped me secure an amazing offer."
+                "The skills analyzer gave me a better understanding of my worth in the market and helped me secure an amazing offer"
               </p>
             </div>
           </div>
