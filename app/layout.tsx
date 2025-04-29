@@ -60,6 +60,20 @@ export default function RootLayout({
             gtag('config', 'G-PWD6J7ZL1E');
           `}
         </Script>
+        
+        {/* Google Ads Script */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17042498697"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17042498697');
+          `}
+        </Script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
