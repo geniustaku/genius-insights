@@ -211,7 +211,7 @@ export default function NewsletterSignup({
       <p className="text-gray-600">
         {leadMagnet.enabled ? 
           'Your download is starting and you will receive updates in your inbox.' :
-          'You\'ll receive career updates in your inbox.'}
+          'You\'ll receive career updates in your inbox'}
       </p>
       {leadMagnet.enabled && (
         <p className="mt-4 text-sm">
