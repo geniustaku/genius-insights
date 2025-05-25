@@ -14,20 +14,28 @@ export async function GET() {
     
     const rows = await executeQuery(query);
     
-    // If database isn't set up yet, return default data
+    // If database isn't set up yet, return comprehensive African data
     if (!rows || rows.length === 0) {
       return Response.json({
         countries: [
-          { code: 'south-africa', name: 'South Africa' },
-          { code: 'nigeria', name: 'Nigeria' },
-          { code: 'kenya', name: 'Kenya' },
-          { code: 'ghana', name: 'Ghana' },
-          { code: 'egypt', name: 'Egypt' },
-          { code: 'tanzania', name: 'Tanzania' },
-          { code: 'ethiopia', name: 'Ethiopia' },
-          { code: 'uganda', name: 'Uganda' },
-          { code: 'morocco', name: 'Morocco' },
-          { code: 'rwanda', name: 'Rwanda' }
+          { code: 'south-africa', name: '🇿🇦 South Africa' },
+          { code: 'nigeria', name: '🇳🇬 Nigeria' },
+          { code: 'kenya', name: '🇰🇪 Kenya' },
+          { code: 'ghana', name: '🇬🇭 Ghana' },
+          { code: 'egypt', name: '🇪🇬 Egypt' },
+          { code: 'morocco', name: '🇲🇦 Morocco' },
+          { code: 'ethiopia', name: '🇪🇹 Ethiopia' },
+          { code: 'tanzania', name: '🇹🇿 Tanzania' },
+          { code: 'uganda', name: '🇺🇬 Uganda' },
+          { code: 'rwanda', name: '🇷🇼 Rwanda' },
+          { code: 'senegal', name: '🇸🇳 Senegal' },
+          { code: 'ivory-coast', name: '🇨🇮 Côte d\'Ivoire' },
+          { code: 'botswana', name: '🇧🇼 Botswana' },
+          { code: 'mauritius', name: '🇲🇺 Mauritius' },
+          { code: 'tunisia', name: '🇹🇳 Tunisia' },
+          { code: 'zambia', name: '🇿🇲 Zambia' },
+          { code: 'zimbabwe', name: '🇿🇼 Zimbabwe' },
+          { code: 'namibia', name: '🇳🇦 Namibia' }
         ]
       });
     }

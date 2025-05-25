@@ -15,27 +15,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Career Compass | South African & African Career Guidance & Salary Tools",
-  description: "Comprehensive career guidance platform tailored for South Africa and Africa, offering local job market analytics, accurate salary calculator for African markets, detailed job analysis, and personalized career path recommendations for African professionals.",
-  keywords: "South Africa career guidance, African job market, South African salary calculator, job opportunities Africa, career development South Africa, professional growth Africa, Johannesburg jobs, Cape Town employment, African job analysis, African salary insights, Pretoria careers, Durban job market",
+  title: "African Career Guidance & Salary Calculator 2025 | Find Your Dream Job in Africa",
+  description: "Discover high-paying careers across Africa with our AI-powered career assessment and salary calculator. Get personalized career guidance for South Africa, Nigeria, Kenya, Ghana, Egypt and 13+ African countries. Start your African career journey today!",
+  keywords: "African careers 2025, African salary calculator, career guidance Africa, jobs in Africa, South Africa careers, Nigeria jobs, Kenya employment, Ghana career opportunities, Egypt job market, African job search, career assessment Africa, African professionals, tech jobs Africa, finance careers Africa, healthcare jobs Africa",
   openGraph: {
-    title: "Career Compass | South African & African Career Guidance Platform",
-    description: "Discover optimal career paths in South Africa and across Africa with our specialized job market analytics, region-specific salary calculator, and localized career guidance tools.",
+    title: "African Career Guidance & Salary Calculator 2025 | Your Path to Success",
+    description: "Transform your career with Africa's #1 career platform. AI-powered assessments, real salary data from 18+ countries, and personalized career roadmaps for African professionals.",
     type: "website",
-    siteName: "Career Compass Africa",
+    siteName: "Genius Insights - African Career Platform",
     locale: "en_ZA",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Career Compass | South African & African Career Guidance",
-    description: "Find your perfect career path in South Africa and across the African continent with our comprehensive job analysis and locally-calibrated salary tools.",
+    title: "African Career Platform 2025 | Career Assessment & Salary Calculator",
+    description: "🚀 Discover your dream career in Africa! AI career assessment + salary data from 18 countries. Start your African success story today.",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   alternates: {
-    canonical: "https://career.co.za",
+    canonical: "https://www.genius-insights.co.za",
   },
 };
 

@@ -97,76 +97,117 @@ export default function SalaryCalculator() {
   ];
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4 text-gray-900">African Salary Calculator</h2>
-      <p className="text-gray-800 mb-6">Get accurate salary estimates based on 2025 market data.</p>
+    <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover-lift">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl font-display font-bold text-gray-900 mb-3">
+          Calculate Your Market Value
+        </h2>
+        <p className="text-gray-600 text-lg">
+          Get personalized salary insights based on the latest African market data
+        </p>
+      </div>
 
       {error && (
-        <div className="bg-red-100 text-red-800 p-3 rounded mb-4 border border-red-300">
-          {error}
+        <div className="bg-red-50 border border-red-200 text-red-800 p-4 rounded-2xl mb-6 flex items-center">
+          <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-3">
+            <span className="text-red-600 text-sm font-bold">!</span>
+          </div>
+          <span>{error}</span>
         </div>
       )}
 
-      <form onSubmit={handleCalculate} className="space-y-4 text-gray-900">
-        <div>
-          <label className="block mb-1 font-medium text-gray-900">Country</label>
-          <select 
-            value={selectedCountry} 
-            onChange={(e) => setSelectedCountry(e.target.value)}
-            className="w-full p-2 border rounded text-gray-900"
-            required
-            disabled={loading}
-          >
-            <option value="">Select Country</option>
-            {countries.map((country) => (
-              <option key={country.code} value={country.code}>
-                {country.name}
-              </option>
-            ))}
-          </select>
+      <form onSubmit={handleCalculate} className="space-y-6 text-gray-900">
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label className="block text-sm font-semibold text-gray-900 mb-2">
+              🌍 Country
+            </label>
+            <select 
+              value={selectedCountry} 
+              onChange={(e) => setSelectedCountry(e.target.value)}
+              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              required
+              disabled={loading}
+            >
+              <option value="">Select Country</option>
+              {countries.map((country) => (
+                <option key={country.code} value={country.code}>
+                  {country.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="space-y-2">
+            <label className="block text-sm font-semibold text-gray-900 mb-2">
+              🏙️ City/Region
+            </label>
+            <select 
+              value={location} 
+              onChange={(e) => setLocation(e.target.value)}
+              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white disabled:opacity-50"
+              required
+              disabled={loading || cities.length === 0}
+            >
+              <option value="">Select City/Region</option>
+              {cities.map((city) => (
+                <option key={city.code} value={city.code}>
+                  {city.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
 
-        <div>
-          <label className="block mb-1 font-medium text-gray-900">Industry</label>
-          <select 
-            value={industry} 
-            onChange={(e) => setIndustry(e.target.value)}
-            className="w-full p-2 border rounded text-gray-900"
-            required
-            disabled={loading}
-          >
-            <option value="">Select Industry</option>
-            {industries.map((ind) => (
-              <option key={ind.value} value={ind.value}>
-                {ind.label}
-              </option>
-            ))}
-          </select>
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label className="block text-sm font-semibold text-gray-900 mb-2">
+              🏢 Industry
+            </label>
+            <select 
+              value={industry} 
+              onChange={(e) => setIndustry(e.target.value)}
+              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              required
+              disabled={loading}
+            >
+              <option value="">Select Industry</option>
+              {industries.map((ind) => (
+                <option key={ind.value} value={ind.value}>
+                  {ind.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="space-y-2">
+            <label className="block text-sm font-semibold text-gray-900 mb-2">
+              ⏰ Experience Level
+            </label>
+            <select 
+              value={experience} 
+              onChange={(e) => setExperience(e.target.value)}
+              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              required
+              disabled={loading}
+            >
+              <option value="">Select Experience</option>
+              <option value="entry">Entry Level (0-2 years)</option>
+              <option value="mid">Mid Level (3-5 years)</option>
+              <option value="senior">Senior Level (6-10 years)</option>
+              <option value="executive">Executive (10+ years)</option>
+            </select>
+          </div>
         </div>
 
-        <div>
-          <label className="block mb-1 font-medium text-gray-900">Experience Level</label>
-          <select 
-            value={experience} 
-            onChange={(e) => setExperience(e.target.value)}
-            className="w-full p-2 border rounded text-gray-900"
-            required
-            disabled={loading}
-          >
-            <option value="">Select Experience</option>
-            <option value="entry">Entry Level (0-2 years)</option>
-            <option value="mid">Mid Level (3-5 years)</option>
-            <option value="senior">Senior Level (6-10 years)</option>
-            <option value="executive">Executive (10+ years)</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="block mb-1 font-medium text-gray-900">Education</label>
+        <div className="space-y-2">
+          <label className="block text-sm font-semibold text-gray-900 mb-2">
+            🎓 Education Level
+          </label>
           <select 
             value={education} 
             onChange={(e) => setEducation(e.target.value)}
-            className="w-full p-2 border rounded text-gray-900"
+            className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white"
             required
             disabled={loading}
           >
@@ -180,72 +221,126 @@ export default function SalaryCalculator() {
           </select>
         </div>
 
-        <div>
-          <label className="block mb-1 font-medium text-gray-900">City/Region</label>
-          <select 
-            value={location} 
-            onChange={(e) => setLocation(e.target.value)}
-            className="w-full p-2 border rounded text-gray-900"
-            required
-            disabled={loading || cities.length === 0}
-          >
-            <option value="">Select City/Region</option>
-            {cities.map((city) => (
-              <option key={city.code} value={city.code}>
-                {city.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
         <button 
           type="submit" 
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full disabled:bg-blue-300"
+          className="w-full bg-gradient-elegant text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:transform-none flex items-center justify-center space-x-2"
           disabled={loading}
         >
-          {loading ? 'Calculating...' : 'Calculate Salary Range'}
+          {loading ? (
+            <>
+              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+              <span>Calculating...</span>
+            </>
+          ) : (
+            <>
+              <span>💰</span>
+              <span>Calculate Salary Range</span>
+            </>
+          )}
         </button>
       </form>
 
       {result && (
-        <div className="mt-6 p-4 bg-blue-50 rounded text-gray-900">
-          <h3 className="text-xl font-bold mb-2">Estimated Salary Range:</h3>
-          <div className="grid grid-cols-3 gap-2 text-center">
-            <div>
-              <p className="text-sm text-gray-800">Low End</p>
-              <p className="font-bold">{result.currency}{result.low.toLocaleString()}</p>
+        <div className="mt-8 space-y-6 animate-fade-in">
+          {/* Main Results Card */}
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-display font-bold text-gray-900 mb-2">
+                Your Estimated Salary Range
+              </h3>
+              <p className="text-gray-600">Based on current market data for {result.locationName}</p>
             </div>
-            <div className="border-x">
-              <p className="text-sm text-gray-800">Average</p>
-              <p className="font-bold text-blue-600">{result.currency}{result.average.toLocaleString()}</p>
+            
+            <div className="grid grid-cols-3 gap-4 mb-6">
+              <div className="text-center p-4 bg-white rounded-2xl shadow-sm">
+                <p className="text-sm font-medium text-gray-600 mb-1">Minimum</p>
+                <p className="text-xl font-bold text-gray-800">{result.currency}{result.low.toLocaleString()}</p>
+              </div>
+              <div className="text-center p-4 bg-gradient-elegant text-white rounded-2xl shadow-lg transform scale-105">
+                <p className="text-sm font-medium text-white/90 mb-1">Average</p>
+                <p className="text-2xl font-bold">{result.currency}{result.average.toLocaleString()}</p>
+              </div>
+              <div className="text-center p-4 bg-white rounded-2xl shadow-sm">
+                <p className="text-sm font-medium text-gray-600 mb-1">Maximum</p>
+                <p className="text-xl font-bold text-gray-800">{result.currency}{result.high.toLocaleString()}</p>
+              </div>
             </div>
-            <div>
-              <p className="text-sm text-gray-800">High End</p>
-              <p className="font-bold">{result.currency}{result.high.toLocaleString()}</p>
+
+            {/* Job Details */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                <span className="mr-2">💼</span>
+                {result.jobTitle} in {result.locationName}
+              </h4>
+              
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span className="text-blue-600 text-xs">🏢</span>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900">Industry</p>
+                    <p className="text-gray-600">{result.industryName}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                    <span className="text-green-600 text-xs">⏰</span>
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900">Experience</p>
+                    <p className="text-gray-600">{result.experienceName}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="mt-4 bg-white p-3 rounded border">
-            <h4 className="font-semibold text-lg mb-2">{result.jobTitle} in {result.locationName}</h4>
-            <div className="text-sm text-gray-900 space-y-1">
-              <p><span className="font-medium">Industry:</span> {result.industryName}</p>
-              <p><span className="font-medium">Experience:</span> {result.experienceName}</p>
-              <p><span className="font-medium">In-demand skills:</span> {result.inDemandSkills.join(', ')}</p>
+          {/* Skills Section */}
+          <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100">
+            <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+              <span className="mr-2">⚡</span>
+              In-Demand Skills for Higher Earnings
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {result.inDemandSkills.map((skill, index) => (
+                <span 
+                  key={index}
+                  className="px-3 py-1 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 rounded-full text-sm font-medium border border-blue-200"
+                >
+                  {skill}
+                </span>
+              ))}
             </div>
           </div>
 
-          <div className="mt-4 text-center">
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4">
             <a 
-              href={`/jobs?industry=${industry}&location=${location}&country=${selectedCountry}`}
-              className="text-blue-600 hover:underline inline-block"
+              href={`/job-comparison?industry=${industry}&location=${location}&country=${selectedCountry}`}
+              className="flex-1 bg-gradient-vibrant text-white text-center py-4 px-6 rounded-2xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
             >
-              View available jobs in this field →
+              <span>📊</span>
+              <span>Compare Similar Roles</span>
+            </a>
+            
+            <a 
+              href={`/career-assessment`}
+              className="flex-1 bg-white border-2 border-gray-200 text-gray-900 text-center py-4 px-6 rounded-2xl font-semibold hover:border-blue-300 hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2"
+            >
+              <span>🎯</span>
+              <span>Optimize Your Career</span>
             </a>
           </div>
 
-          <p className="mt-4 text-sm text-gray-800">
-            *Based on African market data as of 2025. Actual salaries may vary based on specific company, skills, and market conditions.
-          </p>
+          {/* Disclaimer */}
+          <div className="text-center">
+            <p className="text-sm text-gray-600 leading-relaxed">
+              💡 <strong>Market Insight:</strong> Salary estimates are based on comprehensive African market data as of 2025. 
+              Individual compensation may vary based on company size, specific skills, performance metrics, and negotiation factors.
+            </p>
+          </div>
         </div>
       )}
     </div>

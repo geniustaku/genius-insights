@@ -172,24 +172,40 @@ export default function SkillsAnalyzer() {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-indigo-600">
-      <h2 className="text-2xl font-bold mb-2 text-indigo-700">Skills Gap Analyzer</h2>
-      <p className="text-indigo-900 mb-6">
-        Identify which skills you need to develop for your target career path in the African job market.
-      </p>
+    <div className="glass-card p-8 rounded-2xl">
+      <div className="text-center mb-8">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mb-4">
+          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          </svg>
+        </div>
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-3">
+          AI-Powered Skills Analysis
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          Discover your career readiness with intelligent skill gap analysis tailored for African job markets. Get personalized learning recommendations.
+        </p>
+      </div>
 
       {!results ? (
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block mb-2 font-medium text-indigo-800">Select Your Target Industry:</label>
+        <div className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white/60 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:shadow-lg transition-all duration-300">
+              <label className="block mb-3 font-semibold text-gray-800 flex items-center">
+                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-3">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                Select Your Target Industry
+              </label>
               <select
                 value={selectedIndustry}
                 onChange={(e) => setSelectedIndustry(e.target.value)}
-                className="w-full p-2 border border-indigo-300 rounded focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="w-full p-4 border border-gray-200 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-100 bg-white/80 backdrop-blur-sm transition-all duration-300 text-gray-700 hover:bg-white"
                 disabled={loading}
               >
-                <option value="">Select Industry</option>
+                <option value="">Choose your industry...</option>
                 {industries.map((industry) => (
                   <option key={industry.value} value={industry.value}>
                     {industry.label}
@@ -198,20 +214,27 @@ export default function SkillsAnalyzer() {
               </select>
             </div>
 
-            <div>
-              <label className="block mb-2 font-medium text-indigo-800">Select Your Target Role:</label>
+            <div className="bg-white/60 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:shadow-lg transition-all duration-300">
+              <label className="block mb-3 font-semibold text-gray-800 flex items-center">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full flex items-center justify-center mr-3">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6m8 0H8" />
+                  </svg>
+                </div>
+                Select Your Target Role
+              </label>
               <select
                 value={selectedRole}
                 onChange={(e) => setSelectedRole(e.target.value)}
-                className="w-full p-2 border border-indigo-300 rounded focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="w-full p-4 border border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 bg-white/80 backdrop-blur-sm transition-all duration-300 text-gray-700 hover:bg-white disabled:opacity-50"
                 disabled={!selectedIndustry || loading || loadingSkills}
               >
                 <option value="">
                   {loadingSkills 
-                    ? 'Loading roles...' 
+                    ? '🔄 Loading roles...' 
                     : selectedIndustry 
-                      ? 'Select Role' 
-                      : 'First select an industry'}
+                      ? 'Choose your target role...' 
+                      : '👆 First select an industry'}
                 </option>
                 {roleOptions.map((role) => (
                   <option key={role.value} value={role.value}>
@@ -222,41 +245,58 @@ export default function SkillsAnalyzer() {
             </div>
           </div>
 
-          <div>
-            <label className="block mb-2 font-medium text-indigo-800">Your Skills:</label>
+          <div className="bg-white/60 backdrop-blur-sm p-6 rounded-xl border border-white/20">
+            <label className="block mb-4 font-semibold text-gray-800 flex items-center">
+              <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mr-3">
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              Your Current Skills
+            </label>
+            
             {userSkills.length > 0 ? (
-              <div className="flex flex-wrap gap-2 mb-4">
-                {userSkills.map((skill) => (
-                  <div 
-                    key={skill} 
-                    className="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full flex items-center shadow-sm"
-                  >
-                    {skill}
-                    <button 
-                      onClick={() => handleRemoveSkill(skill)}
-                      className="ml-2 text-indigo-600 hover:text-indigo-800"
+              <div className="mb-6">
+                <div className="flex flex-wrap gap-3 mb-4">
+                  {userSkills.map((skill) => (
+                    <div 
+                      key={skill} 
+                      className="group bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 text-emerald-800 px-4 py-2 rounded-full flex items-center shadow-sm hover:shadow-md transition-all duration-300"
                     >
-                      &times;
-                    </button>
-                  </div>
-                ))}
+                      <span className="font-medium">{skill}</span>
+                      <button 
+                        onClick={() => handleRemoveSkill(skill)}
+                        className="ml-3 text-emerald-600 hover:text-red-500 transition-colors duration-200 font-bold text-lg"
+                        title="Remove skill"
+                      >
+                        ×
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-sm text-emerald-700 bg-emerald-50 p-3 rounded-lg">
+                  ✨ You have {userSkills.length} skill{userSkills.length !== 1 ? 's' : ''} in your profile. Great start!
+                </p>
               </div>
             ) : (
-              <p className="text-purple-600 mb-4">No skills added yet. Add your skills below.</p>
+              <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+                <p className="text-blue-700 font-medium mb-2">🚀 Ready to showcase your skills?</p>
+                <p className="text-blue-600 text-sm">Add your current skills below to get personalized career insights and learning recommendations.</p>
+              </div>
             )}
 
-            <div className="flex">
+            <div className="relative">
               <input
                 type="text"
                 value={customSkill}
                 onChange={(e) => setCustomSkill(e.target.value)}
-                className="flex-grow p-2 border border-indigo-300 rounded-l focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                placeholder="Add a skill (e.g. JavaScript, Project Management)"
+                className="w-full p-4 pr-24 border border-gray-200 rounded-xl focus:border-green-500 focus:ring-4 focus:ring-green-100 bg-white/80 backdrop-blur-sm transition-all duration-300 text-gray-700"
+                placeholder="Enter a skill (e.g. JavaScript, Project Management, Communication)"
                 onKeyPress={(e) => e.key === 'Enter' && handleAddSkill()}
               />
               <button
                 onClick={handleAddSkill}
-                className="bg-indigo-600 text-white px-4 py-2 rounded-r hover:bg-indigo-700 transition duration-200"
+                className="absolute right-2 top-2 bottom-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 rounded-lg hover:from-green-600 hover:to-emerald-600 transition-all duration-300 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={customSkill.trim() === ''}
               >
                 Add
@@ -265,80 +305,157 @@ export default function SkillsAnalyzer() {
           </div>
 
           {selectedRole && !loadingSkills && (
-            <div>
-              <label className="block mb-2 font-medium text-indigo-800">Common Skills for {getRoleName(selectedRole)}:</label>
-              <div className="flex flex-wrap gap-2">
-                {industrySkills.map((skill) => (
-                  <button
-                    key={skill.name}
-                    onClick={() => handleSkillSelect(skill.name)}
-                    className={`px-3 py-1 rounded-full border transition duration-200 ${
-                      userSkills.includes(skill.name)
-                        ? 'bg-teal-100 text-teal-800 border-teal-300 shadow-sm'
-                        : 'bg-purple-50 text-purple-700 border-purple-300 hover:bg-purple-100'
-                    }`}
-                  >
-                    {skill.name}
-                    {userSkills.includes(skill.name) && (
-                      <span className="ml-1">✓</span>
-                    )}
-                  </button>
-                ))}
+            <div className="bg-white/60 backdrop-blur-sm p-6 rounded-xl border border-white/20">
+              <div className="flex items-center mb-4">
+                <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center mr-3">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800">Skills for {getRoleName(selectedRole)}</h3>
+                  <p className="text-sm text-gray-600">Click skills you have to add them to your profile</p>
+                </div>
               </div>
-              <p className="mt-2 text-sm text-purple-600">
-                Click on skills you already have to add them to your profile.
-              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {industrySkills.map((skill) => {
+                  const isSelected = userSkills.includes(skill.name);
+                  const ImportanceColor = {
+                    'critical': 'from-red-500 to-pink-500',
+                    'important': 'from-orange-500 to-yellow-500', 
+                    'nice-to-have': 'from-blue-500 to-indigo-500'
+                  }[skill.importance] || 'from-gray-500 to-gray-600';
+                  
+                  return (
+                    <button
+                      key={skill.name}
+                      onClick={() => handleSkillSelect(skill.name)}
+                      className={`group relative p-4 rounded-xl border transition-all duration-300 text-left ${
+                        isSelected
+                          ? 'bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-300 shadow-lg transform scale-105'
+                          : 'bg-white/80 border-gray-200 hover:border-indigo-300 hover:shadow-md hover:bg-white'
+                      }`}
+                    >
+                      <div className="flex items-start justify-between mb-2">
+                        <span className="font-medium text-gray-800 group-hover:text-indigo-700 transition-colors">
+                          {skill.name}
+                        </span>
+                        {isSelected && (
+                          <div className="flex-shrink-0 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center">
+                            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                        )}
+                      </div>
+                      <p className="text-xs text-gray-600 mb-2">{skill.description}</p>
+                      <div className={`inline-flex px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${ImportanceColor} text-white`}>
+                        {skill.importance}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+              
+              <div className="mt-4 p-3 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-200">
+                <p className="text-sm text-indigo-700">
+                  💡 <strong>Tip:</strong> Select the skills you currently have. The system will analyze your readiness and suggest areas for improvement.
+                </p>
+              </div>
             </div>
           )}
 
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 pt-6">
             <button
               onClick={handleAnalyze}
-              className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 disabled:bg-indigo-300 transition duration-200 shadow-md"
+              className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl hover:from-purple-700 hover:to-blue-700 disabled:from-gray-400 disabled:to-gray-500 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold text-lg disabled:cursor-not-allowed flex items-center justify-center"
               disabled={!selectedIndustry || !selectedRole || userSkills.length === 0 || loading}
             >
-              {loading ? 'Analyzing...' : 'Analyze Skills Gap'}
+              {loading ? (
+                <>
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Analyzing Your Skills...
+                </>
+              ) : (
+                <>
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                  🚀 Analyze My Skills
+                </>
+              )}
             </button>
             <button
               onClick={handleReset}
-              className="border border-purple-300 text-purple-700 px-6 py-2 rounded hover:bg-purple-50 transition duration-200"
+              className="border-2 border-gray-300 text-gray-700 px-6 py-4 rounded-xl hover:bg-gray-50 hover:border-gray-400 transition-all duration-300 font-medium"
               disabled={loading}
             >
-              Reset
+              🔄 Start Over
             </button>
           </div>
         </div>
       ) : (
-        <div className="space-y-6">
-          <div className="bg-indigo-50 p-4 rounded shadow-sm border border-indigo-100">
-            <div className="flex justify-between items-center mb-3">
-              <h3 className="text-lg font-semibold text-indigo-800">Skills Match Analysis</h3>
-              <span className={`text-lg font-bold px-3 py-1 rounded shadow-sm ${
-                results.matchPercentage >= 70
-                  ? 'bg-emerald-100 text-emerald-800'
-                  : results.matchPercentage >= 40
-                  ? 'bg-amber-100 text-amber-800'
-                  : 'bg-rose-100 text-rose-800'
-              }`}>
-                {results.matchPercentage}% Match
-              </span>
-            </div>
-            <p className="text-indigo-700 mb-4">
-              Based on your current skills, you are <span className="font-medium">{results.matchPercentage}%</span> matched 
-              to the role of <span className="font-medium">{getRoleName(selectedRole)}</span> in 
-              <span className="font-medium"> {getIndustryName(selectedIndustry)}</span>.
-            </p>
-            <div className="w-full bg-indigo-200 rounded-full h-2.5">
-              <div 
-                className={`h-2.5 rounded-full shadow-inner ${
+        <div className="space-y-8">
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-2xl border border-blue-200 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-200/30 to-indigo-200/30 rounded-full -translate-y-16 translate-x-16"></div>
+            <div className="relative">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6">
+                <div className="flex items-center mb-4 sm:mb-0">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mr-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800">Skills Match Analysis</h3>
+                </div>
+                <div className={`inline-flex items-center px-6 py-3 rounded-full font-bold text-xl shadow-lg ${
                   results.matchPercentage >= 70
-                    ? 'bg-emerald-500'
+                    ? 'bg-gradient-to-r from-emerald-400 to-green-400 text-white'
                     : results.matchPercentage >= 40
-                    ? 'bg-amber-500'
-                    : 'bg-rose-500'
-                }`} 
-                style={{ width: `${results.matchPercentage}%` }}
-              ></div>
+                    ? 'bg-gradient-to-r from-amber-400 to-orange-400 text-white'
+                    : 'bg-gradient-to-r from-red-400 to-pink-400 text-white'
+                }`}>
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  {results.matchPercentage}% Match
+                </div>
+              </div>
+              
+              <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl mb-6">
+                <p className="text-gray-700 text-lg leading-relaxed">
+                  🎆 Based on your current skills, you are <span className="font-bold text-blue-600">{results.matchPercentage}%</span> ready for the role of <span className="font-bold text-purple-600">{getRoleName(selectedRole)}</span> in <span className="font-bold text-indigo-600">{getIndustryName(selectedIndustry)}</span>.
+                </p>
+              </div>
+              
+              <div className="space-y-3">
+                <div className="flex justify-between text-sm font-medium text-gray-700">
+                  <span>Career Readiness</span>
+                  <span>{results.matchPercentage}%</span>
+                </div>
+                <div className="w-full bg-white/50 rounded-full h-4 overflow-hidden">
+                  <div 
+                    className={`h-4 rounded-full transition-all duration-1000 ease-out relative overflow-hidden ${
+                      results.matchPercentage >= 70
+                        ? 'bg-gradient-to-r from-emerald-400 to-green-500'
+                        : results.matchPercentage >= 40
+                        ? 'bg-gradient-to-r from-amber-400 to-orange-500'
+                        : 'bg-gradient-to-r from-red-400 to-pink-500'
+                    }`} 
+                    style={{ width: `${results.matchPercentage}%` }}
+                  >
+                    <div className="absolute inset-0 bg-white/30 animate-pulse"></div>
+                  </div>
+                </div>
+                <div className="flex justify-between text-xs text-gray-600">
+                  <span>Getting Started</span>
+                  <span>Job Ready</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -495,12 +612,6 @@ export default function SkillsAnalyzer() {
               Check Salary Range
             </Link>
             
-            <Link
-              href="/courses"
-              className="px-4 py-2 border border-teal-500 bg-teal-50 text-teal-700 rounded hover:bg-teal-100 transition duration-200"
-            >
-              Find Training Courses
-            </Link>
             
             <Link
               href={`/jobs?skills=${results.matchingSkills.join(',')}`}
@@ -618,32 +729,32 @@ function getSkillLearningResources(skillName) {
   // In production, this would be an API call to get personalized resources
   const resources = {
     'JavaScript': [
-      { title: 'Modern JavaScript for African Developers', type: 'Online Course', duration: '8 weeks', url: '/courses/javascript-fundamentals' },
+      { title: 'Modern JavaScript for African Developers', type: 'Online Tutorial', duration: '8 weeks', url: '/learning-path/javascript' },
       { title: 'Interactive JavaScript Learning Path', type: 'Tutorial Series', duration: 'Self-paced', url: '/learning-path/javascript' },
       { title: 'JavaScript for Web Applications', type: 'Workshop', duration: '2 days', url: '/workshops/javascript-web-apps' }
     ],
     'Python': [
-      { title: 'Python for Data Analysis', type: 'Online Course', duration: '6 weeks', url: '/courses/python-data-analysis' },
+      { title: 'Python for Data Analysis', type: 'Tutorial Series', duration: '6 weeks', url: '/tutorials/python-data-analysis' },
       { title: 'Python Programming Fundamentals', type: 'Video Tutorial', duration: '10 hours', url: '/tutorials/python-fundamentals' },
       { title: 'Applied Python for Business', type: 'Certificate Program', duration: '3 months', url: '/certificates/python-business' }
     ],
     'Financial Modeling': [
-      { title: 'Financial Modeling for African Markets', type: 'Online Course', duration: '8 weeks', url: '/courses/financial-modeling-africa' },
+      { title: 'Financial Modeling for African Markets', type: 'Tutorial Series', duration: '8 weeks', url: '/tutorials/financial-modeling-africa' },
       { title: 'Advanced Excel for Financial Analysis', type: 'Workshop', duration: '3 days', url: '/workshops/excel-financial-analysis' },
       { title: 'Building Robust Financial Models', type: 'Tutorial Series', duration: 'Self-paced', url: '/tutorials/robust-financial-models' }
     ],
     'SQL': [
-      { title: 'SQL for Data Analysis', type: 'Online Course', duration: '4 weeks', url: '/courses/sql-data-analysis' },
+      { title: 'SQL for Data Analysis', type: 'Tutorial Series', duration: '4 weeks', url: '/tutorials/sql-data-analysis' },
       { title: 'Database Management with SQL', type: 'Tutorial Series', duration: 'Self-paced', url: '/tutorials/sql-database' },
       { title: 'SQL in Business Intelligence', type: 'Workshop', duration: '2 days', url: '/workshops/sql-bi' }
     ],
     'Machine Learning': [
-      { title: 'Introduction to Machine Learning', type: 'Online Course', duration: '10 weeks', url: '/courses/intro-machine-learning' },
+      { title: 'Introduction to Machine Learning', type: 'Tutorial Series', duration: '10 weeks', url: '/tutorials/intro-machine-learning' },
       { title: 'Applied ML for Business Problems', type: 'Workshop', duration: '5 days', url: '/workshops/applied-ml' },
       { title: 'ML Models for Prediction and Classification', type: 'Tutorial Series', duration: 'Self-paced', url: '/tutorials/ml-models' }
     ],
     'Communication': [
-      { title: 'Professional Communication Skills', type: 'Online Course', duration: '4 weeks', url: '/courses/professional-communication' },
+      { title: 'Professional Communication Skills', type: 'Tutorial Series', duration: '4 weeks', url: '/tutorials/professional-communication' },
       { title: 'Effective Business Writing', type: 'Workshop', duration: '2 days', url: '/workshops/business-writing' },
       { title: 'Presentation Skills for Professionals', type: 'Tutorial Series', duration: 'Self-paced', url: '/tutorials/presentation-skills' }
     ]
@@ -651,7 +762,7 @@ function getSkillLearningResources(skillName) {
 
   // Default resources if skill isn't in our database
   const defaultResources = [
-    { title: `Introduction to ${skillName}`, type: 'Online Course', duration: '6 weeks', url: '/courses/skill-introductions' },
+    { title: `Introduction to ${skillName}`, type: 'Tutorial Series', duration: '6 weeks', url: '/tutorials/skill-introductions' },
     { title: `${skillName} for Professionals`, type: 'Tutorial Series', duration: 'Self-paced', url: '/tutorials/professional-skills' },
     { title: `Applied ${skillName} Workshop`, type: 'Workshop', duration: '2 days', url: '/workshops/applied-skills' }
   ];

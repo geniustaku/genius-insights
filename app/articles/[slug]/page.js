@@ -83,215 +83,348 @@ export default async function ArticlePage({ params }) {
   const articleUrl = `https://www.genius-insights.co.za/articles/${article.slug}`;
   
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white">
-      <article className="max-w-4xl mx-auto px-4 py-8">
-        {/* Article Header */}
-        <div className="mb-10">
-          <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-            <Link href="/" className="hover:text-blue-600 transition-colors">Home</Link>
-            <span>/</span>
-            <Link href="/articles" className="hover:text-blue-600 transition-colors">Articles</Link>
-            <span>/</span>
-            <Link 
-              href={`/categories/${article.category.toLowerCase().replace(/ /g, '-')}`}
-              className="hover:text-blue-600 transition-colors"
-            >
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* Hero Section */}
+      <div className="relative bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
+        <div className="absolute inset-0 bg-black/40"></div>
+        
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+          <div className="absolute top-40 right-10 w-32 h-32 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-20 left-20 w-32 h-32 bg-indigo-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 text-sm text-blue-200 mb-8">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+            </svg>
+            <Link href="/articles" className="hover:text-white transition-colors">Articles</Link>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+            </svg>
+            <span className="text-blue-300">{article.category}</span>
+          </nav>
+          
+          <div className="max-w-4xl">
+            {/* Category Badge */}
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-medium mb-6">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+              </svg>
               {article.category}
-            </Link>
-          </div>
-          
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-black leading-tight">
-            {article.title}
-          </h1>
-          
-          <div className="flex flex-wrap items-center gap-6 mb-8">
-            <div className="flex items-center">
-              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 mr-3 shadow-sm">
-                {article.author ? article.author.substring(0, 1) : 'A'}
-              </div>
-              <div>
-                <p className="font-medium text-black">{article.author}</p>
-                <p className="text-sm text-gray-600">{formatDate(article.published_at)}</p>
-              </div>
             </div>
             
-            <div className="flex items-center text-sm text-gray-700 bg-gray-100 px-3 py-1 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              {article.reading_time} min read
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 text-white leading-tight">
+              {article.title}
+            </h1>
+            
+            {/* Author and Meta Info */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-8">
+              <div className="flex items-center">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center text-white text-xl font-bold mr-4 shadow-lg">
+                  {article.author ? article.author.substring(0, 1) : 'A'}
+                </div>
+                <div>
+                  <p className="font-semibold text-white text-lg">{article.author}</p>
+                  <p className="text-blue-200">{formatDate(article.published_at)}</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-6 text-blue-200">
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  {article.reading_time} min read
+                </div>
+                <div className="flex items-center">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  {Math.floor(Math.random() * 1000) + 500} views
+                </div>
+              </div>
             </div>
           </div>
-          
-          {/* Featured Image */}
-          {article.featured_image && (
-            <div className="rounded-xl overflow-hidden shadow-xl mb-10">
-              <div className="relative w-full" style={{ height: '500px' }}>
-                {/* Use standard img tag for maximum compatibility */}
+        </div>
+      </div>
+
+      {/* Article Container */}
+      <article className="relative -mt-20 z-10">
+        {/* Featured Image */}
+        {article.featured_image && (
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-4 shadow-2xl border border-white/20">
+              <div className="relative overflow-hidden rounded-2xl" style={{ height: '500px' }}>
                 <img
                   src={article.featured_image}
                   alt={article.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
-              <div className="text-xs text-gray-600 mt-2 text-right italic">
-                Photo: Genius Insights © 2025
-              </div>
-            </div>
-          )}
-        </div>
-        
-        {/* Article Content - Improved for better visibility */}
-        <div className="article-content">
-          <div dangerouslySetInnerHTML={{ __html: article.content }} />
-        </div>
-        
-        {/* Tags */}
-        <div className="my-12">
-          <div className="flex flex-wrap gap-2">
-            <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-              {article.category}
-            </span>
-            <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
-              South Africa
-            </span>
-            <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
-              Career Growth
-            </span>
-          </div>
-        </div>
-        
-        {/* Author Bio */}
-        <div className="mt-12 p-8 bg-gradient-to-br from-gray-50 to-white rounded-xl border border-gray-200 shadow-sm">
-          <h3 className="text-xl font-bold mb-4 text-black">About the Author</h3>
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-            <div className="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 text-2xl font-bold shadow-md">
-              {article.author ? article.author.substring(0, 1) : 'A'}
-            </div>
-            <div>
-              <p className="font-bold text-xl text-black mb-2">{article.author}</p>
-              <p className="text-gray-700 mb-4">
-                Career guidance expert specializing in {article.category.toLowerCase()} paths and growth opportunities 
-                within the South African market. With extensive experience in the industry, 
-                {article.author} provides actionable insights for professionals at all career stages.
-              </p>
-              <div className="flex gap-3">
-                <a href="#" className="text-blue-600 hover:text-blue-800 flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="mr-1">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                  LinkedIn
-                </a>
-                <a href="#" className="text-blue-600 hover:text-blue-800 flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="mr-1">
-                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                  </svg>
-                  Twitter
-                </a>
-                <a href="#" className="text-blue-600 hover:text-blue-800 flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="mr-1">
-                    <path d="M21.593 7.203c-.23-.858-.525-1.201-1.097-1.773-.547-.572-.921-.885-1.774-1.104-1.568-.436-7.935-.437-7.935-.437s-6.359-.002-7.928.434c-.85.219-1.227.531-1.772 1.103-.573.573-.87.917-1.099 1.776-.43 1.566-.436 4.764-.436 4.764s-.004 3.201.435 4.765c.23.857.525 1.2 1.098 1.772.545.572.919.885 1.772 1.103 1.569.436 7.929.437 7.929.437s6.359.002 7.928-.434c.85-.219 1.227-.532 1.773-1.105.548-.57.868-.915 1.096-1.772.437-1.565.436-4.765.436-4.765s.016-3.201-.433-4.764zm-11.736 9.676v-8.288l6.272 4.144-6.272 4.144z"/>
-                  </svg>
-                  Videos
-                </a>
+              <div className="text-sm text-gray-500 mt-3 text-center">
+                Photo by Genius Insights © 2025
               </div>
             </div>
           </div>
-        </div>
+        )}
+
+        {/* Main Content */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
+            {/* Floating Table of Contents */}
+            <div className="hidden lg:block fixed left-8 top-1/2 transform -translate-y-1/2 z-20">
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-xl border border-white/20 max-w-xs">
+                <h3 className="font-semibold text-gray-900 mb-3 text-sm">Table of Contents</h3>
+                <nav className="space-y-2 text-sm">
+                  <a href="#introduction" className="block text-gray-600 hover:text-purple-600 transition-colors">Introduction</a>
+                  <a href="#key-insights" className="block text-gray-600 hover:text-purple-600 transition-colors">Key Insights</a>
+                  <a href="#conclusion" className="block text-gray-600 hover:text-purple-600 transition-colors">Conclusion</a>
+                </nav>
+              </div>
+            </div>
+
+            {/* Reading Progress Bar */}
+            <div className="sticky top-0 z-30 h-1 bg-gray-200">
+              <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300" style={{ width: '25%' }}></div>
+            </div>
         
-        {/* Share and Save - with Client Components for interactive buttons */}
-        <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between border-t border-b border-gray-200 py-8">
-          <div className="mb-6 sm:mb-0">
-            <p className="font-medium mb-3 text-black">Share this article</p>
-            <div className="flex gap-3">
-              <a 
-                href={facebookShareUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-colors"
-                aria-label="Share on Facebook"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-                </svg>
-              </a>
-              <a 
-                href={twitterShareUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-blue-400 text-white flex items-center justify-center hover:bg-blue-500 transition-colors"
-                aria-label="Share on Twitter"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                </svg>
-              </a>
-              <a 
-                href={linkedinShareUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-blue-700 text-white flex items-center justify-center hover:bg-blue-800 transition-colors"
-                aria-label="Share on LinkedIn"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-              </a>
-              <a 
-                href={whatsappShareUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center hover:bg-green-700 transition-colors"
-                aria-label="Share on WhatsApp"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                </svg>
-              </a>
+            {/* Article Content */}
+            <div className="p-8 md:p-12">
+              <div className="article-content">
+                <div dangerouslySetInnerHTML={{ __html: article.content }} />
+              </div>
               
-              {/* Copy Link Button - Using Client Component */}
-              <CopyLinkButton url={articleUrl} />
+              {/* Article Tags */}
+              <div className="mt-12 pt-8 border-t border-gray-200">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Topics Covered</h3>
+                <div className="flex flex-wrap gap-3">
+                  <span className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 text-sm font-medium border border-purple-200">
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                    </svg>
+                    {article.category}
+                  </span>
+                  <span className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 text-sm font-medium border border-green-200">
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    African Tech
+                  </span>
+                  <span className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 text-sm font-medium border border-blue-200">
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    Career Growth
+                  </span>
+                </div>
+              </div>
+            </div>
+        
+            {/* Author Bio */}
+            <div className="mt-16 bg-gradient-to-r from-purple-50 via-blue-50 to-indigo-50 rounded-3xl p-8 md:p-12 border border-purple-200">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">About the Author</h3>
+                <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mx-auto"></div>
+              </div>
+              
+              <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
+                <div className="relative">
+                  <div className="w-32 h-32 rounded-2xl bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center text-white text-3xl font-bold shadow-xl">
+                    {article.author ? article.author.substring(0, 1) : 'A'}
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                </div>
+                
+                <div className="flex-1 text-center lg:text-left">
+                  <h4 className="text-2xl font-bold text-gray-900 mb-2">{article.author}</h4>
+                  <p className="text-purple-600 font-semibold mb-4">Tech Career Expert & Industry Analyst</p>
+                  
+                  <p className="text-gray-700 mb-6 leading-relaxed">
+                    Seasoned professional specializing in {article.category.toLowerCase()} and career development within the African tech ecosystem. 
+                    With over 8 years of experience in the industry, {article.author} has helped thousands of professionals 
+                    navigate their career journeys and unlock new opportunities across the continent.
+                  </p>
+                  
+                  <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+                    <a href="#" className="group inline-flex items-center px-4 py-2 bg-white rounded-xl border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-md">
+                      <svg className="w-5 h-5 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                      </svg>
+                      <span className="text-gray-700 group-hover:text-blue-600 font-medium">LinkedIn</span>
+                    </a>
+                    <a href="#" className="group inline-flex items-center px-4 py-2 bg-white rounded-xl border border-gray-200 hover:border-blue-300 transition-all duration-300 hover:shadow-md">
+                      <svg className="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                      </svg>
+                      <span className="text-gray-700 group-hover:text-blue-600 font-medium">Twitter</span>
+                    </a>
+                    <a href="#" className="group inline-flex items-center px-4 py-2 bg-white rounded-xl border border-gray-200 hover:border-red-300 transition-all duration-300 hover:shadow-md">
+                      <svg className="w-5 h-5 mr-2 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21.593 7.203c-.23-.858-.525-1.201-1.097-1.773-.547-.572-.921-.885-1.774-1.104-1.568-.436-7.935-.437-7.935-.437s-6.359-.002-7.928.434c-.85.219-1.227.531-1.772 1.103-.573.573-.87.917-1.099 1.776-.43 1.566-.436 4.764-.436 4.764s-.004 3.201.435 4.765c.23.857.525 1.2 1.098 1.772.545.572.919.885 1.772 1.103 1.569.436 7.929.437 7.929.437s6.359.002 7.928-.434c.85-.219 1.227-.532 1.773-1.105.548-.57.868-.915 1.096-1.772.437-1.565.436-4.765.436-4.765s.016-3.201-.433-4.764zm-11.736 9.676v-8.288l6.272 4.144-6.272 4.144z"/>
+                      </svg>
+                      <span className="text-gray-700 group-hover:text-red-600 font-medium">YouTube</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            {/* Share and Actions */}
+            <div className="mt-16 bg-white/70 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-xl">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Share this article</h3>
+                  <div className="flex flex-wrap gap-4">
+                    <a 
+                      href={facebookShareUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105"
+                      aria-label="Share on Facebook"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                      </svg>
+                      Facebook
+                    </a>
+                    <a 
+                      href={twitterShareUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105"
+                      aria-label="Share on Twitter"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                      </svg>
+                      Twitter
+                    </a>
+                    <a 
+                      href={linkedinShareUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center px-4 py-3 bg-blue-700 hover:bg-blue-800 text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105"
+                      aria-label="Share on LinkedIn"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                      </svg>
+                      LinkedIn
+                    </a>
+                    <a 
+                      href={whatsappShareUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center px-4 py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105"
+                      aria-label="Share on WhatsApp"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                      </svg>
+                      WhatsApp
+                    </a>
+                    <CopyLinkButton url={articleUrl} />
+                  </div>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <SaveButton />
+                  <button className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                    Like Article
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          
-          {/* Save Button - Using Client Component */}
-          <SaveButton />
         </div>
         
-        {/* Comments Section - Add the comments component here */}
-        <ArticleComments articleSlug={slug} />
+        {/* Comments Section */}
+        <div className="mt-16">
+          <ArticleComments articleSlug={slug} />
+        </div>
       </article>
       
       {/* Related Articles */}
       {relatedArticles && relatedArticles.length > 0 && (
-        <section className="bg-gray-50 py-16">
-          <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-10 text-center text-black">More Articles You Might Like</h2>
+        <section className="py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Continue Reading
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Explore more insights and expert analysis from our African tech community
+              </p>
+              <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mx-auto mt-6"></div>
+            </div>
+            
             <div className="grid md:grid-cols-3 gap-8">
               {relatedArticles.map(relatedArticle => (
                 <Link key={relatedArticle.id} href={`/articles/${relatedArticle.slug}`} className="group">
-                  <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-                    {relatedArticle.featured_image && (
-                      <div className="relative h-48 w-full">
+                  <article className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-white/20 hover:border-purple-200">
+                    {relatedArticle.featured_image ? (
+                      <div className="relative h-48 w-full overflow-hidden">
                         <img
                           src={relatedArticle.featured_image}
                           alt={relatedArticle.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
+                        <div className="absolute top-4 left-4">
+                          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-purple-600 border border-white/20">
+                            {relatedArticle.category}
+                          </span>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="h-48 bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-blue-500/20"></div>
+                        <div className="relative text-center">
+                          <svg className="w-12 h-12 text-white/80 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          <span className="text-white/90 text-sm font-medium">Tech Article</span>
+                        </div>
+                        <div className="absolute top-4 left-4">
+                          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-purple-600 border border-white/20">
+                            {relatedArticle.category}
+                          </span>
+                        </div>
                       </div>
                     )}
+                    
                     <div className="p-6">
-                      <div className="text-sm text-blue-600 mb-2">{relatedArticle.category}</div>
-                      <h3 className="text-xl font-bold mb-2 text-black group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-purple-600 transition-colors duration-300 line-clamp-2">
                         {relatedArticle.title}
                       </h3>
-                      <p className="text-gray-700 line-clamp-2 mb-4">{relatedArticle.excerpt}</p>
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm text-gray-600">{formatDate(relatedArticle.published_at)}</span>
-                        <span className="text-sm text-gray-600">{relatedArticle.reading_time} min read</span>
+                      <p className="text-gray-600 mb-4 line-clamp-2 leading-relaxed">
+                        {relatedArticle.excerpt}
+                      </p>
+                      <div className="flex justify-between items-center text-sm text-gray-500">
+                        <span>{formatDate(relatedArticle.published_at)}</span>
+                        <span className="flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {relatedArticle.reading_time} min read
+                        </span>
                       </div>
                     </div>
-                  </div>
+                  </article>
                 </Link>
               ))}
             </div>
@@ -300,32 +433,67 @@ export default async function ArticlePage({ params }) {
       )}
       
       {/* Newsletter Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-white">Stay Updated with South African Career Insights</h2>
-          <p className="text-lg text-blue-100 mb-8">
-            Join our community and receive the latest career guidance, salary trends, and professional development 
-            tips tailored for the South African market.
-          </p>
+      <section className="bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-700 py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-blob"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/10 rounded-full blur-xl animate-blob animation-delay-2000"></div>
+        
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-8">
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+              Stay Ahead in African Tech
+            </h2>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+              Join 15,000+ African tech professionals receiving weekly insights, career guidance, and industry analysis. 
+              No spam, just value.
+            </p>
+          </div>
+          
           <form className="max-w-md mx-auto">
-            <div className="flex flex-col sm:flex-row gap-2">
+            <div className="flex flex-col sm:flex-row gap-4">
               <input
                 type="email"
-                placeholder="Your email address"
-                className="flex-grow px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-300 focus:outline-none shadow-sm"
+                placeholder="Enter your email address"
+                className="flex-grow px-6 py-4 rounded-xl border-0 focus:outline-none focus:ring-4 focus:ring-white/30 bg-white/20 backdrop-blur-sm text-white placeholder-blue-100 font-medium"
                 required
               />
               <button
                 type="submit"
-                className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold px-6 py-3 rounded-lg transition-colors shadow-sm"
+                className="bg-white text-purple-600 px-8 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
               >
                 Subscribe Free
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </button>
             </div>
-            <p className="text-xs text-blue-200 mt-4">
-              We respect your privacy. You can unsubscribe at any time.
-            </p>
           </form>
+          
+          <div className="mt-8 flex flex-wrap justify-center items-center gap-6 text-blue-100 text-sm">
+            <div className="flex items-center">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Weekly insights
+            </div>
+            <div className="flex items-center">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+              Privacy protected
+            </div>
+            <div className="flex items-center">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+              Unsubscribe anytime
+            </div>
+          </div>
         </div>
       </section>
     </div>

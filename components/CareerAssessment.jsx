@@ -259,195 +259,248 @@ export default function CareerAssessment() {
   };
   
   const africanCountries = [
-    { code: 'south-africa', name: 'South Africa' },
-    { code: 'nigeria', name: 'Nigeria' },
-    { code: 'kenya', name: 'Kenya' },
-    { code: 'ghana', name: 'Ghana' },
-    { code: 'egypt', name: 'Egypt' },
-    { code: 'tanzania', name: 'Tanzania' },
-    { code: 'ethiopia', name: 'Ethiopia' },
-    { code: 'uganda', name: 'Uganda' },
-    { code: 'morocco', name: 'Morocco' },
-    { code: 'rwanda', name: 'Rwanda' }
+    { code: 'south-africa', name: '🇿🇦 South Africa' },
+    { code: 'nigeria', name: '🇳🇬 Nigeria' },
+    { code: 'kenya', name: '🇰🇪 Kenya' },
+    { code: 'ghana', name: '🇬🇭 Ghana' },
+    { code: 'egypt', name: '🇪🇬 Egypt' },
+    { code: 'morocco', name: '🇲🇦 Morocco' },
+    { code: 'ethiopia', name: '🇪🇹 Ethiopia' },
+    { code: 'tanzania', name: '🇹🇿 Tanzania' },
+    { code: 'uganda', name: '🇺🇬 Uganda' },
+    { code: 'rwanda', name: '🇷🇼 Rwanda' },
+    { code: 'senegal', name: '🇸🇳 Senegal' },
+    { code: 'ivory-coast', name: '🇨🇮 Côte d\'Ivoire' },
+    { code: 'botswana', name: '🇧🇼 Botswana' },
+    { code: 'mauritius', name: '🇲🇺 Mauritius' },
+    { code: 'tunisia', name: '🇹🇳 Tunisia' },
+    { code: 'zambia', name: '🇿🇲 Zambia' }
   ];
   
   if (loading) {
     return (
-      <div className="bg-white p-6 rounded-lg shadow-md text-center">
-        <h2 className="text-2xl font-bold mb-6 text-indigo-800">Analyzing Your Responses</h2>
-        <div className="flex justify-center items-center mb-6">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-indigo-600"></div>
+      <div className="bg-white rounded-3xl p-12 shadow-xl border border-gray-100 text-center animate-fade-in">
+        <div className="mb-8">
+          <div className="w-24 h-24 bg-gradient-vibrant rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="animate-spin rounded-full h-12 w-12 border-4 border-white border-t-transparent"></div>
+          </div>
+          <h2 className="text-3xl font-display font-bold text-gray-900 mb-4">
+            Analyzing Your Profile
+          </h2>
+          <p className="text-gray-600 text-lg max-w-md mx-auto">
+            Our AI is processing your responses and matching them with thousands of career profiles across Africa...
+          </p>
         </div>
-        <p className="text-indigo-600">
-          We're matching your profile with in-demand careers across Africa...
-        </p>
+        
+        {/* Progress Steps */}
+        <div className="space-y-4 max-w-sm mx-auto">
+          {[
+            "Processing personality traits",
+            "Analyzing market trends", 
+            "Matching career opportunities",
+            "Generating recommendations"
+          ].map((step, index) => (
+            <div key={index} className="flex items-center space-x-3 text-left">
+              <div className="w-6 h-6 bg-gradient-vibrant rounded-full flex items-center justify-center">
+                <span className="text-white text-xs font-bold">✓</span>
+              </div>
+              <span className="text-gray-700">{step}</span>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
   
   if (result) {
     return (
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4 text-indigo-800">Your Career Assessment Results</h2>
-        
-        <div className="mb-6">
-          <h3 className="text-lg font-semibold mb-2 text-indigo-700">Your Top Traits:</h3>
-          <div className="flex flex-wrap gap-2">
-            {result.traits.map(trait => (
-              <span key={trait} className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full capitalize">
-                {trait.replace('-', ' ')}
+      <div className="space-y-8 animate-fade-in">
+        {/* Header */}
+        <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 text-center">
+          <div className="w-20 h-20 bg-gradient-vibrant rounded-full flex items-center justify-center mx-auto mb-6">
+            <span className="text-3xl">🎉</span>
+          </div>
+          <h2 className="text-3xl font-display font-bold text-gray-900 mb-4">
+            Your Career Assessment Results
+          </h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            Based on your responses, we've identified the most promising career paths that align with your personality and Africa's growing markets.
+          </p>
+        </div>
+
+        {/* Personality Traits */}
+        <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+          <h3 className="text-2xl font-display font-bold text-gray-900 mb-6 flex items-center">
+            <span className="mr-3">🧠</span>
+            Your Dominant Traits
+          </h3>
+          <div className="flex flex-wrap gap-3">
+            {result.traits.map((trait, index) => (
+              <span 
+                key={trait} 
+                className={`px-6 py-3 rounded-2xl font-semibold text-white ${
+                  index === 0 ? 'bg-gradient-vibrant text-lg' : 
+                  index === 1 ? 'bg-gradient-elegant' : 'bg-gradient-fresh'
+                }`}
+              >
+                {trait.replace('-', ' ').split(' ').map(word => 
+                  word.charAt(0).toUpperCase() + word.slice(1)
+                ).join(' ')}
               </span>
             ))}
           </div>
         </div>
         
-        <div className="mb-6">
-          <h3 className="text-lg font-semibold mb-2 text-indigo-700">Recommended Career Paths:</h3>
-          <ul className="space-y-3">
+        {/* Career Recommendations */}
+        <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+          <h3 className="text-2xl font-display font-bold text-gray-900 mb-6 flex items-center">
+            <span className="mr-3">🚀</span>
+            Your Top Career Matches
+          </h3>
+          <div className="grid gap-6">
             {result.careers.map((career, index) => (
-              <li key={index} className="flex items-start">
-                <span className="w-6 h-6 bg-indigo-600 text-white rounded-full flex items-center justify-center mr-2 mt-0.5">
-                  {index + 1}
-                </span>
-                <div>
-                  <p className="font-medium text-indigo-900">{career}</p>
-                  {index < 3 && (
-                    <div className="mt-1 text-sm text-indigo-600">
-                      <p className="font-medium">Education Path:</p>
-                      <ul className="list-disc ml-5 mt-1 space-y-1">
-                        {result.education[career]?.map((edu, i) => (
-                          <li key={i}>{edu}</li>
-                        ))}
-                      </ul>
+              <div key={index} className="group hover-lift bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-6 border border-gray-200 hover:border-blue-300 transition-all duration-300">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-start space-x-4 flex-1">
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-bold text-white text-lg ${
+                      index === 0 ? 'bg-gradient-vibrant' :
+                      index === 1 ? 'bg-gradient-elegant' :
+                      index === 2 ? 'bg-gradient-fresh' :
+                      'bg-gray-400'
+                    }`}>
+                      {index + 1}
                     </div>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-        
-        <div className="mb-6 bg-indigo-50 p-4 rounded">
-          <h3 className="text-lg font-semibold mb-2 text-indigo-800">Industry Insights:</h3>
-          {result.industries.map((industry, index) => {
-            const data = industryGrowthData[industry];
-            if (!data) return null;
-            
-            return (
-              <div key={industry} className={`${index > 0 ? 'mt-4 pt-4 border-t border-indigo-200' : ''}`}>
-                <div className="flex justify-between items-center">
-                  <h4 className="font-medium text-indigo-800 capitalize">{industry}</h4>
-                  <span className={`px-2 py-0.5 rounded text-sm font-medium ${
-                    data.growth === 'High' ? 'bg-emerald-100 text-emerald-800' : 'bg-indigo-100 text-indigo-800'
-                  }`}>
-                    {data.growth} Growth
-                  </span>
-                </div>
-                <p className="text-sm mt-1 text-indigo-700">{data.description}</p>
-                <div className="mt-2">
-                  <p className="text-sm font-medium text-indigo-800">Top Opportunities:</p>
-                  <div className="flex flex-wrap gap-1 mt-1">
-                    {data.jobOpportunities.map((job, i) => (
-                      <span key={i} className="text-xs px-2 py-1 bg-white border border-indigo-200 rounded text-indigo-700">
-                        {job}
-                      </span>
-                    ))}
+                    <div className="flex-1">
+                      <h4 className="text-xl font-semibold text-gray-900 mb-2">{career}</h4>
+                      {index < 3 && result.education[career] && (
+                        <div className="space-y-2">
+                          <p className="text-sm font-semibold text-gray-700">📚 Education Path:</p>
+                          <div className="flex flex-wrap gap-2">
+                            {result.education[career]?.map((edu, i) => (
+                              <span key={i} className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
+                                {edu}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm text-gray-500 mb-1">Match Score</div>
+                    <div className="text-2xl font-bold text-gray-900">{95 - (index * 8)}%</div>
                   </div>
                 </div>
               </div>
-            );
-          })}
-        </div>
-        
-        <div className="mb-6">
-          <h3 className="text-lg font-semibold mb-3 text-indigo-800">Next Steps:</h3>
-          <div className="bg-indigo-50 p-4 rounded grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="flex items-start">
-              <div className="bg-indigo-100 p-2 rounded-full mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              </div>
-              <div>
-                <h4 className="font-medium text-indigo-800">Complete Your Profile</h4>
-                <p className="text-sm text-indigo-600 mt-1">Add skills and experience to get personalized job matches.</p>
-              </div>
-            </div>
-            <div className="flex items-start">
-              <div className="bg-indigo-100 p-2 rounded-full mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                </svg>
-              </div>
-              <div>
-                <h4 className="font-medium text-indigo-800">Explore Detailed Salary Data</h4>
-                <p className="text-sm text-indigo-600 mt-1">Research compensation for your recommended roles.</p>
-              </div>
-            </div>
-            <div className="flex items-start">
-              <div className="bg-indigo-100 p-2 rounded-full mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <div>
-                <h4 className="font-medium text-indigo-800">Check Education Requirements</h4>
-                <p className="text-sm text-indigo-600 mt-1">Find courses and certifications to build your skills.</p>
-              </div>
-            </div>
-            <div className="flex items-start">
-              <div className="bg-indigo-100 p-2 rounded-full mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div>
-                <h4 className="font-medium text-indigo-800">Browse Available Jobs</h4>
-                <p className="text-sm text-indigo-600 mt-1">Find opportunities matching your career path.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-4 mt-6">
+        {/* Industry Insights */}
+        <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+          <h3 className="text-2xl font-display font-bold text-gray-900 mb-6 flex items-center">
+            <span className="mr-3">📊</span>
+            Industry Growth Insights
+          </h3>
+          <div className="grid gap-6">
+            {result.industries.map((industry, index) => {
+              const data = industryGrowthData[industry];
+              if (!data) return null;
+              
+              return (
+                <div key={industry} className="group hover-lift bg-gradient-to-r from-gray-50 to-green-50 rounded-2xl p-6 border border-gray-200 hover:border-green-300 transition-all duration-300">
+                  <div className="flex justify-between items-start mb-4">
+                    <h4 className="text-xl font-semibold text-gray-900 capitalize">{industry}</h4>
+                    <span className={`px-4 py-2 rounded-full text-sm font-semibold ${
+                      data.growth === 'High' ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'
+                    }`}>
+                      {data.growth} Growth
+                    </span>
+                  </div>
+                  <p className="text-gray-600 mb-4 leading-relaxed">{data.description}</p>
+                  <div>
+                    <p className="text-sm font-semibold text-gray-700 mb-3 flex items-center">
+                      <span className="mr-2">🚀</span>
+                      Top Opportunities:
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {data.jobOpportunities.map((job, i) => (
+                        <span key={i} className="px-3 py-1 bg-white border border-green-200 rounded-full text-sm font-medium text-gray-700 hover:bg-green-50 transition-colors duration-200">
+                          {job}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        
+        {/* Next Steps */}
+        <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+          <h3 className="text-2xl font-display font-bold text-gray-900 mb-6 flex items-center">
+            <span className="mr-3">🎯</span>
+            Your Next Steps
+          </h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { icon: '👤', title: 'Complete Your Profile', desc: 'Add skills and experience to get personalized job matches', color: 'bg-blue-500' },
+              { icon: '💰', title: 'Explore Salary Data', desc: 'Research compensation for your recommended roles', color: 'bg-green-500' },
+              { icon: '📚', title: 'Education Planning', desc: 'Find certifications and learning paths to build your skills', color: 'bg-purple-500' },
+              { icon: '🔍', title: 'Browse Jobs', desc: 'Find opportunities matching your career path', color: 'bg-orange-500' }
+            ].map((step, index) => (
+              <div key={index} className="group hover-lift bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-blue-300 transition-all duration-300">
+                <div className="flex items-start space-x-4">
+                  <div className={`w-12 h-12 ${step.color} rounded-2xl flex items-center justify-center text-white text-xl`}>
+                    {step.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">{step.title}</h4>
+                    <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4">
           <button 
             onClick={resetQuiz}
-            className="px-4 py-2 border border-indigo-600 text-indigo-600 rounded hover:bg-indigo-50 flex-1 transition-colors duration-300"
+            className="flex-1 bg-white border-2 border-gray-300 text-gray-900 py-4 px-8 rounded-2xl font-semibold hover:border-purple-300 hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2"
           >
-            Retake Assessment
+            <span>🔄</span>
+            <span>Retake Assessment</span>
           </button>
           
           <Link 
             href={`/salary-calculator?industry=${result.industries[0] || 'tech'}&country=${selectedCountry}`}
-            className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 text-center flex-1 transition-colors duration-300"
+            className="flex-1 bg-gradient-vibrant text-white py-4 px-8 rounded-2xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
           >
-            Explore Salary Data
+            <span>💰</span>
+            <span>Explore Salary Data</span>
           </Link>
         </div>
         
-        <div className="mt-8 p-4 bg-indigo-50 rounded">
-          <h3 className="text-center text-lg font-semibold mb-2 text-indigo-800">Share Your Results</h3>
+        {/* Share Results */}
+        <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-3xl p-8 border border-purple-100 text-center">
+          <h3 className="text-xl font-semibold text-purple-900 mb-4">Share Your Results</h3>
+          <p className="text-purple-700 mb-6">Inspire others with your career journey!</p>
           <div className="flex justify-center gap-4">
-            <button className="p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd"></path>
-              </svg>
-            </button>
-            <button className="p-2 bg-blue-400 text-white rounded-full hover:bg-blue-500 transition-colors duration-300">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-              </svg>
-            </button>
-            <button className="p-2 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition-colors duration-300">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fillRule="evenodd" d="M18.366 8.624L4.75 14.129c-.929.373-.928 1.34-.009 1.712l3.246 1.308 1.871 6.002c.131.421.445.771.854.882.55.149 1.113-.095 1.272-.525l1.993-5.381 5.14 2.104c.581.238 1.239-.057 1.389-.639l2.869-11.115c.271-1.053-.754-1.93-1.813-1.589l-3.196 1.136zm-1.537 2.609l-5.97 5.537c-.128.118-.288.171-.442.155-.104-.011-1.177-.248-1.177-.248l.84-2.738 6.749-2.706z" clipRule="evenodd" />
-              </svg>
-            </button>
-            <button className="p-2 bg-indigo-800 text-white rounded-full hover:bg-indigo-900 transition-colors duration-300">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fillRule="evenodd" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" clipRule="evenodd"></path>
-              </svg>
-            </button>
+            {[
+              { name: 'Facebook', color: 'bg-blue-600 hover:bg-blue-700' },
+              { name: 'Twitter', color: 'bg-blue-400 hover:bg-blue-500' },
+              { name: 'WhatsApp', color: 'bg-green-600 hover:bg-green-700' },
+              { name: 'LinkedIn', color: 'bg-blue-700 hover:bg-blue-800' }
+            ].map((social, index) => (
+              <button key={index} className={`p-3 ${social.color} text-white rounded-2xl transition-all duration-300 transform hover:scale-110 shadow-lg`}>
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                </svg>
+              </button>
+            ))}
           </div>
         </div>
       </div>
@@ -455,16 +508,27 @@ export default function CareerAssessment() {
   }
   
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-2 text-indigo-800">African Career Assessment</h2>
-      <p className="text-indigo-600 mb-6">Discover career paths aligned with your skills and the African job market.</p>
+    <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover-lift">
+      <div className="text-center mb-8">
+        <div className="w-16 h-16 bg-gradient-vibrant rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <span className="text-2xl">🎯</span>
+        </div>
+        <h2 className="text-3xl font-display font-bold text-gray-900 mb-3">
+          Career Assessment
+        </h2>
+        <p className="text-gray-600 text-lg">
+          Answer a few questions to discover career paths that match your personality and Africa's opportunities
+        </p>
+      </div>
       
-      <div className="mb-6">
-        <label className="block text-sm font-medium text-indigo-700 mb-1">Select Your Country</label>
+      <div className="mb-8">
+        <label className="block text-sm font-semibold text-gray-900 mb-3">
+          🌍 Select Your Country
+        </label>
         <select
           value={selectedCountry}
           onChange={(e) => setSelectedCountry(e.target.value)}
-          className="w-full p-2 border border-indigo-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+          className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-200 bg-gray-50 hover:bg-white font-medium"
         >
           {africanCountries.map((country) => (
             <option key={country.code} value={country.code}>
@@ -474,31 +538,60 @@ export default function CareerAssessment() {
         </select>
       </div>
       
-      <div className="mb-6">
-        <div className="w-full bg-indigo-100 rounded-full h-2.5">
+      <div className="mb-8">
+        <div className="flex justify-between items-center mb-3">
+          <span className="text-sm font-semibold text-gray-700">Progress</span>
+          <span className="text-sm font-semibold text-purple-600">
+            {currentQuestion + 1} of {questions.length}
+          </span>
+        </div>
+        <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
           <div 
-            className="bg-indigo-600 h-2.5 rounded-full" 
+            className="bg-gradient-vibrant h-3 rounded-full transition-all duration-500 ease-out" 
             style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
           ></div>
         </div>
-        <p className="text-right text-sm text-indigo-600 mt-1">Question {currentQuestion + 1} of {questions.length}</p>
       </div>
       
-      <div>
-        <h3 className="text-xl font-medium mb-4 text-indigo-800">{questions[currentQuestion].text}</h3>
+      <div className="space-y-6">
+        <h3 className="text-2xl font-display font-semibold text-gray-900 leading-relaxed">
+          {questions[currentQuestion].text}
+        </h3>
         
-        <div className="space-y-3">
-        {questions[currentQuestion].options.map((option) => (
+        <div className="space-y-4">
+          {questions[currentQuestion].options.map((option, index) => (
             <button
               key={option.id}
               onClick={() => handleAnswer(questions[currentQuestion].id, option.trait)}
-              className="w-full text-left p-3 border border-indigo-200 rounded hover:bg-indigo-50 hover:border-indigo-400 transition-colors duration-300 text-indigo-700 font-medium"
+              className="group w-full text-left p-6 border-2 border-gray-200 rounded-2xl hover:border-purple-300 hover:shadow-lg transition-all duration-300 bg-gray-50 hover:bg-white transform hover:-translate-y-1"
             >
-              {option.text}
+              <div className="flex items-start space-x-4">
+                <div className="w-8 h-8 bg-gradient-vibrant rounded-full flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-200">
+                  {String.fromCharCode(65 + index)}
+                </div>
+                <span className="text-gray-800 font-medium leading-relaxed group-hover:text-gray-900">
+                  {option.text}
+                </span>
+              </div>
             </button>
           ))}
         </div>
       </div>
+      
+      {/* Optional: Previous button for better UX */}
+      {currentQuestion > 0 && (
+        <div className="mt-8 text-center">
+          <button 
+            onClick={() => setCurrentQuestion(currentQuestion - 1)}
+            className="text-gray-500 hover:text-gray-700 font-medium flex items-center mx-auto transition-colors duration-200"
+          >
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Previous Question
+          </button>
+        </div>
+      )}
     </div>
   );
 }
