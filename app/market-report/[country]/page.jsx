@@ -18,19 +18,20 @@ const Tooltip = dynamic(() => import('recharts').then(mod => mod.Tooltip), { ssr
 const Legend = dynamic(() => import('recharts').then(mod => mod.Legend), { ssr: false });
 const ResponsiveContainer = dynamic(() => import('recharts').then(mod => mod.ResponsiveContainer), { ssr: false });
 
-// Helper function to get country name
+// Helper function to get country name and details
 function getCountryName(countryCode) {
   const countries = {
-    'south-africa': 'South Africa',
-    'nigeria': 'Nigeria',
-    'kenya': 'Kenya',
-    'ghana': 'Ghana',
-    'egypt': 'Egypt',
-    'tanzania': 'Tanzania',
-    'ethiopia': 'Ethiopia',
-    'uganda': 'Uganda',
-    'morocco': 'Morocco',
-    'rwanda': 'Rwanda'
+    'south-africa': { name: 'South Africa', flag: '🇿🇦', region: 'Southern Africa' },
+    'nigeria': { name: 'Nigeria', flag: '🇳🇬', region: 'West Africa' },
+    'kenya': { name: 'Kenya', flag: '🇰🇪', region: 'East Africa' },
+    'ghana': { name: 'Ghana', flag: '🇬🇭', region: 'West Africa' },
+    'egypt': { name: 'Egypt', flag: '🇪🇬', region: 'North Africa' },
+    'tanzania': { name: 'Tanzania', flag: '🇹🇿', region: 'East Africa' },
+    'ethiopia': { name: 'Ethiopia', flag: '🇪🇹', region: 'East Africa' },
+    'uganda': { name: 'Uganda', flag: '🇺🇬', region: 'East Africa' },
+    'morocco': { name: 'Morocco', flag: '🇲🇦', region: 'North Africa' },
+    'rwanda': { name: 'Rwanda', flag: '🇷🇼', region: 'East Africa' },
+    'tunisia': { name: 'Tunisia', flag: '🇹🇳', region: 'North Africa' }
   };
   
   return countries[countryCode];
@@ -226,14 +227,14 @@ export default function MarketReportPage({ params }) {
   const unwrappedParams = use(params);
   const country = unwrappedParams.country;
   
-  const countryName = getCountryName(country);
+  const countryInfo = getCountryName(country);
   
   // Ensure we're in client side rendering for Recharts
   useEffect(() => {
     setIsClient(true);
   }, []);
   
-  if (!countryName) {
+  if (!countryInfo) {
     notFound();
   }
   
@@ -251,56 +252,156 @@ export default function MarketReportPage({ params }) {
   };
   
   return (
-    <div className="bg-white">
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black">
-            {countryName} Job Market Report 2025
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 py-20">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-sm font-medium mb-8">
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+            Tech Market Intelligence 2025
+          </div>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+            {countryInfo.flag} {countryInfo.name}
+            <span className="block text-3xl md:text-4xl text-blue-200 mt-2">
+              Tech Market Report
+            </span>
           </h1>
-          <p className="text-xl text-black max-w-3xl mx-auto">
-            Comprehensive analysis of salary trends, in-demand skills, and growth opportunities
-            across major industries in {countryName}.
+          <p className="text-xl text-blue-100 max-w-4xl mx-auto mb-8">
+            Comprehensive analysis of salary trends, emerging opportunities, and skill demands 
+            driving the tech ecosystem across {countryInfo.region}
           </p>
+          <div className="flex flex-wrap justify-center gap-4 text-white">
+            <div className="flex items-center px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm">
+              <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+              <span className="text-sm">Live Data</span>
+            </div>
+            <div className="flex items-center px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm">
+              <div className="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+              <span className="text-sm">2025 Projections</span>
+            </div>
+            <div className="flex items-center px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm">
+              <div className="w-2 h-2 bg-purple-400 rounded-full mr-2"></div>
+              <span className="text-sm">{countryInfo.region}</span>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        {/* Executive Summary */}
+        <section className="mb-20">
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Executive Summary</h2>
+              <p className="text-gray-600 max-w-3xl mx-auto">
+                Key metrics and insights driving {countryInfo.name}'s technology sector growth and innovation landscape
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-center p-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl text-white">
+                <div className="w-12 h-12 mx-auto mb-4 bg-white/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6m8 0H8" />
+                  </svg>
+                </div>
+                <p className="text-3xl font-bold mb-2">{formatMoney(data.yearlyTrends[4].jobs, '')}</p>
+                <p className="text-sm opacity-90">Total Tech Jobs</p>
+              </div>
+              <div className="text-center p-6 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl text-white">
+                <div className="w-12 h-12 mx-auto mb-4 bg-white/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                  </svg>
+                </div>
+                <p className="text-3xl font-bold mb-2">{formatMoney(data.yearlyTrends[4].avgSalary, data.currency)}</p>
+                <p className="text-sm opacity-90">Average Salary</p>
+              </div>
+              <div className="text-center p-6 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl text-white">
+                <div className="w-12 h-12 mx-auto mb-4 bg-white/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                </div>
+                <p className="text-3xl font-bold mb-2">+{data.growthRoles[0].growth}%</p>
+                <p className="text-sm opacity-90">Highest Growth</p>
+              </div>
+              <div className="text-center p-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl text-white">
+                <div className="w-12 h-12 mx-auto mb-4 bg-white/20 rounded-xl flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <p className="text-3xl font-bold mb-2">{formatMoney(data.topPaying[0].salary, data.currency)}</p>
+                <p className="text-sm opacity-90">Top Salary</p>
+              </div>
+            </div>
+          </div>
+        </section>
         
         {/* Key Insights */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-6 text-black">Key Market Insights</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-blue-100 rounded-xl p-8">
-              <h3 className="text-xl font-semibold mb-4 text-black">Key Findings</h3>
-              <ul className="space-y-3">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Market Intelligence & Insights</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Strategic insights and data-driven findings from {countryInfo.name}'s evolving tech landscape
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Key Market Findings</h3>
+              </div>
+              <div className="space-y-4">
                 {data.keyInsights.map((insight, index) => (
-                  <li key={index} className="flex items-start">
-                    <svg className="h-5 w-5 text-blue-700 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span className="text-black">{insight}</span>
-                  </li>
+                  <div key={index} className="flex items-start p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
+                    <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                      <span className="text-white text-xs font-bold">{index + 1}</span>
+                    </div>
+                    <span className="text-gray-800 font-medium">{insight}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
             
-            <div className="bg-blue-800 text-white rounded-xl p-8">
-              <h3 className="text-xl font-semibold mb-4 text-white">Market Overview</h3>
-              <div className="space-y-4">
-                <div>
+            <div className="bg-gradient-to-br from-slate-800 via-purple-900 to-slate-900 rounded-3xl p-8 shadow-xl text-white">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mr-4">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white">Market Snapshot</h3>
+              </div>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
                   <p className="text-3xl font-bold text-white">{formatMoney(data.yearlyTrends[4].jobs, '')}</p>
-                  <p className="text-sm text-white">Tech jobs available in 2025</p>
+                  <p className="text-sm text-blue-200">Tech Jobs (2025)</p>
                 </div>
-                <div>
+                <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
                   <p className="text-3xl font-bold text-white">{formatMoney(data.yearlyTrends[4].avgSalary, data.currency)}</p>
-                  <p className="text-sm text-white">Average tech professional salary</p>
+                  <p className="text-sm text-blue-200">Average Salary</p>
                 </div>
-                <div>
-                  <p className="text-3xl font-bold text-white">+{data.growthRoles[0].growth}%</p>
-                  <p className="text-sm text-white">Highest job growth in {data.growthRoles[0].role}</p>
+                <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
+                  <p className="text-3xl font-bold text-emerald-400">+{data.growthRoles[0].growth}%</p>
+                  <p className="text-sm text-blue-200">Peak Growth Rate</p>
                 </div>
-                <div>
+                <div className="bg-white/10 rounded-2xl p-4 backdrop-blur-sm">
                   <p className="text-3xl font-bold text-white">{formatMoney(data.topPaying[0].salary, data.currency)}</p>
-                  <p className="text-sm text-white">Top salary for {data.topPaying[0].role}</p>
+                  <p className="text-sm text-blue-200">Highest Salary</p>
                 </div>
+              </div>
+              <div className="mt-6 p-4 bg-white/10 rounded-2xl backdrop-blur-sm">
+                <p className="text-sm text-blue-200 mb-2">Leading Growth Sector:</p>
+                <p className="text-lg font-bold text-white">{data.growthRoles[0].role}</p>
+                <p className="text-sm text-emerald-400">Growing at {data.growthRoles[0].growth}% annually</p>
               </div>
             </div>
           </div>
@@ -308,48 +409,70 @@ export default function MarketReportPage({ params }) {
         
         {/* Top Paying Roles */}
         <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-6 text-black">Top Paying Roles</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">💰 Highest Paying Tech Roles</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Premium compensation packages driving talent attraction in {countryInfo.name}'s competitive tech market
+            </p>
+          </div>
           {isClient ? (
-            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-              <div className="h-80">
+            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border border-white/20">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-2xl font-bold text-gray-900">Annual Salary Benchmarks</h3>
+                <div className="text-sm text-gray-500 bg-gray-100 px-4 py-2 rounded-full">
+                  {countryInfo.flag} {countryInfo.name} • 2025
+                </div>
+              </div>
+              <div className="h-96">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart
                     data={data.topPaying}
                     layout="vertical"
-                    margin={{ top: 5, right: 30, left: 120, bottom: 5 }}
+                    margin={{ top: 5, right: 30, left: 140, bottom: 5 }}
                   >
-                    <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke={chartColors.gridLines} />
+                    <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e5e7eb" />
                     <XAxis 
                       type="number" 
-                      tickFormatter={(value) => `${value/1000}K`} 
-                      tick={{ fill: chartColors.text }}
+                      tickFormatter={(value) => `${value > 1000000 ? (value/1000000).toFixed(1) + 'M' : (value/1000).toFixed(0) + 'K'}`} 
+                      tick={{ fill: '#374151', fontSize: 12 }}
                     />
                     <YAxis 
                       type="category" 
                       dataKey="role" 
-                      tick={{ fontSize: 14, fill: chartColors.text }} 
-                      width={120}
+                      tick={{ fontSize: 14, fill: '#374151' }} 
+                      width={140}
                     />
                     <Tooltip 
                       formatter={(value) => [`${formatMoney(value, data.currency)}`, 'Annual Salary']}
-                      contentStyle={{ backgroundColor: 'white', border: '1px solid #ccc', color: 'black' }}
-                      labelStyle={{ color: 'black', fontWeight: 'bold' }}
+                      contentStyle={{ backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '12px', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}
+                      labelStyle={{ color: '#1f2937', fontWeight: 'bold' }}
                     />
                     <Bar 
                       dataKey="salary" 
-                      fill={chartColors.salary} 
-                      radius={[0, 4, 4, 0]}
+                      radius={[0, 8, 8, 0]}
+                      fill="url(#salaryGradient)"
                     />
+                    <defs>
+                      <linearGradient id="salaryGradient" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stopColor="#3b82f6" />
+                        <stop offset="100%" stopColor="#8b5cf6" />
+                      </linearGradient>
+                    </defs>
                   </BarChart>
                 </ResponsiveContainer>
               </div>
-              <p className="text-sm text-black mt-4">
-                Source: Genius Insights Analysis, {countryName} Job Market Survey 2025
-              </p>
+              <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
+                <p className="text-sm text-gray-700">
+                  <strong>Data Source:</strong> Genius Insights Market Analysis • {countryInfo.name} Tech Salary Survey 2025 • 50,000+ salary data points
+                </p>
+              </div>
             </div>
           ) : (
-            <div className="bg-white p-6 rounded-lg shadow-md text-center border border-gray-200">
-              <p className="text-black">Loading chart...</p>
+            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-2xl text-center border border-white/20">
+              <div className="animate-pulse">
+                <div className="h-8 bg-gray-200 rounded mb-4"></div>
+                <div className="h-64 bg-gray-200 rounded"></div>
+              </div>
             </div>
           )}
         </section>
@@ -392,7 +515,7 @@ export default function MarketReportPage({ params }) {
                 </ResponsiveContainer>
               </div>
               <p className="text-sm text-black mt-4">
-                Source: Genius Insights Analysis, {countryName} Employment Statistics 2025
+                Source: Genius Insights Analysis, {countryInfo.name} Employment Statistics 2025
               </p>
             </div>
           ) : (
@@ -460,7 +583,7 @@ export default function MarketReportPage({ params }) {
                 </ResponsiveContainer>
               </div>
               <p className="text-sm text-black mt-4">
-                Source: Genius Insights Analysis, {countryName} Bureau of Statistics 2021-2025
+                Source: Genius Insights Analysis, {countryInfo.name} Bureau of Statistics 2021-2025
               </p>
             </div>
           ) : (
@@ -530,7 +653,7 @@ export default function MarketReportPage({ params }) {
                 </ResponsiveContainer>
               </div>
               <p className="text-sm text-black mt-4">
-                Source: Genius Insights Job Market Analysis, based on 50,000+ job postings in {countryName}
+                Source: Genius Insights Job Market Analysis, based on 50,000+ job postings in {countryInfo.name}
               </p>
             </div>
           ) : (
