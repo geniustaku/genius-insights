@@ -1,7 +1,7 @@
 'use client'
 
 interface StructuredDataProps {
-  type: 'homepage' | 'salary-calculator' | 'career-assessment' | 'skills-analyzer';
+  type: 'homepage' | 'salary-calculator' | 'career-assessment' | 'skills-analyzer' | 'cv-builder';
 }
 
 export default function StructuredData({ type }: StructuredDataProps) {
@@ -107,6 +107,31 @@ export default function StructuredData({ type }: StructuredDataProps) {
             "Skills marketplace integration",
             "Industry-specific skill requirements",
             "Learning pathway guidance"
+          ]
+        };
+
+      case 'cv-builder':
+        return {
+          ...baseData,
+          "@type": "WebApplication",
+          "name": "Free CV Builder 2025 | Professional Resume Maker",
+          "url": "https://www.genius-insights.co.za/cv-builder",
+          "description": "Create stunning professional CVs with our free CV builder. Choose from 15+ beautiful templates, download as PDF instantly.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "15+ professional CV templates",
+            "Instant PDF download",
+            "ATS-friendly optimization",
+            "Mobile responsive builder",
+            "Free to use forever",
+            "Professional design templates",
+            "Easy-to-use interface"
           ]
         };
 
