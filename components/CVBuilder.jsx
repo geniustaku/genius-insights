@@ -1,7 +1,21 @@
 'use client'
 import { useState, useRef } from 'react';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+
+// Dynamic imports for pdfMake to avoid SSR issues
+let pdfMake;
+let pdfFonts;
+
+if (typeof window !== 'undefined') {
+  import('pdfmake/build/pdfmake').then(module => {
+    pdfMake = module.default;
+    return import('pdfmake/build/vfs_fonts');
+  }).then(fontsModule => {
+    pdfFonts = fontsModule.default;
+    if (pdfMake && pdfFonts) {
+      pdfMake.vfs = pdfFonts.pdfMake.vfs;
+    }
+  });
+}
 
 export default function CVBuilder() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -157,123 +171,215 @@ export default function CVBuilder() {
     setIsGeneratingPDF(true);
     
     try {
-      const element = cvPreviewRef.current;
-      if (!element) {
-        throw new Error('CV preview element not found');
+      // Dynamic import pdfMake for client-side use
+      if (!pdfMake) {
+        const pdfMakeModule = await import('pdfmake/build/pdfmake');
+        const pdfFontsModule = await import('pdfmake/build/vfs_fonts');
+        
+        pdfMake = pdfMakeModule.default;
+        pdfFonts = pdfFontsModule.default;
+        pdfMake.vfs = pdfFonts.pdfMake.vfs;
+      }
+      const templateColors = {
+        modern: { primary: '#4f46e5', accent: '#6366f1' },
+        creative: { primary: '#9333ea', accent: '#a855f7' },
+        corporate: { primary: '#4b5563', accent: '#6b7280' },
+        tech: { primary: '#16a34a', accent: '#22c55e' },
+        minimal: { primary: '#2563eb', accent: '#3b82f6' }
+      };
+
+      const colors = templateColors[selectedTemplate] || templateColors.modern;
+      
+      const docDefinition = {
+        pageSize: 'A4',
+        pageMargins: [40, 60, 40, 60],
+        content: [],
+        styles: {
+          header: {
+            fontSize: 24,
+            bold: true,
+            color: colors.primary,
+            margin: [0, 0, 0, 10]
+          },
+          subheader: {
+            fontSize: 16,
+            bold: true,
+            color: colors.primary,
+            margin: [0, 20, 0, 8]
+          },
+          contact: {
+            fontSize: 10,
+            color: '#666666',
+            margin: [0, 0, 0, 15]
+          },
+          normal: {
+            fontSize: 11,
+            lineHeight: 1.3
+          },
+          jobTitle: {
+            fontSize: 12,
+            bold: true,
+            margin: [0, 8, 0, 2]
+          },
+          company: {
+            fontSize: 11,
+            color: colors.accent,
+            italics: true,
+            margin: [0, 0, 0, 2]
+          },
+          dates: {
+            fontSize: 10,
+            color: '#666666',
+            alignment: 'right'
+          },
+          skills: {
+            fontSize: 10,
+            margin: [0, 2, 5, 2]
+          }
+        }
+      };
+
+      // Header with name
+      if (cvData.personalInfo.fullName) {
+        docDefinition.content.push({
+          text: cvData.personalInfo.fullName,
+          style: 'header'
+        });
       }
 
-      // Wait a moment to ensure all content is rendered
-      await new Promise(resolve => setTimeout(resolve, 100));
-      
-      // Create canvas with safe options
-      const canvas = await html2canvas(element, {
-        scale: 1.5,
-        useCORS: false,
-        allowTaint: false,
-        backgroundColor: '#ffffff',
-        logging: false,
-        removeContainer: true,
-        width: element.scrollWidth,
-        height: element.scrollHeight,
-        windowWidth: element.scrollWidth,
-        windowHeight: element.scrollHeight,
-        ignoreElements: (element) => {
-          // Ignore any problematic elements
-          return element.tagName === 'SCRIPT' || 
-                 element.tagName === 'STYLE' ||
-                 element.classList?.contains('ignore-pdf');
-        },
-        onclone: (clonedDoc, element) => {
-          // Clean up the cloned document
-          const clonedElement = clonedDoc.querySelector('[data-html2canvas-ignore]') || element;
-          
-          // Remove any external stylesheets that might cause CORS issues
-          const links = clonedDoc.querySelectorAll('link[rel="stylesheet"]');
-          links.forEach(link => {
-            if (link.href && !link.href.startsWith(window.location.origin)) {
-              link.remove();
+      // Contact information
+      const contactInfo = [];
+      if (cvData.personalInfo.email) contactInfo.push(`Email: ${cvData.personalInfo.email}`);
+      if (cvData.personalInfo.phone) contactInfo.push(`Phone: ${cvData.personalInfo.phone}`);
+      if (cvData.personalInfo.location) contactInfo.push(`Location: ${cvData.personalInfo.location}`);
+      if (cvData.personalInfo.website) contactInfo.push(`Website: ${cvData.personalInfo.website}`);
+      if (cvData.personalInfo.linkedin) contactInfo.push(`LinkedIn: ${cvData.personalInfo.linkedin}`);
+
+      if (contactInfo.length > 0) {
+        docDefinition.content.push({
+          text: contactInfo.join(' | '),
+          style: 'contact'
+        });
+      }
+
+      // Professional Summary
+      if (cvData.personalInfo.summary) {
+        docDefinition.content.push(
+          { text: 'Professional Summary', style: 'subheader' },
+          { text: cvData.personalInfo.summary, style: 'normal', margin: [0, 0, 0, 15] }
+        );
+      }
+
+      // Work Experience
+      if (cvData.experience.length > 0 && cvData.experience[0].jobTitle) {
+        docDefinition.content.push({ text: 'Work Experience', style: 'subheader' });
+        
+        cvData.experience.forEach(exp => {
+          if (exp.jobTitle) {
+            const expContent = [];
+            
+            // Job title and dates
+            const headerTable = {
+              table: {
+                widths: ['*', 'auto'],
+                body: [[
+                  { text: exp.jobTitle, style: 'jobTitle', border: [false, false, false, false] },
+                  { 
+                    text: exp.startDate ? 
+                      `${new Date(exp.startDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })} - ${exp.current ? 'Present' : exp.endDate ? new Date(exp.endDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }) : 'Present'}` 
+                      : '',
+                    style: 'dates',
+                    border: [false, false, false, false]
+                  }
+                ]]
+              }
+            };
+            
+            expContent.push(headerTable);
+            
+            // Company and location
+            if (exp.company) {
+              expContent.push({ text: exp.company, style: 'company' });
             }
-          });
-          
-          // Apply inline styles to avoid CSS parsing issues
-          const allElements = clonedElement.querySelectorAll('*');
-          allElements.forEach(el => {
-            // Remove any classes that might cause issues
-            if (el.className && typeof el.className === 'string') {
-              const classList = el.className.split(' ');
-              const filteredClasses = classList.filter(cls => 
-                !cls.includes('gradient') && 
-                !cls.includes('from-') && 
-                !cls.includes('to-') && 
-                !cls.includes('via-')
-              );
-              el.className = filteredClasses.join(' ');
+            if (exp.location) {
+              expContent.push({ text: exp.location, style: 'normal', fontSize: 10, color: '#666666', margin: [0, 0, 0, 5] });
             }
             
-            // Ensure text is visible
-            if (el.tagName === 'P' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'SPAN') {
-              if (!el.style.color) {
-                el.style.color = '#000000';
-              }
+            // Description
+            if (exp.description) {
+              expContent.push({ text: exp.description, style: 'normal', margin: [0, 0, 0, 12] });
             }
-          });
-          
-          return clonedElement;
-        }
-      });
-      
-      // Convert canvas to image
-      const imgData = canvas.toDataURL('image/jpeg', 0.95);
-      
-      // Create PDF
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const pageWidth = 210;
-      const pageHeight = 297;
-      const imgWidth = pageWidth - 20; // 10mm margin on each side
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      
-      // Add margin
-      const marginX = 10;
-      const marginY = 10;
-      
-      let heightLeft = imgHeight;
-      let position = marginY;
-      
-      // Add first page
-      pdf.addImage(imgData, 'JPEG', marginX, position, imgWidth, imgHeight);
-      heightLeft -= (pageHeight - 2 * marginY);
-      
-      // Add additional pages if needed
-      while (heightLeft > 0) {
-        position = heightLeft - imgHeight + marginY;
-        pdf.addPage();
-        pdf.addImage(imgData, 'JPEG', marginX, position, imgWidth, imgHeight);
-        heightLeft -= (pageHeight - 2 * marginY);
+            
+            docDefinition.content.push(...expContent);
+          }
+        });
       }
-      
+
+      // Education
+      if (cvData.education.length > 0 && cvData.education[0].degree) {
+        docDefinition.content.push({ text: 'Education', style: 'subheader' });
+        
+        cvData.education.forEach(edu => {
+          if (edu.degree) {
+            const eduContent = [];
+            
+            // Degree and date
+            const eduTable = {
+              table: {
+                widths: ['*', 'auto'],
+                body: [[
+                  { text: edu.degree, style: 'jobTitle', border: [false, false, false, false] },
+                  { 
+                    text: edu.graduationDate ? 
+                      new Date(edu.graduationDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })
+                      : '',
+                    style: 'dates',
+                    border: [false, false, false, false]
+                  }
+                ]]
+              }
+            };
+            
+            eduContent.push(eduTable);
+            
+            if (edu.school) {
+              eduContent.push({ text: edu.school, style: 'company' });
+            }
+            if (edu.location) {
+              eduContent.push({ text: edu.location, style: 'normal', fontSize: 10, color: '#666666' });
+            }
+            if (edu.gpa) {
+              eduContent.push({ text: `GPA: ${edu.gpa}`, style: 'normal', fontSize: 10, color: '#666666', margin: [0, 0, 0, 10] });
+            } else {
+              eduContent.push({ text: '', margin: [0, 0, 0, 10] });
+            }
+            
+            docDefinition.content.push(...eduContent);
+          }
+        });
+      }
+
+      // Skills
+      if (cvData.skills.length > 0) {
+        docDefinition.content.push({ text: 'Skills', style: 'subheader' });
+        
+        const skillsText = cvData.skills.join(' • ');
+        docDefinition.content.push({
+          text: skillsText,
+          style: 'normal',
+          margin: [0, 0, 0, 15]
+        });
+      }
+
       // Generate filename
       const fileName = `${(cvData.personalInfo.fullName || 'MyCV').replace(/[^a-zA-Z0-9]/g, '_')}_Resume.pdf`;
       
-      // Save PDF
-      pdf.save(fileName);
+      // Create and download PDF
+      pdfMake.createPdf(docDefinition).download(fileName);
       
     } catch (error) {
       console.error('PDF Generation Error:', error);
-      
-      // Show user-friendly error message
-      let errorMessage = 'Unable to generate PDF. ';
-      
-      if (error.message?.includes('CORS')) {
-        errorMessage += 'Please ensure you have a stable internet connection and try again.';
-      } else if (error.message?.includes('403')) {
-        errorMessage += 'There was a permission issue. Please refresh the page and try again.';
-      } else if (error.message?.includes('Network')) {
-        errorMessage += 'Network error. Please check your connection and try again.';
-      } else {
-        errorMessage += 'Please try again in a few moments.';
-      }
-      
-      alert(errorMessage);
+      alert('Unable to generate PDF. Please check your information and try again.');
     } finally {
       setIsGeneratingPDF(false);
     }
@@ -644,7 +750,7 @@ export default function CVBuilder() {
                 ) : (
                   <>
                     <span>📄</span>
-                    <span>Download PDF</span>
+                    <span>Download PDF (pdfMake)</span>
                   </>
                 )}
               </button>

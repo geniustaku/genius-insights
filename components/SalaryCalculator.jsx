@@ -97,12 +97,12 @@ export default function SalaryCalculator() {
   ];
 
   return (
-    <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover-lift">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-display font-bold text-gray-900 mb-3">
+    <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl border border-gray-100 hover-lift">
+      <div className="text-center mb-6 sm:mb-8">
+        <h2 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-2 sm:mb-3">
           Calculate Your Market Value
         </h2>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 text-base sm:text-lg">
           Get personalized salary insights based on the latest African market data
         </p>
       </div>
@@ -116,8 +116,8 @@ export default function SalaryCalculator() {
         </div>
       )}
 
-      <form onSubmit={handleCalculate} className="space-y-6 text-gray-900">
-        <div className="grid md:grid-cols-2 gap-6">
+      <form onSubmit={handleCalculate} className="space-y-4 sm:space-y-6 text-gray-900">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div className="space-y-2">
             <label className="block text-sm font-semibold text-gray-900 mb-2">
               🌍 Country
@@ -125,7 +125,7 @@ export default function SalaryCalculator() {
             <select 
               value={selectedCountry} 
               onChange={(e) => setSelectedCountry(e.target.value)}
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
               required
               disabled={loading}
             >
@@ -145,7 +145,7 @@ export default function SalaryCalculator() {
             <select 
               value={location} 
               onChange={(e) => setLocation(e.target.value)}
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white disabled:opacity-50"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white disabled:opacity-50 text-base appearance-none"
               required
               disabled={loading || cities.length === 0}
             >
@@ -159,7 +159,7 @@ export default function SalaryCalculator() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div className="space-y-2">
             <label className="block text-sm font-semibold text-gray-900 mb-2">
               🏢 Industry
@@ -167,7 +167,7 @@ export default function SalaryCalculator() {
             <select 
               value={industry} 
               onChange={(e) => setIndustry(e.target.value)}
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
               required
               disabled={loading}
             >
@@ -187,7 +187,7 @@ export default function SalaryCalculator() {
             <select 
               value={experience} 
               onChange={(e) => setExperience(e.target.value)}
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
               required
               disabled={loading}
             >
@@ -207,7 +207,7 @@ export default function SalaryCalculator() {
           <select 
             value={education} 
             onChange={(e) => setEducation(e.target.value)}
-            className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+            className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
             required
             disabled={loading}
           >
@@ -223,7 +223,7 @@ export default function SalaryCalculator() {
 
         <button 
           type="submit" 
-          className="w-full bg-gradient-elegant text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:transform-none flex items-center justify-center space-x-2"
+          className="w-full bg-gradient-elegant text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:transform-none flex items-center justify-center space-x-2 min-h-[48px] touch-manipulation"
           disabled={loading}
         >
           {loading ? (

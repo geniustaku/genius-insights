@@ -107,21 +107,21 @@ export default function SouthAfricaVATCalculator() {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover-lift">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-display font-bold text-gray-900 mb-3">
+    <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl border border-gray-100 hover-lift">
+      <div className="text-center mb-4 sm:mb-6 lg:mb-8">
+        <h2 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-2 sm:mb-3">
           💼 South African VAT Calculator
         </h2>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 text-base sm:text-lg">
           Calculate 15% VAT, check registration requirements, and ensure SARS compliance
         </p>
       </div>
 
       {/* Calculator Type Toggle */}
-      <div className="flex bg-gray-100 rounded-2xl p-1 mb-8">
+      <div className="flex bg-gray-100 rounded-xl sm:rounded-2xl p-1 mb-4 sm:mb-6 lg:mb-8">
         <button
           onClick={() => setCalculationType('addVAT')}
-          className={`flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-200 ${
+          className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-200 min-h-[44px] touch-manipulation ${
             calculationType === 'addVAT'
               ? 'bg-purple-600 text-white shadow-md'
               : 'text-gray-600 hover:text-gray-900'
@@ -131,7 +131,7 @@ export default function SouthAfricaVATCalculator() {
         </button>
         <button
           onClick={() => setCalculationType('removeVAT')}
-          className={`flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-200 ${
+          className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-200 min-h-[44px] touch-manipulation ${
             calculationType === 'removeVAT'
               ? 'bg-purple-600 text-white shadow-md'
               : 'text-gray-600 hover:text-gray-900'
@@ -141,7 +141,7 @@ export default function SouthAfricaVATCalculator() {
         </button>
         <button
           onClick={() => setCalculationType('checkThreshold')}
-          className={`flex-1 py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-200 ${
+          className={`flex-1 py-2 sm:py-3 px-2 sm:px-4 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-200 min-h-[44px] touch-manipulation ${
             calculationType === 'checkThreshold'
               ? 'bg-purple-600 text-white shadow-md'
               : 'text-gray-600 hover:text-gray-900'
@@ -151,7 +151,7 @@ export default function SouthAfricaVATCalculator() {
         </button>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         {calculationType === 'checkThreshold' ? (
           // VAT Registration Check
           <div className="space-y-2">
@@ -163,7 +163,7 @@ export default function SouthAfricaVATCalculator() {
               value={annualTurnover}
               onChange={(e) => setAnnualTurnover(e.target.value)}
               placeholder="e.g. 850000"
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
             />
             <p className="text-sm text-gray-500 mt-2">
               💡 Enter your total taxable supplies for the past 12 months
@@ -180,7 +180,7 @@ export default function SouthAfricaVATCalculator() {
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               placeholder="e.g. 1000"
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
             />
             <p className="text-sm text-gray-500 mt-2">
               {calculationType === 'addVAT' 
@@ -193,7 +193,7 @@ export default function SouthAfricaVATCalculator() {
 
         <button 
           onClick={handleCalculate}
-          className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:transform-none flex items-center justify-center space-x-2"
+          className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:transform-none flex items-center justify-center space-x-2 min-h-[48px] touch-manipulation"
           disabled={loading || (calculationType === 'checkThreshold' ? !annualTurnover : !amount)}
         >
           {loading ? (
@@ -215,32 +215,32 @@ export default function SouthAfricaVATCalculator() {
       </div>
 
       {result && (
-        <div className="mt-8 space-y-6 animate-fade-in">
+        <div className="mt-6 sm:mt-8 space-y-4 sm:space-y-6 animate-fade-in">
           {result.type === 'registration' ? (
             // Registration Status Results
-            <div className={`rounded-3xl p-8 border-2 ${result.color}`}>
-              <h3 className="text-2xl font-display font-bold text-gray-900 mb-6 text-center">
+            <div className={`rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border-2 ${result.color}`}>
+              <h3 className="text-xl sm:text-2xl font-display font-bold text-gray-900 mb-4 sm:mb-6 text-center">
                 VAT Registration Status
               </h3>
               
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-                <div className="text-center p-4 bg-white rounded-2xl shadow-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 mb-4 sm:mb-6">
+                <div className="text-center p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm">
                   <p className="text-sm font-medium text-gray-600 mb-1">Annual Turnover</p>
-                  <p className="text-xl font-bold text-gray-800">{formatCurrency(result.annualTurnover)}</p>
+                  <p className="text-lg sm:text-xl font-bold text-gray-800">{formatCurrency(result.annualTurnover)}</p>
                 </div>
-                <div className="text-center p-4 bg-white rounded-2xl shadow-sm">
+                <div className="text-center p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm">
                   <p className="text-sm font-medium text-gray-600 mb-1">Registration Status</p>
-                  <p className="text-lg font-bold text-purple-600">{result.status.split(' ')[0]}</p>
+                  <p className="text-base sm:text-lg font-bold text-purple-600">{result.status.split(' ')[0]}</p>
                 </div>
-                <div className="text-center p-4 bg-white rounded-2xl shadow-sm">
+                <div className="text-center p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm">
                   <p className="text-sm font-medium text-gray-600 mb-1">To Mandatory</p>
-                  <p className="text-xl font-bold text-gray-800">{formatCurrency(result.remainingToMandatory)}</p>
+                  <p className="text-lg sm:text-xl font-bold text-gray-800">{formatCurrency(result.remainingToMandatory)}</p>
                 </div>
               </div>
 
               {/* Progress Bar */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm mb-6">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">Progress to Mandatory Registration</h4>
+              <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-sm mb-4 sm:mb-6">
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">Progress to Mandatory Registration</h4>
                 <div className="w-full bg-gray-200 rounded-full h-4 mb-2">
                   <div 
                     className="bg-gradient-to-r from-purple-500 to-indigo-500 h-4 rounded-full transition-all duration-1000" 
@@ -255,7 +255,7 @@ export default function SouthAfricaVATCalculator() {
               </div>
 
               {/* Status Details */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-sm">
                 <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
                   <span className="mr-2">📋</span>
                   {result.status}
@@ -286,35 +286,35 @@ export default function SouthAfricaVATCalculator() {
             </div>
           ) : (
             // VAT Calculation Results
-            <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-3xl p-8 border border-purple-100">
-              <h3 className="text-2xl font-display font-bold text-gray-900 mb-6 text-center">
+            <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-purple-100">
+              <h3 className="text-xl sm:text-2xl font-display font-bold text-gray-900 mb-4 sm:mb-6 text-center">
                 {result.description}
               </h3>
               
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-                <div className="text-center p-4 bg-white rounded-2xl shadow-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <div className="text-center p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm">
                   <p className="text-sm font-medium text-gray-600 mb-1">
                     {result.type === 'addVAT' ? 'Original (Excl VAT)' : 'Original (Incl VAT)'}
                   </p>
-                  <p className="text-xl font-bold text-gray-800">{formatCurrency(result.originalAmount)}</p>
+                  <p className="text-lg sm:text-xl font-bold text-gray-800">{formatCurrency(result.originalAmount)}</p>
                 </div>
-                <div className="text-center p-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-2xl shadow-lg">
+                <div className="text-center p-3 sm:p-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl sm:rounded-2xl shadow-lg">
                   <p className="text-sm font-medium text-white/90 mb-1">VAT Amount (15%)</p>
-                  <p className="text-xl font-bold">{formatCurrency(result.vatAmount)}</p>
+                  <p className="text-lg sm:text-xl font-bold">{formatCurrency(result.vatAmount)}</p>
                 </div>
-                <div className="text-center p-4 bg-white rounded-2xl shadow-sm">
+                <div className="text-center p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm">
                   <p className="text-sm font-medium text-gray-600 mb-1">
                     {result.type === 'addVAT' ? 'Total (Incl VAT)' : 'Amount (Excl VAT)'}
                   </p>
-                  <p className="text-xl font-bold text-gray-800">
+                  <p className="text-lg sm:text-xl font-bold text-gray-800">
                     {formatCurrency(result.type === 'addVAT' ? result.totalAmount : result.vatExclusiveAmount)}
                   </p>
                 </div>
               </div>
 
               {/* Calculation Breakdown */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+              <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-sm">
+                <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center">
                   <span className="mr-2">🧮</span>
                   Calculation Breakdown
                 </h4>

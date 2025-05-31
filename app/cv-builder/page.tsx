@@ -3,33 +3,36 @@ import CVBuilder from '@/components/CVBuilder';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Free CV Builder 2025 | Professional Resume Maker with PDF Download',
-  description: 'Create stunning professional CVs with our free CV builder. Choose from 15+ beautiful templates, download as PDF instantly. Used by 200,000+ job seekers worldwide. ATS-friendly resume maker.',
+  title: 'Free CV Builder 2025 | Professional Resume Maker with PDF Download | South Africa',
+  description: 'Create professional CVs with our free South African CV builder. 20+ ATS-friendly templates, instant PDF download, optimized for SA job market. Used by 300,000+ job seekers across Africa.',
   keywords: [
-    'free CV builder 2025', 'professional resume maker', 'CV maker free download', 'resume builder online', 'CV template free', 'professional CV maker', 'resume creator free', 'CV generator online', 'job application CV builder', 'ATS friendly resume builder', 'curriculum vitae builder', 'free resume templates', 'CV builder PDF download', 'professional resume templates', 'online CV maker free', 'resume builder with templates', 'CV creator online free', 'job resume builder', 'career CV builder', 'beautiful CV templates'
+    'free CV builder South Africa 2025', 'SA CV maker free', 'South African resume builder', 'CV builder Johannesburg', 'Cape Town CV maker', 'Durban resume builder', 'free CV templates South Africa', 'ATS CV builder SA', 'professional CV maker Africa', 'job application CV builder SA', 'curriculum vitae builder South Africa', 'SA job market CV builder', 'African CV templates free', 'resume maker South Africa', 'CV creator SA', 'South African job CV', 'free resume builder Africa', 'professional resume templates SA', 'CV builder PDF download SA', 'online CV maker South Africa', 'career CV builder Africa', 'job hunting CV builder SA', 'employment CV maker SA', 'graduate CV builder South Africa', 'entry level CV builder SA'
   ],
   alternates: {
     canonical: '/cv-builder',
   },
   openGraph: {
-    title: 'Free CV Builder 2025 | Create Professional Resume with PDF Download',
-    description: '📄 Build stunning CVs for free! 15+ professional templates, instant PDF download, ATS-friendly. Used by 200,000+ professionals worldwide.',
+    title: 'Free CV Builder 2025 | South African Resume Maker with PDF Download',
+    description: '📄 Build professional CVs for the SA job market! 20+ ATS-friendly templates, instant PDF download. Trusted by 300,000+ African job seekers.',
     url: 'https://genius-insights.co.za/cv-builder',
     type: 'website',
+    locale: 'en_ZA',
+    siteName: 'Genius Insights',
     images: [
       {
         url: '/images/cv-builder-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'Free CV Builder 2025 - Professional Resume Maker',
+        alt: 'Free South African CV Builder 2025 - Professional Resume Maker',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free CV Builder 2025 | Professional Resume Maker',
-    description: '📄 Create beautiful CVs for free! 15+ templates, instant PDF download, ATS-friendly. Professional resume builder.',
+    title: 'Free CV Builder 2025 | SA Resume Maker',
+    description: '📄 Create professional CVs for South African jobs! 20+ templates, instant PDF download, ATS-optimized for SA market.',
     images: ['/images/cv-builder-og.jpg'],
+    site: '@geniusinsights_za',
   },
 };
 
@@ -47,31 +50,31 @@ export default function CVBuilderPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">📄 Professional CV Builder</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Free CV Builder <br/>
+                Free South African CV Builder <br/>
                 <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Create stunning professional CVs with our free resume builder. Choose from 15+ beautiful templates, 
-                download as PDF instantly. Perfect for job applications worldwide.
+                Create professional CVs optimized for the South African job market. Choose from 20+ ATS-friendly templates, 
+                download as PDF instantly. Trusted by job seekers across Africa.
               </p>
               
               {/* Stats Bar */}
               <div className="flex flex-wrap justify-center gap-8 mt-12">
                 <div className="bg-white/20 rounded-2xl px-6 py-4 text-center backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-white">15+</div>
-                  <div className="text-white/80 text-sm">CV Templates</div>
+                  <div className="text-2xl font-bold text-white">20+</div>
+                  <div className="text-white/80 text-sm">SA-Optimized Templates</div>
                 </div>
                 <div className="bg-white/20 rounded-2xl px-6 py-4 text-center backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-white">200K+</div>
-                  <div className="text-white/80 text-sm">CVs Created</div>
+                  <div className="text-2xl font-bold text-white">300K+</div>
+                  <div className="text-white/80 text-sm">African Job Seekers</div>
                 </div>
                 <div className="bg-white/20 rounded-2xl px-6 py-4 text-center backdrop-blur-sm">
                   <div className="text-2xl font-bold text-white">ATS</div>
-                  <div className="text-white/80 text-sm">Friendly</div>
+                  <div className="text-white/80 text-sm">Optimized</div>
                 </div>
                 <div className="bg-white/20 rounded-2xl px-6 py-4 text-center backdrop-blur-sm">
                   <div className="text-2xl font-bold text-white">100%</div>
-                  <div className="text-white/80 text-sm">Free</div>
+                  <div className="text-white/80 text-sm">Free Forever</div>
                 </div>
               </div>
             </div>
@@ -94,19 +97,19 @@ export default function CVBuilderPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Why Choose Our CV Builder?
+                  Why Choose Our South African CV Builder?
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Create professional CVs that stand out from the crowd. Our builder combines 
-                  beautiful design with ATS optimization to help you land your dream job.
+                  Create professional CVs tailored for the South African job market. Our builder combines 
+                  beautiful design with ATS optimization and local market insights to help you land your dream job in SA.
                 </p>
                 
                 <div className="space-y-4">
                   {[
-                    { icon: '🎨', title: 'Beautiful Templates', desc: '15+ professionally designed CV templates' },
-                    { icon: '📱', title: 'Mobile Friendly', desc: 'Build your CV on any device, anywhere' },
-                    { icon: '📄', title: 'Instant PDF Download', desc: 'Download your CV as high-quality PDF' },
-                    { icon: '🤖', title: 'ATS Optimized', desc: 'Guaranteed to pass applicant tracking systems' }
+                    { icon: '🇿🇦', title: 'SA Market Optimized', desc: '20+ templates designed for South African employers' },
+                    { icon: '📱', title: 'Mobile Friendly', desc: 'Build your CV on any device, anywhere in Africa' },
+                    { icon: '📄', title: 'Instant PDF Download', desc: 'Download professional PDFs with pdfmake technology' },
+                    { icon: '🤖', title: 'ATS Optimized', desc: 'Pass South African company screening systems' }
                   ].map((item, index) => (
                     <div key={index} className="flex items-start space-x-4">
                       <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center text-xl">

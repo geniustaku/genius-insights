@@ -155,23 +155,23 @@ export default function SouthAfricaInvestmentCalculator() {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover-lift">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-display font-bold text-gray-900 mb-3">
+    <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl border border-gray-100 hover-lift">
+      <div className="text-center mb-4 sm:mb-6 lg:mb-8">
+        <h2 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-2 sm:mb-3">
           📈 South African Investment Calculator
         </h2>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 text-base sm:text-lg">
           Calculate investment growth, compound interest, and wealth building potential
         </p>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         {/* Calculation Type Toggle */}
-        <div className="flex justify-center mb-6">
-          <div className="bg-gray-100 rounded-2xl p-1 flex">
+        <div className="flex justify-center mb-4 sm:mb-6">
+          <div className="bg-gray-100 rounded-xl sm:rounded-2xl p-1 flex w-full max-w-md">
             <button
               onClick={() => setCalculationType('growth')}
-              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`flex-1 py-2 sm:py-3 px-3 sm:px-6 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 min-h-[44px] touch-manipulation ${
                 calculationType === 'growth'
                   ? 'bg-purple-500 text-white shadow-lg'
                   : 'text-gray-600 hover:text-gray-900'
@@ -181,7 +181,7 @@ export default function SouthAfricaInvestmentCalculator() {
             </button>
             <button
               onClick={() => setCalculationType('goal')}
-              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`flex-1 py-2 sm:py-3 px-3 sm:px-6 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 min-h-[44px] touch-manipulation ${
                 calculationType === 'goal'
                   ? 'bg-purple-500 text-white shadow-lg'
                   : 'text-gray-600 hover:text-gray-900'

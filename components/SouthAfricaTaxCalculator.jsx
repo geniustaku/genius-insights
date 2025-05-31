@@ -104,18 +104,18 @@ export default function SouthAfricaTaxCalculator() {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover-lift">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-display font-bold text-gray-900 mb-3">
+    <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl border border-gray-100 hover-lift">
+      <div className="text-center mb-4 sm:mb-6 lg:mb-8">
+        <h2 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-2 sm:mb-3">
           🇿🇦 Calculate Your South African Tax
         </h2>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 text-base sm:text-lg">
           2025/2026 tax year calculator with SARS-compliant rates and rebates
         </p>
       </div>
 
-      <div className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-6">
+      <div className="space-y-4 sm:space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div className="space-y-2">
             <label className="block text-sm font-semibold text-gray-900 mb-2">
               💰 Annual Gross Income
@@ -125,7 +125,7 @@ export default function SouthAfricaTaxCalculator() {
               value={annualIncome}
               onChange={(e) => setAnnualIncome(e.target.value)}
               placeholder="e.g. 500000"
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
             />
           </div>
 
@@ -136,7 +136,7 @@ export default function SouthAfricaTaxCalculator() {
             <select 
               value={age} 
               onChange={(e) => setAge(e.target.value)}
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
             >
               <option value="under65">Under 65 years</option>
               <option value="age65to74">65 to 74 years</option>
@@ -145,7 +145,7 @@ export default function SouthAfricaTaxCalculator() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div className="space-y-2">
             <label className="block text-sm font-semibold text-gray-900 mb-2">
               🏥 Annual Medical Aid Contributions (Optional)
@@ -155,7 +155,7 @@ export default function SouthAfricaTaxCalculator() {
               value={medicalAid}
               onChange={(e) => setMedicalAid(e.target.value)}
               placeholder="e.g. 24000"
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
             />
           </div>
 
@@ -168,14 +168,14 @@ export default function SouthAfricaTaxCalculator() {
               value={pensionFund}
               onChange={(e) => setPensionFund(e.target.value)}
               placeholder="e.g. 50000"
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
             />
           </div>
         </div>
 
         <button 
           onClick={calculateTax}
-          className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:transform-none flex items-center justify-center space-x-2"
+          className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:transform-none flex items-center justify-center space-x-2 min-h-[48px] touch-manipulation"
           disabled={loading || !annualIncome}
         >
           {loading ? (
@@ -193,59 +193,59 @@ export default function SouthAfricaTaxCalculator() {
       </div>
 
       {result && (
-        <div className="mt-8 space-y-6 animate-fade-in">
+        <div className="mt-6 sm:mt-8 space-y-4 sm:space-y-6 animate-fade-in">
           {/* Main Results */}
-          <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-3xl p-8 border border-green-100">
-            <h3 className="text-2xl font-display font-bold text-gray-900 mb-6 text-center">
+          <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-green-100">
+            <h3 className="text-xl sm:text-2xl font-display font-bold text-gray-900 mb-4 sm:mb-6 text-center">
               Your 2025/2026 Tax Calculation
             </h3>
             
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <div className="text-center p-4 bg-white rounded-2xl shadow-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-4 sm:mb-6">
+              <div className="text-center p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm">
                 <p className="text-sm font-medium text-gray-600 mb-1">Gross Income</p>
-                <p className="text-lg font-bold text-gray-800">{formatCurrency(result.grossIncome)}</p>
+                <p className="text-base sm:text-lg font-bold text-gray-800">{formatCurrency(result.grossIncome)}</p>
               </div>
-              <div className="text-center p-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-2xl shadow-lg">
+              <div className="text-center p-3 sm:p-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl sm:rounded-2xl shadow-lg">
                 <p className="text-sm font-medium text-white/90 mb-1">Income Tax</p>
-                <p className="text-lg font-bold">{formatCurrency(result.incomeTax)}</p>
+                <p className="text-base sm:text-lg font-bold">{formatCurrency(result.incomeTax)}</p>
               </div>
-              <div className="text-center p-4 bg-white rounded-2xl shadow-sm">
+              <div className="text-center p-3 sm:p-4 bg-white rounded-xl sm:rounded-2xl shadow-sm">
                 <p className="text-sm font-medium text-gray-600 mb-1">Total Deductions</p>
-                <p className="text-lg font-bold text-gray-800">{formatCurrency(result.totalDeductions)}</p>
+                <p className="text-base sm:text-lg font-bold text-gray-800">{formatCurrency(result.totalDeductions)}</p>
               </div>
-              <div className="text-center p-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl shadow-lg">
+              <div className="text-center p-3 sm:p-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl sm:rounded-2xl shadow-lg">
                 <p className="text-sm font-medium text-white/90 mb-1">Net Income</p>
-                <p className="text-lg font-bold">{formatCurrency(result.netIncome)}</p>
+                <p className="text-base sm:text-lg font-bold">{formatCurrency(result.netIncome)}</p>
               </div>
             </div>
 
             {/* Monthly Breakdown */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm mb-6">
-              <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+            <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-sm mb-4 sm:mb-6">
+              <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center">
                 <span className="mr-2">📅</span>
                 Monthly Breakdown
               </h4>
               
-              <div className="grid grid-cols-3 gap-4 text-center">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-center">
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Monthly Gross</p>
-                  <p className="text-xl font-bold text-gray-800">{formatCurrency(result.monthlyGross)}</p>
+                  <p className="text-lg sm:text-xl font-bold text-gray-800">{formatCurrency(result.monthlyGross)}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Monthly Tax</p>
-                  <p className="text-xl font-bold text-green-600">{formatCurrency(result.monthlyTax)}</p>
+                  <p className="text-lg sm:text-xl font-bold text-green-600">{formatCurrency(result.monthlyTax)}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600 mb-1">Monthly Net</p>
-                  <p className="text-xl font-bold text-blue-600">{formatCurrency(result.monthlyNet)}</p>
+                  <p className="text-lg sm:text-xl font-bold text-blue-600">{formatCurrency(result.monthlyNet)}</p>
                 </div>
               </div>
             </div>
 
             {/* Tax Details */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-sm">
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center">
                   <span className="mr-2">📊</span>
                   Tax Breakdown
                 </h4>
@@ -282,8 +282,8 @@ export default function SouthAfricaTaxCalculator() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+              <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-sm">
+                <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center">
                   <span className="mr-2">📈</span>
                   Tax Rates
                 </h4>

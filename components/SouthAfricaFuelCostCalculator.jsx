@@ -95,23 +95,23 @@ export default function SouthAfricaFuelCostCalculator() {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover-lift">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-display font-bold text-gray-900 mb-3">
+    <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl border border-gray-100 hover-lift">
+      <div className="text-center mb-4 sm:mb-6 lg:mb-8">
+        <h2 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-2 sm:mb-3">
           ⛽ South African Fuel Cost Calculator
         </h2>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 text-base sm:text-lg">
           Calculate fuel costs, consumption, and trip expenses with current SA fuel prices
         </p>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         {/* Calculation Type Toggle */}
-        <div className="flex justify-center mb-6">
-          <div className="bg-gray-100 rounded-2xl p-1 flex">
+        <div className="flex justify-center mb-4 sm:mb-6">
+          <div className="bg-gray-100 rounded-xl sm:rounded-2xl p-1 flex w-full max-w-md">
             <button
               onClick={() => setCalculationType('trip')}
-              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`flex-1 py-2 sm:py-3 px-3 sm:px-6 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 min-h-[44px] touch-manipulation ${
                 calculationType === 'trip'
                   ? 'bg-orange-500 text-white shadow-lg'
                   : 'text-gray-600 hover:text-gray-900'
@@ -121,7 +121,7 @@ export default function SouthAfricaFuelCostCalculator() {
             </button>
             <button
               onClick={() => setCalculationType('monthly')}
-              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`flex-1 py-2 sm:py-3 px-3 sm:px-6 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-300 min-h-[44px] touch-manipulation ${
                 calculationType === 'monthly'
                   ? 'bg-orange-500 text-white shadow-lg'
                   : 'text-gray-600 hover:text-gray-900'
@@ -132,7 +132,7 @@ export default function SouthAfricaFuelCostCalculator() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div className="space-y-2">
             <label className="block text-sm font-semibold text-gray-900 mb-2">
               ⛽ Fuel Type
@@ -140,7 +140,7 @@ export default function SouthAfricaFuelCostCalculator() {
             <select 
               value={fuelType} 
               onChange={(e) => handleFuelTypeChange(e.target.value)}
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
             >
               <option value="petrol95">Petrol 95 Octane - R{fuelPrices.petrol95}/L</option>
               <option value="petrol93">Petrol 93 Octane - R{fuelPrices.petrol93}/L</option>
@@ -160,12 +160,12 @@ export default function SouthAfricaFuelCostCalculator() {
               onChange={(e) => setFuelPrice(e.target.value)}
               placeholder="e.g. 24.50"
               step="0.01"
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
             />
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {calculationType === 'trip' ? (
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-gray-900 mb-2">
@@ -176,7 +176,7 @@ export default function SouthAfricaFuelCostCalculator() {
                 value={distance}
                 onChange={(e) => setDistance(e.target.value)}
                 placeholder="e.g. 450"
-                className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+                className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
               />
             </div>
           ) : (
@@ -189,7 +189,7 @@ export default function SouthAfricaFuelCostCalculator() {
                 value={monthlyDistance}
                 onChange={(e) => setMonthlyDistance(e.target.value)}
                 placeholder="e.g. 2000"
-                className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+                className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
               />
             </div>
           )}
@@ -204,7 +204,7 @@ export default function SouthAfricaFuelCostCalculator() {
               onChange={(e) => setConsumption(e.target.value)}
               placeholder="e.g. 8.5"
               step="0.1"
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
             />
             <p className="text-xs text-gray-500 mt-1">
               Check your vehicle manual or calculate: (Liters used ÷ Distance traveled) × 100
@@ -265,7 +265,7 @@ export default function SouthAfricaFuelCostCalculator() {
             </div>
 
             {/* Detailed Breakdown */}
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div className="bg-white rounded-2xl p-6 shadow-sm">
                 <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                   <span className="mr-2">📊</span>

@@ -128,21 +128,21 @@ export default function SouthAfricaLoanCalculator() {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover-lift">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-display font-bold text-gray-900 mb-3">
+    <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl border border-gray-100 hover-lift">
+      <div className="text-center mb-4 sm:mb-6 lg:mb-8">
+        <h2 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-2 sm:mb-3">
           🏠 South African Home Loan Calculator
         </h2>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 text-base sm:text-lg">
           Calculate affordability or loan repayments with 2025 SA interest rates
         </p>
       </div>
 
       {/* Calculator Type Toggle */}
-      <div className="flex bg-gray-100 rounded-2xl p-1 mb-8">
+      <div className="flex bg-gray-100 rounded-xl sm:rounded-2xl p-1 mb-4 sm:mb-6 lg:mb-8">
         <button
           onClick={() => setCalculationType('affordability')}
-          className={`flex-1 py-3 px-6 rounded-xl font-semibold transition-all duration-200 ${
+          className={`flex-1 py-2 sm:py-3 px-3 sm:px-6 rounded-lg sm:rounded-xl font-semibold text-sm transition-all duration-200 min-h-[44px] touch-manipulation ${
             calculationType === 'affordability'
               ? 'bg-blue-600 text-white shadow-md'
               : 'text-gray-600 hover:text-gray-900'
@@ -152,7 +152,7 @@ export default function SouthAfricaLoanCalculator() {
         </button>
         <button
           onClick={() => setCalculationType('repayment')}
-          className={`flex-1 py-3 px-6 rounded-xl font-semibold transition-all duration-200 ${
+          className={`flex-1 py-2 sm:py-3 px-3 sm:px-6 rounded-lg sm:rounded-xl font-semibold text-sm transition-all duration-200 min-h-[44px] touch-manipulation ${
             calculationType === 'repayment'
               ? 'bg-blue-600 text-white shadow-md'
               : 'text-gray-600 hover:text-gray-900'
@@ -162,10 +162,10 @@ export default function SouthAfricaLoanCalculator() {
         </button>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         {calculationType === 'affordability' ? (
           // Affordability Calculator Inputs
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-gray-900 mb-2">
                 💵 Monthly Gross Income
@@ -175,7 +175,7 @@ export default function SouthAfricaLoanCalculator() {
                 value={monthlyIncome}
                 onChange={(e) => setMonthlyIncome(e.target.value)}
                 placeholder="e.g. 25000"
-                className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+                className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
               />
             </div>
 
@@ -188,13 +188,13 @@ export default function SouthAfricaLoanCalculator() {
                 value={monthlyExpenses}
                 onChange={(e) => setMonthlyExpenses(e.target.value)}
                 placeholder="e.g. 15000"
-                className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+                className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
               />
             </div>
           </div>
         ) : (
           // Repayment Calculator Inputs
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-gray-900 mb-2">
                 🏠 Property Price
@@ -204,7 +204,7 @@ export default function SouthAfricaLoanCalculator() {
                 value={propertyPrice}
                 onChange={(e) => setPropertyPrice(e.target.value)}
                 placeholder="e.g. 2000000"
-                className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+                className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
               />
             </div>
 
@@ -217,7 +217,7 @@ export default function SouthAfricaLoanCalculator() {
                 value={deposit}
                 onChange={(e) => setDeposit(e.target.value)}
                 placeholder="e.g. 200000"
-                className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+                className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
               />
             </div>
           </div>
@@ -231,7 +231,7 @@ export default function SouthAfricaLoanCalculator() {
             <select 
               value={interestRate} 
               onChange={(e) => setInterestRate(e.target.value)}
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
             >
               <option value="10.5">10.5% (Excellent credit)</option>
               <option value="11.0">11.0% (Good credit)</option>
@@ -249,7 +249,7 @@ export default function SouthAfricaLoanCalculator() {
             <select 
               value={loanTerm} 
               onChange={(e) => setLoanTerm(e.target.value)}
-              className="w-full p-4 border-2 border-gray-200 rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white"
+              className="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl sm:rounded-2xl text-gray-900 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 bg-gray-50 hover:bg-white text-base appearance-none"
             >
               <option value="10">10 years</option>
               <option value="15">15 years</option>
@@ -262,7 +262,7 @@ export default function SouthAfricaLoanCalculator() {
 
         <button 
           onClick={handleCalculate}
-          className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:transform-none flex items-center justify-center space-x-2"
+          className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:transform-none flex items-center justify-center space-x-2 min-h-[48px] touch-manipulation"
           disabled={loading || (calculationType === 'affordability' ? !monthlyIncome || !monthlyExpenses : !propertyPrice)}
         >
           {loading ? (
@@ -355,7 +355,7 @@ export default function SouthAfricaLoanCalculator() {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="bg-white rounded-2xl p-6 shadow-sm">
                   <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                     <span className="mr-2">📊</span>
