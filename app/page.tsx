@@ -11,6 +11,35 @@ import StructuredData from '@/components/StructuredData';
 
 export const revalidate = 3600; // Revalidate this page every hour
 
+export const metadata = {
+  title: 'Genius Insights | Free CV Builder, SA Tax Calculator & Career Tools 2025',
+  description: 'Free professional tools for African professionals: CV builder with PDF download, South African tax calculator, loan calculator, VAT calculator, salary insights. 500,000+ users trust our SARS-compliant calculators.',
+  keywords: 'free CV builder, South Africa tax calculator, SA loan calculator, professional resume maker, SARS tax calculator, African career tools, salary calculator Africa, CV templates free, property transfer calculator SA, VAT calculator South Africa',
+  openGraph: {
+    title: 'Genius Insights | Free Professional Tools for Africa',
+    description: '🚀 Free CV builder, SA tax calculator, loan calculator & more! 500,000+ professionals use our tools. PDF downloads, SARS compliance, beautiful templates.',
+    url: 'https://genius-insights.co.za',
+    type: 'website',
+    images: [
+      {
+        url: '/images/genius-insights-og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Genius Insights - Free Professional Tools for Africa',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Genius Insights | Free CV Builder & SA Calculators',
+    description: '🚀 Build CVs, calculate SA tax, loans & more! Free professional tools trusted by 500,000+ users.',
+    images: ['/images/genius-insights-og.jpg'],
+  },
+  alternates: {
+    canonical: 'https://genius-insights.co.za',
+  },
+};
+
 function stripHtml(html: string) {
   return htmlToText(html, {
     wordwrap: 130,
@@ -45,32 +74,160 @@ export default async function Home() {
               </div>
               
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Accelerate Your
+                Your Complete
                 <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                   Career in Africa
+                  Financial Toolkit
                 </span>
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
-                Discover cutting-edge insights, master in-demand skills, and unlock your potential with our comprehensive platform for African tech professionals.
+                Free professional tools for South Africans: CV builder, SARS-compliant calculators, investment planning, 
+                and career resources. Everything you need for financial success and career growth.
               </p>
+              
+              {/* All Essential Tools Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-12 max-w-7xl mx-auto">
+                <Link href="/cv-builder" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
+                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
+                    <span className="text-white text-lg">📄</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">CV Builder</h3>
+                  <p className="text-xs text-gray-600 text-center">Free PDF Download</p>
+                </Link>
+                
+                <Link href="/south-africa-tax-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
+                  <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
+                    <span className="text-white text-lg">🧮</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">SA Tax</h3>
+                  <p className="text-xs text-gray-600 text-center">SARS Compliant</p>
+                </Link>
+                
+                <Link href="/south-africa-loan-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
+                    <span className="text-white text-lg">🏠</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Home Loan</h3>
+                  <p className="text-xs text-gray-600 text-center">Bond Calculator</p>
+                </Link>
+                
+                <Link href="/south-africa-property-transfer-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
+                  <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
+                    <span className="text-white text-lg">📋</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Transfer Duty</h3>
+                  <p className="text-xs text-gray-600 text-center">Property Costs</p>
+                </Link>
+                
+                <Link href="/south-africa-vat-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
+                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
+                    <span className="text-white text-lg">💼</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">VAT Calculator</h3>
+                  <p className="text-xs text-gray-600 text-center">15% VAT</p>
+                </Link>
+                
+                <Link href="/south-africa-retirement-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
+                  <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
+                    <span className="text-white text-lg">🏦</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Retirement</h3>
+                  <p className="text-xs text-gray-600 text-center">Pension Planning</p>
+                </Link>
+                
+                <Link href="/south-africa-fuel-cost-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
+                  <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
+                    <span className="text-white text-lg">⛽</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Fuel Cost</h3>
+                  <p className="text-xs text-gray-600 text-center">Trip Planning</p>
+                </Link>
+                
+                <Link href="/south-africa-business-registration-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
+                    <span className="text-white text-lg">🏢</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Business Reg</h3>
+                  <p className="text-xs text-gray-600 text-center">CIPC Fees</p>
+                </Link>
+                
+                <Link href="/south-africa-rental-yield-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
+                  <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
+                    <span className="text-white text-lg">🏠</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Rental Yield</h3>
+                  <p className="text-xs text-gray-600 text-center">Property ROI</p>
+                </Link>
+                
+                <Link href="/south-africa-investment-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
+                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
+                    <span className="text-white text-lg">📈</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Investment</h3>
+                  <p className="text-xs text-gray-600 text-center">Wealth Building</p>
+                </Link>
+                
+                <Link href="/salary-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
+                  <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
+                    <span className="text-white text-lg">💰</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Salary Data</h3>
+                  <p className="text-xs text-gray-600 text-center">Market Insights</p>
+                </Link>
+                
+                <Link href="/career-assessment" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
+                    <span className="text-white text-lg">🎯</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Career Guide</h3>
+                  <p className="text-xs text-gray-600 text-center">Assessment</p>
+                </Link>
+                
+                <Link href="/skills-analyzer" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
+                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
+                    <span className="text-white text-lg">🔍</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Skills Analyzer</h3>
+                  <p className="text-xs text-gray-600 text-center">Gap Analysis</p>
+                </Link>
+                
+                <Link href="/job-comparison" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
+                  <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
+                    <span className="text-white text-lg">⚖️</span>
+                  </div>
+                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Job Compare</h3>
+                  <p className="text-xs text-gray-600 text-center">Market Data</p>
+                </Link>
+              </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
                 <Link 
+                  href="/cv-builder" 
+                  className="group bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Build Free CV
+                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+                <Link 
                   href="/articles" 
-                  className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center"
+                  className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center"
                 >
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
-                  Explore Tech Articles
+                  Explore Articles
                   <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
                 <Link 
                   href="/salary-calculator" 
-                  className="group border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-blue-500 hover:text-blue-600 transition-all duration-300 flex items-center"
+                  className="group border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-purple-500 hover:text-purple-600 transition-all duration-300 flex items-center"
                 >
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
@@ -103,6 +260,320 @@ export default async function Home() {
           <div className="absolute bottom-20 left-20 w-32 h-32 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
         </section>
       
+        {/* CV Builder Spotlight Section */}
+        <section className="px-4 sm:px-6 lg:px-8 py-20 bg-gradient-to-br from-purple-50 to-pink-100">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium mb-6">
+                  <span className="mr-2">📄</span>
+                  Professional CV Builder
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  Build Your Perfect CV in Minutes
+                </h2>
+                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                  Create stunning, professional CVs with our free CV builder. Choose from 15+ beautiful templates, 
+                  get instant PDF downloads, and land your dream job with ATS-optimized resumes.
+                </p>
+                
+                <div className="flex flex-wrap gap-6 mb-8">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                      <span className="text-purple-600 text-lg">🎨</span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">15+ Templates</p>
+                      <p className="text-sm text-gray-600">Beautiful, professional designs</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
+                      <span className="text-pink-600 text-lg">📱</span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">Instant PDF</p>
+                      <p className="text-sm text-gray-600">Download immediately</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
+                      <span className="text-indigo-600 text-lg">🤖</span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">ATS Friendly</p>
+                      <p className="text-sm text-gray-600">Beats applicant tracking systems</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <Link 
+                  href="/cv-builder" 
+                  className="inline-flex items-center bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Start Building Your CV - Free
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+              
+              <div className="relative">
+                <div className="bg-white rounded-2xl p-6 shadow-2xl border border-gray-100 transform rotate-2">
+                  <div className="bg-gradient-to-r from-purple-600 to-pink-600 h-4 rounded-t-lg mb-4"></div>
+                  <div className="space-y-3">
+                    <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                    <div className="h-3 bg-gray-100 rounded w-1/2"></div>
+                    <div className="h-3 bg-gray-100 rounded w-2/3"></div>
+                    <div className="h-3 bg-gray-100 rounded w-1/3"></div>
+                    <div className="mt-6">
+                      <div className="h-3 bg-purple-200 rounded w-1/4 mb-2"></div>
+                      <div className="h-2 bg-gray-100 rounded w-full mb-1"></div>
+                      <div className="h-2 bg-gray-100 rounded w-5/6 mb-1"></div>
+                      <div className="h-2 bg-gray-100 rounded w-4/5"></div>
+                    </div>
+                    <div className="mt-6">
+                      <div className="h-3 bg-pink-200 rounded w-1/3 mb-2"></div>
+                      <div className="h-2 bg-gray-100 rounded w-full mb-1"></div>
+                      <div className="h-2 bg-gray-100 rounded w-3/4"></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute top-8 right-8 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full transform rotate-12">
+                  100% FREE
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* South African Financial Tools Section */}
+        <section className="px-4 sm:px-6 lg:px-8 py-20 bg-gradient-to-br from-emerald-50 to-green-100">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white text-sm font-medium mb-6">
+                <span className="mr-2">🇿🇦</span>
+                South African Financial Tools
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Essential Calculators for South Africa
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Production-ready financial calculators designed specifically for South African individuals and businesses. 
+                All tools are updated with 2025 rates and SARS-compliant calculations.
+              </p>
+            </div>
+            
+            {/* Primary Tools Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-green-200">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-white text-xl">🧮</span>
+                </div>
+                <h3 className="text-lg font-bold mb-3 text-gray-900">SA Tax Calculator</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Calculate SARS income tax, PAYE, UIF with 2025/2026 tax tables and rebates.
+                </p>
+                <Link 
+                  href="/south-africa-tax-calculator" 
+                  className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors text-sm"
+                >
+                  Calculate Tax
+                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+              
+              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-white text-xl">🏠</span>
+                </div>
+                <h3 className="text-lg font-bold mb-3 text-gray-900">Home Loan Calculator</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Calculate bond affordability, monthly payments with current SA interest rates.
+                </p>
+                <Link 
+                  href="/south-africa-loan-calculator" 
+                  className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors text-sm"
+                >
+                  Calculate Loan
+                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+              
+              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
+                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-white text-xl">📋</span>
+                </div>
+                <h3 className="text-lg font-bold mb-3 text-gray-900">Transfer Costs</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Calculate transfer duty, attorney fees, and all property transfer costs.
+                </p>
+                <Link 
+                  href="/south-africa-property-transfer-calculator" 
+                  className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors text-sm"
+                >
+                  Calculate Costs
+                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+              
+              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-purple-200">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-white text-xl">💼</span>
+                </div>
+                <h3 className="text-lg font-bold mb-3 text-gray-900">VAT Calculator</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Calculate 15% VAT, check registration thresholds, SARS-compliant calculations.
+                </p>
+                <Link 
+                  href="/south-africa-vat-calculator" 
+                  className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors text-sm"
+                >
+                  Calculate VAT
+                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
+            {/* New Tools Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-emerald-200">
+                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-white text-xl">🏦</span>
+                </div>
+                <h3 className="text-lg font-bold mb-3 text-gray-900">Retirement Calculator</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Plan your financial future with pension fund and retirement savings calculations.
+                </p>
+                <Link 
+                  href="/south-africa-retirement-calculator" 
+                  className="inline-flex items-center text-emerald-600 font-semibold hover:text-emerald-700 transition-colors text-sm"
+                >
+                  Plan Retirement
+                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+              
+              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
+                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-white text-xl">⛽</span>
+                </div>
+                <h3 className="text-lg font-bold mb-3 text-gray-900">Fuel Cost Calculator</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Calculate petrol & diesel costs, trip expenses with current SA fuel prices.
+                </p>
+                <Link 
+                  href="/south-africa-fuel-cost-calculator" 
+                  className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors text-sm"
+                >
+                  Calculate Fuel
+                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+              
+              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-white text-xl">🏢</span>
+                </div>
+                <h3 className="text-lg font-bold mb-3 text-gray-900">Business Registration</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Calculate CIPC registration fees, SARS costs, and business setup expenses.
+                </p>
+                <Link 
+                  href="/south-africa-business-registration-calculator" 
+                  className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors text-sm"
+                >
+                  Business Costs
+                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+              
+              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-green-200">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-white text-xl">🏠</span>
+                </div>
+                <h3 className="text-lg font-bold mb-3 text-gray-900">Rental Yield Calculator</h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Calculate property investment returns, rental yields, and cash flow analysis.
+                </p>
+                <Link 
+                  href="/south-africa-rental-yield-calculator" 
+                  className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors text-sm"
+                >
+                  Property ROI
+                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
+            {/* Additional Tools Row */}
+            <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-6 mt-8">
+              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-purple-200 mx-auto max-w-md">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 mx-auto">
+                  <span className="text-white text-xl">📈</span>
+                </div>
+                <h3 className="text-lg font-bold mb-3 text-gray-900 text-center">Investment Calculator</h3>
+                <p className="text-gray-600 text-sm mb-4 text-center">
+                  Calculate investment growth, compound interest, JSE returns with wealth planning.
+                </p>
+                <Link 
+                  href="/south-africa-investment-calculator" 
+                  className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors text-sm mx-auto"
+                >
+                  Investment Growth
+                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+            
+            {/* Call to Action */}
+            <div className="text-center mt-12">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 inline-block">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">🚀 All Tools Are Production Ready</h3>
+                <p className="text-gray-600 mb-4 max-w-md">
+                  These calculators are used by thousands of South Africans daily for financial planning, 
+                  tax compliance, and property decisions. All calculations are based on 2025 rates.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+                  <span className="flex items-center">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                    SARS Compliant
+                  </span>
+                  <span className="flex items-center">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                    2025 Updated
+                  </span>
+                  <span className="flex items-center">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                    Free Forever
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Professional Tools Section */}
         <section className="px-4 sm:px-6 lg:px-8 py-20">
           <div className="max-w-7xl mx-auto">
@@ -470,10 +941,12 @@ export default async function Home() {
               <div>
                 <h4 className="text-lg font-semibold mb-4">Tools</h4>
                 <ul className="space-y-2">
+                  <li><Link href="/cv-builder" className="text-gray-300 hover:text-white transition-colors">CV Builder</Link></li>
                   <li><Link href="/salary-calculator" className="text-gray-300 hover:text-white transition-colors">Salary Calculator</Link></li>
+                  <li><Link href="/south-africa-tax-calculator" className="text-gray-300 hover:text-white transition-colors">SA Tax Calculator</Link></li>
+                  <li><Link href="/south-africa-loan-calculator" className="text-gray-300 hover:text-white transition-colors">SA Loan Calculator</Link></li>
                   <li><Link href="/skills-analyzer" className="text-gray-300 hover:text-white transition-colors">Skills Analyzer</Link></li>
                   <li><Link href="/career-assessment" className="text-gray-300 hover:text-white transition-colors">Career Assessment</Link></li>
-                  <li><Link href="/job-comparison" className="text-gray-300 hover:text-white transition-colors">Job Comparison</Link></li>
                 </ul>
               </div>
               
