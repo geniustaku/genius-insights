@@ -1,7 +1,7 @@
 'use client'
 
 interface StructuredDataProps {
-  type: 'homepage' | 'salary-calculator' | 'career-assessment' | 'skills-analyzer' | 'cv-builder' | 'investment-calculator' | 'rental-calculator' | 'business-calculator' | 'fuel-calculator' | 'retirement-calculator' | 'vat-calculator' | 'tax-calculator' | 'loan-calculator' | 'property-transfer-calculator';
+  type: 'homepage' | 'salary-calculator' | 'career-assessment' | 'skills-analyzer' | 'cv-builder' | 'investment-calculator' | 'rental-calculator' | 'business-calculator' | 'fuel-calculator' | 'retirement-calculator' | 'vat-calculator' | 'tax-calculator' | 'loan-calculator' | 'property-transfer-calculator' | 'gst-calculator' | 'sales-tax-calculator' | 'epf-calculator' | 'cpf-calculator' | 'super-calculator' | '401k-calculator' | 'pension-calculator' | 'rrsp-calculator' | 'student-loan-calculator' | 'property-calculator';
 }
 
 export default function StructuredData({ type }: StructuredDataProps) {

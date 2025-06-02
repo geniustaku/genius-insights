@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link';
 import Image from 'next/image';
 import { getArticles } from '@/lib/db';
@@ -8,980 +9,468 @@ import { htmlToText } from 'html-to-text';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import JobMarketHighlights from '../components/JobMarketHighlights';
 import StructuredData from '@/components/StructuredData';
+import { useEffect, useState } from 'react';
 
-export const revalidate = 3600; // Revalidate this page every hour
-
-export const metadata = {
-  title: 'Genius Insights | Free CV Builder, SA Tax Calculator & Career Tools 2025',
-  description: 'Free professional tools for African professionals: CV builder with PDF download, South African tax calculator, loan calculator, VAT calculator, salary insights. 500,000+ users trust our SARS-compliant calculators.',
-  keywords: 'free CV builder, South Africa tax calculator, SA loan calculator, professional resume maker, SARS tax calculator, African career tools, salary calculator Africa, CV templates free, property transfer calculator SA, VAT calculator South Africa',
-  openGraph: {
-    title: 'Genius Insights | Free Professional Tools for Africa',
-    description: '🚀 Free CV builder, SA tax calculator, loan calculator & more! 500,000+ professionals use our tools. PDF downloads, SARS compliance, beautiful templates.',
-    url: 'https://genius-insights.co.za',
-    type: 'website',
-    images: [
-      {
-        url: '/images/genius-insights-og.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Genius Insights - Free Professional Tools for Africa',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Genius Insights | Free CV Builder & SA Calculators',
-    description: '🚀 Build CVs, calculate SA tax, loans & more! Free professional tools trusted by 500,000+ users.',
-    images: ['/images/genius-insights-og.jpg'],
-  },
-  alternates: {
-    canonical: 'https://genius-insights.co.za',
-  },
-};
-
+// Move metadata to layout.js or use Head component
 function stripHtml(html: string) {
   return htmlToText(html, {
     wordwrap: 130,
   });
 }
 
-export default async function Home() {
-  const articles = await getArticles(6);
-  const featuredArticle = articles[0]; // Use the first article as featured
-  const recentArticles = articles.slice(1); // Rest of the articles
+export default function Home() {
+  const [articles, setArticles] = useState<any[]>([]);
+  const [featuredArticle, setFeaturedArticle] = useState<any>(null);
+  const [recentArticles, setRecentArticles] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Sanitize the excerpt content
+  useEffect(() => {
+    async function fetchArticles() {
+      try {
+        const response = await fetch('/api/articles');
+        if (response.ok) {
+          const data = await response.json();
+          const articlesList = Array.isArray(data) ? data : data.articles || [];
+          setArticles(articlesList.slice(0, 6));
+          setFeaturedArticle(articlesList[0] || null);
+          setRecentArticles(articlesList.slice(1, 6));
+        }
+      } catch (error) {
+        console.error('Error fetching articles:', error);
+        // Don't show articles section if API fails
+        setArticles([]);
+        setFeaturedArticle(null);
+        setRecentArticles([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    fetchArticles();
+  }, []);
+
   const sanitizedFeaturedExcerpt = featuredArticle ? stripHtml(featuredArticle.excerpt) : '';
   const sanitizedRecentArticles = recentArticles.map(article => ({
     ...article,
     excerpt: stripHtml(article.excerpt),
   }));
 
+  const countries = [
+    { name: 'South Africa', flag: '🇿🇦', tools: 12, featured: true },
+    { name: 'Nigeria', flag: '🇳🇬', tools: 8, featured: true },
+    { name: 'Kenya', flag: '🇰🇪', tools: 6, featured: true },
+    { name: 'Ghana', flag: '🇬🇭', tools: 5, featured: true },
+    { name: 'Egypt', flag: '🇪🇬', tools: 4, featured: false },
+    { name: 'Morocco', flag: '🇲🇦', tools: 4, featured: false },
+    { name: 'United Kingdom', flag: '🇬🇧', tools: 8, featured: true },
+    { name: 'Canada', flag: '🇨🇦', tools: 7, featured: true },
+    { name: 'Australia', flag: '🇦🇺', tools: 6, featured: false },
+    { name: 'United States', flag: '🇺🇸', tools: 9, featured: true },
+    { name: 'Germany', flag: '🇩🇪', tools: 5, featured: false },
+    { name: 'France', flag: '🇫🇷', tools: 5, featured: false },
+    { name: 'India', flag: '🇮🇳', tools: 7, featured: true },
+    { name: 'Singapore', flag: '🇸🇬', tools: 6, featured: false },
+    { name: 'UAE', flag: '🇦🇪', tools: 5, featured: false },
+    { name: 'Brazil', flag: '🇧🇷', tools: 4, featured: false },
+  ];
+
+  const globalTools = [
+    { 
+      name: 'CV Builder', 
+      icon: '📄', 
+      link: '/cv-builder', 
+      description: 'Professional resume maker with global templates',
+      gradient: 'from-purple-500 to-pink-500',
+      users: '500K+'
+    },
+    { 
+      name: 'Salary Calculator', 
+      icon: '💰', 
+      link: '/salary-calculator', 
+      description: 'Market insights for 20+ countries',
+      gradient: 'from-green-500 to-emerald-500',
+      users: '300K+'
+    },
+    { 
+      name: 'Tax Calculator', 
+      icon: '🧮', 
+      link: '/south-africa-tax-calculator', 
+      description: 'Country-specific tax calculations',
+      gradient: 'from-blue-500 to-cyan-500',
+      users: '250K+'
+    },
+    { 
+      name: 'Loan Calculator', 
+      icon: '🏠', 
+      link: '/south-africa-loan-calculator', 
+      description: 'Mortgage and loan planning tools',
+      gradient: 'from-orange-500 to-red-500',
+      users: '150K+'
+    },
+  ];
+
   return (
     <>
       <StructuredData type="homepage" />
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-        {/* Modern Hero Section */}
-        <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      
+      {/* Elegant Hero Section */}
+      <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+        </div>
+
+        <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium mb-8">
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                #1 African Tech Career Platform
+            
+            {/* Global Badge */}
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 backdrop-blur-sm">
+                <span className="text-purple-300 text-sm font-medium mr-2">🌍</span>
+                <span className="text-white text-sm font-medium">Professional Tools for 20+ Countries</span>
+                <span className="ml-2 px-2 py-1 bg-purple-500 text-white text-xs rounded-full">750K+ Users</span>
               </div>
-              
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Your Complete
-                <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                  Financial Toolkit
+            </div>
+
+            {/* Main Headline */}
+            <div className="text-center mb-16">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                <span className="block text-white mb-2">Your Global</span>
+                <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 bg-clip-text text-transparent">
+                  Career Toolkit
                 </span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
-                Free professional tools for South Africans: CV builder, SARS-compliant calculators, investment planning, 
-                and career resources. Everything you need for financial success and career growth.
+              <p className="text-xl sm:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+                Professional tools designed for the modern workforce. Build CVs, calculate taxes, plan finances, 
+                and advance your career across multiple countries and regions.
               </p>
-              
-              {/* All Essential Tools Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-12 max-w-7xl mx-auto">
-                <Link href="/cv-builder" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
-                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">📄</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">CV Builder</h3>
-                  <p className="text-xs text-gray-600 text-center">Free PDF Download</p>
-                </Link>
-                
-                <Link href="/south-africa-tax-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
-                  <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">🧮</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">SA Tax</h3>
-                  <p className="text-xs text-gray-600 text-center">SARS Compliant</p>
-                </Link>
-                
-                <Link href="/south-africa-loan-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">🏠</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Home Loan</h3>
-                  <p className="text-xs text-gray-600 text-center">Bond Calculator</p>
-                </Link>
-                
-                <Link href="/south-africa-property-transfer-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
-                  <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">📋</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Transfer Duty</h3>
-                  <p className="text-xs text-gray-600 text-center">Property Costs</p>
-                </Link>
-                
-                <Link href="/south-africa-vat-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
-                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">💼</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">VAT Calculator</h3>
-                  <p className="text-xs text-gray-600 text-center">15% VAT</p>
-                </Link>
-                
-                <Link href="/south-africa-retirement-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
-                  <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">🏦</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Retirement</h3>
-                  <p className="text-xs text-gray-600 text-center">Pension Planning</p>
-                </Link>
-                
-                <Link href="/south-africa-fuel-cost-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
-                  <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">⛽</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Fuel Cost</h3>
-                  <p className="text-xs text-gray-600 text-center">Trip Planning</p>
-                </Link>
-                
-                <Link href="/south-africa-business-registration-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">🏢</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Business Reg</h3>
-                  <p className="text-xs text-gray-600 text-center">CIPC Fees</p>
-                </Link>
-                
-                <Link href="/south-africa-rental-yield-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
-                  <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">🏠</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Rental Yield</h3>
-                  <p className="text-xs text-gray-600 text-center">Property ROI</p>
-                </Link>
-                
-                <Link href="/south-africa-investment-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
-                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">📈</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Investment</h3>
-                  <p className="text-xs text-gray-600 text-center">Wealth Building</p>
-                </Link>
-                
-                <Link href="/salary-calculator" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
-                  <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">💰</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Salary Data</h3>
-                  <p className="text-xs text-gray-600 text-center">Market Insights</p>
-                </Link>
-                
-                <Link href="/career-assessment" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">🎯</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Career Guide</h3>
-                  <p className="text-xs text-gray-600 text-center">Assessment</p>
-                </Link>
-                
-                <Link href="/skills-analyzer" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
-                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">🔍</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Skills Analyzer</h3>
-                  <p className="text-xs text-gray-600 text-center">Gap Analysis</p>
-                </Link>
-                
-                <Link href="/job-comparison" className="group bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-white/20 hover:scale-105">
-                  <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">⚖️</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-center text-gray-800 mb-1">Job Compare</h3>
-                  <p className="text-xs text-gray-600 text-center">Market Data</p>
-                </Link>
-              </div>
-              
+
+              {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
                 <Link 
                   href="/cv-builder" 
-                  className="group bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center"
+                  className="group bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center min-w-[200px] justify-center"
                 >
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
+                  <span className="text-xl mr-2">📄</span>
                   Build Free CV
                   <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
                 <Link 
-                  href="/articles" 
-                  className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center"
+                  href="/salary-calculator" 
+                  className="group bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center min-w-[200px] justify-center"
                 >
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                  Explore Articles
+                  <span className="text-xl mr-2">💰</span>
+                  Check Salary
                   <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
-                <Link 
-                  href="/salary-calculator" 
-                  className="group border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-purple-500 hover:text-purple-600 transition-all duration-300 flex items-center"
-                >
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                  </svg>
-                  Check Salary Data
-                </Link>
-              </div>
-              
-              {/* Trust Indicators */}
-              <div className="flex flex-wrap justify-center items-center gap-8 text-gray-500">
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                  <span className="text-sm font-medium">18+ African Countries</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                  <span className="text-sm font-medium">50K+ Tech Professionals</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
-                  <span className="text-sm font-medium">500+ Career Resources</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Background decoration */}
-          <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-          <div className="absolute top-40 right-10 w-32 h-32 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-20 left-20 w-32 h-32 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-        </section>
-      
-        {/* CV Builder Spotlight Section */}
-        <section className="px-4 sm:px-6 lg:px-8 py-20 bg-gradient-to-br from-purple-50 to-pink-100">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-medium mb-6">
-                  <span className="mr-2">📄</span>
-                  Professional CV Builder
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  Build Your Perfect CV in Minutes
-                </h2>
-                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                  Create stunning, professional CVs with our free CV builder. Choose from 15+ beautiful templates, 
-                  get instant PDF downloads, and land your dream job with ATS-optimized resumes.
-                </p>
-                
-                <div className="flex flex-wrap gap-6 mb-8">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
-                      <span className="text-purple-600 text-lg">🎨</span>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">15+ Templates</p>
-                      <p className="text-sm text-gray-600">Beautiful, professional designs</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
-                      <span className="text-pink-600 text-lg">📱</span>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">Instant PDF</p>
-                      <p className="text-sm text-gray-600">Download immediately</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
-                      <span className="text-indigo-600 text-lg">🤖</span>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">ATS Friendly</p>
-                      <p className="text-sm text-gray-600">Beats applicant tracking systems</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <Link 
-                  href="/cv-builder" 
-                  className="inline-flex items-center bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"
-                >
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Start Building Your CV - Free
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-              
-              <div className="relative">
-                <div className="bg-white rounded-2xl p-6 shadow-2xl border border-gray-100 transform rotate-2">
-                  <div className="bg-gradient-to-r from-purple-600 to-pink-600 h-4 rounded-t-lg mb-4"></div>
-                  <div className="space-y-3">
-                    <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                    <div className="h-3 bg-gray-100 rounded w-1/2"></div>
-                    <div className="h-3 bg-gray-100 rounded w-2/3"></div>
-                    <div className="h-3 bg-gray-100 rounded w-1/3"></div>
-                    <div className="mt-6">
-                      <div className="h-3 bg-purple-200 rounded w-1/4 mb-2"></div>
-                      <div className="h-2 bg-gray-100 rounded w-full mb-1"></div>
-                      <div className="h-2 bg-gray-100 rounded w-5/6 mb-1"></div>
-                      <div className="h-2 bg-gray-100 rounded w-4/5"></div>
-                    </div>
-                    <div className="mt-6">
-                      <div className="h-3 bg-pink-200 rounded w-1/3 mb-2"></div>
-                      <div className="h-2 bg-gray-100 rounded w-full mb-1"></div>
-                      <div className="h-2 bg-gray-100 rounded w-3/4"></div>
-                    </div>
-                  </div>
-                </div>
-                <div className="absolute top-8 right-8 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full transform rotate-12">
-                  100% FREE
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* South African Financial Tools Section */}
-        <section className="px-4 sm:px-6 lg:px-8 py-20 bg-gradient-to-br from-emerald-50 to-green-100">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white text-sm font-medium mb-6">
-                <span className="mr-2">🇿🇦</span>
-                South African Financial Tools
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Essential Calculators for South Africa
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Production-ready financial calculators designed specifically for South African individuals and businesses. 
-                All tools are updated with 2025 rates and SARS-compliant calculations.
-              </p>
-            </div>
-            
-            {/* Primary Tools Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-green-200">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-white text-xl">🧮</span>
-                </div>
-                <h3 className="text-lg font-bold mb-3 text-gray-900">SA Tax Calculator</h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Calculate SARS income tax, PAYE, UIF with 2025/2026 tax tables and rebates.
-                </p>
-                <Link 
-                  href="/south-africa-tax-calculator" 
-                  className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors text-sm"
-                >
-                  Calculate Tax
-                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-              
-              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-white text-xl">🏠</span>
-                </div>
-                <h3 className="text-lg font-bold mb-3 text-gray-900">Home Loan Calculator</h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Calculate bond affordability, monthly payments with current SA interest rates.
-                </p>
-                <Link 
-                  href="/south-africa-loan-calculator" 
-                  className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors text-sm"
-                >
-                  Calculate Loan
-                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-              
-              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-white text-xl">📋</span>
-                </div>
-                <h3 className="text-lg font-bold mb-3 text-gray-900">Transfer Costs</h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Calculate transfer duty, attorney fees, and all property transfer costs.
-                </p>
-                <Link 
-                  href="/south-africa-property-transfer-calculator" 
-                  className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors text-sm"
-                >
-                  Calculate Costs
-                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-              
-              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-purple-200">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-white text-xl">💼</span>
-                </div>
-                <h3 className="text-lg font-bold mb-3 text-gray-900">VAT Calculator</h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Calculate 15% VAT, check registration thresholds, SARS-compliant calculations.
-                </p>
-                <Link 
-                  href="/south-africa-vat-calculator" 
-                  className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors text-sm"
-                >
-                  Calculate VAT
-                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
               </div>
             </div>
 
-            {/* New Tools Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-emerald-200">
-                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-white text-xl">🏦</span>
-                </div>
-                <h3 className="text-lg font-bold mb-3 text-gray-900">Retirement Calculator</h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Plan your financial future with pension fund and retirement savings calculations.
-                </p>
+            {/* Global Tools Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+              {globalTools.map((tool, index) => (
                 <Link 
-                  href="/south-africa-retirement-calculator" 
-                  className="inline-flex items-center text-emerald-600 font-semibold hover:text-emerald-700 transition-colors text-sm"
+                  key={index}
+                  href={tool.link} 
+                  className="group bg-white/10 backdrop-blur-md rounded-3xl p-6 hover:bg-white/20 transition-all duration-300 border border-white/20 hover:scale-105 hover:shadow-2xl"
                 >
-                  Plan Retirement
-                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  <div className={`w-16 h-16 bg-gradient-to-r ${tool.gradient} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <span className="text-2xl">{tool.icon}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">{tool.name}</h3>
+                  <p className="text-gray-300 text-sm mb-3 leading-relaxed">{tool.description}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-purple-300 text-sm font-medium">{tool.users} users</span>
+                    <svg className="w-5 h-5 text-purple-300 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
                 </Link>
-              </div>
-              
-              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-white text-xl">⛽</span>
-                </div>
-                <h3 className="text-lg font-bold mb-3 text-gray-900">Fuel Cost Calculator</h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Calculate petrol & diesel costs, trip expenses with current SA fuel prices.
-                </p>
-                <Link 
-                  href="/south-africa-fuel-cost-calculator" 
-                  className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors text-sm"
-                >
-                  Calculate Fuel
-                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-              
-              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-white text-xl">🏢</span>
-                </div>
-                <h3 className="text-lg font-bold mb-3 text-gray-900">Business Registration</h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Calculate CIPC registration fees, SARS costs, and business setup expenses.
-                </p>
-                <Link 
-                  href="/south-africa-business-registration-calculator" 
-                  className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors text-sm"
-                >
-                  Business Costs
-                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-              
-              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-green-200">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-white text-xl">🏠</span>
-                </div>
-                <h3 className="text-lg font-bold mb-3 text-gray-900">Rental Yield Calculator</h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Calculate property investment returns, rental yields, and cash flow analysis.
-                </p>
-                <Link 
-                  href="/south-africa-rental-yield-calculator" 
-                  className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors text-sm"
-                >
-                  Property ROI
-                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-
-            {/* Additional Tools Row */}
-            <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-6 mt-8">
-              <div className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-purple-200 mx-auto max-w-md">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 mx-auto">
-                  <span className="text-white text-xl">📈</span>
-                </div>
-                <h3 className="text-lg font-bold mb-3 text-gray-900 text-center">Investment Calculator</h3>
-                <p className="text-gray-600 text-sm mb-4 text-center">
-                  Calculate investment growth, compound interest, JSE returns with wealth planning.
-                </p>
-                <Link 
-                  href="/south-africa-investment-calculator" 
-                  className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors text-sm mx-auto"
-                >
-                  Investment Growth
-                  <svg className="ml-1 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-            
-            {/* Call to Action */}
-            <div className="text-center mt-12">
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 inline-block">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">🚀 All Tools Are Production Ready</h3>
-                <p className="text-gray-600 mb-4 max-w-md">
-                  These calculators are used by thousands of South Africans daily for financial planning, 
-                  tax compliance, and property decisions. All calculations are based on 2025 rates.
-                </p>
-                <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
-                  <span className="flex items-center">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                    SARS Compliant
-                  </span>
-                  <span className="flex items-center">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                    2025 Updated
-                  </span>
-                  <span className="flex items-center">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
-                    Free Forever
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Professional Tools Section */}
-        <section className="px-4 sm:px-6 lg:px-8 py-20">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Professional Development Tools
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Advanced tools designed specifically for African tech professionals to accelerate career growth
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200">
-                <div className="w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Salary Intelligence</h3>
-                <p className="text-gray-600 mb-6">
-                  Real-time salary data across 18+ African countries with AI-powered market insights and negotiation strategies.
-                </p>
-                <Link 
-                  href="/salary-calculator" 
-                  className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors"
-                >
-                  Explore Salaries
-                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-              
-              <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-purple-200">
-                <div className="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Skills Assessment</h3>
-                <p className="text-gray-600 mb-6">
-                  AI-powered skills gap analysis with personalized learning recommendations and industry benchmarking.
-                </p>
-                <Link 
-                  href="/skills-analyzer" 
-                  className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors"
-                >
-                  Analyze Skills
-                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-              
-              <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-blue-200">
-                <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6m8 0H8" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Career Guidance</h3>
-                <p className="text-gray-600 mb-6">
-                  Comprehensive career assessments with market-specific insights for optimal career trajectory planning.
-                </p>
-                <Link 
-                  href="/career-assessment" 
-                  className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors"
-                >
-                  Start Assessment
-                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-      
-        {/* Featured Article Section */}
-        {featuredArticle && (
-          <section className="px-4 sm:px-6 lg:px-8 py-20 bg-white">
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-16">
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-sm font-medium mb-4">
-                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                  </svg>
-                  Featured Insight
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  Latest Tech Insights
-                </h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  Stay ahead with cutting-edge insights from African tech leaders and industry experts
-                </p>
-              </div>
-              <FeaturedArticle article={{ ...featuredArticle, excerpt: sanitizedFeaturedExcerpt }} />
-            </div>
-          </section>
-        )}
-      
-        {/* Recent Articles Section */}
-        <section className="px-4 sm:px-6 lg:px-8 py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex items-center justify-between mb-16">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Latest Tech Articles</h2>
-                <p className="text-xl text-gray-600">Expert insights, tutorials, and industry analysis for African tech professionals</p>
-              </div>
-              <Link 
-                href="/articles" 
-                className="hidden sm:flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
-              >
-                View All Articles
-                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {sanitizedRecentArticles.map((article: unknown) => (
-                <ArticleCard key={(article as any).id} article={article} />
               ))}
             </div>
-            
-            <div className="text-center mt-12 sm:hidden">
-              <Link 
-                href="/articles" 
-                className="inline-flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
-              >
-                View All Articles
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          </div>
+        </div>
+      </div>
+
+      {/* Country Selection Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+              Choose Your Country
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Access localized professional tools designed specifically for your region's market, 
+              regulations, and career opportunities.
+            </p>
+          </div>
+
+          {/* Featured Countries */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Popular Destinations</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {countries.filter(country => country.featured).map((country, index) => (
+                <Link
+                  key={index}
+                  href={`/countries/${country.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:scale-105 text-center"
+                >
+                  <div className="text-4xl mb-3">{country.flag}</div>
+                  <h4 className="font-bold text-gray-900 mb-2">{country.name}</h4>
+                  <p className="text-sm text-gray-600">{country.tools} Professional Tools</p>
+                  <div className="mt-3 inline-flex items-center text-blue-600 group-hover:text-blue-700">
+                    <span className="text-sm font-medium">Explore Tools</span>
+                    <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* All Countries */}
+          <div className="text-center">
+            <h3 className="text-xl font-bold text-gray-900 mb-6">All Supported Countries</h3>
+            <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-3">
+              {countries.map((country, index) => (
+                <Link
+                  key={index}
+                  href={`/countries/${country.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="group bg-white rounded-xl p-3 shadow hover:shadow-lg transition-all duration-300 hover:scale-105 text-center"
+                  title={`${country.name} - ${country.tools} tools`}
+                >
+                  <div className="text-2xl mb-1">{country.flag}</div>
+                  <p className="text-xs font-medium text-gray-700 truncate">{country.name}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Regional Tools Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+              Regional Specializations
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Specialized tools designed for different regions, compliance requirements, and market conditions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Africa */}
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 border border-green-100">
+              <div className="text-4xl mb-4">🌍</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Africa</h3>
+              <p className="text-gray-600 mb-6">Comprehensive tools for the African job market with local compliance and currency support.</p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center text-sm text-gray-700">
+                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                  SARS Tax Compliance (SA)
+                </div>
+                <div className="flex items-center text-sm text-gray-700">
+                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                  Multi-currency Support
+                </div>
+                <div className="flex items-center text-sm text-gray-700">
+                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                  Local Salary Benchmarks
+                </div>
+              </div>
+              <Link href="/africa" className="inline-flex items-center text-green-600 font-medium hover:text-green-700">
+                Explore Africa Tools
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+
+            {/* Europe */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
+              <div className="text-4xl mb-4">🇪🇺</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Europe</h3>
+              <p className="text-gray-600 mb-6">EU-compliant tools with GDPR privacy protection and regional tax calculations.</p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center text-sm text-gray-700">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                  GDPR Compliant
+                </div>
+                <div className="flex items-center text-sm text-gray-700">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                  EU Tax Systems
+                </div>
+                <div className="flex items-center text-sm text-gray-700">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                  Multi-language Support
+                </div>
+              </div>
+              <Link href="/europe" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700">
+                Explore Europe Tools
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </div>
+
+            {/* Americas */}
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 border border-purple-100">
+              <div className="text-4xl mb-4">🌎</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Americas</h3>
+              <p className="text-gray-600 mb-6">Tools designed for North and South American markets with local regulations and standards.</p>
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center text-sm text-gray-700">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                  US/Canada Tax Systems
+                </div>
+                <div className="flex items-center text-sm text-gray-700">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                  Regional Salary Data
+                </div>
+                <div className="flex items-center text-sm text-gray-700">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                  Industry Standards
+                </div>
+              </div>
+              <Link href="/americas" className="inline-flex items-center text-purple-600 font-medium hover:text-purple-700">
+                Explore Americas Tools
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
             </div>
           </div>
-        </section>
-      
-        {/* Market Insights Section */}
-        <section className="px-4 sm:px-6 lg:px-8 py-20 bg-gradient-to-r from-indigo-600 to-purple-700">
-          <div className="max-w-7xl mx-auto">
+        </div>
+      </section>
+
+      {/* Trust & Statistics Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-white">
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
+              Trusted Worldwide
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-16">
+              Join hundreds of thousands of professionals who trust our tools for their career and financial planning.
+            </p>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="text-4xl sm:text-5xl font-bold text-purple-400 mb-2">750K+</div>
+                <div className="text-gray-300">Active Users</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl sm:text-5xl font-bold text-blue-400 mb-2">20+</div>
+                <div className="text-gray-300">Countries</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl sm:text-5xl font-bold text-green-400 mb-2">50+</div>
+                <div className="text-gray-300">Professional Tools</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl sm:text-5xl font-bold text-yellow-400 mb-2">99.9%</div>
+                <div className="text-gray-300">Uptime</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Articles Section */}
+      {!loading && featuredArticle && (
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                African Tech Market Intelligence
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                Latest Career Insights
               </h2>
-              <p className="text-xl text-indigo-100 max-w-3xl mx-auto">
-                Real-time data and insights driving tech careers across Africa
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Stay updated with the latest career trends, salary insights, and professional development tips.
               </p>
             </div>
-            
-            <JobMarketHighlights />
-            
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2">
+                <FeaturedArticle 
+                  article={{
+                    ...featuredArticle,
+                    excerpt: sanitizedFeaturedExcerpt
+                  }} 
+                />
+              </div>
+              <div className="space-y-6">
+                {sanitizedRecentArticles.slice(0, 3).map((article) => (
+                  <ArticleCard key={article.id} article={article} />
+                ))}
+              </div>
+            </div>
+
             <div className="text-center mt-12">
               <Link 
-                href="/job-comparison" 
-                className="inline-flex items-center bg-white text-indigo-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 hover:shadow-lg transition-all duration-300"
+                href="/articles" 
+                className="inline-flex items-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
-                Explore Market Data
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                View All Articles
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
             </div>
           </div>
         </section>
-      
-        {/* Career Categories Section */}
-        <section className="px-4 sm:px-6 lg:px-8 py-20 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Explore Tech Career Paths
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Specialized resources and insights for every tech discipline and career level
-              </p>
-            </div>
-            <CategoryList />
-          </div>
-        </section>
-      
-        {/* Newsletter Section */}
-        <section className="px-4 sm:px-6 lg:px-8 py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-          <div className="max-w-4xl mx-auto">
-            <NewsletterSignup variant="default" />
-          </div>
-        </section>
-      
-        {/* Statistics Section */}
-        <section className="px-4 sm:px-6 lg:px-8 py-20 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                African Tech by the Numbers
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Data-driven insights into the rapidly growing African technology sector
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center group">
-                <div className="bg-gradient-to-r from-blue-500 to-blue-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                  </svg>
-                </div>
-                <p className="text-4xl font-bold text-blue-600 mb-2">$52K</p>
-                <p className="text-gray-600 font-medium">Average Tech Salary</p>
-              </div>
-              
-              <div className="text-center group">
-                <div className="bg-gradient-to-r from-green-500 to-emerald-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                  </svg>
-                </div>
-                <p className="text-4xl font-bold text-green-600 mb-2">18%</p>
-                <p className="text-gray-600 font-medium">Annual Growth Rate</p>
-              </div>
-              
-              <div className="text-center group">
-                <div className="bg-gradient-to-r from-purple-500 to-purple-600 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6m8 0H8" />
-                  </svg>
-                </div>
-                <p className="text-4xl font-bold text-purple-600 mb-2">12K+</p>
-                <p className="text-gray-600 font-medium">Open Positions</p>
-              </div>
-              
-              <div className="text-center group">
-                <div className="bg-gradient-to-r from-orange-500 to-red-500 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <p className="text-4xl font-bold text-red-600 mb-2">4.2x</p>
-                <p className="text-gray-600 font-medium">Career Acceleration</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      
-        {/* Success Stories Section */}
-        <section className="px-4 sm:px-6 lg:px-8 py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Success Stories from African Tech Leaders
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Real professionals, real results. See how our platform accelerates tech careers across Africa.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-lg">
-                    TM
-                  </div>
-                  <div className="ml-4">
-                    <p className="font-bold text-gray-900 text-lg">Thabo Makena</p>
-                    <p className="text-blue-600 font-medium">Senior Full-Stack Developer</p>
-                    <p className="text-gray-500 text-sm">Cape Town, South Africa</p>
-                  </div>
-                </div>
-                <p className="text-gray-700 leading-relaxed">
-                  "The salary insights helped me negotiate a 22% increase when switching companies. The market data was spot-on and gave me the confidence to ask for what I'm worth."
-                </p>
-                <div className="mt-6 flex items-center text-blue-600">
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-semibold">22% Salary Increase</span>
-                </div>
-              </div>
-              
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-lg">
-                    AN
-                  </div>
-                  <div className="ml-4">
-                    <p className="font-bold text-gray-900 text-lg">Amara Nkomo</p>
-                    <p className="text-purple-600 font-medium">AI/ML Engineer</p>
-                    <p className="text-gray-500 text-sm">Lagos, Nigeria</p>
-                  </div>
-                </div>
-                <p className="text-gray-700 leading-relaxed">
-                  "The career assessment and skills analyzer helped me transition from web development to machine learning. The personalized roadmap was invaluable."
-                </p>
-                <div className="mt-6 flex items-center text-purple-600">
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-semibold">Successful Career Pivot</span>
-                </div>
-              </div>
-              
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center text-white font-bold text-lg">
-                    KM
-                  </div>
-                  <div className="ml-4">
-                    <p className="font-bold text-gray-900 text-lg">Kofi Mensah</p>
-                    <p className="text-green-600 font-medium">DevOps Engineer</p>
-                    <p className="text-gray-500 text-sm">Accra, Ghana</p>
-                  </div>
-                </div>
-                <p className="text-gray-700 leading-relaxed">
-                  "Using the platform's tools, I identified the exact skills needed for DevOps roles and landed my dream job at a leading fintech company in just 6 months."
-                </p>
-                <div className="mt-6 flex items-center text-green-600">
-                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-semibold">Dream Job in 6 Months</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* Footer */}
-        <footer className="bg-slate-900 text-white py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-4 gap-8">
-              {/* Brand Section */}
-              <div className="md:col-span-2">
-                <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Genius Insights
-                </h3>
-                <p className="text-gray-300 mb-6 max-w-md">
-                  Accelerating tech careers across Africa with data-driven insights, professional tools, and expert guidance.
-                </p>
-                <div className="flex space-x-4">
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
-                    </svg>
-                  </a>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                  </a>
-                  <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.300 24 12c0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              
-              {/* Quick Links */}
-              <div>
-                <h4 className="text-lg font-semibold mb-4">Tools</h4>
-                <ul className="space-y-2">
-                  <li><Link href="/cv-builder" className="text-gray-300 hover:text-white transition-colors">CV Builder</Link></li>
-                  <li><Link href="/salary-calculator" className="text-gray-300 hover:text-white transition-colors">Salary Calculator</Link></li>
-                  <li><Link href="/south-africa-tax-calculator" className="text-gray-300 hover:text-white transition-colors">SA Tax Calculator</Link></li>
-                  <li><Link href="/south-africa-loan-calculator" className="text-gray-300 hover:text-white transition-colors">SA Loan Calculator</Link></li>
-                  <li><Link href="/skills-analyzer" className="text-gray-300 hover:text-white transition-colors">Skills Analyzer</Link></li>
-                  <li><Link href="/career-assessment" className="text-gray-300 hover:text-white transition-colors">Career Assessment</Link></li>
-                </ul>
-              </div>
-              
-              {/* Resources */}
-              <div>
-                <h4 className="text-lg font-semibold mb-4">Resources</h4>
-                <ul className="space-y-2">
-                  <li><Link href="/articles" className="text-gray-300 hover:text-white transition-colors">Tech Articles</Link></li>
-                  <li><Link href="/market-report/nigeria" className="text-gray-300 hover:text-white transition-colors">Market Reports</Link></li>
-                  <li><Link href="/categories/software-development" className="text-gray-300 hover:text-white transition-colors">Categories</Link></li>
-                  <li><Link href="#" className="text-gray-300 hover:text-white transition-colors">Tutorials</Link></li>
-                </ul>
-              </div>
-            </div>
-            
-            {/* Bottom Section */}
-            <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400 text-sm mb-4 md:mb-0">
-                © 2025 Genius Insights. All rights reserved.
-              </p>
-              <div className="flex space-x-6 text-sm">
-                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
-                  Privacy Policy
-                </Link>
-                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
-                  Terms of Service
-                </Link>
-                <a href="mailto:contact@geniusinsights.com" className="text-gray-400 hover:text-white transition-colors">
-                  Contact
-                </a>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
+      )}
+
+      {/* Newsletter Section */}
+      <section className="py-20 bg-gradient-to-r from-purple-600 to-pink-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Stay Ahead of the Curve
+          </h2>
+          <p className="text-xl text-purple-100 mb-8">
+            Get weekly insights on salary trends, career opportunities, and professional development tips delivered to your inbox.
+          </p>
+          <NewsletterSignup />
+        </div>
+      </section>
+
+      <style jsx>{`
+        @keyframes blob {
+          0% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
     </>
   );
 }
