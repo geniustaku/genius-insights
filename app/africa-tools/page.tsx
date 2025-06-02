@@ -106,7 +106,7 @@ export default function AfricaToolsPage() {
 
   return (
     <>
-      <StructuredData type="regional-tools" />
+      <StructuredData type="homepage" />
       
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-green-50 to-emerald-100">
         {/* Header Section */}

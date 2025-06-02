@@ -92,7 +92,7 @@ export default function AsiaPacificToolsPage() {
 
   return (
     <>
-      <StructuredData type="regional-tools" />
+      <StructuredData type="homepage" />
       
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50 to-yellow-100">
         {/* Header Section */}

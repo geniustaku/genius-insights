@@ -35,10 +35,9 @@ export const metadata: Metadata = {
 
 export default function CanadaPropertyCalculatorPage() {
   return (
-    <>
+    <div>
       <StructuredData type="property-calculator" />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-        {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-red-600 to-red-700 rounded-b-3xl">
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"></div>
           <div className="relative max-w-7xl mx-auto px-8 py-20">
@@ -58,10 +57,8 @@ export default function CanadaPropertyCalculatorPage() {
           </div>
         </div>
 
-        {/* Calculator Section */}
         <CanadaPropertyCalculatorClient />
 
-        {/* Information Section */}
         <div className="max-w-6xl mx-auto px-8 pb-16">
           <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
             <div className="grid md:grid-cols-2 gap-12">
@@ -106,7 +103,7 @@ export default function CanadaPropertyCalculatorPage() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <span className="text-gray-700">CMHC Insurance (if down payment < 20%)</span>
+                    <span className="text-gray-700">CMHC Insurance (if down payment less than 20%)</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-red-500 rounded-full"></div>
@@ -130,6 +127,6 @@ export default function CanadaPropertyCalculatorPage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
