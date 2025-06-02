@@ -1,4 +1,8 @@
+'use client'
+
+import { useState } from 'react';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
@@ -17,10 +21,6 @@ export const metadata: Metadata = {
     type: 'website',
   },
 };
-
-'use client'
-import { useState } from 'react';
-import Link from 'next/link';
 
 export default function BrazilSalaryCalculatorPage() {
   const [jobTitle, setJobTitle] = useState('');
