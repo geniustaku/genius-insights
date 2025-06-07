@@ -167,7 +167,7 @@ export default function UniversalTaxCalculator({
                     type="number"
                     value={income}
                     onChange={(e) => setIncome(e.target.value)}
-                    className="w-full pl-10 pr-4 py-4 text-lg font-semibold text-gray-900 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
+                    className="w-full pl-10 pr-4 py-4 text-lg font-semibold text-black border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
                     placeholder={`Enter your ${incomeType} income`}
                     style={{ fontSize: '18px' }}
                   />

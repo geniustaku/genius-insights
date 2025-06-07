@@ -29,6 +29,33 @@ export default function NigeriaLoanCalculatorPage() {
           currency="NGN"
           currencySymbol="₦"
           colorScheme="from-green-600 to-emerald-600"
+          loanTypes={[
+            {
+              name: 'Personal',
+              minRate: 18,
+              maxRate: 35,
+              typicalTerm: 24,
+              maxAmount: 10000000,
+              description: 'Personal loans for various purposes'
+            },
+            {
+              name: 'Mortgage',
+              minRate: 15,
+              maxRate: 25,
+              typicalTerm: 240,
+              maxAmount: 100000000,
+              description: 'Home loans and mortgages'
+            },
+            {
+              name: 'Car',
+              minRate: 16,
+              maxRate: 30,
+              typicalTerm: 60,
+              maxAmount: 30000000,
+              description: 'Vehicle and auto financing'
+            }
+          ]}
+          features={[{ Calculator: true }, { Comparison: true }, { Amortization: true }]}
         />
       </div>
     </>

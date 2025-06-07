@@ -15,12 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Genius Insights | Global Professional Tools for Career Success 2025",
-  description: "Trusted by 1M+ professionals worldwide. Build CVs, calculate taxes, plan investments, and advance your career in 25+ countries. Enterprise-grade accuracy for US, UK, India, South Africa, and more.",
-  keywords: "global career tools 2025, international tax calculator, CV builder worldwide, salary calculator global, investment calculator, loan calculator, career assessment, professional tools, US tax calculator, UK tax calculator, India tax calculator, South Africa SARS, global careers, international professionals, expat tools, worldwide job search, professional development",
+  title: "Genius Insights | Premium Banking & Insurance Calculators 2025 | Global Financial Tools",
+  description: "Premium calculators for Chase Bank, Bank of America, Barclays, HSBC. Compare mortgage rates, life insurance quotes, investment returns. Trusted by 1M+ professionals across 25+ countries with enterprise-grade accuracy.",
+  keywords: "mortgage calculator 2025, chase bank rates, bank of america mortgage, barclays mortgage calculator, hsbc global banking, life insurance calculator, insurance quotes comparison, investment calculator, loan calculator, home loan rates, private banking calculator, preferred rewards calculator, mortgage rates comparison, insurance premium calculator, auto insurance quotes, health insurance calculator, retirement planning calculator, 401k calculator, IRA calculator, term life insurance, whole life insurance, disability insurance calculator, property investment calculator, home insurance quotes, car insurance rates, financial planning tools",
   openGraph: {
-    title: "Genius Insights | Professional Tools for Global Careers",
-    description: "Transform your career with the world's most trusted professional platform. Used by 1M+ professionals across 25+ countries. Enterprise-grade tools for taxes, CVs, investments, and career planning.",
+    title: "Premium Banking & Insurance Calculators 2025 | Genius Insights",
+    description: "Compare mortgage rates from Chase, Bank of America, Barclays, HSBC. Get life insurance quotes, calculate investment returns. Trusted by 1M+ professionals worldwide with enterprise-grade financial tools.",
     type: "website",
     siteName: "Genius Insights - Global Professional Platform",
     locale: "en_US",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Global Professional Tools Platform | Genius Insights 2025",
-    description: "🌍 Trusted by 1M+ professionals worldwide. Enterprise-grade tools for taxes, CVs, investments across 25+ countries. Start your global career journey!",
+    title: "Premium Banking & Insurance Calculators 2025 | Compare Rates",
+    description: "💰 Compare Chase, BofA, Barclays, HSBC rates. Life insurance quotes, mortgage calculators, investment tools. Trusted by 1M+ professionals worldwide! 🏦",
     images: ['/images/twitter-global-platform.jpg'],
   },
   robots: {

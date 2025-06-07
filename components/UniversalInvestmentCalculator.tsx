@@ -120,7 +120,7 @@ export default function UniversalInvestmentCalculator({
             {/* Input Section */}
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">
+                <label className="block text-sm font-semibold text-black mb-3">
                   Initial Investment ({currency})
                 </label>
                 <div className="relative">
@@ -131,7 +131,7 @@ export default function UniversalInvestmentCalculator({
                     type="number"
                     value={initialInvestment}
                     onChange={(e) => setInitialInvestment(e.target.value)}
-                    className="w-full pl-10 pr-4 py-4 text-lg font-semibold text-gray-900 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
+                    className="w-full pl-10 pr-4 py-4 text-lg font-semibold text-black border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
                     placeholder="Enter initial amount"
                     style={{ fontSize: '18px' }}
                   />
@@ -139,7 +139,7 @@ export default function UniversalInvestmentCalculator({
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">
+                <label className="block text-sm font-semibold text-black mb-3">
                   Monthly Contribution ({currency})
                 </label>
                 <div className="relative">
@@ -150,7 +150,7 @@ export default function UniversalInvestmentCalculator({
                     type="number"
                     value={monthlyContribution}
                     onChange={(e) => setMonthlyContribution(e.target.value)}
-                    className="w-full pl-10 pr-4 py-4 text-lg font-semibold text-gray-900 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
+                    className="w-full pl-10 pr-4 py-4 text-lg font-semibold text-black border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
                     placeholder="Optional monthly deposits"
                     style={{ fontSize: '18px' }}
                   />
@@ -159,7 +159,7 @@ export default function UniversalInvestmentCalculator({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-3">
+                  <label className="block text-sm font-semibold text-black mb-3">
                     Annual Return (%)
                   </label>
                   <div className="relative">
@@ -168,7 +168,7 @@ export default function UniversalInvestmentCalculator({
                       step="0.1"
                       value={annualReturn}
                       onChange={(e) => setAnnualReturn(e.target.value)}
-                      className="w-full px-4 py-4 text-lg font-semibold text-gray-900 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
+                      className="w-full px-4 py-4 text-lg font-semibold text-black border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
                       placeholder="e.g. 8.5"
                       style={{ fontSize: '18px' }}
                     />
@@ -179,14 +179,14 @@ export default function UniversalInvestmentCalculator({
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-3">
+                  <label className="block text-sm font-semibold text-black mb-3">
                     Time Period (Years)
                   </label>
                   <input
                     type="number"
                     value={timePeriod}
                     onChange={(e) => setTimePeriod(e.target.value)}
-                    className="w-full px-4 py-4 text-lg font-semibold text-gray-900 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
+                    className="w-full px-4 py-4 text-lg font-semibold text-black border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
                     placeholder="e.g. 20"
                     style={{ fontSize: '18px' }}
                   />
@@ -270,21 +270,21 @@ export default function UniversalInvestmentCalculator({
 
                   {/* Investment Breakdown */}
                   <div className="bg-gray-50 rounded-xl p-6">
-                    <h4 className="font-bold text-gray-900 mb-4 text-center">Investment Summary</h4>
+                    <h4 className="font-bold text-black mb-4 text-center">Investment Summary</h4>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center py-2 border-b border-gray-200">
                         <span className="font-medium text-gray-700">Initial Investment</span>
-                        <span className="font-bold text-gray-900">{formatCurrency(results.details.principal)}</span>
+                        <span className="font-bold text-black">{formatCurrency(results.details.principal)}</span>
                       </div>
                       {results.details.monthly > 0 && (
                         <div className="flex justify-between items-center py-2 border-b border-gray-200">
                           <span className="font-medium text-gray-700">Monthly Contributions</span>
-                          <span className="font-bold text-gray-900">{formatCurrency(results.details.monthly)}</span>
+                          <span className="font-bold text-black">{formatCurrency(results.details.monthly)}</span>
                         </div>
                       )}
                       <div className="flex justify-between items-center py-2 border-b border-gray-200">
                         <span className="font-medium text-gray-700">Annual Return Rate</span>
-                        <span className="font-bold text-gray-900">{results.details.rate}%</span>
+                        <span className="font-bold text-black">{results.details.rate}%</span>
                       </div>
                       <div className="flex justify-between items-center py-2 bg-green-50 rounded-lg px-4">
                         <span className="font-bold text-green-800">ROI</span>
@@ -298,7 +298,7 @@ export default function UniversalInvestmentCalculator({
                   {/* Yearly Breakdown */}
                   {results.yearlyBreakdown.length > 0 && (
                     <div className="bg-white border border-gray-200 rounded-xl p-6">
-                      <h4 className="font-bold text-gray-900 mb-4">Year-by-Year Growth</h4>
+                      <h4 className="font-bold text-black mb-4">Year-by-Year Growth</h4>
                       <div className="overflow-x-auto">
                         <table className="w-full text-sm">
                           <thead>
@@ -312,8 +312,8 @@ export default function UniversalInvestmentCalculator({
                           <tbody>
                             {results.yearlyBreakdown.slice(0, 5).map((year: any, index: number) => (
                               <tr key={index} className="border-b border-gray-100">
-                                <td className="py-2 text-gray-900">{year.year}</td>
-                                <td className="py-2 text-right text-gray-900 font-medium">{formatCurrency(year.endValue)}</td>
+                                <td className="py-2 text-black">{year.year}</td>
+                                <td className="py-2 text-right text-black font-medium">{formatCurrency(year.endValue)}</td>
                                 <td className="py-2 text-right text-blue-600">{formatCurrency(year.totalContributions)}</td>
                                 <td className="py-2 text-right text-green-600">{formatCurrency(year.earnings)}</td>
                               </tr>
@@ -327,7 +327,7 @@ export default function UniversalInvestmentCalculator({
               ) : (
                 <div className="bg-gray-50 rounded-xl p-8 text-center">
                   <div className="text-6xl mb-4">📈</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Ready to Calculate</h3>
+                  <h3 className="text-xl font-bold text-black mb-2">Ready to Calculate</h3>
                   <p className="text-gray-600">Enter your investment details above to see projected returns</p>
                 </div>
               )}

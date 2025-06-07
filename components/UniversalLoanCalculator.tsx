@@ -6,13 +6,26 @@ interface UniversalLoanCalculatorProps {
   country: string;
   currency: string;
   currencySymbol: string;
+  loanTypes: {
+    name: string;
+    minRate: number;
+    maxRate: number;
+    typicalTerm: number;
+    maxAmount: number;
+    description: string;
+  }[];
   colorScheme?: string;
+  features: {
+    [key: string]: any;
+  }[];
 }
 
 export default function UniversalLoanCalculator({ 
   country, 
   currency, 
   currencySymbol, 
+  loanTypes,
+  features,
   colorScheme = 'from-blue-600 to-indigo-600'
 }: UniversalLoanCalculatorProps) {
   const [loanAmount, setLoanAmount] = useState('');
@@ -111,7 +124,7 @@ export default function UniversalLoanCalculator({
             {/* Input Section */}
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">
+                <label className="block text-sm font-semibold text-black mb-3">
                   Loan Amount ({currency})
                 </label>
                 <div className="relative">
@@ -122,7 +135,7 @@ export default function UniversalLoanCalculator({
                     type="number"
                     value={loanAmount}
                     onChange={(e) => setLoanAmount(e.target.value)}
-                    className="w-full pl-10 pr-4 py-4 text-lg font-semibold text-gray-900 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
+                    className="w-full pl-10 pr-4 py-4 text-lg font-semibold text-black border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
                     placeholder="Enter loan amount"
                     style={{ fontSize: '18px' }}
                   />
@@ -131,7 +144,7 @@ export default function UniversalLoanCalculator({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-3">
+                  <label className="block text-sm font-semibold text-black mb-3">
                     Annual Interest Rate (%)
                   </label>
                   <div className="relative">
@@ -140,7 +153,7 @@ export default function UniversalLoanCalculator({
                       step="0.1"
                       value={interestRate}
                       onChange={(e) => setInterestRate(e.target.value)}
-                      className="w-full px-4 py-4 text-lg font-semibold text-gray-900 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
+                      className="w-full px-4 py-4 text-lg font-semibold text-black border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
                       placeholder="e.g. 8.5"
                       style={{ fontSize: '18px' }}
                     />
@@ -151,14 +164,14 @@ export default function UniversalLoanCalculator({
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-900 mb-3">
+                  <label className="block text-sm font-semibold text-black mb-3">
                     Loan Term (Years)
                   </label>
                   <input
                     type="number"
                     value={loanTerm}
                     onChange={(e) => setLoanTerm(e.target.value)}
-                    className="w-full px-4 py-4 text-lg font-semibold text-gray-900 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
+                    className="w-full px-4 py-4 text-lg font-semibold text-black border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-gray-50"
                     placeholder="e.g. 20"
                     style={{ fontSize: '18px' }}
                   />
@@ -243,7 +256,7 @@ export default function UniversalLoanCalculator({
                   <div className="bg-gray-50 rounded-xl p-6">
                     <div className="text-center">
                       <div className="text-sm text-gray-600 mb-2">Total Amount Paid</div>
-                      <div className="text-2xl font-bold text-gray-900">{formatCurrency(results.totalPayment)}</div>
+                      <div className="text-2xl font-bold text-black">{formatCurrency(results.totalPayment)}</div>
                       <div className="text-sm text-gray-600 mt-2">
                         over {results.loanDetails.term} years at {results.loanDetails.rate}% APR
                       </div>
@@ -252,7 +265,7 @@ export default function UniversalLoanCalculator({
 
                   {/* Amortization Schedule Preview */}
                   <div className="bg-white border border-gray-200 rounded-xl p-6">
-                    <h4 className="font-bold text-gray-900 mb-4">First Year Payment Breakdown</h4>
+                    <h4 className="font-bold text-black mb-4">First Year Payment Breakdown</h4>
                     <div className="overflow-x-auto">
                       <table className="w-full text-sm">
                         <thead>
@@ -267,11 +280,11 @@ export default function UniversalLoanCalculator({
                         <tbody>
                           {results.schedule.map((payment: any, index: number) => (
                             <tr key={index} className="border-b border-gray-100">
-                              <td className="py-2 text-gray-900">{payment.month}</td>
-                              <td className="py-2 text-right text-gray-900">{formatCurrency(payment.payment)}</td>
+                              <td className="py-2 text-black">{payment.month}</td>
+                              <td className="py-2 text-right text-black">{formatCurrency(payment.payment)}</td>
                               <td className="py-2 text-right text-green-600">{formatCurrency(payment.principal)}</td>
                               <td className="py-2 text-right text-red-600">{formatCurrency(payment.interest)}</td>
-                              <td className="py-2 text-right text-gray-900">{formatCurrency(payment.balance)}</td>
+                              <td className="py-2 text-right text-black">{formatCurrency(payment.balance)}</td>
                             </tr>
                           ))}
                         </tbody>
@@ -282,7 +295,7 @@ export default function UniversalLoanCalculator({
               ) : (
                 <div className="bg-gray-50 rounded-xl p-8 text-center">
                   <div className="text-6xl mb-4">🏠</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Ready to Calculate</h3>
+                  <h3 className="text-xl font-bold text-black mb-2">Ready to Calculate</h3>
                   <p className="text-gray-600">Enter your loan details above to see monthly payments and amortization schedule</p>
                 </div>
               )}

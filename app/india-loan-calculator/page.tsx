@@ -47,6 +47,15 @@ export default function IndiaLoanCalculatorPage() {
           currency="INR"
           currencySymbol="₹"
           colorScheme="from-orange-600 to-red-600"
+          loanTypes={[
+            { name: 'Home Loan', minRate: 6.5, maxRate: 9.5, typicalTerm: 20, maxAmount: 10000000, description: 'Home loans for property purchase or construction' },
+            { name: 'Personal Loan', minRate: 10.5, maxRate: 18, typicalTerm: 5, maxAmount: 1000000, description: 'Unsecured personal loans for any purpose' },
+            { name: 'Car Loan', minRate: 7.5, maxRate: 12, typicalTerm: 7, maxAmount: 2000000, description: 'Vehicle financing for new and used cars' }
+          ]}
+          features={[
+            { id: 'emi', name: 'EMI Calculator' },
+            { id: 'comparison', name: 'Loan Comparison' }
+          ]}
         />
       </div>
     </>
