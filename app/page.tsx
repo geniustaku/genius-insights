@@ -152,13 +152,13 @@ export default function Home(): JSX.Element {
       badge: 'Popular'
     },
     { 
-      name: 'Insurance Calculator', 
+      name: 'Insurance Comparison', 
       icon: '🛡️', 
-      link: '/usa-insurance-calculator', 
-      description: 'Life, health, auto insurance quotes',
+      link: '/uk-insurance-comparison', 
+      description: 'Compare insurance providers worldwide',
       gradient: 'from-indigo-600 to-purple-600',
       users: '350K+',
-      badge: 'Top Rated'
+      badge: 'Compare All'
     },
     { 
       name: 'Loan Calculator', 
@@ -238,34 +238,34 @@ export default function Home(): JSX.Element {
   // High CPC Insurance Tools - Life, health, auto, and home insurance
   const premiumInsuranceTools = [
     {
+      name: 'UK Insurance Comparison',
+      icon: '🇬🇧',
+      link: '/uk-insurance-comparison',
+      description: 'Compare life, motor, home insurance - Aviva, Legal & General, Direct Line',
+      gradient: 'from-blue-800 to-indigo-900',
+      users: '220K+',
+      badge: 'Compare All',
+      keywords: 'uk insurance comparison, life insurance quotes, motor insurance calculator'
+    },
+    {
+      name: 'South Africa Insurance Comparison',
+      icon: '🇿🇦',
+      link: '/south-africa-insurance-comparison',
+      description: 'Compare Sanlam, Discovery, Old Mutual - life, motor, medical aid',
+      gradient: 'from-green-700 to-blue-800',
+      users: '190K+',
+      badge: 'SA Leader',
+      keywords: 'south africa insurance comparison, sanlam quotes, discovery insurance'
+    },
+    {
       name: 'USA Insurance Calculator',
-      icon: '🛡️',
+      icon: '🇺🇸',
       link: '/usa-insurance-calculator',
       description: 'Life, health, auto & home insurance quotes - State Farm, Allstate',
-      gradient: 'from-green-700 to-blue-900',
+      gradient: 'from-red-600 to-blue-700',
       users: '200K+',
-      badge: 'Compare',
+      badge: 'Premium',
       keywords: 'life insurance calculator, health insurance quotes, auto insurance rates'
-    },
-    {
-      name: 'UK Insurance Calculator', 
-      icon: '🔒',
-      link: '/uk-insurance-calculator',
-      description: 'Comprehensive UK insurance - Aviva, Legal & General, Zurich',
-      gradient: 'from-purple-600 to-indigo-800', 
-      users: '180K+',
-      badge: 'UK Leader',
-      keywords: 'uk life insurance calculator, motor insurance quotes, home insurance uk'
-    },
-    {
-      name: 'South Africa Insurance Calculator',
-      icon: '🛡️',
-      link: '/south-africa-insurance-calculator', 
-      description: 'SA insurance quotes - Sanlam, Old Mutual, Discovery Life',
-      gradient: 'from-green-600 to-blue-600',
-      users: '160K+',
-      badge: 'Local Expert',
-      keywords: 'sanlam life insurance, old mutual quotes, discovery life calculator'
     }
   ];
 
@@ -414,10 +414,10 @@ export default function Home(): JSX.Element {
           {/* Insurance Tools Section */}
           <div className="text-center mb-12">
             <h3 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-              Insurance Quote Calculators
+              Insurance Comparison Tools
             </h3>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              Compare life, health, auto, and home insurance quotes from top providers. Get instant premium calculations and coverage comparisons.
+              Compare life, motor, home, and health insurance from top providers worldwide. Simulate scenarios and find the best coverage with instant quotes.
             </p>
           </div>
 
@@ -454,9 +454,9 @@ export default function Home(): JSX.Element {
               <h4 className="text-2xl font-bold text-white mb-4">Trending Financial Searches</h4>
               <div className="flex flex-wrap justify-center gap-3">
                 {[
-                  'mortgage calculator 2025', 'chase bank rates', 'life insurance quotes', 'investment calculator',
-                  'loan calculator', 'bank of america mortgage', 'hsbc global banking', 'insurance premium calculator',
-                  'private banking rates', 'preferred rewards calculator', 'home loan calculator', 'auto insurance quotes'
+                  'insurance comparison tool', 'life insurance quotes uk', 'motor insurance calculator', 'sanlam insurance quotes',
+                  'discovery insurance comparison', 'aviva insurance calculator', 'mortgage calculator 2025', 'chase bank rates',
+                  'old mutual insurance quotes', 'uk insurance comparison', 'home insurance calculator', 'medical aid comparison'
                 ].map((keyword, index) => (
                   <span key={index} className="px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 rounded-full text-sm border border-blue-500/30">
                     {keyword}
@@ -657,23 +657,28 @@ export default function Home(): JSX.Element {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-700">
                   <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                  SARS Tax Compliance (SA)
+                  Insurance Comparison (Sanlam, Discovery)
+                </div>
+                <div className="flex items-center text-sm text-gray-700">
+                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                  SARS Tax Compliance
                 </div>
                 <div className="flex items-center text-sm text-gray-700">
                   <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
                   Multi-currency Support
                 </div>
-                <div className="flex items-center text-sm text-gray-700">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                  Local Salary Benchmarks
-                </div>
               </div>
-              <Link href="/africa-tools" className="inline-flex items-center text-green-600 font-medium hover:text-green-700">
-                Explore Africa Tools
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
+              <div className="space-y-2">
+                <Link href="/south-africa-insurance-comparison" className="block w-full text-center py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                  Compare SA Insurance
+                </Link>
+                <Link href="/africa-tools" className="inline-flex items-center text-green-600 font-medium hover:text-green-700">
+                  All Africa Tools
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
             </div>
 
             {/* Europe */}
@@ -684,23 +689,28 @@ export default function Home(): JSX.Element {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-700">
                   <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                  Insurance Comparison (Aviva, Legal & General)
+                </div>
+                <div className="flex items-center text-sm text-gray-700">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
                   GDPR Compliant
                 </div>
                 <div className="flex items-center text-sm text-gray-700">
                   <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
                   EU Tax Systems
                 </div>
-                <div className="flex items-center text-sm text-gray-700">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                  Multi-language Support
-                </div>
               </div>
-              <Link href="/europe-tools" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700">
-                Explore Europe Tools
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
+              <div className="space-y-2">
+                <Link href="/uk-insurance-comparison" className="block w-full text-center py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                  Compare UK Insurance
+                </Link>
+                <Link href="/europe-tools" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700">
+                  All Europe Tools
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
             </div>
 
             {/* Americas */}
