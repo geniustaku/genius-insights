@@ -134,13 +134,13 @@ export default function Home(): JSX.Element {
       badge: 'Premium'
     },
     { 
-      name: 'UK Tax Calculator', 
-      icon: '🇬🇧', 
-      link: '/uk-tax-calculator', 
-      description: 'British tax system with current rates',
-      gradient: 'from-blue-800 to-red-700',
-      users: '300K+',
-      badge: 'Featured'
+      name: 'Germany Legal Services', 
+      icon: '🇩🇪', 
+      link: '/germany-legal-services-calculator', 
+      description: 'Anwalt Kosten • Arbeitsrecht • Fachanwalt',
+      gradient: 'from-red-700 to-yellow-600',
+      users: '280K+',
+      badge: 'Anwalt'
     },
     { 
       name: 'Investment Calculator', 
@@ -173,6 +173,16 @@ export default function Home(): JSX.Element {
 
   // High CPC Financial Services Tools - Premium banking and insurance calculators
   const premiumFinancialTools = [
+    {
+      name: 'Germany Legal Services',
+      icon: '🇩🇪',
+      link: '/germany-legal-services-calculator',
+      description: 'Anwalt Kosten • Arbeitsrecht • Personenschäden • RVG Gebühren',
+      gradient: 'from-red-700 to-yellow-600',
+      users: '180K+',
+      badge: 'Anwalt',
+      keywords: 'anwalt für arbeitsrecht, fachanwalt personenschäden, rechtsanwalt kosten'
+    },
     {
       name: 'Chase Bank Calculator',
       icon: '🏦',
@@ -222,16 +232,6 @@ export default function Home(): JSX.Element {
       users: '90K+',
       badge: 'Local',
       keywords: 'standard bank home loan, south africa mortgage calculator, investment rates'
-    },
-    {
-      name: 'FNB Calculator',
-      icon: '🏆',
-      link: '/south-africa-fnb-calculator',
-      description: 'eBucks rewards, innovative banking, and savings',
-      gradient: 'from-orange-600 to-red-600',
-      users: '85K+', 
-      badge: 'Rewards',
-      keywords: 'fnb home loan calculator, ebucks calculator, fnb mortgage rates'
     }
   ];
 
@@ -454,9 +454,9 @@ export default function Home(): JSX.Element {
               <h4 className="text-2xl font-bold text-white mb-4">Trending Financial Searches</h4>
               <div className="flex flex-wrap justify-center gap-3">
                 {[
-                  'insurance comparison tool', 'life insurance quotes uk', 'motor insurance calculator', 'sanlam insurance quotes',
-                  'discovery insurance comparison', 'aviva insurance calculator', 'mortgage calculator 2025', 'chase bank rates',
-                  'old mutual insurance quotes', 'uk insurance comparison', 'home insurance calculator', 'medical aid comparison'
+                  'anwalt für arbeitsrecht', 'fachanwalt personenschäden', 'rechtsanwalt kosten', 'anwaltsgebühren rvg',
+                  'insurance comparison tool', 'life insurance quotes uk', 'motor insurance calculator', 'anwalt unternehmensrecht',
+                  'discovery insurance comparison', 'rechtsberatung deutschland', 'home insurance calculator', 'anwalt familienrecht'
                 ].map((keyword, index) => (
                   <span key={index} className="px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 rounded-full text-sm border border-blue-500/30">
                     {keyword}
@@ -689,18 +689,21 @@ export default function Home(): JSX.Element {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center text-sm text-gray-700">
                   <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                  German Legal Services (Anwalt für Arbeitsrecht)
+                </div>
+                <div className="flex items-center text-sm text-gray-700">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
                   Insurance Comparison (Aviva, Legal & General)
                 </div>
                 <div className="flex items-center text-sm text-gray-700">
                   <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
                   GDPR Compliant
                 </div>
-                <div className="flex items-center text-sm text-gray-700">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                  EU Tax Systems
-                </div>
               </div>
               <div className="space-y-2">
+                <Link href="/germany-legal-services-calculator" className="block w-full text-center py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                  🇩🇪 Anwalt Kosten
+                </Link>
                 <Link href="/uk-insurance-comparison" className="block w-full text-center py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                   Compare UK Insurance
                 </Link>
