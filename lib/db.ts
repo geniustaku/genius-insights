@@ -92,9 +92,8 @@ export async function getArticles(limitCount = 10, offset = 0, categoryFilter: s
   } catch (error) {
     console.error('Detailed error fetching articles:', error);
     console.error('Error name:', error?.constructor?.name);
-    console.error('Error message:', error?.message);
-    console.error('Error stack:', error?.stack);
-    throw new Error(`Failed to fetch articles: ${error?.message || 'Unknown error'}`);
+
+    throw new Error(`Failed to fetch articles: ${ 'Unknown error'}`);
   }
 }
 
