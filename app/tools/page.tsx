@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import AdSenseAd from '@/components/AdSenseAd';
 
 export default function ToolsPage() {
   const tools = [
@@ -146,7 +147,6 @@ export default function ToolsPage() {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <Link href="/admin" className="text-gray-600 hover:text-gray-900 font-medium">Admin</Link>
               <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
                 Get Started
               </button>
@@ -198,10 +198,12 @@ export default function ToolsPage() {
             </div>
           </div>
 
-          {/* Ad Space - Top Banner */}
-          <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-8 mb-12 text-center">
-            <div className="text-gray-500 font-medium mb-2">Advertisement</div>
-            <div className="text-sm text-gray-400">728x90 - Top Banner AdSense Space</div>
+          {/* AdSense Ad Unit 1 - Top Banner */}
+          <div className="mb-12">
+            <AdSenseAd 
+              adSlot="3043670508"
+              className="text-center"
+            />
           </div>
 
           {/* Categories Overview */}
@@ -270,10 +272,13 @@ export default function ToolsPage() {
                   ))}
                 </div>
 
-                {/* Ad Space - Mid Content */}
-                <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-6 mb-8 text-center">
-                  <div className="text-gray-500 font-medium mb-2">Advertisement</div>
-                  <div className="text-sm text-gray-400">336x280 - Medium Rectangle AdSense Space</div>
+                {/* AdSense Ad Unit 2 - Mid Content */}
+                <div className="mb-8">
+                  <AdSenseAd 
+                    adSlot="5662611907"
+                    adFormat="autorelaxed"
+                    className="text-center"
+                  />
                 </div>
               </div>
 
@@ -349,10 +354,12 @@ export default function ToolsPage() {
                 </div>
               </div>
 
-              {/* Ad Space - Sidebar */}
-              <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
-                <div className="text-gray-500 font-medium mb-2">Advertisement</div>
-                <div className="text-sm text-gray-400">300x250 - Sidebar AdSense</div>
+              {/* Ad Unit 4 - Sidebar */}
+              <div>
+                <AdSenseAd 
+                  adSlot="5279468522"
+                  className="text-center"
+                />
               </div>
 
               {/* Quick Links */}

@@ -2,6 +2,7 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import AdSenseAd from './AdSenseAd';
 
 interface ToolLayoutProps {
   children: ReactNode;
@@ -108,7 +109,6 @@ export default function ToolLayout({
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <Link href="/admin" className="text-gray-600 hover:text-gray-900 font-medium">Admin</Link>
               <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
                 Get Started
               </button>
@@ -181,6 +181,14 @@ export default function ToolLayout({
                   <span className="font-bold text-blue-600">R22.86/L</span>
                 </div>
               </div>
+            </div>
+
+            {/* Ad Unit 4 - Calculator Sidebar */}
+            <div>
+              <AdSenseAd 
+                adSlot="5279468522"
+                className="text-center"
+              />
             </div>
 
             {/* Related Tools */}

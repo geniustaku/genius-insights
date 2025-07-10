@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getArticles } from '@/lib/db';
 import ArticleCard from '@/components/ArticleCard';
+import AdSenseAd from '@/components/AdSenseAd';
 import { htmlToText } from 'html-to-text';
 
 export const metadata = {
@@ -57,7 +58,6 @@ export default async function ArticlesPage({ searchParams }) {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <Link href="/admin" className="text-gray-600 hover:text-gray-900 font-medium">Admin</Link>
               <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
                 Get Started
               </button>
@@ -183,6 +183,14 @@ export default async function ArticlesPage({ searchParams }) {
                     <span className="font-bold text-blue-600">R22.86/L</span>
                   </div>
                 </div>
+              </div>
+
+              {/* Ad Unit 4 - Articles Sidebar */}
+              <div>
+                <AdSenseAd 
+                  adSlot="5279468522"
+                  className="text-center"
+                />
               </div>
 
               {/* Popular Tools */}

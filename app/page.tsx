@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import StructuredData from '@/components/StructuredData';
+import AdSenseAd from '@/components/AdSenseAd';
 import { useEffect, useState } from 'react';
 
 interface Article {
@@ -230,6 +231,14 @@ export default function Home(): JSX.Element {
             </div>
           </div>
 
+          {/* AdSense Ad Unit 1 */}
+          <div className="mb-12">
+            <AdSenseAd 
+              adSlot="3043670508"
+              className="text-center"
+            />
+          </div>
+
           {/* Section: Latest Financial Analysis */}
           <section className="mb-12">
             <div className="flex items-center justify-between mb-6">
@@ -286,6 +295,17 @@ export default function Home(): JSX.Element {
               </div>
             )}
           </section>
+
+          {/* In-Article Ad Unit */}
+          <div className="mb-12">
+            <AdSenseAd 
+              adSlot="4969876131"
+              adFormat="fluid"
+              adLayout="in-article"
+              style={{ display: 'block', textAlign: 'center' }}
+              className=""
+            />
+          </div>
 
           {/* Section: Financial Tools & Calculators */}
           <section className="mb-12">
@@ -390,6 +410,15 @@ export default function Home(): JSX.Element {
             </div>
           </section>
 
+          {/* AdSense Ad Unit 2 */}
+          <div className="mb-12">
+            <AdSenseAd 
+              adSlot="5662611907"
+              adFormat="autorelaxed"
+              className="text-center"
+            />
+          </div>
+
           {/* More Articles Grid */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">More Financial Insights</h2>
@@ -424,6 +453,14 @@ export default function Home(): JSX.Element {
               ))}
             </div>
           </section>
+
+          {/* Ad Unit 4 - Before Newsletter */}
+          <div className="mb-12">
+            <AdSenseAd 
+              adSlot="5279468522"
+              className="text-center"
+            />
+          </div>
 
           {/* Newsletter Section */}
           <section className="bg-blue-50 border border-blue-200 rounded-lg p-8 text-center">

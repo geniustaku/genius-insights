@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata = {
   title: 'About Genius Insights | South African Financial Tools Platform',
@@ -79,6 +80,14 @@ export default function AboutPage() {
               </div>
             </div>
           </section>
+
+          {/* Ad Unit 4 - About Page */}
+          <div className="my-8">
+            <AdSenseAd 
+              adSlot="5279468522"
+              className="text-center"
+            />
+          </div>
 
           {/* Our Commitment */}
           <section>

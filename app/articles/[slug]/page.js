@@ -7,6 +7,7 @@ import { formatDate } from '@/lib/utils';
 import CopyLinkButton from '../../../components/CopyLinkButton';
 import SaveButton from '../../../components/Save';
 import ArticleComments from '../../../components/ArticleComments';
+import AdSenseAd from '../../../components/AdSenseAd';
 
 function getArticleImage(category) {
   const categoryImages = {
@@ -214,7 +215,6 @@ export default async function ArticlePage({ params }) {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <Link href="/admin" className="text-gray-600 hover:text-gray-900 font-medium">Admin</Link>
               <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
                 Get Started
               </button>
@@ -340,6 +340,17 @@ export default async function ArticlePage({ params }) {
                 <div dangerouslySetInnerHTML={{ __html: article.content }} />
               </div>
               
+              {/* In-Article Ad Unit */}
+              <div className="my-8">
+                <AdSenseAd 
+                  adSlot="4969876131"
+                  adFormat="fluid"
+                  adLayout="in-article"
+                  style={{ display: 'block', textAlign: 'center' }}
+                  className=""
+                />
+              </div>
+              
               {/* Article Tags */}
               <div className="mt-12 pt-8 border-t border-gray-200">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Topics Covered</h3>
@@ -365,6 +376,15 @@ export default async function ArticlePage({ params }) {
                   </span>
                 </div>
               </div>
+            </div>
+
+            {/* AdSense Ad Unit 2 */}
+            <div className="mt-12 mb-16">
+              <AdSenseAd 
+                adSlot="5662611907"
+                adFormat="autorelaxed"
+                className="text-center"
+              />
             </div>
         
             {/* Author Bio */}
@@ -704,6 +724,16 @@ export default async function ArticlePage({ params }) {
               Unsubscribe anytime
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Ad Unit 4 - Bottom of Article */}
+      <section className="bg-gray-50 py-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AdSenseAd 
+            adSlot="5279468522"
+            className="text-center"
+          />
         </div>
       </section>
       </div>

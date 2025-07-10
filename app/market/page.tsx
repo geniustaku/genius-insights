@@ -88,7 +88,6 @@ export default function MarketPage() {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <Link href="/admin" className="text-gray-600 hover:text-gray-900 font-medium">Admin</Link>
               <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
                 Get Started
               </button>
