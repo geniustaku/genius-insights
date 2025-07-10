@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Block admin areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /node_modules/
+
+# Allow crawling of important pages
+Allow: /tools
+Allow: /calculators
+Allow: /market
+Allow: /articles
+Allow: /about
+Allow: /contact
+
+# Crawl-delay for politeness
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://www.genius-insights.co.za/sitemap.xml

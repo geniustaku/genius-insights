@@ -6,21 +6,48 @@ import { getArticleBySlug, getArticles, getRelatedArticles } from '@/lib/db';
 import { formatDate } from '@/lib/utils';
 import CopyLinkButton from '../../../components/CopyLinkButton';
 import SaveButton from '../../../components/Save';
-import ArticleComments from '../../../components/ArticleComments'; 
+import ArticleComments from '../../../components/ArticleComments';
+
+function getArticleImage(category) {
+  const categoryImages = {
+    'Tax & SARS': 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=500&fit=crop&crop=center', // Tax documents
+    'Property': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=500&fit=crop&crop=center', // Modern house
+    'Banking': 'https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=800&h=500&fit=crop&crop=center', // Bank building
+    'Insurance': 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=500&fit=crop&crop=center', // Medical/Insurance
+    'Business': 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&h=500&fit=crop&crop=center', // Business meeting
+    'Finance': 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=500&fit=crop&crop=center', // Financial documents
+    'Healthcare': 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=500&fit=crop&crop=center', // Medical care
+    'Legal': 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=500&fit=crop&crop=center' // Legal/Registration documents
+  };
+  
+  return categoryImages[category] || categoryImages['Business'];
+} 
 
 export const revalidate = 3600; // Revalidate this page every hour
 
 // Generate static params for the most popular articles
 export async function generateStaticParams() {
-  const articles = await getArticles(20); // Pre-render the top 20 articles
-  
-  return articles.map((article) => ({
-    slug: article.slug,
-  }));
+  try {
+    const articles = await getArticles(20); // Pre-render the top 20 articles
+    
+    return articles.map((article) => ({
+      slug: article.slug,
+    }));
+  } catch (error) {
+    console.warn('Could not generate static params, falling back to empty array:', error);
+    // Return hardcoded slugs for South African articles as fallback
+    return [
+      { slug: 'sars-efiling-registration' },
+      { slug: 'cipc-company-registration' },
+      { slug: 'property-transfer-guide' },
+      { slug: 'medical-aid-vs-insurance' },
+      { slug: 'open-bank-account-guide' }
+    ];
+  }
 }
 
 export async function generateMetadata({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
   const article = await getArticleBySlug(slug);
   
   if (!article) {
@@ -61,11 +88,95 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ArticlePage({ params }) {
-  const { slug } = params;
-  const article = await getArticleBySlug(slug);
+  const { slug } = await params;
+  let article = await getArticleBySlug(slug);
   
+  // Fallback content for specific South African articles if not found in database
   if (!article) {
-    notFound();
+    const fallbackArticles = {
+      'medical-aid-vs-insurance': {
+        id: 'fallback-1',
+        title: 'Medical Aid vs Medical Insurance in South Africa: Complete Comparison Guide',
+        content: `
+          <h2>Understanding the Difference Between Medical Aid and Medical Insurance</h2>
+          <p>In South Africa, choosing between medical aid and medical insurance is a crucial decision that affects your healthcare coverage and financial well-being. This comprehensive guide explains the key differences and helps you make an informed choice.</p>
+          
+          <h3>What is Medical Aid?</h3>
+          <p>Medical aid is regulated by the Council for Medical Schemes and provides comprehensive healthcare coverage. Medical aids must offer Prescribed Minimum Benefits (PMBs) and cannot refuse membership based on health status.</p>
+          
+          <h3>What is Medical Insurance?</h3>
+          <p>Medical insurance provides specific coverage for defined medical events or expenses. It's regulated by the Financial Sector Conduct Authority (FSCA) and typically offers gap cover or specific illness coverage.</p>
+          
+          <h3>Key Differences</h3>
+          <ul>
+            <li><strong>Regulation:</strong> Medical aid is regulated by CMS, medical insurance by FSCA</li>
+            <li><strong>Coverage:</strong> Medical aid offers comprehensive coverage, insurance offers specific coverage</li>
+            <li><strong>PMBs:</strong> Medical aid must cover PMBs, insurance doesn't</li>
+            <li><strong>Waiting Periods:</strong> Medical aid has general waiting periods, insurance has specific exclusions</li>
+          </ul>
+          
+          <h3>Which Should You Choose?</h3>
+          <p>Your choice depends on your healthcare needs, budget, and risk tolerance. Consider consulting with a healthcare financial advisor to make the best decision for your circumstances.</p>
+        `,
+        excerpt: 'Complete comparison guide between medical aid and medical insurance in South Africa, including regulations, coverage, and benefits.',
+        category: 'Insurance',
+        author: 'Healthcare Expert',
+        published_at: new Date().toISOString(),
+        reading_time: 8,
+        slug: 'medical-aid-vs-insurance',
+        featured_image: null
+      },
+      'cipc-company-registration': {
+        id: 'fallback-2',
+        title: 'CIPC Company Registration in South Africa: Complete Step-by-Step Guide',
+        content: `
+          <h2>Registering Your Company with CIPC</h2>
+          <p>The Companies and Intellectual Property Commission (CIPC) is South Africa's regulatory body for company registration. This guide walks you through the complete process of registering your business.</p>
+          
+          <h3>Types of Companies You Can Register</h3>
+          <ul>
+            <li><strong>Private Company (Pty Ltd):</strong> Most common for small to medium businesses</li>
+            <li><strong>Public Company (Ltd):</strong> For companies planning to list on the stock exchange</li>
+            <li><strong>Personal Liability Company (Inc):</strong> For professional services</li>
+            <li><strong>Non-Profit Company (NPC):</strong> For non-profit organizations</li>
+          </ul>
+          
+          <h3>Registration Process</h3>
+          <ol>
+            <li><strong>Name Reservation:</strong> Reserve your company name online via CIPC website</li>
+            <li><strong>Prepare Documents:</strong> Memorandum of Incorporation, Form CoR 14.1, and CoR 15.1</li>
+            <li><strong>Submit Application:</strong> Submit online or at CIPC offices</li>
+            <li><strong>Pay Fees:</strong> Registration fees vary by company type</li>
+            <li><strong>Receive Certificate:</strong> Get your Certificate of Incorporation</li>
+          </ol>
+          
+          <h3>Required Information</h3>
+          <ul>
+            <li>Company name and registration details</li>
+            <li>Directors' information and ID copies</li>
+            <li>Registered office address</li>
+            <li>Share capital structure</li>
+            <li>Memorandum of Incorporation</li>
+          </ul>
+          
+          <h3>Costs and Timeframes</h3>
+          <p>Registration typically takes 5-15 business days and costs between R175-R500 depending on company type and service level chosen.</p>
+        `,
+        excerpt: 'Complete step-by-step guide to registering your company with CIPC, including requirements, costs, and timeframes.',
+        category: 'Business',
+        author: 'Business Registration Expert',
+        published_at: new Date().toISOString(),
+        reading_time: 12,
+        slug: 'cipc-company-registration',
+        featured_image: null
+      }
+    };
+    
+    article = fallbackArticles[slug];
+    
+    if (!article) {
+      notFound();
+    }
   }
   
   // Get related articles (same category)
@@ -83,7 +194,36 @@ export default async function ArticlePage({ params }) {
   const articleUrl = `https://www.genius-insights.co.za/articles/${article.slug}`;
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gray-50">
+      {/* Navigation Bar */}
+      <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center space-x-8">
+              <Link href="/" className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">G</span>
+                </div>
+                <span className="font-bold text-xl text-gray-900">Genius Insights</span>
+              </Link>
+              <div className="hidden md:flex items-center space-x-6">
+                <Link href="/tools" className="text-gray-600 hover:text-gray-900 font-medium">Tools</Link>
+                <Link href="/articles" className="text-blue-600 hover:text-blue-700 font-medium border-b-2 border-blue-600">Guides</Link>
+                <Link href="/calculators" className="text-gray-600 hover:text-gray-900 font-medium">Calculators</Link>
+                <Link href="/market" className="text-gray-600 hover:text-gray-900 font-medium">Market</Link>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <Link href="/admin" className="text-gray-600 hover:text-gray-900 font-medium">Admin</Link>
+              <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                Get Started
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div className="bg-gray-50">
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
         <div className="absolute inset-0 bg-black/40"></div>
@@ -157,23 +297,22 @@ export default async function ArticlePage({ params }) {
       {/* Article Container */}
       <article className="relative -mt-20 z-10">
         {/* Featured Image */}
-        {article.featured_image && (
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-            <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-4 shadow-2xl border border-white/20">
-              <div className="relative overflow-hidden rounded-2xl" style={{ height: '500px' }}>
-                <img
-                  src={article.featured_image}
-                  alt={article.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              </div>
-              <div className="text-sm text-gray-500 mt-3 text-center">
-                Photo by Genius Insights © 2025
-              </div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+          <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-4 shadow-2xl border border-white/20">
+            <div className="relative overflow-hidden rounded-2xl" style={{ height: '500px' }}>
+              <Image
+                src={article.featured_image || getArticleImage(article.category)}
+                alt={article.title}
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+            <div className="text-sm text-gray-500 mt-3 text-center">
+              Photo by Genius Insights © 2025
             </div>
           </div>
-        )}
+        </div>
 
         {/* Main Content */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
@@ -358,6 +497,77 @@ export default async function ArticlePage({ params }) {
           <ArticleComments articleSlug={slug} />
         </div>
       </article>
+
+      {/* Related Tools Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Related Financial Tools
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Use our calculators and tools to apply the insights from this guide
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: 'SARS Tax Calculator',
+                href: '/south-africa-tax-calculator',
+                image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center',
+                description: 'Calculate your exact South African tax obligations with our comprehensive calculator',
+                category: 'Tax & SARS'
+              },
+              {
+                name: 'Property Transfer Calculator',
+                href: '/south-africa-property-transfer-calculator',
+                image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop&crop=center',
+                description: 'Calculate bond costs, transfer duty, and attorney fees for SA property transfers',
+                category: 'Property'
+              },
+              {
+                name: 'Retirement Calculator',
+                href: '/south-africa-retirement-calculator',
+                image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=300&fit=crop&crop=center',
+                description: 'Plan your retirement savings and pension contributions',
+                category: 'Investment'
+              }
+            ].map((tool, index) => (
+              <Link key={index} href={tool.href} className="group block">
+                <div className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300">
+                  <div className="relative h-48">
+                    <img
+                      src={tool.image}
+                      alt={tool.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-green-600 text-white px-3 py-1 text-xs font-bold rounded">
+                        {tool.category.toUpperCase()}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
+                      {tool.name}
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-4">
+                      {tool.description}
+                    </p>
+                    <div className="flex items-center text-sm text-green-600 font-medium">
+                      Use Calculator
+                      <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
       
       {/* Related Articles */}
       {relatedArticles && relatedArticles.length > 0 && (
@@ -496,6 +706,7 @@ export default async function ArticlePage({ params }) {
           </div>
         </div>
       </section>
+      </div>
     </div>
   );
 }

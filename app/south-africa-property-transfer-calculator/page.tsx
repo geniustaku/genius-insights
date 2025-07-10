@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import React from 'react';
 import SouthAfricaPropertyTransferCalculator from '@/components/SouthAfricaPropertyTransferCalculator';
 import StructuredData from '@/components/StructuredData';
+import ToolLayout from '@/components/ToolLayout';
 
 export const metadata: Metadata = {
   title: 'South Africa Property Transfer Calculator 2025 | Transfer Duty & Costs Calculator',
@@ -34,10 +36,67 @@ export const metadata: Metadata = {
 };
 
 export default function SouthAfricaPropertyTransferCalculatorPage() {
+  const relatedTools = [
+    {
+      name: 'SARS Tax Calculator',
+      href: '/south-africa-tax-calculator',
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center',
+      description: 'Calculate income tax, PAYE, UIF, and SDL with 2025/2026 rates',
+      category: 'Tax & SARS'
+    },
+    {
+      name: 'Rental Yield Calculator',
+      href: '/south-africa-rental-yield-calculator',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop&crop=center',
+      description: 'Calculate rental yields and property investment returns',
+      category: 'Property'
+    },
+    {
+      name: 'Home Loan Calculator',
+      href: '/south-africa-loan-calculator',
+      image: 'https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=400&h=300&fit=crop&crop=center',
+      description: 'Calculate home loan affordability and monthly repayments',
+      category: 'Banking'
+    }
+  ];
+
+  const relatedArticles = [
+    {
+      title: 'Property Transfer Process Guide',
+      href: '/articles/property-transfer-process-sa',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop&crop=center',
+      excerpt: 'Step-by-step guide to the property transfer process in South Africa',
+      category: 'Property',
+      readTime: '10 min read'
+    },
+    {
+      title: 'Transfer Duty Exemptions Explained',
+      href: '/articles/transfer-duty-exemptions-sa',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop&crop=center',
+      excerpt: 'Understanding when you can claim transfer duty exemptions',
+      category: 'Property',
+      readTime: '7 min read'
+    },
+    {
+      title: 'First Time Home Buyer Guide SA',
+      href: '/articles/first-time-home-buyer-guide-sa',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop&crop=center',
+      excerpt: 'Complete guide for first-time property buyers in South Africa',
+      category: 'Property',
+      readTime: '12 min read'
+    }
+  ];
+
   return (
     <>
       <StructuredData type="property-transfer-calculator" />
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50 to-red-100">
+      <ToolLayout
+        title="Property Transfer Calculator 2025"
+        category="Property"
+        heroImage="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=400&fit=crop&crop=center"
+        relatedTools={relatedTools}
+        relatedArticles={relatedArticles}
+      >
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-orange-600 via-red-600 to-pink-700 rounded-b-3xl">
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"></div>
@@ -168,7 +227,7 @@ export default function SouthAfricaPropertyTransferCalculatorPage() {
             </div>
           </div>
         </div>
-      </div>
+      </ToolLayout>
     </>
   );
 }

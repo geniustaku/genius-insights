@@ -1,0 +1,33 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read access to published articles
+    match /articles/{articleId} {
+      allow read: if resource.data.is_published == true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    // Allow read access to categories
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    // Allow users to manage their own data
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Allow newsletter subscriptions
+    match /newsletter_subscriptions/{email} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    // Allow email subscriptions
+    match /subscribers/{subscriberId} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null && request.auth.token.admin == true;
+    }
+  }
+}

@@ -15,29 +15,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Genius Insights | Premium Banking & Insurance Calculators 2025 | Global Financial Tools",
-  description: "Premium calculators for Chase Bank, Bank of America, Barclays, HSBC. Compare mortgage rates, life insurance quotes, investment returns. Trusted by 1M+ professionals across 25+ countries with enterprise-grade accuracy.",
-  keywords: "mortgage calculator 2025, chase bank rates, bank of america mortgage, barclays mortgage calculator, hsbc global banking, life insurance calculator, insurance quotes comparison, investment calculator, loan calculator, home loan rates, private banking calculator, preferred rewards calculator, mortgage rates comparison, insurance premium calculator, auto insurance quotes, health insurance calculator, retirement planning calculator, 401k calculator, IRA calculator, term life insurance, whole life insurance, disability insurance calculator, property investment calculator, home insurance quotes, car insurance rates, financial planning tools",
+  title: "Genius Insights | South African Financial Tools & Calculators 2025",
+  description: "Free South African financial calculators for SARS tax, property transfer, retirement planning, insurance comparison, and more. Updated with latest 2025 rates and regulations for accurate financial planning.",
+  keywords: "South Africa tax calculator, SARS calculator, property transfer calculator, retirement calculator SA, financial tools South Africa, VAT calculator, home loan calculator SA, medical aid comparison, SARS eFiling, property transfer duty, Standard Bank calculator, FNB calculator, Capitec calculator, South African insurance comparison, JSE investment calculator",
   openGraph: {
-    title: "Premium Banking & Insurance Calculators 2025 | Genius Insights",
-    description: "Compare mortgage rates from Chase, Bank of America, Barclays, HSBC. Get life insurance quotes, calculate investment returns. Trusted by 1M+ professionals worldwide with enterprise-grade financial tools.",
+    title: "Genius Insights | South African Financial Tools & Calculators 2025",
+    description: "Free SA financial calculators for SARS tax, property transfer, retirement, insurance, and more. Updated with latest 2025 rates and regulations.",
     type: "website",
-    siteName: "Genius Insights - Global Professional Platform",
-    locale: "en_US",
+    siteName: "Genius Insights - South African Financial Platform",
+    locale: "en_ZA",
     images: [
       {
-        url: '/images/og-global-platform.jpg',
+        url: '/images/og-south-africa-platform.jpg',
         width: 1200,
         height: 630,
-        alt: 'Genius Insights - Global Professional Tools Platform',
+        alt: 'Genius Insights - South African Financial Tools Platform',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Premium Banking & Insurance Calculators 2025 | Compare Rates",
-    description: "💰 Compare Chase, BofA, Barclays, HSBC rates. Life insurance quotes, mortgage calculators, investment tools. Trusted by 1M+ professionals worldwide! 🏦",
-    images: ['/images/twitter-global-platform.jpg'],
+    title: "South African Financial Tools & Calculators 2025 | Genius Insights",
+    description: "🇿🇦 Free SARS tax calculator, property transfer tools, retirement planning, insurance comparison. Updated with latest SA rates! 💰",
+    images: ['/images/twitter-south-africa-platform.jpg'],
   },
   robots: {
     index: true,
@@ -53,12 +53,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.genius-insights.co.za",
     languages: {
-      'en-US': '/en-us',
-      'en-GB': '/en-gb',
-      'en-ZA': '/en-za',
-      'en-IN': '/en-in',
-      'en-AU': '/en-au',
-      'en-CA': '/en-ca',
+      'en-ZA': '/',
+      'en': '/',
     },
   },
   verification: {

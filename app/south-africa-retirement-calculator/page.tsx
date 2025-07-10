@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import React from 'react';
 import SouthAfricaRetirementCalculator from '@/components/SouthAfricaRetirementCalculator';
 import StructuredData from '@/components/StructuredData';
+import ToolLayout from '@/components/ToolLayout';
 
 export const metadata: Metadata = {
   title: 'South Africa Retirement Calculator 2025 | Pension Fund & Retirement Planning',
@@ -34,10 +36,67 @@ export const metadata: Metadata = {
 };
 
 export default function SouthAfricaRetirementCalculatorPage() {
+  const relatedTools = [
+    {
+      name: 'SARS Tax Calculator',
+      href: '/south-africa-tax-calculator',
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center',
+      description: 'Calculate income tax, PAYE, UIF, and SDL with 2025/2026 rates',
+      category: 'Tax & SARS'
+    },
+    {
+      name: 'Investment Calculator',
+      href: '/south-africa-investment-calculator',
+      image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=300&fit=crop&crop=center',
+      description: 'Calculate investment returns and compound interest',
+      category: 'Investment'
+    },
+    {
+      name: 'Life Insurance Calculator',
+      href: '/south-africa-insurance-calculator',
+      image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop&crop=center',
+      description: 'Compare life insurance and medical aid premiums',
+      category: 'Insurance'
+    }
+  ];
+
+  const relatedArticles = [
+    {
+      title: 'Retirement Planning Guide for South Africa',
+      href: '/articles/retirement-planning-guide-sa',
+      image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=300&fit=crop&crop=center',
+      excerpt: 'Complete guide to retirement planning in South Africa',
+      category: 'Retirement',
+      readTime: '12 min read'
+    },
+    {
+      title: 'Pension Fund vs Provident Fund Explained',
+      href: '/articles/pension-vs-provident-fund-sa',
+      image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=300&fit=crop&crop=center',
+      excerpt: 'Understanding the differences between pension and provident funds',
+      category: 'Retirement',
+      readTime: '8 min read'
+    },
+    {
+      title: 'Retirement Annuity Benefits and Tax Savings',
+      href: '/articles/retirement-annuity-benefits-sa',
+      image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=300&fit=crop&crop=center',
+      excerpt: 'How retirement annuities can save you tax and build wealth',
+      category: 'Retirement',
+      readTime: '10 min read'
+    }
+  ];
+
   return (
     <>
       <StructuredData type="retirement-calculator" />
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-emerald-50 to-teal-100">
+      <ToolLayout
+        title="Retirement Calculator 2025"
+        category="Investment"
+        heroImage="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=400&fit=crop&crop=center"
+        relatedTools={relatedTools}
+        relatedArticles={relatedArticles}
+      >
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700 rounded-b-3xl">
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"></div>
@@ -169,7 +228,7 @@ export default function SouthAfricaRetirementCalculatorPage() {
             </div>
           </div>
         </div>
-      </div>
+      </ToolLayout>
     </>
   );
 }

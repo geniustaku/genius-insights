@@ -2,270 +2,107 @@
 import React, { JSX } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getArticles } from '@/lib/db';
-import ArticleCard from '@/components/ArticleCard';
-import FeaturedArticle from '@/components/FeaturedArticle';
-import CategoryList from '@/components/CategoryList';
 import { htmlToText } from 'html-to-text';
 import NewsletterSignup from '@/components/NewsletterSignup';
-import JobMarketHighlights from '../components/JobMarketHighlights';
 import StructuredData from '@/components/StructuredData';
 import { useEffect, useState } from 'react';
+import ArticleCard from '@/components/ArticleCard';
 
-// Move metadata to layout.js or use Head component
+
 function stripHtml(html: string) {
   return htmlToText(html, {
     wordwrap: 130,
   });
 }
 
+function getGuideImage(category: string, index: number) {
+  const guideImages = {
+    'Tax & SARS': [
+      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center', // Tax documents
+      'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=300&fit=crop&crop=center', // Calculator
+      'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop&crop=center'  // Financial charts
+    ],
+    'Property': [
+      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop&crop=center', // Modern house
+      'https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=400&h=300&fit=crop&crop=center', // Keys
+      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop&crop=center'  // City buildings
+    ],
+    'Banking': [
+      'https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=400&h=300&fit=crop&crop=center', // Bank building
+      'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop&crop=center', // Credit cards
+      'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400&h=300&fit=crop&crop=center'  // Mobile banking
+    ],
+    'Insurance': [
+      'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop&crop=center', // Protection concept
+      'https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=400&h=300&fit=crop&crop=center', // Family protection
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=center'  // Insurance forms
+    ],
+    'Business': [
+      'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&h=300&fit=crop&crop=center', // Business meeting
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop&crop=center', // Team work
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop&crop=center'  // Business growth
+    ]
+  };
+
+  const categoryImages = guideImages[category as keyof typeof guideImages] || guideImages['Tax & SARS'];
+  return categoryImages[index % categoryImages.length];
+}
+
+interface Article {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  category: string;
+  author: string;
+  reading_time: number;
+  featured_image?: string;
+}
+
 export default function Home(): JSX.Element {
-  const [articles, setArticles] = useState<any[]>([]);
-  const [featuredArticle, setFeaturedArticle] = useState<any>(null);
-  const [recentArticles, setRecentArticles] = useState<any[]>([]);
+  const [featuredArticles, setFeaturedArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchArticles() {
+    const fetchArticles = async () => {
       try {
-        const response = await fetch('/api/articles');
-        if (response.ok) {
-          const data = await response.json();
-          const articlesList = Array.isArray(data) ? data : data.articles || [];
-          setArticles(articlesList.slice(0, 6));
-          setFeaturedArticle(articlesList[0] || null);
-          setRecentArticles(articlesList.slice(1, 6));
-        }
+        const response = await fetch('/api/articles?limit=6');
+        const data = await response.json();
+        setFeaturedArticles(data.articles || []);
       } catch (error) {
         console.error('Error fetching articles:', error);
-        // Don't show articles section if API fails
-        setArticles([]);
-        setFeaturedArticle(null);
-        setRecentArticles([]);
       } finally {
         setLoading(false);
       }
-    }
-    
+    };
+
     fetchArticles();
   }, []);
 
-  const sanitizedFeaturedExcerpt = featuredArticle ? stripHtml(featuredArticle.excerpt) : '';
-  const sanitizedRecentArticles = recentArticles.map(article => ({
-    ...article,
-    excerpt: stripHtml(article.excerpt),
-  }));
-
-  // Organized by priority - premium markets first
-  const globalRegions = {
-    americas: {
-      name: 'Americas',
-      icon: '🌎',
-      priority: 1,
-      countries: [
-        { name: 'United States', flag: '🇺🇸', tools: 12, featured: true, category: 'Major Economy', priority: 1 },
-        { name: 'Canada', flag: '🇨🇦', tools: 7, featured: true, category: 'Premium Market', priority: 2 },
-        { name: 'Brazil', flag: '🇧🇷', tools: 6, featured: true, category: 'Growing Market', priority: 3 },
-        { name: 'Mexico', flag: '🇲🇽', tools: 5, featured: false, category: 'Emerging Market', priority: 4 },
-        { name: 'Cuba', flag: '🇨🇺', tools: 2, featured: true, category: 'Niche Market', priority: 5 },
-      ]
-    },
-    europe: {
-      name: 'Europe',
-      icon: '🇪🇺', 
-      priority: 2,
-      countries: [
-        { name: 'Switzerland', flag: '🇨🇭', tools: 4, featured: true, category: 'Luxury Market', priority: 1 },
-        { name: 'United Kingdom', flag: '🇬🇧', tools: 11, featured: true, category: 'Financial Hub', priority: 2 },
-        { name: 'Netherlands', flag: '🇳🇱', tools: 5, featured: true, category: 'Financial Center', priority: 3 },
-        { name: 'Germany', flag: '🇩🇪', tools: 7, featured: true, category: 'Major Economy', priority: 4 },
-        { name: 'France', flag: '🇫🇷', tools: 6, featured: true, category: 'Premium Market', priority: 5 },
-      ]
-    },
-    asiaPacific: {
-      name: 'Asia Pacific',
-      icon: '🌏',
-      priority: 3,
-      countries: [
-        { name: 'Australia', flag: '🇦🇺', tools: 6, featured: true, category: 'Premium Market', priority: 1 },
-        { name: 'Singapore', flag: '🇸🇬', tools: 7, featured: true, category: 'Financial Hub', priority: 2 },
-        { name: 'UAE', flag: '🇦🇪', tools: 6, featured: true, category: 'Financial Center', priority: 3 },
-        { name: 'Japan', flag: '🇯🇵', tools: 5, featured: true, category: 'Major Economy', priority: 4 },
-        { name: 'India', flag: '🇮🇳', tools: 8, featured: true, category: 'Growing Market', priority: 5 },
-        { name: 'Bangladesh', flag: '🇧🇩', tools: 2, featured: true, category: 'Emerging Market', priority: 6 },
-      ]
-    },
-    africa: {
-      name: 'Africa',
-      icon: '🌍',
-      priority: 4,
-      countries: [
-        { name: 'South Africa', flag: '🇿🇦', tools: 15, featured: true, category: 'Regional Leader', priority: 1 },
-        { name: 'Nigeria', flag: '🇳🇬', tools: 8, featured: true, category: 'Major Economy', priority: 2 },
-        { name: 'Kenya', flag: '🇰🇪', tools: 6, featured: true, category: 'Tech Hub', priority: 3 },
-        { name: 'Ghana', flag: '🇬🇭', tools: 5, featured: true, category: 'Growing Market', priority: 4 },
-        { name: 'Egypt', flag: '🇪🇬', tools: 4, featured: true, category: 'Regional Power', priority: 5 },
-        { name: 'Morocco', flag: '🇲🇦', tools: 4, featured: true, category: 'Gateway Market', priority: 6 },
-        { name: 'Ethiopia', flag: '🇪🇹', tools: 2, featured: true, category: 'Emerging Market', priority: 7 },
-      ]
-    }
-  };
-
-  // Flatten for legacy compatibility
-  const countries = Object.values(globalRegions).flatMap(region => region.countries);
-
-  const globalTools = [
+  const featuredTools = [
     { 
-      name: 'CV Builder', 
-      icon: '📄', 
-      link: '/cv-builder', 
-      description: 'ATS-optimized resumes for global markets',
-      gradient: 'from-purple-500 to-pink-500',
-      users: '750K+',
-      badge: 'Most Popular'
+      name: 'SARS Tax Calculator', 
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop&crop=center',
+      link: '/south-africa-tax-calculator', 
+      description: 'Calculate your 2025 SARS tax obligations with our comprehensive calculator',
+      category: 'Tax & SARS',
+      time: '5 min read'
     },
     { 
-      name: 'USA Tax Calculator', 
-      icon: '🇺🇸', 
-      link: '/us-tax-calculator', 
-      description: 'Complete US tax calculations with latest rates',
-      gradient: 'from-blue-600 to-red-600',
-      users: '500K+',
-      badge: 'Premium'
+      name: 'Property Transfer Calculator', 
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=400&fit=crop&crop=center',
+      link: '/south-africa-property-transfer-calculator', 
+      description: 'Calculate bond costs, transfer duty, and attorney fees for SA property transfers',
+      category: 'Property',
+      time: '8 min read'
     },
     { 
-      name: 'Germany Legal Services', 
-      icon: '🇩🇪', 
-      link: '/germany-legal-services-calculator', 
-      description: 'Anwalt Kosten • Arbeitsrecht • Fachanwalt',
-      gradient: 'from-red-700 to-yellow-600',
-      users: '280K+',
-      badge: 'Anwalt'
-    },
-    { 
-      name: 'Investment Calculator', 
-      icon: '📈', 
-      link: '/us-investment-calculator', 
-      description: 'Professional investment planning tools',
-      gradient: 'from-green-600 to-blue-600',
-      users: '400K+',
-      badge: 'Popular'
-    },
-    { 
-      name: 'Insurance Comparison', 
-      icon: '🛡️', 
-      link: '/uk-insurance-comparison', 
-      description: 'Compare insurance providers worldwide',
-      gradient: 'from-indigo-600 to-purple-600',
-      users: '350K+',
-      badge: 'Compare All'
-    },
-    { 
-      name: 'Loan Calculator', 
-      icon: '🏠', 
-      link: '/us-loan-calculator', 
-      description: 'Mortgage and loan planning tools',
-      gradient: 'from-orange-600 to-red-600',
-      users: '450K+',
-      badge: 'Essential'
-    },
-  ];
-
-  // High CPC Financial Services Tools - Premium banking and insurance calculators
-  const premiumFinancialTools = [
-    {
-      name: 'Germany Legal Services',
-      icon: '🇩🇪',
-      link: '/germany-legal-services-calculator',
-      description: 'Anwalt Kosten • Arbeitsrecht • Personenschäden • RVG Gebühren',
-      gradient: 'from-red-700 to-yellow-600',
-      users: '180K+',
-      badge: 'Anwalt',
-      keywords: 'anwalt für arbeitsrecht, fachanwalt personenschäden, rechtsanwalt kosten'
-    },
-    {
-      name: 'Chase Bank Calculator',
-      icon: '🏦',
-      link: '/usa-chase-calculator',
-      description: 'Mortgage rates, private banking, and 401k planning',
-      gradient: 'from-blue-800 to-indigo-900',
-      users: '150K+',
-      badge: 'Premium',
-      keywords: 'chase mortgage calculator, chase bank rates, private client banking'
-    },
-    {
-      name: 'Bank of America Calculator', 
-      icon: '🇺🇸',
-      link: '/usa-bank-of-america-calculator',
-      description: 'Preferred Rewards rates and Merrill Lynch investments',
-      gradient: 'from-red-700 to-blue-800',
-      users: '140K+',
-      badge: 'Preferred',
-      keywords: 'bank of america mortgage, preferred rewards calculator, merrill investment'
-    },
-    {
-      name: 'Barclays Calculator',
-      icon: '🇬🇧', 
-      link: '/uk-barclays-calculator',
-      description: 'UK mortgages, Premier banking, and investment ISAs',
-      gradient: 'from-blue-900 to-teal-600',
-      users: '120K+',
-      badge: 'Premier',
-      keywords: 'barclays mortgage calculator, premier banking rates, uk isa calculator'
-    },
-    {
-      name: 'HSBC Calculator',
-      icon: '🌍',
-      link: '/uk-hsbc-calculator', 
-      description: 'Global banking, Jade private banking, and forex',
-      gradient: 'from-red-600 to-gray-800',
-      users: '110K+',
-      badge: 'Global',
-      keywords: 'hsbc mortgage rates, jade private banking, global investment calculator'
-    },
-    {
-      name: 'Standard Bank Calculator',
-      icon: '🇿🇦',
-      link: '/south-africa-standard-bank-calculator',
-      description: 'South African banking, home loans, and investments',
-      gradient: 'from-blue-800 to-red-600', 
-      users: '90K+',
-      badge: 'Local',
-      keywords: 'standard bank home loan, south africa mortgage calculator, investment rates'
-    }
-  ];
-
-  // High CPC Insurance Tools - Life, health, auto, and home insurance
-  const premiumInsuranceTools = [
-    {
-      name: 'UK Insurance Comparison',
-      icon: '🇬🇧',
-      link: '/uk-insurance-comparison',
-      description: 'Compare life, motor, home insurance - Aviva, Legal & General, Direct Line',
-      gradient: 'from-blue-800 to-indigo-900',
-      users: '220K+',
-      badge: 'Compare All',
-      keywords: 'uk insurance comparison, life insurance quotes, motor insurance calculator'
-    },
-    {
-      name: 'South Africa Insurance Comparison',
-      icon: '🇿🇦',
-      link: '/south-africa-insurance-comparison',
-      description: 'Compare Sanlam, Discovery, Old Mutual - life, motor, medical aid',
-      gradient: 'from-green-700 to-blue-800',
-      users: '190K+',
-      badge: 'SA Leader',
-      keywords: 'south africa insurance comparison, sanlam quotes, discovery insurance'
-    },
-    {
-      name: 'USA Insurance Calculator',
-      icon: '🇺🇸',
-      link: '/usa-insurance-calculator',
-      description: 'Life, health, auto & home insurance quotes - State Farm, Allstate',
-      gradient: 'from-red-600 to-blue-700',
-      users: '200K+',
-      badge: 'Premium',
-      keywords: 'life insurance calculator, health insurance quotes, auto insurance rates'
+      name: 'Insurance Comparison Tool', 
+      image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop&crop=center',
+      link: '/south-africa-insurance-comparison', 
+      description: 'Compare Sanlam, Discovery, and Old Mutual insurance rates and benefits',
+      category: 'Insurance',
+      time: '6 min read'
     }
   ];
 
@@ -273,620 +110,474 @@ export default function Home(): JSX.Element {
     <>
       <StructuredData type="homepage" />
       
-      {/* Elegant Hero Section */}
-      <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+      {/* Navigation Bar */}
+      <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center space-x-8">
+              <Link href="/" className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">G</span>
+                </div>
+                <span className="font-bold text-xl text-gray-900">Genius Insights</span>
+              </Link>
+              <div className="hidden md:flex items-center space-x-6">
+                <Link href="/tools" className="text-gray-600 hover:text-gray-900 font-medium">Tools</Link>
+                <Link href="/articles" className="text-gray-600 hover:text-gray-900 font-medium">Guides</Link>
+                <Link href="/calculators" className="text-gray-600 hover:text-gray-900 font-medium">Calculators</Link>
+                <Link href="/market" className="text-gray-600 hover:text-gray-900 font-medium">Market</Link>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                Get Started
+              </button>
+            </div>
+          </div>
         </div>
+      </nav>
 
-        <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-          <div className="max-w-7xl mx-auto">
+      {/* Breaking News Banner */}
+      <div className="bg-red-600 text-white py-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center space-x-4">
+            <span className="bg-white text-red-600 px-2 py-1 text-xs font-bold rounded">BREAKING</span>
+            <p className="text-sm">
+              <Link href="/south-africa-tax-calculator" className="hover:underline">
+                SARS announces major tax bracket changes for 2025 - Calculate your new tax obligations
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Hero Section - News Style */}
+      <div className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          
+          {/* Featured Story */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             
-            {/* Global Badge */}
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 backdrop-blur-sm">
-                <span className="text-purple-300 text-sm font-medium mr-2">🌍</span>
-                <span className="text-white text-sm font-medium">Trusted by 1M+ Professionals Worldwide</span>
-                <span className="ml-2 px-2 py-1 bg-purple-500 text-white text-xs rounded-full">25+ Countries</span>
-              </div>
-            </div>
-
-            {/* Main Headline */}
-            <div className="text-center mb-16">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                <span className="block text-white mb-2">Professional Tools for</span>
-                <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 bg-clip-text text-transparent">
-                  Global Careers
-                </span>
-              </h1>
-              
-              <p className="text-xl sm:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-                Trusted by 1M+ professionals worldwide. Build CVs, calculate taxes, plan investments, 
-                and advance your career in 25+ countries with enterprise-grade accuracy.
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                <Link 
-                  href="/cv-builder" 
-                  className="group bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center min-w-[200px] justify-center"
-                >
-                  <span className="text-xl mr-2">📄</span>
-                  Build Free CV
-                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-                <Link 
-                  href="/salary-calculator" 
-                  className="group bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center min-w-[200px] justify-center"
-                >
-                  <span className="text-xl mr-2">💰</span>
-                  Check Salary
-                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-
-            {/* High CPC Tools Grid with CPC badges */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-              {globalTools.map((tool, index) => (
-                <Link 
-                  key={index}
-                  href={tool.link} 
-                  className="group bg-white/10 backdrop-blur-md rounded-3xl p-6 hover:bg-white/20 transition-all duration-300 border border-white/20 hover:scale-105 hover:shadow-2xl relative overflow-hidden"
-                >
-                  {/* Badge */}
-                  <div className="absolute top-4 right-4">
-                    <div className="px-2 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-xs font-bold text-gray-900 rounded-full">
-                      {tool.badge}
+            {/* Main Story */}
+            <div className="lg:col-span-2">
+              <Link href="/south-africa-tax-calculator" className="group block">
+                <div className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="flex flex-col md:flex-row">
+                    {/* Image Section */}
+                    <div className="md:w-1/2 relative overflow-hidden">
+                      <Image 
+                        src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop&crop=center"
+                        alt="SARS Tax Calculator 2025"
+                        width={800}
+                        height={400}
+                        className="w-full h-[300px] md:h-[400px] object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    
+                    {/* Content Section */}
+                    <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center bg-white">
+                      <span className="bg-green-600 text-white px-4 py-2 text-sm font-bold rounded-full mb-4 inline-block w-fit">
+                        TAX CALCULATOR
+                      </span>
+                      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-tight text-gray-900">
+                        SARS 2025 Tax Calculator: Navigate New Tax Brackets with Confidence
+                      </h1>
+                      <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Calculate your exact tax obligations with our updated calculator featuring the latest SARS rates and thresholds for the 2025 tax year.
+                      </p>
+                      <div className="flex items-center space-x-4 text-sm text-gray-500">
+                        <span className="font-medium">By Tax Team</span>
+                        <span>•</span>
+                        <span>5 min read</span>
+                        <span>•</span>
+                        <span className="font-medium">Jan 10, 2025</span>
+                      </div>
                     </div>
                   </div>
+                </div>
+              </Link>
+            </div>
+
+            {/* Side Stories */}
+            <div className="space-y-6">
+              
+              {/* Trending Tools */}
+              <div className="bg-gray-50 rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-4 text-gray-900">🔥 Trending Tools</h3>
+                <div className="space-y-4">
+                  <Link href="/south-africa-property-transfer-calculator" className="flex items-center space-x-3 hover:bg-white p-3 rounded-lg transition-colors">
+                    <Image 
+                      src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=80&h=60&fit=crop&crop=center"
+                      alt="Property Transfer"
+                      width={80}
+                      height={60}
+                      className="w-20 h-15 object-cover rounded"
+                    />
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-sm text-gray-900">Property Transfer Calculator</h4>
+                      <p className="text-xs text-gray-600">Calculate transfer costs</p>
+                    </div>
+                  </Link>
                   
-                  <div className={`w-16 h-16 bg-gradient-to-r ${tool.gradient} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <span className="text-2xl">{tool.icon}</span>
+                  <Link href="/south-africa-insurance-comparison" className="flex items-center space-x-3 hover:bg-white p-3 rounded-lg transition-colors">
+                    <Image 
+                      src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=80&h=60&fit=crop&crop=center"
+                      alt="Insurance Comparison"
+                      width={80}
+                      height={60}
+                      className="w-20 h-15 object-cover rounded"
+                    />
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-sm text-gray-900">Insurance Comparison</h4>
+                      <p className="text-xs text-gray-600">Compare SA insurers</p>
+                    </div>
+                  </Link>
+                  
+                  <Link href="/south-africa-retirement-calculator" className="flex items-center space-x-3 hover:bg-white p-3 rounded-lg transition-colors">
+                    <Image 
+                      src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=80&h=60&fit=crop&crop=center"
+                      alt="Retirement Planning"
+                      width={80}
+                      height={60}
+                      className="w-20 h-15 object-cover rounded"
+                    />
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-sm text-gray-900">Retirement Calculator</h4>
+                      <p className="text-xs text-gray-600">Plan your pension</p>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Quick Stats */}
+              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-4 text-green-900">📊 Market Update</h3>
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-700">Repo Rate</span>
+                    <span className="font-bold text-green-600">8.25%</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{tool.name}</h3>
-                  <p className="text-gray-300 text-sm mb-4 leading-relaxed">{tool.description}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-purple-300 text-sm font-medium">{tool.users} users</span>
-                    <svg className="w-5 h-5 text-purple-300 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-700">Prime Rate</span>
+                    <span className="font-bold text-green-600">11.75%</span>
                   </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-700">USD/ZAR</span>
+                    <span className="font-bold text-red-600">R18.45</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-700">Petrol (95)</span>
+                    <span className="font-bold text-blue-600">R22.86/L</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Latest Articles from Database */}
+          <section className="mb-12">
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-2xl font-bold text-gray-900">Latest Financial Guides</h2>
+              <Link href="/articles" className="text-green-600 hover:text-green-700 font-medium">View all →</Link>
+            </div>
+            
+            {loading ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[...Array(6)].map((_, i) => (
+                  <div key={i} className="bg-white rounded-lg border border-gray-200 overflow-hidden animate-pulse">
+                    <div className="h-48 bg-gray-200"></div>
+                    <div className="p-6 space-y-3">
+                      <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+                      <div className="h-6 bg-gray-200 rounded"></div>
+                      <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {featuredArticles.slice(0, 6).map((article, index) => (
+                  <Link key={article.id} href={`/articles/${article.slug}`} className="group block">
+                    <article className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+                      <div className="relative h-48 overflow-hidden">
+                        <Image 
+                          src={article.featured_image || getGuideImage(article.category, index)}
+                          alt={article.title}
+                          width={400}
+                          height={300}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                        <div className="absolute top-4 left-4">
+                          <span className="bg-blue-600 text-white px-2 py-1 text-xs font-bold rounded shadow-lg">
+                            {article.category?.toUpperCase() || 'GUIDE'}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="p-6">
+                        <h3 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                          {article.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                          {article.excerpt}
+                        </p>
+                        <div className="flex items-center justify-between text-xs text-gray-500">
+                          <span>By {article.author}</span>
+                          <span>{article.reading_time} min read</span>
+                        </div>
+                      </div>
+                    </article>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </section>
+
+          {/* Feature Tools Grid - News Style */}
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8">Financial Tools & Calculators</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {featuredTools.map((tool, index) => (
+                <Link key={index} href={tool.link} className="group block">
+                  <article className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+                    <div className="relative h-48 overflow-hidden">
+                      <Image 
+                        src={tool.image}
+                        alt={tool.name}
+                        width={400}
+                        height={300}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="bg-green-600 text-white px-2 py-1 text-xs font-bold rounded">
+                          {tool.category.toUpperCase()}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
+                        {tool.name}
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-4">
+                        {tool.description}
+                      </p>
+                      <div className="flex items-center justify-between text-xs text-gray-500">
+                        <span>Financial Tool</span>
+                        <span>{tool.time}</span>
+                      </div>
+                    </div>
+                  </article>
                 </Link>
               ))}
+            </div>
+          </section>
+
+          {/* Ad Space */}
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center mb-12">
+            <div className="text-gray-500 text-sm mb-2">Advertisement</div>
+            <div className="h-32 bg-gradient-to-r from-blue-50 to-green-50 rounded flex items-center justify-center">
+              <span className="text-gray-600 font-medium">728x90 Content Advertisement</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Premium Financial Services Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+      {/* Categories Section - News Style */}
+      <section className="py-16 bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-gold/20 to-yellow-600/20 border border-yellow-500/30 backdrop-blur-sm mb-6">
-              <span className="text-yellow-300 text-sm font-medium mr-2">💎</span>
-              <span className="text-white text-sm font-medium">Premium Financial Services</span>
-              <span className="ml-2 px-2 py-1 bg-yellow-500 text-gray-900 text-xs rounded-full font-bold">Featured</span>
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              Premium Banking Calculators
-            </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-              Professional calculators for major banks worldwide. Compare mortgage rates, private banking benefits, and investment returns with current 2025 rates.
-            </p>
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">South African Financial Categories</h2>
+            <p className="text-lg text-gray-600">Browse our comprehensive collection of financial tools and guides organized by category</p>
           </div>
 
-          {/* Premium Banking Tools */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {premiumFinancialTools.map((tool, index) => (
-              <Link 
-                key={index}
-                href={tool.link} 
-                className="group bg-white/10 backdrop-blur-md rounded-3xl p-6 hover:bg-white/20 transition-all duration-300 border border-white/20 hover:scale-105 hover:shadow-2xl relative overflow-hidden"
-              >
-                {/* Premium Badge */}
-                <div className="absolute top-4 right-4 px-2 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-xs font-bold text-gray-900 rounded-full">
-                  {tool.badge}
-                </div>
-                
-                <div className={`w-16 h-16 bg-gradient-to-r ${tool.gradient} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <span className="text-2xl">{tool.icon}</span>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">{tool.name}</h3>
-                <p className="text-gray-300 text-sm mb-4 leading-relaxed">{tool.description}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-yellow-300 text-sm font-medium">{tool.users} users</span>
-                  <svg className="w-5 h-5 text-yellow-300 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* Insurance Tools Section */}
-          <div className="text-center mb-12">
-            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-              Insurance Comparison Tools
-            </h3>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              Compare life, motor, home, and health insurance from top providers worldwide. Simulate scenarios and find the best coverage with instant quotes.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {premiumInsuranceTools.map((tool, index) => (
-              <Link 
-                key={index}
-                href={tool.link} 
-                className="group bg-white/10 backdrop-blur-md rounded-3xl p-6 hover:bg-white/20 transition-all duration-300 border border-white/20 hover:scale-105 hover:shadow-2xl relative overflow-hidden"
-              >
-                {/* Insurance Badge */}
-                <div className="absolute top-4 right-4 px-2 py-1 bg-gradient-to-r from-green-400 to-blue-400 text-xs font-bold text-gray-900 rounded-full">
-                  {tool.badge}
-                </div>
-                
-                <div className={`w-16 h-16 bg-gradient-to-r ${tool.gradient} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <span className="text-2xl">{tool.icon}</span>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">{tool.name}</h3>
-                <p className="text-gray-300 text-sm mb-4 leading-relaxed">{tool.description}</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-green-300 text-sm font-medium">{tool.users} users</span>
-                  <svg className="w-5 h-5 text-green-300 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* High CPC Keywords Section */}
-          <div className="mt-16 text-center">
-            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10">
-              <h4 className="text-2xl font-bold text-white mb-4">Trending Financial Searches</h4>
-              <div className="flex flex-wrap justify-center gap-3">
-                {[
-                  'anwalt für arbeitsrecht', 'fachanwalt personenschäden', 'rechtsanwalt kosten', 'anwaltsgebühren rvg',
-                  'insurance comparison tool', 'life insurance quotes uk', 'motor insurance calculator', 'anwalt unternehmensrecht',
-                  'discovery insurance comparison', 'rechtsberatung deutschland', 'home insurance calculator', 'anwalt familienrecht'
-                ].map((keyword, index) => (
-                  <span key={index} className="px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 rounded-full text-sm border border-blue-500/30">
-                    {keyword}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Global Markets Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-100 to-indigo-100 border border-blue-200 mb-6">
-              <span className="text-blue-600 text-sm font-medium mr-2">🌍</span>
-              <span className="text-blue-800 text-sm font-medium">Premium Global Markets</span>
-              <span className="ml-2 px-2 py-1 bg-blue-600 text-white text-xs rounded-full">Featured</span>
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Global Professional Tools
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Access professional tools designed for major global markets, financial hubs, and growing economies worldwide.
-            </p>
-          </div>
-
-          {/* Regions Grid - Ordered by Priority */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-            {Object.entries(globalRegions)
-              .sort(([,a], [,b]) => a.priority - b.priority)
-              .map(([key, region]) => (
-              <div key={key} className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 relative">
-                {/* Priority Badge */}
-                <div className="absolute top-6 right-6">
-                  <div className="px-3 py-1 bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-xs font-bold rounded-full">
-                    Featured
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            {/* Tax & SARS Category */}
+            <div className="group">
+              <Link href="/category/tax-sars" className="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-2xl">🇿🇦</span>
                   </div>
-                </div>
-                
-                <div className="flex items-center mb-6">
-                  <div className="text-4xl mr-4">{region.icon}</div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900">{region.name}</h3>
-                    <p className="text-blue-600 font-semibold text-sm">Professional Tools</p>
+                    <h3 className="font-bold text-lg text-gray-900 group-hover:text-green-600 transition-colors">Tax & SARS</h3>
+                    <p className="text-sm text-gray-500">8 tools & guides</p>
                   </div>
                 </div>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  {region.countries
-                    .sort((a, b) => a.priority - b.priority)
-                    .slice(0, 4)
-                    .map((country, index) => {
-                    // Map country names to actual calculator URLs
-                    const getCalculatorUrl = (countryName: string) => {
-                      const urlMap: { [key: string]: string } = {
-                        'United States': '/us-tax-calculator',
-                        'Canada': '/canada-tax-calculator', 
-                        'Brazil': '/brazil-tax-calculator',
-                        'United Kingdom': '/uk-tax-calculator',
-                        'Germany': '/germany-tax-calculator',
-                        'France': '/france-tax-calculator',
-                        'India': '/india-tax-calculator',
-                        'Singapore': '/singapore-tax-calculator',
-                        'Australia': '/australia-tax-calculator',
-                        'UAE': '/uae-tax-calculator',
-                        'South Africa': '/south-africa-tax-calculator',
-                        'Nigeria': '/nigeria-tax-calculator',
-                        'Kenya': '/kenya-tax-calculator',
-                        'Ghana': '/ghana-tax-calculator',
-                        'Egypt': '/egypt-tax-calculator',
-                        'Morocco': '/morocco-tax-calculator',
-                        'Ethiopia': '/ethiopia-tax-calculator',
-                        'Bangladesh': '/bangladesh-tax-calculator',
-                        'Cuba': '/cuba-currency-calculator'
-                      };
-                      return urlMap[countryName] || `/${countryName.toLowerCase().replace(/\s+/g, '-')}-tax-calculator`;
-                    };
-                    
-                    return (
-                    <Link
-                      key={index}
-                      href={getCalculatorUrl(country.name)}
-                      className="group bg-gray-50 rounded-xl p-4 hover:bg-gray-100 transition-all duration-300 hover:scale-105"
-                    >
-                      <div className="flex items-center mb-2">
-                        <span className="text-2xl mr-2">{country.flag}</span>
-                        <div>
-                          <h4 className="font-bold text-gray-900 text-sm">{country.name}</h4>
-                          <p className="text-xs text-blue-600 font-medium">{country.category}</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-blue-600 font-medium">{country.tools} Tools</span>
-                        <svg className="w-3 h-3 text-blue-600 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </div>
-                    </Link>
-                    );
-                  })}
+                <p className="text-gray-600 text-sm mb-4">
+                  SARS tax calculators, eFiling guides, and compliance tools for South African taxpayers.
+                </p>
+                <div className="flex items-center text-sm text-green-600 font-medium">
+                  Explore category
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
+              </Link>
+            </div>
 
-                {/* View All Countries in Region */}
-                <div className="mt-6 text-center">
-                  <Link 
-                    href={key === 'americas' ? '/americas-tools' : 
-                          key === 'europe' ? '/europe-tools' : 
-                          key === 'asiaPacific' ? '/asia-pacific-tools' : 
-                          '/africa-tools'} 
-                    className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
-                  >
-                    View All {region.name} Tools
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Quick Access Featured Countries */}
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Featured Markets - Quick Access</h3>
-            <p className="text-gray-600 mb-8">Popular destinations with comprehensive professional tools</p>
-            <div className="flex flex-wrap justify-center gap-3">
-              {countries
-                .filter(country => country.featured)
-                .sort((a, b) => a.priority - b.priority)
-                .map((country, index) => {
-                // Map country names to actual calculator URLs
-                const getCalculatorUrl = (countryName: string) => {
-                  const urlMap: Record<string, string> = {
-                    'United States': '/us-tax-calculator',
-                    'Canada': '/canada-tax-calculator',
-                    'Brazil': '/brazil-tax-calculator', 
-                    'United Kingdom': '/uk-tax-calculator',
-                    'Germany': '/germany-tax-calculator',
-                    'France': '/france-tax-calculator',
-                    'India': '/india-tax-calculator',
-                    'Singapore': '/singapore-tax-calculator',
-                    'Australia': '/australia-tax-calculator',
-                    'UAE': '/uae-tax-calculator',
-                    'South Africa': '/south-africa-tax-calculator',
-                    'Nigeria': '/nigeria-tax-calculator',
-                    'Kenya': '/kenya-tax-calculator',
-                    'Ghana': '/ghana-tax-calculator',
-                    'Ethiopia': '/ethiopia-tax-calculator',
-                    'Bangladesh': '/bangladesh-tax-calculator',
-                    'Cuba': '/cuba-currency-calculator'
-                  };
-                  return urlMap[countryName as keyof typeof urlMap] || `/${countryName.toLowerCase().replace(/\s+/g, '-')}-tax-calculator`;
-                };
-                
-                return (
-                <Link
-                  key={index}
-                  href={getCalculatorUrl(country.name)}
-                  className="group bg-white rounded-2xl px-6 py-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center"
-                >
-                  <span className="text-2xl mr-3">{country.flag}</span>
-                  <div className="text-left">
-                    <h4 className="font-bold text-gray-900">{country.name}</h4>
-                    <p className="text-sm text-blue-600 font-medium">{country.category}</p>
-                    <p className="text-xs text-gray-600">{country.tools} Professional Tools</p>
+            {/* Property Category */}
+            <div className="group">
+              <Link href="/category/property" className="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-2xl">🏠</span>
                   </div>
-                  <svg className="w-4 h-4 ml-3 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <div>
+                    <h3 className="font-bold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">Property</h3>
+                    <p className="text-sm text-gray-500">6 tools & guides</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 text-sm mb-4">
+                  Transfer duty, bond calculators, and property investment analysis tools.
+                </p>
+                <div className="flex items-center text-sm text-blue-600 font-medium">
+                  Explore category
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                   </svg>
-                </Link>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Regional Tools Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-              Regional Specializations
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Specialized tools designed for different regions, compliance requirements, and market conditions.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Africa */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 border border-green-100">
-              <div className="text-4xl mb-4">🌍</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Africa</h3>
-              <p className="text-gray-600 mb-6">Comprehensive tools for the African job market with local compliance and currency support.</p>
-              <div className="space-y-2 mb-6">
-                <div className="flex items-center text-sm text-gray-700">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                  Insurance Comparison (Sanlam, Discovery)
                 </div>
-                <div className="flex items-center text-sm text-gray-700">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                  SARS Tax Compliance
-                </div>
-                <div className="flex items-center text-sm text-gray-700">
-                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                  Multi-currency Support
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Link href="/south-africa-insurance-comparison" className="block w-full text-center py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                  Compare SA Insurance
-                </Link>
-                <Link href="/africa-tools" className="inline-flex items-center text-green-600 font-medium hover:text-green-700">
-                  All Africa Tools
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
+              </Link>
             </div>
 
-            {/* Europe */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
-              <div className="text-4xl mb-4">🇪🇺</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Europe</h3>
-              <p className="text-gray-600 mb-6">EU-compliant tools with GDPR privacy protection and regional tax calculations.</p>
-              <div className="space-y-2 mb-6">
-                <div className="flex items-center text-sm text-gray-700">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                  German Legal Services (Anwalt für Arbeitsrecht)
+            {/* Banking Category */}
+            <div className="group">
+              <Link href="/category/banking" className="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-2xl">🏦</span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-gray-900 group-hover:text-purple-600 transition-colors">Banking</h3>
+                    <p className="text-sm text-gray-500">12 tools & guides</p>
+                  </div>
                 </div>
-                <div className="flex items-center text-sm text-gray-700">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                  Insurance Comparison (Aviva, Legal & General)
-                </div>
-                <div className="flex items-center text-sm text-gray-700">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                  GDPR Compliant
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Link href="/germany-legal-services-calculator" className="block w-full text-center py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
-                  🇩🇪 Anwalt Kosten
-                </Link>
-                <Link href="/uk-insurance-comparison" className="block w-full text-center py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                  Compare UK Insurance
-                </Link>
-                <Link href="/europe-tools" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700">
-                  All Europe Tools
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <p className="text-gray-600 text-sm mb-4">
+                  Bank-specific calculators for Standard Bank, FNB, and other major SA banks.
+                </p>
+                <div className="flex items-center text-sm text-purple-600 font-medium">
+                  Explore category
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                   </svg>
-                </Link>
-              </div>
+                </div>
+              </Link>
             </div>
 
-            {/* Americas */}
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 border border-purple-100">
-              <div className="text-4xl mb-4">🌎</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Americas</h3>
-              <p className="text-gray-600 mb-6">Tools designed for North and South American markets with local regulations and standards.</p>
-              <div className="space-y-2 mb-6">
-                <div className="flex items-center text-sm text-gray-700">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
-                  US/Canada Tax Systems
+            {/* Insurance Category */}
+            <div className="group">
+              <Link href="/category/insurance" className="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                    <span className="text-2xl">🛡️</span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-gray-900 group-hover:text-orange-600 transition-colors">Insurance</h3>
+                    <p className="text-sm text-gray-500">5 tools & guides</p>
+                  </div>
                 </div>
-                <div className="flex items-center text-sm text-gray-700">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
-                  Regional Salary Data
+                <p className="text-gray-600 text-sm mb-4">
+                  Compare Discovery, Sanlam, and Old Mutual insurance products and rates.
+                </p>
+                <div className="flex items-center text-sm text-orange-600 font-medium">
+                  Explore category
+                  <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
-                <div className="flex items-center text-sm text-gray-700">
-                  <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
-                  Industry Standards
-                </div>
-              </div>
-              <Link href="/americas-tools" className="inline-flex items-center text-purple-600 font-medium hover:text-purple-700">
-                Explore Americas Tools
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
               </Link>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Trust & Statistics Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-white">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              Leading Global Platform
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-16">
-              Trusted by over 1 million professionals across major global markets and emerging economies.
-            </p>
-
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-8">
-              <div className="text-center">
-                <div className="text-4xl sm:text-5xl font-bold text-purple-400 mb-2">1M+</div>
-                <div className="text-gray-300">Global Users</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl sm:text-5xl font-bold text-blue-400 mb-2">25+</div>
-                <div className="text-gray-300">Countries</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl sm:text-5xl font-bold text-green-400 mb-2">85+</div>
-                <div className="text-gray-300">Professional Tools</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl sm:text-5xl font-bold text-yellow-400 mb-2">15+</div>
-                <div className="text-gray-300">Languages</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl sm:text-5xl font-bold text-red-400 mb-2">99.9%</div>
-                <div className="text-gray-300">Uptime</div>
-              </div>
-            </div>
-
-            {/* Global Recognition */}
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                <div className="text-3xl mb-4">🏆</div>
-                <h3 className="text-xl font-bold mb-2">Industry Leading</h3>
-                <p className="text-gray-300 text-sm">Recognized by major financial institutions and career platforms</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                <div className="text-3xl mb-4">🔒</div>
-                <h3 className="text-xl font-bold mb-2">Enterprise Grade</h3>
-                <p className="text-gray-300 text-sm">Bank-level security with GDPR and SOC 2 compliance</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-                <div className="text-3xl mb-4">⚡</div>
-                <h3 className="text-xl font-bold mb-2">Real-time Updates</h3>
-                <p className="text-gray-300 text-sm">Live data feeds from global markets and tax authorities</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Articles Section */}
-      {!loading && featuredArticle && (
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-                Latest Career Insights
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Stay updated with the latest career trends, salary insights, and professional development tips.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-2">
-                <FeaturedArticle 
-                  article={{
-                    ...featuredArticle,
-                    excerpt: sanitizedFeaturedExcerpt
-                  }} 
-                />
-              </div>
-              <div className="space-y-6">
-                {sanitizedRecentArticles.slice(0, 3).map((article) => (
-                  <ArticleCard key={article.id} article={article} />
-                ))}
-              </div>
-            </div>
-
-            <div className="text-center mt-12">
-              <Link 
-                href="/articles" 
-                className="inline-flex items-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300"
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-                View All Articles
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Newsletter Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-pink-600">
+      <section className="py-16 bg-gradient-to-r from-green-600 to-blue-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Stay Ahead of the Curve
-          </h2>
-          <p className="text-xl text-purple-100 mb-8">
-            Get weekly insights on salary trends, career opportunities, and professional development tips delivered to your inbox.
-          </p>
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Stay Ahead of South African Finance
+            </h2>
+            <p className="text-xl text-green-100">
+              Get weekly insights on SARS updates, market trends, and financial planning strategies delivered to your inbox.
+            </p>
+          </div>
           <NewsletterSignup />
         </div>
       </section>
 
-      <style jsx>{`
-        @keyframes blob {
-          0% {
-            transform: translate(0px, 0px) scale(1);
-          }
-          33% {
-            transform: translate(30px, -50px) scale(1.1);
-          }
-          66% {
-            transform: translate(-20px, 20px) scale(0.9);
-          }
-          100% {
-            transform: translate(0px, 0px) scale(1);
-          }
-        }
-        .animate-blob {
-          animation: blob 7s infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-      `}</style>
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            
+            {/* Company Info */}
+            <div className="col-span-1 md:col-span-2">
+              <div className="flex items-center space-x-2 mb-4">
+                <div className="w-8 h-8 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">G</span>
+                </div>
+                <span className="font-bold text-xl">Genius Insights</span>
+              </div>
+              <p className="text-gray-400 mb-6 max-w-md">
+                South Africa's most comprehensive financial tools platform. Calculate taxes, compare insurance, plan investments, and access expert financial guidance.
+              </p>
+              <div className="flex space-x-4">
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                  </svg>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                  </svg>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="font-bold text-lg mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li><Link href="/south-africa-tax-calculator" className="text-gray-400 hover:text-white transition-colors">SARS Tax Calculator</Link></li>
+                <li><Link href="/south-africa-property-transfer-calculator" className="text-gray-400 hover:text-white transition-colors">Property Transfer</Link></li>
+                <li><Link href="/south-africa-insurance-comparison" className="text-gray-400 hover:text-white transition-colors">Insurance Comparison</Link></li>
+                <li><Link href="/articles" className="text-gray-400 hover:text-white transition-colors">Financial Guides</Link></li>
+              </ul>
+            </div>
+
+            {/* Categories */}
+            <div>
+              <h3 className="font-bold text-lg mb-4">Categories</h3>
+              <ul className="space-y-2">
+                <li><Link href="/category/tax-sars" className="text-gray-400 hover:text-white transition-colors">Tax & SARS</Link></li>
+                <li><Link href="/category/property" className="text-gray-400 hover:text-white transition-colors">Property</Link></li>
+                <li><Link href="/category/banking" className="text-gray-400 hover:text-white transition-colors">Banking</Link></li>
+                <li><Link href="/category/insurance" className="text-gray-400 hover:text-white transition-colors">Insurance</Link></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-400 text-sm">
+                © 2025 Genius Insights. All rights reserved. Financial tools and calculators for South Africa.
+              </p>
+              <div className="flex space-x-6 mt-4 md:mt-0">
+                <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
+                <Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</Link>
+                <Link href="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">Contact</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
