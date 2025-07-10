@@ -81,7 +81,8 @@ export async function getArticles(limitCount = 10, offset = 0, categoryFilter: s
     });
     
     // Manual sorting by published_at descending
-    articles.sort((a, b) => {
+    articles.sort((a, b) =>
+       {
       const dateA = a.published_at?.seconds || 0;
       const dateB = b.published_at?.seconds || 0;
       return dateB - dateA;
