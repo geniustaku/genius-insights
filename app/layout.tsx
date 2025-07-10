@@ -76,7 +76,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Meta tag for Google AdSense verification */}
-        <meta name="google-adsense-account" content="ca-pub-3259241984391146" />
+        <meta name="google-adsense-account" content="ca-pub-2849262030162416" />
         
         {/* Google Analytics Script */}
         <Script
@@ -108,7 +108,7 @@ export default function RootLayout({
         
         {/* Google AdSense Script */}
         <Script
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3259241984391146"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2849262030162416"
           strategy="afterInteractive"
           crossOrigin="anonymous"
         />
