@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function MarketPage() {
   const [selectedTab, setSelectedTab] = useState('overview');
-//
+
   const marketData = {
     indicators: [
       { name: 'Repo Rate', value: '8.25%', change: '0.00%', trend: 'neutral', icon: '🏛️' },
