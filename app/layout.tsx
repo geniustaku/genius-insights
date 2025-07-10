@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.genius-insights.co.za'),
   title: "Genius Insights | South African Financial Tools & Calculators 2025",
   description: "Free South African financial calculators for SARS tax, property transfer, retirement planning, insurance comparison, and more. Updated with latest 2025 rates and regulations for accurate financial planning.",
   keywords: "South Africa tax calculator, SARS calculator, property transfer calculator, retirement calculator SA, financial tools South Africa, VAT calculator, home loan calculator SA, medical aid comparison, SARS eFiling, property transfer duty, Standard Bank calculator, FNB calculator, Capitec calculator, South African insurance comparison, JSE investment calculator",
