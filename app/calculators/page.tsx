@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import AdSenseAd from '@/components/AdSenseAd';
 
 export default function CalculatorsPage() {
   const calculatorCategories = [
@@ -194,9 +195,13 @@ export default function CalculatorsPage() {
           </div>
 
           {/* Top Banner Ad */}
-          <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-8 mb-12 text-center">
-            <div className="text-gray-500 font-medium mb-2">Advertisement</div>
-            <div className="text-sm text-gray-400">728x90 - Top Banner AdSense Space</div>
+          <div className="mb-12 text-center">
+            <AdSenseAd 
+              adSlot="3043670508" 
+              adFormat="auto"
+              style={{ display: 'block', minHeight: '90px' }}
+              className="border border-gray-200 rounded-lg"
+            />
           </div>
         </div>
       </section>
@@ -220,46 +225,79 @@ export default function CalculatorsPage() {
                   
                   <div className="grid md:grid-cols-2 gap-6 mb-8">
                     {category.calculators.map((calculator, calcIndex) => (
-                      <Link key={calcIndex} href={calculator.href} className="group block">
-                        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300">
-                          <div className="relative h-48">
+                      <article key={calcIndex} className="group bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-white/20 hover:border-green-200">
+                        <Link href={calculator.href}>
+                          <div className="relative h-48 w-full overflow-hidden">
                             <Image
                               src={calculator.image}
                               alt={calculator.name}
                               fill
                               className="object-cover group-hover:scale-105 transition-transform duration-300"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                            <div className="absolute bottom-4 left-4 right-4">
-                              <h3 className="font-bold text-lg text-white mb-1 group-hover:text-green-300 transition-colors">
-                                {calculator.name}
-                              </h3>
-                              <p className="text-sm text-gray-200 line-clamp-2">{calculator.description}</p>
+                            <div className="absolute top-4 left-4">
+                              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/90 backdrop-blur-sm text-green-600 border border-white/20">
+                                {category.name.replace(' Calculators', '')}
+                              </span>
                             </div>
                           </div>
-                          <div className="p-4">
-                            <div className="flex flex-wrap gap-1 mb-3">
-                              {calculator.tags.map((tag, tagIndex) => (
+                        </Link>
+                        
+                        <div className="p-6">
+                          <div className="flex items-center justify-between mb-3">
+                            <span className="text-sm text-gray-500 flex items-center">
+                              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                              </svg>
+                              Free Calculator
+                            </span>
+                            <span className="text-sm text-gray-500">
+                              2025 Updated
+                            </span>
+                          </div>
+                          
+                          <Link href={calculator.href}>
+                            <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-green-600 transition-colors duration-300 line-clamp-2">
+                              {calculator.name}
+                            </h3>
+                          </Link>
+                          
+                          <p className="text-gray-600 mb-6 line-clamp-3 leading-relaxed">
+                            {calculator.description}
+                          </p>
+                          
+                          <div className="flex items-center justify-between">
+                            <div className="flex flex-wrap gap-1">
+                              {calculator.tags.slice(0, 2).map((tag, tagIndex) => (
                                 <span key={tagIndex} className="bg-gray-100 text-gray-600 px-2 py-1 text-xs rounded">
                                   {tag}
                                 </span>
                               ))}
                             </div>
-                            <div className="flex items-center justify-between">
-                              <span className="text-green-600 text-sm font-medium">Free Calculator</span>
-                              <span className="text-gray-400 text-sm">→</span>
-                            </div>
+                            
+                            <Link 
+                              href={calculator.href}
+                              className="group inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors duration-300"
+                            >
+                              Calculate
+                              <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                              </svg>
+                            </Link>
                           </div>
                         </div>
-                      </Link>
+                      </article>
                     ))}
                   </div>
 
                   {/* Mid-content Ad every 2 categories */}
                   {(categoryIndex + 1) % 2 === 0 && (
-                    <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-6 mb-8 text-center">
-                      <div className="text-gray-500 font-medium mb-2">Advertisement</div>
-                      <div className="text-sm text-gray-400">336x280 - Medium Rectangle AdSense Space</div>
+                    <div className="mb-8 text-center">
+                      <AdSenseAd 
+                        adSlot="5662611907" 
+                        adFormat="autorelaxed"
+                        style={{ display: 'block', minHeight: '280px' }}
+                        className="border border-gray-200 rounded-lg"
+                      />
                     </div>
                   )}
                 </div>
@@ -312,9 +350,13 @@ export default function CalculatorsPage() {
               </div>
 
               {/* Sidebar Ad */}
-              <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
-                <div className="text-gray-500 font-medium mb-2">Advertisement</div>
-                <div className="text-sm text-gray-400">300x250 - Sidebar AdSense</div>
+              <div className="text-center">
+                <AdSenseAd 
+                  adSlot="5279468522" 
+                  adFormat="auto"
+                  style={{ display: 'block', minHeight: '250px' }}
+                  className="border border-gray-200 rounded-lg"
+                />
               </div>
 
               {/* Related Articles */}
@@ -359,9 +401,14 @@ export default function CalculatorsPage() {
       {/* Bottom Ad */}
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
-            <div className="text-gray-500 font-medium mb-2">Advertisement</div>
-            <div className="text-sm text-gray-400">970x250 - Bottom Leaderboard AdSense Space</div>
+          <div className="text-center">
+            <AdSenseAd 
+              adSlot="4969876131" 
+              adLayout="in-article"
+              adFormat="fluid"
+              style={{ display: 'block', minHeight: '250px' }}
+              className="border border-gray-200 rounded-lg"
+            />
           </div>
         </div>
       </section>

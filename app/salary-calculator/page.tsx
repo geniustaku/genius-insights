@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import SalaryCalculator from '@/components/SalaryCalculator';
 import StructuredData from '@/components/StructuredData';
+import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
   title: 'Free African Salary Calculator 2025 | Check Your Worth in 18 African Countries',
@@ -83,14 +84,44 @@ export default function SalaryCalculatorPage() {
         <div className="absolute top-1/2 right-8 w-16 h-16 bg-pink-300/20 rounded-full blur-xl animate-pulse delay-500"></div>
       </div>
 
+      {/* Display Ad 3 - Before Calculator */}
+      <div className="max-w-6xl mx-auto px-8 py-8">
+        <AdSenseAd 
+          adSlot="5341658648"
+          adFormat="auto"
+          style={{ display: 'block', minHeight: '90px' }}
+          className="border border-gray-200 rounded-lg"
+        />
+      </div>
+
       {/* Main Calculator Section */}
       <div className="max-w-6xl mx-auto px-8 py-16">
         <SalaryCalculator />
       </div>
 
+      {/* Display Ad 4 - After Calculator */}
+      <div className="max-w-6xl mx-auto px-8 py-8">
+        <AdSenseAd 
+          adSlot="2386701555"
+          adFormat="auto"
+          style={{ display: 'block', minHeight: '90px' }}
+          className="border border-gray-200 rounded-lg"
+        />
+      </div>
+
       {/* Information Section */}
       <div className="max-w-6xl mx-auto px-8 pb-16">
         <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+          {/* Multiplex Ad - Within Information Section */}
+          <div className="mb-8 text-center">
+            <AdSenseAd 
+              adSlot="9985989974"
+              adFormat="autorelaxed"
+              style={{ display: 'block', minHeight: '280px' }}
+              className="border border-gray-200 rounded-lg"
+            />
+          </div>
+
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">

@@ -3,6 +3,7 @@ import React from 'react';
 import SouthAfricaVATCalculator from '@/components/SouthAfricaVATCalculator';
 import StructuredData from '@/components/StructuredData';
 import ToolLayout from '@/components/ToolLayout';
+import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
   title: 'South Africa VAT Calculator 2025 | Free 15% VAT Calculator & SARS Tool',
@@ -97,8 +98,38 @@ export default function SouthAfricaVATCalculatorPage() {
         relatedTools={relatedTools}
         relatedArticles={relatedArticles}
       >
+        {/* Display Ad 3 - Before Calculator */}
+        <div className="max-w-6xl mx-auto px-8 py-8">
+          <AdSenseAd 
+            adSlot="5341658648"
+            adFormat="auto"
+            style={{ display: 'block', minHeight: '90px' }}
+            className="border border-gray-200 rounded-lg"
+          />
+        </div>
+
         <div className="max-w-6xl mx-auto px-8 py-16">
           <SouthAfricaVATCalculator />
+        </div>
+
+        {/* Display Ad 4 - After Calculator */}
+        <div className="max-w-6xl mx-auto px-8 py-8">
+          <AdSenseAd 
+            adSlot="2386701555"
+            adFormat="auto"
+            style={{ display: 'block', minHeight: '90px' }}
+            className="border border-gray-200 rounded-lg"
+          />
+        </div>
+
+        {/* Multiplex Ad - Information Section */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <AdSenseAd 
+            adSlot="9985989974"
+            adFormat="autorelaxed"
+            style={{ display: 'block', minHeight: '280px' }}
+            className="border border-gray-200 rounded-lg"
+          />
         </div>
       </ToolLayout>
     </>

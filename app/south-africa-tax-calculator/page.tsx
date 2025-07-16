@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaTaxCalculator from '@/components/SouthAfricaTaxCalculator';
 import StructuredData from '@/components/StructuredData';
 import ToolLayout from '@/components/ToolLayout';
+import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
   title: 'South Africa Tax Calculator 2025 | SARS Income Tax & PAYE Calculator',
@@ -118,13 +119,43 @@ export default function SouthAfricaTaxCalculatorPage() {
           </div>
         </div>
 
+        {/* Display Ad 3 - Before Calculator */}
+        <div className="mb-8 text-center">
+          <AdSenseAd 
+            adSlot="5341658648"
+            adFormat="auto"
+            style={{ display: 'block', minHeight: '90px' }}
+            className="border border-gray-200 rounded-lg"
+          />
+        </div>
+
         {/* Calculator Component */}
         <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
           <SouthAfricaTaxCalculator />
         </div>
 
+        {/* Display Ad 4 - After Calculator */}
+        <div className="mb-8 text-center">
+          <AdSenseAd 
+            adSlot="2386701555"
+            adFormat="auto"
+            style={{ display: 'block', minHeight: '90px' }}
+            className="border border-gray-200 rounded-lg"
+          />
+        </div>
+
         {/* Information Section */}
         <div className="bg-white rounded-lg border border-gray-200 p-6">
+          {/* Multiplex Ad - Within Information Section */}
+          <div className="mb-8 text-center">
+            <AdSenseAd 
+              adSlot="9985989974"
+              adFormat="autorelaxed"
+              style={{ display: 'block', minHeight: '280px' }}
+              className="border border-gray-200 rounded-lg"
+            />
+          </div>
+
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">

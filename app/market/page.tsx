@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import AdSenseAd from '@/components/AdSenseAd';
 
 export default function MarketPage() {
   const [selectedTab, setSelectedTab] = useState('overview');
@@ -121,9 +122,13 @@ export default function MarketPage() {
           </div>
 
           {/* Top Banner Ad */}
-          <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-6 mb-8 text-center">
-            <div className="text-gray-500 font-medium mb-2">Advertisement</div>
-            <div className="text-sm text-gray-400">728x90 - Top Banner AdSense Space</div>
+          <div className="mb-8 text-center">
+            <AdSenseAd 
+              adSlot="3043670508" 
+              adFormat="auto"
+              style={{ display: 'block', minHeight: '90px' }}
+              className="border border-gray-200 rounded-lg"
+            />
           </div>
         </div>
       </section>
@@ -305,9 +310,13 @@ export default function MarketPage() {
               </div>
 
               {/* Mid-content Ad */}
-              <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-6 my-8 text-center">
-                <div className="text-gray-500 font-medium mb-2">Advertisement</div>
-                <div className="text-sm text-gray-400">336x280 - Medium Rectangle AdSense Space</div>
+              <div className="my-8 text-center">
+                <AdSenseAd 
+                  adSlot="5662611907" 
+                  adFormat="autorelaxed"
+                  style={{ display: 'block', minHeight: '280px' }}
+                  className="border border-gray-200 rounded-lg"
+                />
               </div>
             </div>
 
@@ -334,9 +343,13 @@ export default function MarketPage() {
               </div>
 
               {/* Sidebar Ad */}
-              <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
-                <div className="text-gray-500 font-medium mb-2">Advertisement</div>
-                <div className="text-sm text-gray-400">300x250 - Sidebar AdSense</div>
+              <div className="text-center">
+                <AdSenseAd 
+                  adSlot="5279468522" 
+                  adFormat="auto"
+                  style={{ display: 'block', minHeight: '250px' }}
+                  className="border border-gray-200 rounded-lg"
+                />
               </div>
 
               {/* Market Alerts */}
@@ -377,9 +390,14 @@ export default function MarketPage() {
       {/* Bottom Ad */}
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
-            <div className="text-gray-500 font-medium mb-2">Advertisement</div>
-            <div className="text-sm text-gray-400">970x250 - Bottom Leaderboard AdSense Space</div>
+          <div className="text-center">
+            <AdSenseAd 
+              adSlot="4969876131" 
+              adLayout="in-article"
+              adFormat="fluid"
+              style={{ display: 'block', minHeight: '250px' }}
+              className="border border-gray-200 rounded-lg"
+            />
           </div>
         </div>
       </section>
