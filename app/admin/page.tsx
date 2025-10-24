@@ -25,6 +25,14 @@ export default function AdminPage() {
   const [importing, setImporting] = useState(false);
   const [importResult, setImportResult] = useState<any>(null);
 
+  // Authentication state
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState('');
+  const [authError, setAuthError] = useState('');
+  const [checkingAuth, setCheckingAuth] = useState(true);
+
+  const ADMIN_PASSWORD = '4765Zororo@';
+
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
@@ -38,8 +46,37 @@ export default function AdminPage() {
   });
 
   useEffect(() => {
-    fetchArticles();
+    // Check if user is already authenticated (stored in sessionStorage)
+    const isAuth = sessionStorage.getItem('adminAuthenticated') === 'true';
+    setIsAuthenticated(isAuth);
+    setCheckingAuth(false);
+
+    if (isAuth) {
+      fetchArticles();
+    } else {
+      setLoading(false);
+    }
   }, []);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (password === ADMIN_PASSWORD) {
+      setIsAuthenticated(true);
+      setAuthError('');
+      sessionStorage.setItem('adminAuthenticated', 'true');
+      fetchArticles();
+    } else {
+      setAuthError('Incorrect password. Please try again.');
+      setPassword('');
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    sessionStorage.removeItem('adminAuthenticated');
+    setPassword('');
+  };
 
   const fetchArticles = async () => {
     try {
@@ -171,9 +208,37 @@ export default function AdminPage() {
       if (response.ok && data.success) {
         setImportResult(data.result);
         fetchArticles(); // Refresh article list
-        alert(`Successfully imported ${data.result.imported} articles!`);
+
+        const msg = [
+          `Import Complete!`,
+          ``,
+          `Queries: ${data.result.queriesRun}`,
+          `Found: ${data.result.articlesFound} articles`,
+          `Unique: ${data.result.uniqueArticles} articles`,
+          `Valid SA articles: ${data.result.validArticles}`,
+          `New articles: ${data.result.newArticles}`,
+          `⏭️  Skipped: ${data.result.skipped} (already exist)`,
+          `✅ Imported: ${data.result.imported}`,
+          `❌ Failed: ${data.result.failed}`,
+        ];
+
+        if (data.result.errors && data.result.errors.length > 0) {
+          msg.push(``, `Errors:`, ...data.result.errors.slice(0, 5));
+        }
+
+        alert(msg.join('\n'));
       } else {
-        alert(`Import failed: ${data.error || 'Unknown error'}`);
+        const msg = [
+          `Import Failed!`,
+          ``,
+          data.error || 'Unknown error',
+        ];
+
+        if (data.result && data.result.errors) {
+          msg.push(``, `Errors:`, ...data.result.errors.slice(0, 5));
+        }
+
+        alert(msg.join('\n'));
         setImportResult(data.result);
       }
     } catch (error: any) {
@@ -183,6 +248,65 @@ export default function AdminPage() {
       setImporting(false);
     }
   };
+
+  if (checkingAuth) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-lg">Loading...</div>
+      </div>
+    );
+  }
+
+  // Show login form if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+        <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Admin Access</h1>
+            <p className="text-gray-600">Enter password to access admin dashboard</p>
+          </div>
+
+          <form onSubmit={handleLogin} className="space-y-6">
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                placeholder="Enter admin password"
+                required
+                autoFocus
+              />
+            </div>
+
+            {authError && (
+              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                {authError}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium shadow-sm"
+            >
+              Login
+            </button>
+          </form>
+
+          <div className="mt-6 text-center">
+            <Link href="/" className="text-sm text-blue-600 hover:text-blue-700">
+              ← Back to Site
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
@@ -205,6 +329,13 @@ export default function AdminPage() {
               <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
             </div>
             <div className="flex items-center gap-3">
+              <button
+                onClick={handleLogout}
+                className="px-4 py-2 text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium"
+                title="Logout"
+              >
+                🔒 Logout
+              </button>
               <button
                 onClick={handleImportNews}
                 disabled={importing}
