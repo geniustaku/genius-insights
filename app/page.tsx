@@ -359,7 +359,7 @@ export default async function Home() {
             </section>
           )}
 
-          {/* Ad Unit */}
+          {/* Ad Unit #1 - After Articles */}
           <div className="mb-10 sm:mb-12">
             <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
               <div className="text-center mb-4">
@@ -368,6 +368,52 @@ export default async function Home() {
               <AdSenseAd adSlot="3043670508" className="text-center" />
             </div>
           </div>
+
+          {/* Quick Access Categories */}
+          <section className="mb-10 sm:mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">📂 Browse by Category</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+              <Link href="/categories/Business" className="group">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-5 text-center hover:shadow-lg transition-all border border-blue-200">
+                  <div className="text-4xl mb-2">💼</div>
+                  <h3 className="font-bold text-gray-900 text-sm group-hover:text-blue-600 transition-colors">Business</h3>
+                  <p className="text-xs text-gray-600 mt-1">News & Insights</p>
+                </div>
+              </Link>
+
+              <Link href="/categories/Tax%20%26%20SARS" className="group">
+                <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-5 text-center hover:shadow-lg transition-all border border-green-200">
+                  <div className="text-4xl mb-2">💰</div>
+                  <h3 className="font-bold text-gray-900 text-sm group-hover:text-green-600 transition-colors">Tax & SARS</h3>
+                  <p className="text-xs text-gray-600 mt-1">Compliance</p>
+                </div>
+              </Link>
+
+              <Link href="/categories/Banking" className="group">
+                <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-5 text-center hover:shadow-lg transition-all border border-purple-200">
+                  <div className="text-4xl mb-2">🏦</div>
+                  <h3 className="font-bold text-gray-900 text-sm group-hover:text-purple-600 transition-colors">Banking</h3>
+                  <p className="text-xs text-gray-600 mt-1">Finance</p>
+                </div>
+              </Link>
+
+              <Link href="/categories/Property" className="group">
+                <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-5 text-center hover:shadow-lg transition-all border border-orange-200">
+                  <div className="text-4xl mb-2">🏘️</div>
+                  <h3 className="font-bold text-gray-900 text-sm group-hover:text-orange-600 transition-colors">Property</h3>
+                  <p className="text-xs text-gray-600 mt-1">Real Estate</p>
+                </div>
+              </Link>
+
+              <Link href="/categories/Insurance" className="group">
+                <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-5 text-center hover:shadow-lg transition-all border border-pink-200">
+                  <div className="text-4xl mb-2">🛡️</div>
+                  <h3 className="font-bold text-gray-900 text-sm group-hover:text-pink-600 transition-colors">Insurance</h3>
+                  <p className="text-xs text-gray-600 mt-1">Coverage</p>
+                </div>
+              </Link>
+            </div>
+          </section>
 
           {/* Popular Tools */}
           <section className="mb-10 sm:mb-12">
@@ -434,6 +480,183 @@ export default async function Home() {
                 </div>
               </Link>
 
+            </div>
+          </section>
+
+          {/* Ad Unit #2 - After Popular Tools */}
+          <div className="mb-10 sm:mb-12">
+            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+              <div className="text-center mb-4">
+                <span className="text-xs text-gray-500 font-medium bg-white px-3 py-1 rounded-full border border-gray-200">Advertisement</span>
+              </div>
+              <AdSenseAd adSlot="3043670508" className="text-center" />
+            </div>
+          </div>
+
+          {/* More Calculators Section */}
+          <section className="mb-10 sm:mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">🧮 Financial Calculators</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+              <Link href="/south-africa-loan-calculator" className="group">
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center text-xl">💳</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-yellow-600 transition-colors text-sm">Loan Calculator</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Calculate monthly loan repayments</p>
+                </div>
+              </Link>
+
+              <Link href="/south-africa-investment-calculator" className="group">
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center text-xl">📊</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-indigo-600 transition-colors text-sm">Investment Calculator</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Plan your investment growth</p>
+                </div>
+              </Link>
+
+              <Link href="/south-africa-vat-calculator" className="group">
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center text-xl">🧾</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-teal-600 transition-colors text-sm">VAT Calculator</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Calculate VAT inclusive/exclusive</p>
+                </div>
+              </Link>
+
+              <Link href="/south-africa-rental-yield-calculator" className="group">
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 bg-rose-100 rounded-lg flex items-center justify-center text-xl">🏘️</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-rose-600 transition-colors text-sm">Rental Yield</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Calculate property rental returns</p>
+                </div>
+              </Link>
+
+              <Link href="/south-africa-insurance-calculator" className="group">
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center text-xl">🛡️</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-cyan-600 transition-colors text-sm">Insurance Calculator</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Estimate insurance premiums</p>
+                </div>
+              </Link>
+
+              <Link href="/south-africa-fuel-cost-calculator" className="group">
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center text-xl">⛽</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-amber-600 transition-colors text-sm">Fuel Cost</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Calculate trip fuel expenses</p>
+                </div>
+              </Link>
+
+            </div>
+          </section>
+
+          {/* Banking Tools Section */}
+          <section className="mb-10 sm:mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">🏦 Banking Tools</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+              <Link href="/south-africa-standard-bank-calculator" className="group">
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-blue-200">
+                  <div className="text-center mb-3">
+                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <span className="text-white font-bold text-xs">SB</span>
+                    </div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors text-sm">Standard Bank</h3>
+                  </div>
+                  <p className="text-xs text-gray-600 text-center">Loan & bond calculator</p>
+                </div>
+              </Link>
+
+              <Link href="/south-africa-fnb-calculator" className="group">
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-orange-200">
+                  <div className="text-center mb-3">
+                    <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <span className="text-white font-bold text-xs">FNB</span>
+                    </div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-orange-600 transition-colors text-sm">FNB</h3>
+                  </div>
+                  <p className="text-xs text-gray-600 text-center">Home loan calculator</p>
+                </div>
+              </Link>
+
+              <Link href="/south-africa-insurance-comparison" className="group">
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-purple-200">
+                  <div className="text-center mb-3">
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-2 text-2xl">
+                      🔍
+                    </div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-purple-600 transition-colors text-sm">Compare Insurance</h3>
+                  </div>
+                  <p className="text-xs text-gray-600 text-center">Best insurance deals</p>
+                </div>
+              </Link>
+
+              <Link href="/south-africa-business-registration-calculator" className="group">
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-green-200">
+                  <div className="text-center mb-3">
+                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2 text-2xl">
+                      🏢
+                    </div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-green-600 transition-colors text-sm">Business Reg</h3>
+                  </div>
+                  <p className="text-xs text-gray-600 text-center">Registration costs</p>
+                </div>
+              </Link>
+
+            </div>
+          </section>
+
+          {/* Ad Unit #3 - Before Newsletter */}
+          <div className="mb-10 sm:mb-12">
+            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+              <div className="text-center mb-4">
+                <span className="text-xs text-gray-500 font-medium bg-white px-3 py-1 rounded-full border border-gray-200">Advertisement</span>
+              </div>
+              <AdSenseAd adSlot="3043670508" className="text-center" />
+            </div>
+          </div>
+
+          {/* Quick Links Section */}
+          <section className="mb-10 sm:mb-12">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">⚡ Quick Access</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                <Link href="/articles" className="bg-white rounded-lg p-3 text-center hover:shadow-md transition-all group">
+                  <div className="text-2xl mb-1">📰</div>
+                  <p className="text-xs font-semibold text-gray-900 group-hover:text-blue-600">Articles</p>
+                </Link>
+                <Link href="/tools" className="bg-white rounded-lg p-3 text-center hover:shadow-md transition-all group">
+                  <div className="text-2xl mb-1">🛠️</div>
+                  <p className="text-xs font-semibold text-gray-900 group-hover:text-blue-600">All Tools</p>
+                </Link>
+                <Link href="/calculators" className="bg-white rounded-lg p-3 text-center hover:shadow-md transition-all group">
+                  <div className="text-2xl mb-1">🧮</div>
+                  <p className="text-xs font-semibold text-gray-900 group-hover:text-blue-600">Calculators</p>
+                </Link>
+                <Link href="/document-converter" className="bg-white rounded-lg p-3 text-center hover:shadow-md transition-all group">
+                  <div className="text-2xl mb-1">📄</div>
+                  <p className="text-xs font-semibold text-gray-900 group-hover:text-blue-600">Converter</p>
+                </Link>
+                <Link href="/market" className="bg-white rounded-lg p-3 text-center hover:shadow-md transition-all group">
+                  <div className="text-2xl mb-1">📈</div>
+                  <p className="text-xs font-semibold text-gray-900 group-hover:text-blue-600">Markets</p>
+                </Link>
+                <Link href="/cv-builder" className="bg-white rounded-lg p-3 text-center hover:shadow-md transition-all group">
+                  <div className="text-2xl mb-1">📝</div>
+                  <p className="text-xs font-semibold text-gray-900 group-hover:text-blue-600">CV Builder</p>
+                </Link>
+              </div>
             </div>
           </section>
 
