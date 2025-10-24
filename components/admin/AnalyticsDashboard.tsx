@@ -14,6 +14,8 @@ export default function AnalyticsDashboard() {
   const [stats, setStats] = useState<PageVisitStat[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [resetting, setResetting] = useState(false);
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
 
   useEffect(() => {
     fetchStats();
@@ -49,6 +51,31 @@ export default function AnalyticsDashboard() {
       hour: '2-digit',
       minute: '2-digit',
     });
+  };
+
+  const resetAnalytics = async () => {
+    try {
+      setResetting(true);
+      const response = await fetch('/api/analytics/reset', {
+        method: 'POST',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to reset analytics');
+      }
+
+      const data = await response.json();
+
+      // Refresh the stats after reset
+      await fetchStats();
+      setShowResetConfirm(false);
+      alert(`Successfully reset analytics! ${data.deletedCount} records deleted.`);
+    } catch (err) {
+      console.error('Error resetting analytics:', err);
+      alert('Failed to reset analytics. Please try again.');
+    } finally {
+      setResetting(false);
+    }
   };
 
   const getTotalVisits = () => {
@@ -141,12 +168,20 @@ export default function AnalyticsDashboard() {
       <div className="bg-white rounded-lg shadow">
         <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
           <h2 className="text-lg font-semibold text-gray-900">Page Visit Statistics</h2>
-          <button
-            onClick={fetchStats}
-            className="text-sm text-blue-600 hover:text-blue-700 font-medium"
-          >
-            🔄 Refresh
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={fetchStats}
+              className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+            >
+              🔄 Refresh
+            </button>
+            <button
+              onClick={() => setShowResetConfirm(true)}
+              className="text-sm bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+            >
+              🗑️ Reset Analytics
+            </button>
+          </div>
         </div>
 
         {stats.length === 0 ? (
@@ -246,6 +281,57 @@ export default function AnalyticsDashboard() {
           </div>
         </div>
       </div>
+
+      {/* Reset Confirmation Modal */}
+      {showResetConfirm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-6">
+            <div className="text-center mb-6">
+              <div className="text-6xl mb-4">⚠️</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Reset Analytics?</h3>
+              <p className="text-gray-600 text-sm">
+                This will permanently delete all page visit data and reset all counters to zero.
+                This action cannot be undone.
+              </p>
+            </div>
+
+            <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+              <p className="text-sm text-red-800 font-semibold mb-2">You will lose:</p>
+              <ul className="text-sm text-red-700 space-y-1">
+                <li>• {getTotalVisits().toLocaleString()} total page views</li>
+                <li>• {stats.length} tracked pages</li>
+                <li>• All visit history and timestamps</li>
+              </ul>
+            </div>
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowResetConfirm(false)}
+                disabled={resetting}
+                className="flex-1 px-4 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg font-medium transition-colors disabled:opacity-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={resetAnalytics}
+                disabled={resetting}
+                className="flex-1 px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {resetting ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+                    Resetting...
+                  </>
+                ) : (
+                  <>
+                    🗑️ Yes, Reset All
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
