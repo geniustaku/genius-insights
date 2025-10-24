@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "import-news": "node scripts/test-news-import.js",
+    "import-news:preview": "node scripts/test-news-import.js --dry-run",
+    "import-news:test": "node scripts/test-news-import.js --limit=5",
+    "deploy:azure": "bash scripts/deploy-azure-functions.sh"
   },
   "dependencies": {
     "@azure/identity": "^4.9.0",
@@ -21,6 +25,7 @@
     "html-to-text": "^9.0.5",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.2",
+    "newsapi": "^2.4.1",
     "next": "15.3.0",
     "next-auth": "^4.24.11",
     "node-fetch": "^3.3.2",
@@ -31,11 +36,13 @@
     "recharts": "^2.15.3"
   },
   "devDependencies": {
+    "@mozilla/readability": "^0.6.0",
     "@tailwindcss/postcss": "^4",
     "@types/html-to-text": "^9.0.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "jsdom": "^27.0.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

@@ -1,0 +1,28 @@
+# Azure Functions
+bin
+obj
+csx
+.vs
+edge
+Publish
+*.user
+*.suo
+*.cscfg
+*.Cache
+project.lock.json
+
+# Node
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Local settings
+local.settings.json
+.env
+
+# Build output
+dist
+
+# OS
+.DS_Store
+Thumbs.db

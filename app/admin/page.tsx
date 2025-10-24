@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import AnalyticsDashboard from '@/components/admin/AnalyticsDashboard';
 
 interface Article {
   id: string;
@@ -20,6 +21,7 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(true);
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [editingArticle, setEditingArticle] = useState<Article | null>(null);
+  const [activeTab, setActiveTab] = useState<'articles' | 'analytics'>('analytics');
 
   const [formData, setFormData] = useState({
     title: '',
@@ -167,15 +169,45 @@ export default function AdminPage() {
               <Link href="/" className="text-blue-600 hover:text-blue-700">
                 ← Back to Site
               </Link>
-              <h1 className="text-2xl font-bold text-gray-900">Article Admin</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
             </div>
-            <button
-              onClick={handleCreate}
-              className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
-            >
-              Create New Article
-            </button>
+            {activeTab === 'articles' && (
+              <button
+                onClick={handleCreate}
+                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+              >
+                Create New Article
+              </button>
+            )}
           </div>
+        </div>
+      </div>
+
+      {/* Tabs */}
+      <div className="bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="flex space-x-8">
+            <button
+              onClick={() => setActiveTab('analytics')}
+              className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
+                activeTab === 'analytics'
+                  ? 'border-blue-500 text-blue-600'
+                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+              }`}
+            >
+              📊 Analytics
+            </button>
+            <button
+              onClick={() => setActiveTab('articles')}
+              className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
+                activeTab === 'articles'
+                  ? 'border-blue-500 text-blue-600'
+                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+              }`}
+            >
+              📝 Articles ({articles.length})
+            </button>
+          </nav>
         </div>
       </div>
 
@@ -344,8 +376,11 @@ export default function AdminPage() {
         </div>
       )}
 
-      {/* Articles List */}
+      {/* Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {activeTab === 'analytics' && <AnalyticsDashboard />}
+
+        {activeTab === 'articles' && (
         <div className="bg-white rounded-lg shadow">
           <div className="px-6 py-4 border-b border-gray-200">
             <h2 className="text-lg font-semibold text-gray-900">
@@ -431,6 +466,7 @@ export default function AdminPage() {
             </table>
           </div>
         </div>
+        )}
       </div>
     </div>
   );

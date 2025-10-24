@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "NEWS_API_KEY": "6bffbb338ace4364bd138d765b4c36a7",
+    "WEBSITE_URL": "http://localhost:3000"
+  }
+}

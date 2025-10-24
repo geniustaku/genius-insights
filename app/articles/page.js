@@ -3,6 +3,7 @@ import { getArticles } from '@/lib/db';
 import ArticleCard from '@/components/ArticleCard';
 import AdSenseAd from '@/components/AdSenseAd';
 import { htmlToText } from 'html-to-text';
+import ArticlesPageClient from '@/components/ArticlesPageClient';
 
 export const metadata = {
   title: 'African Tech Articles & Insights 2025 | Expert Career Guidance',
@@ -38,6 +39,7 @@ export default async function ArticlesPage({ searchParams }) {
   }));
 
   return (
+    <ArticlesPageClient>
     <div className="min-h-screen bg-gray-50">
       {/* Navigation Bar */}
       <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -358,5 +360,6 @@ export default async function ArticlesPage({ searchParams }) {
       </section>
       </div>
     </div>
+    </ArticlesPageClient>
   );
 }

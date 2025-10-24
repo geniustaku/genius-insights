@@ -1,0 +1,17 @@
+{
+  "title": "Test Article from Azure Function Deployment",
+  "slug": "test-azure-function-deployment",
+  "excerpt": "This is a test article to verify the Azure Function can successfully import articles to the website",
+  "content": "<p class=\"text-lg font-semibold text-gray-700 mb-6\">This is a test article created to verify the article import API endpoint is working correctly.</p><p class=\"mb-4\">The Azure Function will use this same endpoint to import news articles every 3 hours.</p>",
+  "category": "Business",
+  "author": "Azure Function Test",
+  "is_published": true,
+  "reading_time": 1,
+  "featured_image": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200",
+  "published_at": "2025-10-24T17:00:00Z",
+  "source_url": "https://example.com/test",
+  "source_name": "Test Source",
+  "seo_title": "Test Article | Azure Function Deployment Test",
+  "seo_description": "Testing the article import API endpoint for Azure Function integration",
+  "seo_keywords": ["test", "azure", "function", "South Africa", "deployment"]
+}

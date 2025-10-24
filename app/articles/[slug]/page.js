@@ -8,6 +8,7 @@ import CopyLinkButton from '../../../components/CopyLinkButton';
 import SaveButton from '../../../components/Save';
 import ArticleComments from '../../../components/ArticleComments';
 import AdSenseAd from '../../../components/AdSenseAd';
+import ArticlePageClient from '../../../components/ArticlePageClient';
 
 function getArticleImage(category) {
   const categoryImages = {
@@ -47,22 +48,30 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const article = await getArticleBySlug(slug);
-  
+
   if (!article) {
     return {
       title: 'Article Not Found',
       description: 'The requested article could not be found.',
     };
   }
-  
+
+  // Use SEO fields if available, fallback to defaults
+  const seoTitle = article.seo_title || `${article.title} | Genius Insights`;
+  const seoDescription = article.seo_description || article.excerpt || article.title;
+  const keywords = article.seo_keywords || [article.category, 'South Africa', 'financial news'];
+
   return {
-    title: `${article.title} | Genius Insights`,
-    description: article.excerpt || article.title,
+    title: seoTitle,
+    description: seoDescription,
+    keywords: keywords.join(', '),
+    authors: [{ name: article.author }],
     openGraph: {
-      title: article.title,
-      description: article.excerpt || article.title,
+      title: seoTitle,
+      description: seoDescription,
       type: 'article',
       url: `https://www.genius-insights.co.za/articles/${article.slug}`,
+      siteName: 'Genius Insights',
       images: [
         {
           url: article.featured_image || 'https://www.genius-insights.co.za/images/default-og.jpg',
@@ -72,15 +81,33 @@ export async function generateMetadata({ params }) {
         }
       ],
       publishedTime: article.published_at,
+      modifiedTime: article.updated_at || article.published_at,
       authors: [article.author],
-      tags: [article.category, 'careers', 'south africa'],
+      section: article.category,
+      tags: keywords,
     },
     twitter: {
       card: 'summary_large_image',
-      title: article.title,
-      description: article.excerpt || article.title,
+      site: '@GeniusInsightsZA',
+      title: seoTitle,
+      description: seoDescription,
       images: [article.featured_image || 'https://www.genius-insights.co.za/images/default-og.jpg'],
-    }
+      creator: '@GeniusInsightsZA',
+    },
+    alternates: {
+      canonical: `https://www.genius-insights.co.za/articles/${article.slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   };
 }
 
@@ -185,9 +212,50 @@ export default async function ArticlePage({ params }) {
   const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
   const whatsappShareUrl = `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`;
   const articleUrl = `https://www.genius-insights.co.za/articles/${article.slug}`;
-  
+
+  // JSON-LD structured data for SEO
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt || article.seo_description,
+    image: article.featured_image || 'https://www.genius-insights.co.za/images/default-og.jpg',
+    datePublished: article.published_at,
+    dateModified: article.updated_at || article.published_at,
+    author: {
+      '@type': 'Person',
+      name: article.author,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Genius Insights',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.genius-insights.co.za/logo.png',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleUrl,
+    },
+    keywords: (article.seo_keywords || []).join(', '),
+    articleSection: article.category,
+    inLanguage: 'en-ZA',
+    about: {
+      '@type': 'Thing',
+      name: article.category,
+    },
+    isAccessibleForFree: true,
+  };
+
   return (
+    <ArticlePageClient slug={article.slug}>
     <div className="min-h-screen bg-white">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Clean Navigation Bar */}
       <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -460,5 +528,6 @@ export default async function ArticlePage({ params }) {
         </div>
       </section>
     </div>
+    </ArticlePageClient>
   );
 }

@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { usePageVisit } from '@/hooks/usePageVisit';
 
 interface ConversionResult {
   success: boolean;
@@ -10,6 +11,9 @@ interface ConversionResult {
 }
 
 const DocumentConverter: React.FC = () => {
+  // Track page visit
+  usePageVisit('/document-converter');
+
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [outputFormat, setOutputFormat] = useState<string>('pdf');
   const [isConverting, setIsConverting] = useState<boolean>(false);

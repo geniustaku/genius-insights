@@ -3,8 +3,11 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import AdSenseAd from '@/components/AdSenseAd';
+import { usePageVisit } from '@/hooks/usePageVisit';
 
 export default function ToolsPage() {
+  // Track tools page visits
+  usePageVisit('/tools');
   const tools = [
     {
       name: 'SARS Tax Calculator 2025',
