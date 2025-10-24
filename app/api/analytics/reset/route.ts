@@ -9,14 +9,14 @@ import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
  */
 export async function POST(request: NextRequest) {
   try {
-    const pageVisitsRef = collection(db, 'page_visits');
+    const pageVisitsRef = collection(db, 'pageVisits');
     const snapshot = await getDocs(pageVisitsRef);
 
     let deletedCount = 0;
 
-    // Delete all documents in the page_visits collection
+    // Delete all documents in the pageVisits collection
     const deletePromises = snapshot.docs.map(async (document) => {
-      await deleteDoc(doc(db, 'page_visits', document.id));
+      await deleteDoc(doc(db, 'pageVisits', document.id));
       deletedCount++;
     });
 

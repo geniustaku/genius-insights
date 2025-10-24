@@ -22,6 +22,8 @@ export default function AdminPage() {
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [editingArticle, setEditingArticle] = useState<Article | null>(null);
   const [activeTab, setActiveTab] = useState<'articles' | 'analytics'>('analytics');
+  const [importing, setImporting] = useState(false);
+  const [importResult, setImportResult] = useState<any>(null);
 
   const [formData, setFormData] = useState({
     title: '',
@@ -151,6 +153,37 @@ export default function AdminPage() {
     }));
   };
 
+  const handleImportNews = async () => {
+    if (!confirm('Import news articles now? This will fetch and scrape articles from News API.')) {
+      return;
+    }
+
+    try {
+      setImporting(true);
+      setImportResult(null);
+
+      const response = await fetch('/api/admin/import-news', {
+        method: 'POST',
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setImportResult(data.result);
+        fetchArticles(); // Refresh article list
+        alert(`Successfully imported ${data.result.imported} articles!`);
+      } else {
+        alert(`Import failed: ${data.error || 'Unknown error'}`);
+        setImportResult(data.result);
+      }
+    } catch (error: any) {
+      console.error('Error importing news:', error);
+      alert('Error importing news: ' + error.message);
+    } finally {
+      setImporting(false);
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -171,14 +204,32 @@ export default function AdminPage() {
               </Link>
               <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
             </div>
-            {activeTab === 'articles' && (
+            <div className="flex items-center gap-3">
               <button
-                onClick={handleCreate}
-                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+                onClick={handleImportNews}
+                disabled={importing}
+                className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
-                Create New Article
+                {importing ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+                    Importing...
+                  </>
+                ) : (
+                  <>
+                    📰 Import News
+                  </>
+                )}
               </button>
-            )}
+              {activeTab === 'articles' && (
+                <button
+                  onClick={handleCreate}
+                  className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+                >
+                  Create New Article
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
