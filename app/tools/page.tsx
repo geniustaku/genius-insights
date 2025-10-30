@@ -143,8 +143,9 @@ export default function ToolsPage() {
                 <span className="font-bold text-xl text-gray-900">Genius Insights</span>
               </Link>
               <div className="hidden md:flex items-center space-x-8">
+                <Link href="/guides" className="text-gray-600 hover:text-gray-900 font-medium pb-4 border-b-2 border-transparent hover:border-gray-300 transition-colors">Guides</Link>
                 <Link href="/tools" className="text-emerald-600 hover:text-emerald-700 font-medium pb-4 border-b-2 border-emerald-600">Tools</Link>
-                <Link href="/articles" className="text-gray-600 hover:text-gray-900 font-medium pb-4 border-b-2 border-transparent hover:border-gray-300 transition-colors">Guides</Link>
+                <Link href="/articles" className="text-gray-600 hover:text-gray-900 font-medium pb-4 border-b-2 border-transparent hover:border-gray-300 transition-colors">News</Link>
                 <Link href="/calculators" className="text-gray-600 hover:text-gray-900 font-medium pb-4 border-b-2 border-transparent hover:border-gray-300 transition-colors">Calculators</Link>
                 <Link href="/market" className="text-gray-600 hover:text-gray-900 font-medium pb-4 border-b-2 border-transparent hover:border-gray-300 transition-colors">Market</Link>
               </div>

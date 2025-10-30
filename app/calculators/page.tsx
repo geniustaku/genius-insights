@@ -141,8 +141,9 @@ export default function CalculatorsPage() {
                 <span className="font-bold text-xl text-gray-900">Genius Insights</span>
               </Link>
               <div className="hidden md:flex items-center space-x-6">
+                <Link href="/guides" className="text-gray-600 hover:text-gray-900 font-medium">Guides</Link>
                 <Link href="/tools" className="text-gray-600 hover:text-gray-900 font-medium">Tools</Link>
-                <Link href="/articles" className="text-gray-600 hover:text-gray-900 font-medium">Guides</Link>
+                <Link href="/articles" className="text-gray-600 hover:text-gray-900 font-medium">News</Link>
                 <Link href="/calculators" className="text-blue-600 hover:text-blue-700 font-medium border-b-2 border-blue-600">Calculators</Link>
                 <Link href="/market" className="text-gray-600 hover:text-gray-900 font-medium">Market</Link>
               </div>
