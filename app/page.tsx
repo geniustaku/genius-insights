@@ -374,13 +374,13 @@ export default async function Home() {
 
           {/* Quick Access Categories */}
           <section className="mb-10 sm:mb-12">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">📂 Browse by Category</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">📂 Browse Guides</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-              <Link href="/articles" className="group">
+              <Link href="/guides" className="group">
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-5 text-center hover:shadow-lg transition-all border border-blue-200">
-                  <div className="text-4xl mb-2">💼</div>
-                  <h3 className="font-bold text-gray-900 text-sm group-hover:text-blue-600 transition-colors">Business</h3>
-                  <p className="text-xs text-gray-600 mt-1">News & Insights</p>
+                  <div className="text-4xl mb-2">📚</div>
+                  <h3 className="font-bold text-gray-900 text-sm group-hover:text-blue-600 transition-colors">All Guides</h3>
+                  <p className="text-xs text-gray-600 mt-1">Complete Library</p>
                 </div>
               </Link>
 
@@ -388,15 +388,7 @@ export default async function Home() {
                 <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-5 text-center hover:shadow-lg transition-all border border-green-200">
                   <div className="text-4xl mb-2">💰</div>
                   <h3 className="font-bold text-gray-900 text-sm group-hover:text-green-600 transition-colors">Tax & SARS</h3>
-                  <p className="text-xs text-gray-600 mt-1">Compliance</p>
-                </div>
-              </Link>
-
-              <Link href="/articles" className="group">
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-5 text-center hover:shadow-lg transition-all border border-purple-200">
-                  <div className="text-4xl mb-2">🏦</div>
-                  <h3 className="font-bold text-gray-900 text-sm group-hover:text-purple-600 transition-colors">Banking</h3>
-                  <p className="text-xs text-gray-600 mt-1">Finance</p>
+                  <p className="text-xs text-gray-600 mt-1">6 Guides</p>
                 </div>
               </Link>
 
@@ -404,15 +396,23 @@ export default async function Home() {
                 <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-5 text-center hover:shadow-lg transition-all border border-orange-200">
                   <div className="text-4xl mb-2">🏘️</div>
                   <h3 className="font-bold text-gray-900 text-sm group-hover:text-orange-600 transition-colors">Property</h3>
-                  <p className="text-xs text-gray-600 mt-1">Real Estate</p>
+                  <p className="text-xs text-gray-600 mt-1">10 Guides</p>
+                </div>
+              </Link>
+
+              <Link href="/tools" className="group">
+                <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-5 text-center hover:shadow-lg transition-all border border-purple-200">
+                  <div className="text-4xl mb-2">🛠️</div>
+                  <h3 className="font-bold text-gray-900 text-sm group-hover:text-purple-600 transition-colors">Tools</h3>
+                  <p className="text-xs text-gray-600 mt-1">Calculators</p>
                 </div>
               </Link>
 
               <Link href="/articles" className="group">
                 <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-5 text-center hover:shadow-lg transition-all border border-pink-200">
-                  <div className="text-4xl mb-2">🛡️</div>
-                  <h3 className="font-bold text-gray-900 text-sm group-hover:text-pink-600 transition-colors">Insurance</h3>
-                  <p className="text-xs text-gray-600 mt-1">Coverage</p>
+                  <div className="text-4xl mb-2">📰</div>
+                  <h3 className="font-bold text-gray-900 text-sm group-hover:text-pink-600 transition-colors">News</h3>
+                  <p className="text-xs text-gray-600 mt-1">Latest Articles</p>
                 </div>
               </Link>
             </div>
