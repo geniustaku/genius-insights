@@ -4,6 +4,10 @@ import { collection, query, where, getDocs, limit } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import Link from 'next/link';
 
+// Force dynamic rendering for Firebase
+export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // Revalidate every hour
+
 interface Article {
   title: string;
   slug: string;
@@ -44,8 +48,9 @@ async function getArticle(slug: string): Promise<Article | null> {
   }
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const article = await getArticle(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const article = await getArticle(slug);
 
   if (!article) {
     return {
@@ -84,8 +89,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function ArticlePage({ params }: { params: { slug: string } }) {
-  const article = await getArticle(params.slug);
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const article = await getArticle(slug);
 
   if (!article) {
     notFound();
