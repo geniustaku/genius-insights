@@ -1,0 +1,43 @@
+# Top Priority URLs for Google Indexing
+# Copy these URLs and paste them into Google Search Console URL Inspection tool
+# Or use the automated script: node scripts/request-google-indexing.js
+
+## SARS Articles (High Traffic - 88+ visits)
+https://www.genius-insights.co.za/guides/sars-tax-brackets-2025-south-africa
+https://www.genius-insights.co.za/guides/how-to-pay-sars-debt-south-africa
+https://www.genius-insights.co.za/guides/sars-audit-process-south-africa
+https://www.genius-insights.co.za/guides/sars-efiling-registration-guide
+https://www.genius-insights.co.za/guides/sars-tax-clearance-certificate-guide
+https://www.genius-insights.co.za/guides/sars-provisional-tax-guide-self-employed
+
+## Property Articles (High Traffic - 51+ visits)
+https://www.genius-insights.co.za/guides/property-transfer-costs-south-africa-2025-breakdown
+https://www.genius-insights.co.za/guides/attorney-fees-property-transfer-south-africa
+https://www.genius-insights.co.za/guides/bond-costs-vs-transfer-costs-south-africa
+https://www.genius-insights.co.za/guides/avoid-property-transfer-delays-south-africa
+https://www.genius-insights.co.za/guides/property-transfer-cost-calculator-guide
+https://www.genius-insights.co.za/guides/property-transfer-after-death-estate-guide
+https://www.genius-insights.co.za/guides/first-time-home-buyer-guide-south-africa-2025
+
+## CIPC/Business Articles (17+ visits)
+https://www.genius-insights.co.za/guides/cipc-company-registration
+https://www.genius-insights.co.za/guides/cipc-annual-returns-filing-guide
+https://www.genius-insights.co.za/guides/cc-vs-pty-ltd-comparison-guide
+https://www.genius-insights.co.za/guides/cipc-name-reservation-guide
+https://www.genius-insights.co.za/guides/deregister-company-cipc-guide
+
+## Other High-Value Articles
+https://www.genius-insights.co.za/guides/how-to-submit-an-income-tax-return-itr12-in-respect-of-individuals
+https://www.genius-insights.co.za/guides/how-to-submit-tax-returns-sars-efiling
+https://www.genius-insights.co.za/guides/track-sars-tax-refund-guide
+
+## Category Pages
+https://www.genius-insights.co.za/guides
+https://www.genius-insights.co.za/guides/sars-tax-guides
+https://www.genius-insights.co.za/guides/property-transfer-guides
+
+## Tool Pages (High Traffic)
+https://www.genius-insights.co.za/south-africa-tax-calculator
+https://www.genius-insights.co.za/south-africa-property-transfer-calculator
+https://www.genius-insights.co.za/cv-builder
+https://www.genius-insights.co.za/salary-calculator
