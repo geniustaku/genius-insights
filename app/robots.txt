@@ -1,21 +1,32 @@
 User-agent: *
 Allow: /
+Allow: /guides/
+Allow: /articles/
+Allow: /tools/
+Allow: /calculators/
+Allow: /south-africa-tax-calculator
+Allow: /south-africa-loan-calculator
+Allow: /south-africa-property-transfer-calculator
+Allow: /cv-builder
 
 # Block admin areas
 Disallow: /admin/
 Disallow: /api/
 Disallow: /_next/
 Disallow: /node_modules/
-
-# Allow crawling of important pages
-Allow: /tools
-Allow: /calculators
-Allow: /market
-Allow: /articles
-Allow: /about
-Allow: /contact
+Disallow: /static/
 
 # Crawl-delay for politeness
+Crawl-delay: 1
+
+# Special rules for Google (faster crawling)
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Special rules for Bing
+User-agent: Bingbot
+Allow: /
 Crawl-delay: 1
 
 # Sitemap location
