@@ -31,6 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/south-africa-payroll-calculator',
     '/south-africa-estate-duty-calculator',
     '/south-africa-tfsa-calculator',
+    '/south-africa-bond-calculator',
+    '/south-africa-vat-calculator-2025',
   ]
 
   // SARS Articles

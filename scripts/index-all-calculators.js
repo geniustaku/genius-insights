@@ -26,6 +26,10 @@ const calculators = [
   '/south-africa-payroll-calculator',
   '/south-africa-estate-duty-calculator',
   '/south-africa-tfsa-calculator',
+
+  // Phase 2 - High-traffic calculators
+  '/south-africa-bond-calculator',
+  '/south-africa-vat-calculator-2025',
 ];
 
 // Important landing pages
