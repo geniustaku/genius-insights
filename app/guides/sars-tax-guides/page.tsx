@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
   title: 'SARS Tax Guides 2025 | Complete South Africa Tax Filing & eFiling Help',
@@ -144,6 +145,16 @@ export default function SARSTaxGuidesPage() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-8 py-16">
+
+        {/* Ad After Hero */}
+        <div className="mb-12 bg-white rounded-3xl p-6 shadow-xl border border-gray-100">
+          <div className="text-center text-gray-400 text-sm mb-2">Advertisement</div>
+          <AdSenseAd
+            adSlot="5341658648"
+            adFormat="auto"
+            style={{ display: 'block', minHeight: '90px' }}
+          />
+        </div>
 
         {/* Guides Grid */}
         <div className="mb-16">
