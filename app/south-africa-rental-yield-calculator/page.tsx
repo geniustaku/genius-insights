@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import SouthAfricaRentalYieldCalculator from '@/components/SouthAfricaRentalYieldCalculator';
 import StructuredData from '@/components/StructuredData';
+import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
   title: 'South Africa Rental Yield Calculator 2025 | Property Investment ROI Calculator',
@@ -85,12 +86,42 @@ export default function SouthAfricaRentalYieldCalculatorPage() {
 
         {/* Main Calculator Section */}
         <div className="max-w-6xl mx-auto px-8 py-16">
+          {/* Ad Before Calculator */}
+          <div className="mb-8 bg-white rounded-3xl p-6 shadow-xl border border-gray-100">
+            <div className="text-center text-gray-400 text-sm mb-2">Advertisement</div>
+            <AdSenseAd
+              adSlot="5341658648"
+              adFormat="auto"
+              style={{ display: 'block', minHeight: '90px' }}
+            />
+          </div>
+
           <SouthAfricaRentalYieldCalculator />
+
+          {/* Ad After Calculator */}
+          <div className="mt-8 bg-white rounded-3xl p-6 shadow-xl border border-gray-100">
+            <div className="text-center text-gray-400 text-sm mb-2">Advertisement</div>
+            <AdSenseAd
+              adSlot="2386701555"
+              adFormat="auto"
+              style={{ display: 'block', minHeight: '90px' }}
+            />
+          </div>
         </div>
 
         {/* Information Section */}
         <div className="max-w-6xl mx-auto px-8 pb-16">
           <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+            {/* Multiplex Ad in Information Section */}
+            <div className="mb-8">
+              <div className="text-center text-gray-400 text-sm mb-2">Advertisement</div>
+              <AdSenseAd
+                adSlot="9985989974"
+                adFormat="autorelaxed"
+                style={{ display: 'block', minHeight: '280px' }}
+              />
+            </div>
+
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">

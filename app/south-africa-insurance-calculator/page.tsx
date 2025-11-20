@@ -1,6 +1,7 @@
 'use client';
 
 import StructuredData from '@/components/StructuredData';
+import AdSenseAd from '@/components/AdSenseAd';
 
 export default function SouthAfricaInsuranceCalculatorPage() {
   const handleInsuranceTypeChange = () => {
@@ -170,6 +171,16 @@ export default function SouthAfricaInsuranceCalculatorPage() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Ad Before Calculator */}
+        <div className="max-w-6xl mx-auto px-8 py-8">
+          <AdSenseAd
+            adSlot="5341658648"
+            adFormat="auto"
+            style={{ display: 'block', minHeight: '90px' }}
+            className="border border-gray-200 rounded-lg"
+          />
         </div>
 
         <div className="max-w-6xl mx-auto px-8 py-16">
@@ -410,6 +421,16 @@ export default function SouthAfricaInsuranceCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Ad After Calculator */}
+        <div className="max-w-6xl mx-auto px-8 py-8">
+          <AdSenseAd
+            adSlot="2386701555"
+            adFormat="auto"
+            style={{ display: 'block', minHeight: '90px' }}
+            className="border border-gray-200 rounded-lg"
+          />
         </div>
       </div>
     </>

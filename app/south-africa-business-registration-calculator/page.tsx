@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import SouthAfricaBusinessRegistrationCalculator from '@/components/SouthAfricaBusinessRegistrationCalculator';
 import StructuredData from '@/components/StructuredData';
+import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
   title: 'South Africa Business Registration Cost Calculator 2025 | CIPC & SARS Fees',
@@ -83,9 +84,29 @@ export default function SouthAfricaBusinessRegistrationCalculatorPage() {
           <div className="absolute top-1/2 right-8 w-16 h-16 bg-orange-300/20 rounded-full blur-xl animate-pulse delay-500"></div>
         </div>
 
+        {/* Ad Before Calculator */}
+        <div className="max-w-6xl mx-auto px-8 py-8">
+          <AdSenseAd
+            adSlot="5341658648"
+            adFormat="auto"
+            style={{ display: 'block', minHeight: '90px' }}
+            className="border border-gray-200 rounded-lg"
+          />
+        </div>
+
         {/* Main Calculator Section */}
         <div className="max-w-6xl mx-auto px-8 py-16">
           <SouthAfricaBusinessRegistrationCalculator />
+        </div>
+
+        {/* Ad After Calculator */}
+        <div className="max-w-6xl mx-auto px-8 py-8">
+          <AdSenseAd
+            adSlot="2386701555"
+            adFormat="auto"
+            style={{ display: 'block', minHeight: '90px' }}
+            className="border border-gray-200 rounded-lg"
+          />
         </div>
 
         {/* Information Section */}
