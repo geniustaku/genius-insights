@@ -22,6 +22,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/south-africa-rental-yield-calculator',
     '/south-africa-loan-calculator',
     '/south-africa-investment-calculator',
+    '/south-africa-capital-gains-tax-calculator',
+    '/south-africa-solar-loadshedding-calculator',
+    '/south-africa-capitec-calculator',
+    '/south-africa-crypto-tax-calculator',
+    '/south-africa-debt-consolidation-calculator',
+    '/south-africa-freelancer-provisional-tax-calculator',
+    '/south-africa-payroll-calculator',
+    '/south-africa-estate-duty-calculator',
+    '/south-africa-tfsa-calculator',
   ]
 
   // SARS Articles
