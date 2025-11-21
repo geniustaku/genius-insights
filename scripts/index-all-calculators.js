@@ -30,6 +30,9 @@ const calculators = [
   // Phase 2 - High-traffic calculators
   '/south-africa-bond-calculator',
   '/south-africa-vat-calculator-2025',
+  '/south-africa-uif-calculator',
+  '/south-africa-personal-loan-calculator',
+  '/south-africa-car-finance-calculator',
 ];
 
 // Important landing pages
