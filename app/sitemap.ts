@@ -7,15 +7,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     '',
     '/about',
+    '/contact',
     '/tools',
     '/calculators',
     '/articles',
     '/guides',
     '/guides/sars-tax-guides',
     '/guides/property-transfer-guides',
+    '/document-converter',
+    '/cv-builder',
+    '/market',
+    '/career-assessment',
+    '/job-comparison',
+    '/skills-analyzer',
+    '/privacy',
+    '/terms',
   ]
 
-  // Calculators
+  // Calculators (37 total)
   const calculators = [
     '/south-africa-income-tax-calculator',
     '/south-africa-property-transfer-calculator',
@@ -44,6 +53,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/south-africa-inflation-calculator',
     '/south-africa-gratuity-calculator',
     '/south-africa-deposit-calculator',
+    '/south-africa-tax-calculator',
+    '/south-africa-fnb-calculator',
+    '/south-africa-standard-bank-calculator',
+    '/south-africa-retirement-calculator',
+    '/south-africa-fuel-cost-calculator',
+    '/south-africa-insurance-calculator',
+    '/south-africa-insurance-comparison',
+    '/south-africa-business-registration-calculator',
+    '/salary-calculator',
   ]
 
   // SARS Articles
