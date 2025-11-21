@@ -65,6 +65,16 @@ export default function ToolsPage() {
       tags: ['Estate Duty', 'Inheritance Tax', 'Will']
     },
 
+    {
+      name: 'Tax Refund Calculator',
+      href: '/south-africa-tax-refund-calculator',
+      description: 'Estimate your SARS tax refund with deductions, rebates, and medical credits',
+      category: 'Tax & SARS',
+      popular: true,
+      icon: '💵',
+      tags: ['Tax Refund', 'SARS', 'eFiling', 'Rebates']
+    },
+
     // EMPLOYMENT & SALARY CALCULATORS
     {
       name: 'Payroll Calculator',
@@ -83,6 +93,42 @@ export default function ToolsPage() {
       popular: true,
       icon: '🏢',
       tags: ['UIF', 'Unemployment', 'Maternity', 'Retrenchment']
+    },
+    {
+      name: 'Overtime Calculator',
+      href: '/south-africa-overtime-calculator',
+      description: 'Calculate overtime pay at BCEA rates - 1.5x weekday, 2x Sunday & public holidays',
+      category: 'Employment',
+      popular: true,
+      icon: '⏰',
+      tags: ['Overtime', 'BCEA', 'Sunday Pay', 'Public Holiday']
+    },
+    {
+      name: 'Leave Calculator',
+      href: '/south-africa-leave-calculator',
+      description: 'Calculate annual leave, sick leave, family leave entitlements. BCEA compliant',
+      category: 'Employment',
+      popular: true,
+      icon: '🏖️',
+      tags: ['Leave', 'Annual Leave', 'Sick Leave', 'BCEA']
+    },
+    {
+      name: 'Pension Calculator',
+      href: '/south-africa-pension-calculator',
+      description: 'Plan retirement with 27.5% tax deduction. Project pension fund growth',
+      category: 'Employment',
+      popular: true,
+      icon: '🏦',
+      tags: ['Pension', 'Retirement', 'RA', '27.5%']
+    },
+    {
+      name: 'Gratuity Calculator',
+      href: '/south-africa-gratuity-calculator',
+      description: 'Calculate severance pay, retrenchment packages. BCEA minimum, tax implications',
+      category: 'Employment',
+      popular: false,
+      icon: '🎁',
+      tags: ['Gratuity', 'Severance', 'Retrenchment', 'BCEA']
     },
     {
       name: 'Salary Calculator',
@@ -187,6 +233,24 @@ export default function ToolsPage() {
       icon: '🔵',
       tags: ['Standard Bank', 'Mortgages', 'Loans']
     },
+    {
+      name: 'Credit Card Calculator',
+      href: '/south-africa-credit-card-calculator',
+      description: 'Calculate credit card payoff time and interest. Compare minimum vs fixed payments',
+      category: 'Banking',
+      popular: true,
+      icon: '💳',
+      tags: ['Credit Card', 'Debt', 'Interest', 'Payoff']
+    },
+    {
+      name: 'Fixed Deposit Calculator',
+      href: '/south-africa-deposit-calculator',
+      description: 'Calculate fixed deposit returns with compound interest. Compare bank rates',
+      category: 'Banking',
+      popular: true,
+      icon: '💰',
+      tags: ['Fixed Deposit', 'Savings', 'Interest', 'Bank']
+    },
 
     // INVESTMENT CALCULATORS
     {
@@ -215,6 +279,15 @@ export default function ToolsPage() {
       popular: false,
       icon: '👴',
       tags: ['Retirement', 'Pension', 'RA', 'Provident Fund']
+    },
+    {
+      name: 'Inflation Calculator',
+      href: '/south-africa-inflation-calculator',
+      description: 'Calculate inflation impact on your money. Historical SA CPI rates & purchasing power',
+      category: 'Investment',
+      popular: true,
+      icon: '📊',
+      tags: ['Inflation', 'CPI', 'Purchasing Power', 'SARB']
     },
 
     // INSURANCE CALCULATORS
@@ -461,7 +534,7 @@ export default function ToolsPage() {
       {/* SEO Footer Content */}
       <section className="bg-gray-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <h3 className="text-xl font-bold mb-4">South Africa's #1 Financial Calculator Hub</h3>
               <p className="text-gray-400">
@@ -474,10 +547,21 @@ export default function ToolsPage() {
               <h3 className="text-xl font-bold mb-4">Popular Calculators</h3>
               <ul className="space-y-2 text-gray-400">
                 <li><Link href="/south-africa-income-tax-calculator" className="hover:text-white">→ Income Tax Calculator</Link></li>
+                <li><Link href="/south-africa-tax-refund-calculator" className="hover:text-white">→ Tax Refund Calculator</Link></li>
+                <li><Link href="/south-africa-overtime-calculator" className="hover:text-white">→ Overtime Calculator</Link></li>
+                <li><Link href="/south-africa-pension-calculator" className="hover:text-white">→ Pension Calculator</Link></li>
+                <li><Link href="/south-africa-leave-calculator" className="hover:text-white">→ Leave Calculator</Link></li>
+                <li><Link href="/south-africa-credit-card-calculator" className="hover:text-white">→ Credit Card Calculator</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-4">More Calculators</h3>
+              <ul className="space-y-2 text-gray-400">
                 <li><Link href="/south-africa-bond-calculator" className="hover:text-white">→ Bond Calculator</Link></li>
                 <li><Link href="/south-africa-uif-calculator" className="hover:text-white">→ UIF Calculator</Link></li>
-                <li><Link href="/south-africa-vat-calculator-2025" className="hover:text-white">→ VAT Calculator</Link></li>
-                <li><Link href="/south-africa-personal-loan-calculator" className="hover:text-white">→ Personal Loan Calculator</Link></li>
+                <li><Link href="/south-africa-deposit-calculator" className="hover:text-white">→ Fixed Deposit Calculator</Link></li>
+                <li><Link href="/south-africa-inflation-calculator" className="hover:text-white">→ Inflation Calculator</Link></li>
+                <li><Link href="/south-africa-gratuity-calculator" className="hover:text-white">→ Gratuity Calculator</Link></li>
                 <li><Link href="/south-africa-car-finance-calculator" className="hover:text-white">→ Car Finance Calculator</Link></li>
               </ul>
             </div>
