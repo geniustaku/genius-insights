@@ -36,6 +36,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/south-africa-uif-calculator',
     '/south-africa-personal-loan-calculator',
     '/south-africa-car-finance-calculator',
+    '/south-africa-overtime-calculator',
+    '/south-africa-pension-calculator',
+    '/south-africa-tax-refund-calculator',
+    '/south-africa-leave-calculator',
+    '/south-africa-credit-card-calculator',
+    '/south-africa-inflation-calculator',
+    '/south-africa-gratuity-calculator',
+    '/south-africa-deposit-calculator',
   ]
 
   // SARS Articles
