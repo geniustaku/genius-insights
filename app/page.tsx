@@ -418,65 +418,117 @@ export default async function Home() {
             </div>
           </section>
 
-          {/* Popular Tools */}
+          {/* Popular Tools - Featured 8 */}
           <section className="mb-10 sm:mb-12">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">🛠️ Popular Tools</h2>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">🔥 Most Popular Calculators</h2>
+              <Link href="/tools" className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1">
+                View All 35+
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
 
-              <Link href="/south-africa-tax-calculator" className="group">
+              <Link href="/south-africa-income-tax-calculator" className="group">
                 <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100 h-full">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-2xl">
-                      🇿🇦
-                    </div>
+                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-2xl">🇿🇦</div>
                     <div>
-                      <h3 className="font-bold text-gray-900 group-hover:text-green-600 transition-colors text-sm">SARS Tax Calculator</h3>
-                      <p className="text-xs text-gray-500">2025 Rates</p>
+                      <h3 className="font-bold text-gray-900 group-hover:text-green-600 transition-colors text-sm">Income Tax Calculator</h3>
+                      <p className="text-xs text-gray-500">SARS 2025</p>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600">Calculate your tax with latest SARS rates</p>
+                  <p className="text-sm text-gray-600">Calculate PAYE, UIF with latest rates</p>
                 </div>
               </Link>
 
-              <Link href="/south-africa-property-transfer-calculator" className="group">
+              <Link href="/south-africa-tax-refund-calculator" className="group">
                 <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100 h-full">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl">
-                      🏠
-                    </div>
+                    <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center text-2xl">💵</div>
                     <div>
-                      <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors text-sm">Property Transfer</h3>
-                      <p className="text-xs text-gray-500">Transfer Duty</p>
+                      <h3 className="font-bold text-gray-900 group-hover:text-emerald-600 transition-colors text-sm">Tax Refund Calculator</h3>
+                      <p className="text-xs text-gray-500">eFiling</p>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600">Calculate transfer costs and duties</p>
+                  <p className="text-sm text-gray-600">Estimate your SARS refund</p>
                 </div>
               </Link>
 
-              <Link href="/south-africa-retirement-calculator" className="group">
+              <Link href="/south-africa-overtime-calculator" className="group">
                 <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100 h-full">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-2xl">
-                      📈
-                    </div>
+                    <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-2xl">⏰</div>
                     <div>
-                      <h3 className="font-bold text-gray-900 group-hover:text-purple-600 transition-colors text-sm">Retirement Planner</h3>
-                      <p className="text-xs text-gray-500">Pension & RA</p>
+                      <h3 className="font-bold text-gray-900 group-hover:text-amber-600 transition-colors text-sm">Overtime Calculator</h3>
+                      <p className="text-xs text-gray-500">BCEA Rates</p>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600">Plan your retirement savings</p>
+                  <p className="text-sm text-gray-600">1.5x weekday, 2x Sunday rates</p>
+                </div>
+              </Link>
+
+              <Link href="/south-africa-pension-calculator" className="group">
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100 h-full">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center text-2xl">🏦</div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 group-hover:text-teal-600 transition-colors text-sm">Pension Calculator</h3>
+                      <p className="text-xs text-gray-500">27.5% Tax Benefit</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600">Plan retirement with tax savings</p>
+                </div>
+              </Link>
+
+              <Link href="/south-africa-bond-calculator" className="group">
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100 h-full">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl">🏡</div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors text-sm">Bond Calculator</h3>
+                      <p className="text-xs text-gray-500">Home Loans</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600">Calculate affordability & repayments</p>
+                </div>
+              </Link>
+
+              <Link href="/south-africa-leave-calculator" className="group">
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100 h-full">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center text-2xl">🏖️</div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 group-hover:text-sky-600 transition-colors text-sm">Leave Calculator</h3>
+                      <p className="text-xs text-gray-500">BCEA</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600">Annual, sick & family leave</p>
+                </div>
+              </Link>
+
+              <Link href="/south-africa-credit-card-calculator" className="group">
+                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100 h-full">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center text-2xl">💳</div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 group-hover:text-rose-600 transition-colors text-sm">Credit Card Calculator</h3>
+                      <p className="text-xs text-gray-500">Payoff Time</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600">Compare payment strategies</p>
                 </div>
               </Link>
 
               <Link href="/tools" className="group no-underline">
                 <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-5 shadow-md hover:shadow-lg transition-all h-full border border-slate-700 text-white">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center text-2xl">
-                      ⚡
-                    </div>
+                    <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center text-2xl">⚡</div>
                     <div>
                       <h3 className="font-bold text-white text-sm" style={{color: 'white'}}>View All Tools</h3>
-                      <p className="text-xs text-white" style={{color: 'white'}}>12+ Calculators</p>
+                      <p className="text-xs text-white" style={{color: 'white'}}>35+ Calculators</p>
                     </div>
                   </div>
                   <p className="text-sm text-white" style={{color: 'white'}}>Explore all financial tools →</p>
@@ -496,71 +548,175 @@ export default async function Home() {
             </div>
           </div>
 
-          {/* More Calculators Section */}
+          {/* Employment & Salary Calculators */}
           <section className="mb-10 sm:mb-12">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">🧮 Financial Calculators</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
-              <Link href="/south-africa-loan-calculator" className="group">
-                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center text-xl">💳</div>
-                    <h3 className="font-bold text-gray-900 group-hover:text-yellow-600 transition-colors text-sm">Loan Calculator</h3>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">💼 Employment & Salary</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link href="/south-africa-payroll-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-xl">💼</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors text-sm">Payroll Calculator</h3>
                   </div>
-                  <p className="text-xs text-gray-600">Calculate monthly loan repayments</p>
+                  <p className="text-xs text-gray-600">PAYE, UIF & take-home pay</p>
                 </div>
               </Link>
+              <Link href="/south-africa-uif-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center text-xl">🏢</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-indigo-600 transition-colors text-sm">UIF Calculator</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Contributions & benefits</p>
+                </div>
+              </Link>
+              <Link href="/south-africa-gratuity-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-violet-100 rounded-lg flex items-center justify-center text-xl">🎁</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-violet-600 transition-colors text-sm">Gratuity Calculator</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Severance & retrenchment</p>
+                </div>
+              </Link>
+              <Link href="/salary-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center text-xl">💵</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-green-600 transition-colors text-sm">Salary Calculator</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Gross to net salary</p>
+                </div>
+              </Link>
+            </div>
+          </section>
 
-              <Link href="/south-africa-investment-calculator" className="group">
-                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
-                  <div className="flex items-center gap-3 mb-3">
+          {/* Banking & Loans */}
+          <section className="mb-10 sm:mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">🏦 Banking & Loans</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link href="/south-africa-personal-loan-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center text-xl">🏦</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-purple-600 transition-colors text-sm">Personal Loan</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">NCR-compliant rates</p>
+                </div>
+              </Link>
+              <Link href="/south-africa-car-finance-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center text-xl">🚗</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-red-600 transition-colors text-sm">Car Finance</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">With balloon payments</p>
+                </div>
+              </Link>
+              <Link href="/south-africa-deposit-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center text-xl">💰</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-cyan-600 transition-colors text-sm">Fixed Deposit</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Compare bank rates</p>
+                </div>
+              </Link>
+              <Link href="/south-africa-debt-consolidation-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center text-xl">📊</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-orange-600 transition-colors text-sm">Debt Consolidation</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Reduce monthly payments</p>
+                </div>
+              </Link>
+            </div>
+          </section>
+
+          {/* Investment & Savings */}
+          <section className="mb-10 sm:mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">📈 Investment & Savings</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link href="/south-africa-tfsa-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center text-xl">💎</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-emerald-600 transition-colors text-sm">TFSA Calculator</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Tax-free savings growth</p>
+                </div>
+              </Link>
+              <Link href="/south-africa-inflation-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
                     <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center text-xl">📊</div>
-                    <h3 className="font-bold text-gray-900 group-hover:text-indigo-600 transition-colors text-sm">Investment Calculator</h3>
+                    <h3 className="font-bold text-gray-900 group-hover:text-indigo-600 transition-colors text-sm">Inflation Calculator</h3>
                   </div>
-                  <p className="text-xs text-gray-600">Plan your investment growth</p>
+                  <p className="text-xs text-gray-600">CPI & purchasing power</p>
                 </div>
               </Link>
+              <Link href="/south-africa-investment-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-xl">📈</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors text-sm">Investment Calculator</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Compound interest growth</p>
+                </div>
+              </Link>
+              <Link href="/south-africa-capital-gains-tax-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center text-xl">📈</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-amber-600 transition-colors text-sm">Capital Gains Tax</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">CGT on investments</p>
+                </div>
+              </Link>
+            </div>
+          </section>
 
-              <Link href="/south-africa-vat-calculator" className="group">
-                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
-                  <div className="flex items-center gap-3 mb-3">
+          {/* Property & Tax Calculators */}
+          <section className="mb-10 sm:mb-12">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">🏠 Property & Tax</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Link href="/south-africa-property-transfer-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center text-xl">🏠</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-orange-600 transition-colors text-sm">Property Transfer</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Transfer duty & costs</p>
+                </div>
+              </Link>
+              <Link href="/south-africa-rental-yield-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-rose-100 rounded-lg flex items-center justify-center text-xl">🔑</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-rose-600 transition-colors text-sm">Rental Yield</h3>
+                  </div>
+                  <p className="text-xs text-gray-600">Property returns</p>
+                </div>
+              </Link>
+              <Link href="/south-africa-vat-calculator-2025" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
                     <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center text-xl">🧾</div>
                     <h3 className="font-bold text-gray-900 group-hover:text-teal-600 transition-colors text-sm">VAT Calculator</h3>
                   </div>
-                  <p className="text-xs text-gray-600">Calculate VAT inclusive/exclusive</p>
+                  <p className="text-xs text-gray-600">15% VAT add/remove</p>
                 </div>
               </Link>
-
-              <Link href="/south-africa-rental-yield-calculator" className="group">
-                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-rose-100 rounded-lg flex items-center justify-center text-xl">🏘️</div>
-                    <h3 className="font-bold text-gray-900 group-hover:text-rose-600 transition-colors text-sm">Rental Yield</h3>
+              <Link href="/south-africa-estate-duty-calculator" className="group">
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center text-xl">⚰️</div>
+                    <h3 className="font-bold text-gray-900 group-hover:text-gray-600 transition-colors text-sm">Estate Duty</h3>
                   </div>
-                  <p className="text-xs text-gray-600">Calculate property rental returns</p>
+                  <p className="text-xs text-gray-600">Inheritance tax</p>
                 </div>
               </Link>
-
-              <Link href="/south-africa-insurance-calculator" className="group">
-                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center text-xl">🛡️</div>
-                    <h3 className="font-bold text-gray-900 group-hover:text-cyan-600 transition-colors text-sm">Insurance Calculator</h3>
-                  </div>
-                  <p className="text-xs text-gray-600">Estimate insurance premiums</p>
-                </div>
-              </Link>
-
-              <Link href="/south-africa-fuel-cost-calculator" className="group">
-                <div className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-all border border-gray-100">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center text-xl">⛽</div>
-                    <h3 className="font-bold text-gray-900 group-hover:text-amber-600 transition-colors text-sm">Fuel Cost</h3>
-                  </div>
-                  <p className="text-xs text-gray-600">Calculate trip fuel expenses</p>
-                </div>
-              </Link>
-
             </div>
           </section>
 
