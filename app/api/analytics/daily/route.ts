@@ -83,11 +83,11 @@ export async function GET(request: NextRequest) {
       { name: 'Other', views: other.reduce((sum, p) => sum + p.count, 0), count: other.length },
     ].sort((a, b) => b.views - a.views);
 
-    // Top 10 calculators
-    const topCalculators = calculators.slice(0, 10);
+    // All calculators (no limit)
+    const topCalculators = calculators;
 
-    // Top 10 articles
-    const topArticles = articles.slice(0, 10);
+    // All articles (no limit)
+    const topArticles = articles;
 
     // Pages with low traffic (opportunity pages)
     const lowTrafficPages = allPages
@@ -114,7 +114,7 @@ export async function GET(request: NextRequest) {
       lowTrafficPages,
       recentlyActive,
       dailyData,
-      allPages: allPages.slice(0, 100), // Top 100 for detailed view
+      allPages, // All pages for detailed view
     });
   } catch (error) {
     console.error('Error fetching daily analytics:', error);

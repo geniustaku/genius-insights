@@ -1,12 +1,12 @@
 // app/api/analytics/stats/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/firebase';
-import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 
 export async function GET(request: NextRequest) {
   try {
     const pageVisitsRef = collection(db, 'pageVisits');
-    const q = query(pageVisitsRef, orderBy('count', 'desc'), limit(50));
+    const q = query(pageVisitsRef, orderBy('count', 'desc'));
     const querySnapshot = await getDocs(q);
 
     const stats = querySnapshot.docs.map(doc => ({
