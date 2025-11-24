@@ -11,6 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/about',
     '/contact',
     '/tools',
+    '/africa-tools',
     '/calculators',
     '/articles',
     '/guides',
@@ -26,7 +27,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/terms',
   ]
 
-  // Calculators (37 total)
+  // Calculators (40 total - all South Africa calculators + international)
   const calculators = [
     '/south-africa-income-tax-calculator',
     '/south-africa-property-transfer-calculator',
@@ -44,6 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/south-africa-tfsa-calculator',
     '/south-africa-bond-calculator',
     '/south-africa-vat-calculator-2025',
+    '/south-africa-vat-calculator',
     '/south-africa-uif-calculator',
     '/south-africa-personal-loan-calculator',
     '/south-africa-car-finance-calculator',
@@ -64,6 +66,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/south-africa-insurance-comparison',
     '/south-africa-business-registration-calculator',
     '/salary-calculator',
+    '/germany-vat-calculator',
   ]
 
   // Fetch all published articles from Firestore
