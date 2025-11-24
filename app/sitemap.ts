@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next'
+import { db } from '@/lib/firebase'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.genius-insights.co.za'
 
   // Static pages
@@ -64,35 +66,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/salary-calculator',
   ]
 
-  // SARS Articles
-  const sarsArticles = [
-    '/articles/sars-efiling-registration-guide',
-    '/articles/how-to-submit-tax-returns-sars-efiling',
-    '/articles/sars-provisional-tax-guide-self-employed',
-    '/articles/south-africa-income-tax-deductions-guide',
-    '/articles/track-sars-tax-refund-guide',
-    '/articles/sars-tax-clearance-certificate-guide',
-  ]
+  // Fetch all published articles from Firestore
+  let articleSlugs: string[] = []
+  try {
+    const articlesRef = collection(db, 'articles')
+    const q = query(articlesRef, where('is_published', '==', true))
+    const snapshot = await getDocs(q)
 
-  // Property Articles
-  const propertyArticles = [
-    '/articles/complete-property-transfer-guide-south-africa-2025',
-    '/articles/property-transfer-costs-south-africa-2025-breakdown',
-    '/articles/first-time-home-buyer-guide-south-africa-2025',
-    '/articles/how-to-choose-property-transfer-attorney-south-africa',
-    '/articles/transfer-duty-calculator-guide-south-africa',
-    '/articles/property-transfer-timeline-south-africa',
-    '/articles/selling-property-south-africa-complete-guide',
-    '/articles/bond-registration-vs-property-transfer-explained',
-    '/articles/property-transfer-documents-checklist-south-africa',
-    '/articles/buying-property-deceased-estate-south-africa',
-  ]
+    articleSlugs = snapshot.docs.map(doc => `/articles/${doc.data().slug}`)
+    console.log(`Sitemap: Found ${articleSlugs.length} published articles`)
+  } catch (error) {
+    console.error('Error fetching articles for sitemap:', error)
+    // Fallback to empty array if fetch fails
+    articleSlugs = []
+  }
 
   const allPages = [
     ...staticPages,
     ...calculators,
-    ...sarsArticles,
-    ...propertyArticles,
+    ...articleSlugs,
   ]
 
   return allPages.map((page) => ({

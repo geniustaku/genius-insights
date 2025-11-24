@@ -101,30 +101,30 @@ https://www.genius-insights.co.za/guides/property-transfer-guides
 
 ---
 
-## ARTICLE PAGES
+## ARTICLE PAGES (61+ Articles - Dynamically Generated)
 
-### SARS & Tax Articles
+**Note:** All 61+ published articles are automatically included in the sitemap. Visit the sitemap to see the complete list:
+```
+https://www.genius-insights.co.za/sitemap.xml
+```
+
+**Articles Page:**
+```
+https://www.genius-insights.co.za/articles
+```
+
+### Sample High-Priority Articles (Top SEO targets)
 ```
 https://www.genius-insights.co.za/articles/sars-efiling-registration-guide
 https://www.genius-insights.co.za/articles/how-to-submit-tax-returns-sars-efiling
 https://www.genius-insights.co.za/articles/sars-provisional-tax-guide-self-employed
 https://www.genius-insights.co.za/articles/south-africa-income-tax-deductions-guide
 https://www.genius-insights.co.za/articles/track-sars-tax-refund-guide
-https://www.genius-insights.co.za/articles/sars-tax-clearance-certificate-guide
-```
-
-### Property Articles
-```
 https://www.genius-insights.co.za/articles/complete-property-transfer-guide-south-africa-2025
 https://www.genius-insights.co.za/articles/property-transfer-costs-south-africa-2025-breakdown
 https://www.genius-insights.co.za/articles/first-time-home-buyer-guide-south-africa-2025
-https://www.genius-insights.co.za/articles/how-to-choose-property-transfer-attorney-south-africa
-https://www.genius-insights.co.za/articles/transfer-duty-calculator-guide-south-africa
-https://www.genius-insights.co.za/articles/property-transfer-timeline-south-africa
-https://www.genius-insights.co.za/articles/selling-property-south-africa-complete-guide
-https://www.genius-insights.co.za/articles/bond-registration-vs-property-transfer-explained
-https://www.genius-insights.co.za/articles/property-transfer-documents-checklist-south-africa
-https://www.genius-insights.co.za/articles/buying-property-deceased-estate-south-africa
+https://www.genius-insights.co.za/articles/cipc-company-registration
+https://www.genius-insights.co.za/articles/cipc-name-reservation-guide
 ```
 
 ---
@@ -229,14 +229,16 @@ https://www.genius-insights.co.za/skills-analyzer
 
 ---
 
-## TOTAL URL COUNT: 68 Pages
+## TOTAL URL COUNT: 114+ Pages
 
 ### Summary:
-- **Static/Navigation Pages:** 12
+- **Static/Navigation Pages:** 17
 - **Calculator Pages:** 37
 - **Guide Pages:** 3
-- **Article Pages:** 16
+- **Article Pages:** 61+ (dynamically fetched from database)
 - **Tool Pages:** 5
+
+**Note:** The sitemap now dynamically fetches all published articles from Firestore, so the total count may increase as you publish more articles.
 
 ---
 
