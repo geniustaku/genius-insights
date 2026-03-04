@@ -130,7 +130,7 @@ export default function ArticleComments({ articleSlug, articleId }: ArticleComme
                   type="text"
                   value={formData.author}
                   onChange={(e) => setFormData(prev => ({ ...prev, author: e.target.value }))}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white placeholder-gray-400"
                   required
                 />
               </div>
@@ -142,7 +142,7 @@ export default function ArticleComments({ articleSlug, articleId }: ArticleComme
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white placeholder-gray-400"
                 />
               </div>
             </div>
@@ -156,7 +156,7 @@ export default function ArticleComments({ articleSlug, articleId }: ArticleComme
                 onChange={(e) => setFormData(prev => ({ ...prev, content: e.target.value }))}
                 rows={4}
                 maxLength={1000}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 bg-white placeholder-gray-400"
                 placeholder="Share your thoughts on this article..."
                 required
               />

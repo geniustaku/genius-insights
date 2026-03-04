@@ -27,7 +27,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/terms',
   ]
 
-  // Calculators (40 total - all South Africa calculators + international)
+  // All calculators
   const calculators = [
     '/south-africa-income-tax-calculator',
     '/south-africa-property-transfer-calculator',
@@ -44,7 +44,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/south-africa-estate-duty-calculator',
     '/south-africa-tfsa-calculator',
     '/south-africa-bond-calculator',
-    '/south-africa-vat-calculator-2025',
     '/south-africa-vat-calculator',
     '/south-africa-uif-calculator',
     '/south-africa-personal-loan-calculator',
@@ -69,50 +68,115 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/germany-vat-calculator',
   ]
 
+  // Country pages (16 countries)
+  const countries = [
+    '/countries/south-africa',
+    '/countries/nigeria',
+    '/countries/kenya',
+    '/countries/ghana',
+    '/countries/united-kingdom',
+    '/countries/canada',
+    '/countries/united-states',
+    '/countries/india',
+    '/countries/egypt',
+    '/countries/morocco',
+    '/countries/australia',
+    '/countries/germany',
+    '/countries/france',
+    '/countries/singapore',
+    '/countries/uae',
+    '/countries/brazil',
+  ]
+
+  // Market report pages
+  const marketReports = [
+    '/market-report/south-africa',
+    '/market-report/nigeria',
+    '/market-report/kenya',
+  ]
+
   // Fetch all published articles from Firestore
   let articleSlugs: string[] = []
+  let guideSlugs: string[] = []
   try {
     const articlesRef = collection(db, 'articles')
     const q = query(articlesRef, where('is_published', '==', true))
     const snapshot = await getDocs(q)
 
-    articleSlugs = snapshot.docs.map(doc => `/articles/${doc.data().slug}`)
+    snapshot.docs.forEach(doc => {
+      const data = doc.data()
+      const slug = data.slug
+      if (slug) {
+        articleSlugs.push(`/articles/${slug}`)
+        // Guides use the same articles collection
+        guideSlugs.push(`/guides/${slug}`)
+      }
+    })
     console.log(`Sitemap: Found ${articleSlugs.length} published articles`)
   } catch (error) {
     console.error('Error fetching articles for sitemap:', error)
-    // Fallback to empty array if fetch fails
     articleSlugs = []
+    guideSlugs = []
   }
 
   const allPages = [
     ...staticPages,
     ...calculators,
+    ...countries,
+    ...marketReports,
     ...articleSlugs,
+    ...guideSlugs,
   ]
 
   return allPages.map((page) => ({
     url: `${baseUrl}${page}`,
     lastModified: new Date(),
-    changeFrequency: page.startsWith('/articles') ? 'weekly' : 'monthly',
+    changeFrequency: getChangeFrequency(page),
     priority: getPriority(page),
   }))
+}
+
+function getChangeFrequency(page: string): 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never' {
+  if (page === '') return 'daily'
+  if (page.startsWith('/articles')) return 'weekly'
+  if (page.startsWith('/market')) return 'weekly'
+  if (page === '/privacy' || page === '/terms') return 'yearly'
+  return 'monthly'
 }
 
 function getPriority(page: string): number {
   // Homepage
   if (page === '') return 1.0
 
-  // Main guides and calculator pages
+  // Main hub pages
   if (page === '/guides' || page === '/tools' || page === '/calculators') return 0.9
 
+  // High-traffic calculators
+  if (
+    page === '/south-africa-tax-calculator' ||
+    page === '/south-africa-income-tax-calculator' ||
+    page === '/south-africa-personal-loan-calculator' ||
+    page === '/south-africa-fuel-cost-calculator' ||
+    page === '/south-africa-property-transfer-calculator'
+  ) return 0.95
+
   // Guide category pages
-  if (page.startsWith('/guides/')) return 0.8
+  if (page === '/guides/sars-tax-guides' || page === '/guides/property-transfer-guides') return 0.85
 
   // Calculators
   if (page.includes('-calculator')) return 0.8
 
-  // Articles
-  if (page.startsWith('/articles/')) return 0.7
+  // Articles & individual guides
+  if (page.startsWith('/articles/') || page.startsWith('/guides/')) return 0.7
+
+  // Country pages
+  if (page.startsWith('/countries/')) return 0.6
+
+  // Market reports
+  if (page.startsWith('/market-report/')) return 0.6
+
+  // Privacy/Terms
+  if (page === '/privacy' || page === '/terms') return 0.3
 
   // Other pages
   return 0.6

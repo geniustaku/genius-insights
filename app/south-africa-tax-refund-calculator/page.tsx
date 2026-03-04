@@ -4,37 +4,38 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Tax Refund Calculator 2025 | SARS eFiling Refund Estimator',
-  description: 'Free SA tax refund calculator 2025. Estimate your SARS refund with deductions, rebates, medical credits. Check if you owe SARS or get money back. 2024/2025 tax year.',
+  title: 'SARS Tax Refund Calculator 2026 | Check Refund',
+  description: 'How much will my SARS refund be? Free tax refund calculator for 2026. Estimate your eFiling refund with medical credits, pension deductions & rebates. Check if SARS owes you money.',
   keywords: [
-    'tax refund calculator south africa 2025',
-    'sars refund calculator',
-    'tax back calculator SA',
-    'efiling refund calculator',
-    'income tax refund calculator',
-    'how much tax refund will I get',
-    'sars tax calculator 2025',
-    'tax return calculator',
-    'paye refund calculator',
-    'medical aid tax credit calculator',
-    'retirement contribution tax deduction',
-    'tax rebate calculator',
-    'am I owed tax back',
-    'sars owes me money'
+    'SARS tax refund calculator 2026',
+    'SARS refund calculator',
+    'how much will my SARS refund be',
+    'tax refund calculator south africa',
+    'check SARS refund amount',
+    'eFiling refund calculator',
+    'SARS owes me money calculator',
+    'tax back calculator south africa',
+    'calculate my tax refund SARS',
+    'PAYE refund calculator south africa',
+    'medical aid tax credit refund',
+    'retirement annuity tax deduction calculator',
+    'do I owe SARS or get refund',
+    'tax return refund estimator SA',
+    'SARS auto assessment refund 2026'
   ],
   alternates: {
     canonical: '/south-africa-tax-refund-calculator',
   },
   openGraph: {
-    title: 'South Africa Tax Refund Calculator 2025 | SARS Refund Estimator',
-    description: '💵 Check your SARS refund! Calculate tax back with deductions & rebates. Free tax refund calculator.',
+    title: 'SARS Tax Refund Calculator 2026 | Check Refund',
+    description: 'How much will my SARS refund be? Free tax refund calculator with medical credits, pension deductions & rebates for 2026.',
     url: 'https://genius-insights.co.za/south-africa-tax-refund-calculator',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Tax Refund Calculator 2025',
-    description: '💵 Check your SARS refund! Calculate tax back with all deductions included.',
+    title: 'SARS Tax Refund Calculator 2026 | Check Refund',
+    description: 'Check if SARS owes you money. Free tax refund calculator with all deductions for 2026 eFiling season.',
   },
 };
 
@@ -52,12 +53,12 @@ export default function SouthAfricaTaxRefundCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">💵 SARS Tax Refund Estimator</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Tax Refund Calculator <br/>
-                <span className="bg-gradient-to-r from-emerald-200 to-teal-200 bg-clip-text text-transparent">South Africa 2025</span>
+                SARS Tax Refund Calculator <br/>
+                <span className="bg-gradient-to-r from-emerald-200 to-teal-200 bg-clip-text text-transparent">2026 eFiling Season</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Estimate your SARS tax refund or amount owing. Include retirement contributions,
-                medical aid credits, and other deductions for accurate results.
+                How much will my SARS refund be? Estimate your tax back or amount owing with retirement contributions,
+                medical aid credits, and all allowable deductions.
               </p>
 
               {/* Stats Bar */}
@@ -114,7 +115,7 @@ export default function SouthAfricaTaxRefundCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  How Tax Refunds Work
+                  How SARS Tax Refunds Work in South Africa
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                   Your employer deducts PAYE (Pay As You Earn) from your salary monthly based on estimated
@@ -144,7 +145,7 @@ export default function SouthAfricaTaxRefundCalculatorPage() {
 
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  Common Deductions
+                  Tax Deductions That Increase Your SARS Refund
                 </h3>
 
                 <div className="space-y-4 mb-8">
@@ -170,11 +171,11 @@ export default function SouthAfricaTaxRefundCalculatorPage() {
                 </div>
 
                 <div className="p-6 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl border border-emerald-200">
-                  <h4 className="font-semibold text-emerald-900 mb-2">2025 Filing Deadlines</h4>
+                  <h4 className="font-semibold text-emerald-900 mb-2">2026 Filing Deadlines</h4>
                   <ul className="text-emerald-800 text-sm leading-relaxed space-y-1">
-                    <li>• <strong>Auto Assessment:</strong> Accept by 21 Oct 2025</li>
-                    <li>• <strong>Non-Provisional:</strong> 21 Oct 2025 (eFiling)</li>
-                    <li>• <strong>Provisional:</strong> 20 Jan 2026 (eFiling)</li>
+                    <li>• <strong>Auto Assessment:</strong> Accept by 21 Oct 2026</li>
+                    <li>• <strong>Non-Provisional:</strong> 21 Oct 2026 (eFiling)</li>
+                    <li>• <strong>Provisional:</strong> 20 Jan 2027 (eFiling)</li>
                   </ul>
                 </div>
               </div>
@@ -183,7 +184,7 @@ export default function SouthAfricaTaxRefundCalculatorPage() {
             {/* FAQ Section */}
             <div className="mt-12 pt-8 border-t border-gray-200">
               <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                Frequently Asked Questions
+                SARS Tax Refund FAQs
               </h3>
               <div className="space-y-4">
                 <details className="bg-gray-50 rounded-lg p-6 border border-gray-200">

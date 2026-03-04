@@ -4,38 +4,37 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Pension Calculator 2025 | Retirement Fund & RA Calculator',
-  description: 'Free SA pension calculator 2025. Calculate retirement fund growth, pension contributions, tax savings. Plan your retirement with RA, pension, provident fund projections.',
+  title: 'Pension Fund Calculator SA 2026 | Tax Savings',
+  description: 'How much pension will I get in South Africa? Free pension calculator with 27.5% tax deduction, two-pot system, RA and provident fund projections for 2026.',
   keywords: [
-    'pension calculator south africa 2025',
-    'retirement calculator SA',
-    'retirement annuity calculator',
-    'pension fund calculator',
-    'provident fund calculator',
-    'retirement planning calculator',
-    'how much pension will I get',
-    'retirement savings calculator',
-    '27.5% pension deduction',
-    'tax free retirement',
-    'pension tax calculator',
-    'allan gray pension calculator',
-    'old mutual pension calculator',
-    'sanlam retirement calculator',
-    'liberty pension calculator'
+    'pension calculator south africa 2026',
+    'how much pension will I get south africa',
+    'pension fund contribution calculator SA',
+    'retirement annuity calculator south africa',
+    'provident fund calculator south africa',
+    '27.5 percent pension tax deduction',
+    'two-pot retirement system calculator',
+    'pension fund growth calculator',
+    'retirement savings calculator south africa',
+    'pension tax savings calculator SA',
+    'how much should I contribute to pension',
+    'pension fund vs provident fund south africa',
+    'RA calculator south africa 2026',
+    'R350000 pension cap calculator'
   ],
   alternates: {
     canonical: '/south-africa-pension-calculator',
   },
   openGraph: {
-    title: 'South Africa Pension Calculator 2025 | Retirement Planning',
-    description: '🏦 Calculate your pension! Tax-efficient retirement planning. 27.5% tax deduction. Free calculator.',
+    title: 'Pension Fund Calculator SA 2026 | Tax Savings',
+    description: 'How much pension will I get? Calculate pension fund growth, 27.5% tax deduction and two-pot system projections.',
     url: 'https://genius-insights.co.za/south-africa-pension-calculator',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Pension Calculator 2025',
-    description: '🏦 Plan your retirement! Tax-efficient pension calculator with projections.',
+    title: 'Pension Fund Calculator SA 2026 | Tax Savings',
+    description: 'How much pension will I get? Calculate contributions, tax savings and retirement fund growth with 2026 rates.',
   },
 };
 
@@ -53,12 +52,12 @@ export default function SouthAfricaPensionCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">🏦 Retirement Planning Calculator</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Pension Calculator <br/>
-                <span className="bg-gradient-to-r from-teal-200 to-cyan-200 bg-clip-text text-transparent">South Africa 2025</span>
+                How Much Pension Will I Get <br/>
+                <span className="bg-gradient-to-r from-teal-200 to-cyan-200 bg-clip-text text-transparent">in South Africa? (2026)</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Plan your retirement with tax-efficient contributions. Calculate pension fund growth,
-                monthly pension projections, and maximize your tax deductions.
+                Calculate your pension fund growth with the 27.5% tax deduction. Project your retirement
+                annuity, pension fund or provident fund value including the two-pot system.
               </p>
 
               {/* Stats Bar */}
@@ -115,11 +114,11 @@ export default function SouthAfricaPensionCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Retirement Savings in SA
+                  Pension Fund Tax Benefits in South Africa
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  South Africa offers generous tax incentives for retirement savings. Contributing to a pension,
-                  provident, or retirement annuity fund reduces your taxable income and grows tax-free until retirement.
+                  South Africa allows a 27.5% tax deduction on pension contributions (capped at R350,000/year).
+                  Your pension, provident, or RA fund grows tax-free until retirement.
                 </p>
 
                 <div className="space-y-4">

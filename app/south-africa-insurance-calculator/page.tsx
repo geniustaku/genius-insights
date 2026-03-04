@@ -163,11 +163,11 @@ export default function SouthAfricaInsuranceCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">🇿🇦 South African Insurance</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Insurance Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
+                Insurance Quote Calculator <br/>
+                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate premiums for life, disability, vehicle, and home insurance with top South African insurers. Get quotes from Sanlam, Old Mutual, Discovery, and more.
+                Get insurance quotes for life cover, car insurance, home insurance and funeral cover. Compare premiums from Sanlam, Old Mutual, Discovery, OUTsurance and more.
               </p>
             </div>
           </div>
@@ -186,8 +186,8 @@ export default function SouthAfricaInsuranceCalculatorPage() {
         <div className="max-w-6xl mx-auto px-8 py-16">
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">South African Insurance Calculator</h2>
-              <p className="text-gray-600 text-lg">Calculate premiums for comprehensive insurance coverage in South Africa</p>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Life, Car & Home Insurance Premium Calculator</h2>
+              <p className="text-gray-600 text-lg">Calculate your monthly insurance premium and compare quotes from top South African insurers</p>
             </div>
             
             <div className="grid lg:grid-cols-2 gap-12">
@@ -373,7 +373,7 @@ export default function SouthAfricaInsuranceCalculatorPage() {
 
             {/* Insurance Providers & Rates */}
             <div className="mt-12">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Top SA Insurance Providers 2025</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Cheapest Insurance Providers in South Africa 2026</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-gray-50 rounded-xl p-6 text-center">
                   <h4 className="font-semibold text-gray-900 mb-2">Sanlam</h4>

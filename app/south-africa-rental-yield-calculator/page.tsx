@@ -4,17 +4,33 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Rental Yield Calculator 2025 | Property Investment ROI Calculator',
-  description: 'Free SA rental yield calculator 2025. Calculate gross & net rental yield, property ROI, cash flow analysis. Essential tool for 80,000+ property investors.',
+  title: 'Rental Yield Calculator SA 2026 | Buy to Let',
+  description: 'Is buy to let worth it in South Africa? Calculate rental yield, property ROI & cash flow. Gross and net yield calculator for SA property investors. Free 2026 tool.',
   keywords: [
-    'South Africa rental yield calculator 2025', 'SA property yield calculator', 'rental return calculator SA', 'property investment calculator SA', 'rental ROI calculator SA', 'property cash flow calculator SA', 'SA rental income calculator', 'property investment analysis SA', 'rental property calculator SA', 'gross rental yield SA', 'net rental yield calculator', 'SA property investment tool', 'rental yield analysis SA', 'property investor calculator SA', 'SA real estate calculator'
+    'rental yield calculator south africa',
+    'buy to let calculator south africa',
+    'is buy to let worth it south africa',
+    'property investment calculator SA',
+    'rental return on investment calculator',
+    'gross rental yield calculator',
+    'net rental yield calculator south africa',
+    'property cash flow calculator',
+    'rental income calculator SA',
+    'how to calculate rental yield south africa',
+    'buy to let property south africa',
+    'property investment ROI calculator',
+    'rental property calculator SA 2026',
+    'investment property calculator south africa',
+    'what is a good rental yield in south africa',
+    'landlord calculator south africa',
+    'rental property profit calculator'
   ],
   alternates: {
     canonical: '/south-africa-rental-yield-calculator',
   },
   openGraph: {
-    title: 'South Africa Rental Yield Calculator 2025 | Free Property Investment Tool',
-    description: '🏠 Calculate SA rental yields & ROI! Gross & net yield, cash flow, property investment analysis with 2025 rates. Free tool for 80,000+ investors.',
+    title: 'Rental Yield Calculator SA 2026 | Buy to Let',
+    description: 'Is buy to let worth it? Calculate rental yield, property ROI & cash flow for SA property investments. Gross and net yield with 2026 rates.',
     url: 'https://genius-insights.co.za/south-africa-rental-yield-calculator',
     type: 'website',
     images: [
@@ -22,14 +38,14 @@ export const metadata: Metadata = {
         url: '/images/sa-rental-yield-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Rental Yield Calculator 2025 - Property Investment Tool',
+        alt: 'Rental Yield Calculator South Africa 2026 - Buy to Let Property Investment',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Rental Yield Calculator 2025 | Property Investment ROI',
-    description: '🏠 Calculate South African rental yields! Gross & net yield, cash flow, property ROI with 2025 rates.',
+    title: 'Rental Yield Calculator SA 2026 | Buy to Let',
+    description: 'Is buy to let worth it in SA? Calculate rental yield, property ROI & cash flow. Free calculator for property investors.',
     images: ['/images/sa-rental-yield-og.jpg'],
   },
 };
@@ -48,12 +64,12 @@ export default function SouthAfricaRentalYieldCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">🏠 Property Investment Analysis</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                SA Rental Yield Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
+                Rental Yield Calculator <br/>
+                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate rental yields, property ROI, and cash flow analysis for South African property investments. 
-                Make informed decisions with comprehensive property investment calculations.
+                Is buy to let worth it in South Africa? Calculate gross and net rental yield, property ROI
+                and monthly cash flow. Make smarter property investment decisions with accurate 2026 data.
               </p>
               
               {/* Stats Bar */}
@@ -71,7 +87,7 @@ export default function SouthAfricaRentalYieldCalculatorPage() {
                   <div className="text-white/80 text-sm">Analysis</div>
                 </div>
                 <div className="bg-white/20 rounded-2xl px-6 py-4 text-center backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-white">2025</div>
+                  <div className="text-2xl font-bold text-white">2026</div>
                   <div className="text-white/80 text-sm">Market Rates</div>
                 </div>
               </div>
@@ -125,11 +141,11 @@ export default function SouthAfricaRentalYieldCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  SA Property Investment Metrics
+                  How to Calculate Rental Yield in South Africa
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Understanding rental yields and property investment metrics is crucial for making 
-                  informed investment decisions in the South African property market.
+                  What is a good rental yield in South Africa? Understanding gross vs net rental yield
+                  helps you compare buy-to-let properties and make profitable investment decisions.
                 </p>
                 
                 <div className="space-y-4">
@@ -154,7 +170,7 @@ export default function SouthAfricaRentalYieldCalculatorPage() {
               
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  SA Property Investment Tips
+                  Buy to Let Tips for SA Property Investors
                 </h3>
                 
                 <div className="space-y-4">

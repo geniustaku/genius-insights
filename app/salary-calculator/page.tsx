@@ -4,17 +4,17 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'Free African Salary Calculator 2025 | Check Your Worth in 18 African Countries',
-  description: 'Calculate your exact salary potential across 18 African countries! Free salary calculator with real 2025 data for South Africa, Nigeria, Kenya, Ghana, Egypt & more. Know your market value instantly - used by 50,000+ professionals.',
+  title: 'Take Home Pay Calculator SA 2026 | Gross to Net',
+  description: 'Free salary calculator for South Africa 2026. Calculate your take home pay, gross to net salary after PAYE, UIF and SDL. Covers 18 African countries.',
   keywords: [
-    'African salary calculator 2025', 'South Africa salary calculator', 'Nigeria salary calculator', 'Kenya salary calculator', 'Ghana salary rates', 'Egypt salary guide', 'African job salaries', 'salary comparison Africa', 'what should I earn in Africa', 'African salary benchmark', 'tech salaries Africa', 'finance salaries Africa', 'healthcare salaries Africa', 'African salary data', 'professional salary Africa', 'job salary calculator', 'African pay scale', 'salary estimator Africa'
+    'take home pay calculator south africa', 'salary calculator south africa 2026', 'gross to net salary calculator SA', 'net salary calculator south africa', 'PAYE calculator south africa', 'what is my take home pay', 'salary after tax south africa', 'South Africa salary calculator', 'Nigeria salary calculator', 'Kenya salary calculator', 'African salary calculator 2026', 'how much will I earn after tax', 'salary deductions calculator SA', 'monthly salary calculator', 'annual salary to monthly take home'
   ],
   alternates: {
     canonical: '/salary-calculator',
   },
   openGraph: {
-    title: 'Free African Salary Calculator 2025 | Know Your Worth in 18 Countries',
-    description: '💰 Calculate your exact salary potential! Real 2025 data from South Africa, Nigeria, Kenya, Ghana, Egypt + 13 more countries. Used by 50,000+ African professionals.',
+    title: 'Take Home Pay Calculator SA 2026 | Gross to Net Salary',
+    description: 'Calculate your take home pay after PAYE, UIF and SDL deductions. Free gross to net salary calculator for South Africa and 18 African countries.',
     url: '/salary-calculator',
     type: 'website',
     images: [
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
         url: '/images/salary-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'African Salary Calculator 2025 - Calculate Your Worth',
+        alt: 'African Salary Calculator 2026 - Calculate Your Worth',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'African Salary Calculator 2025 | Free Salary Check',
-    description: '💰 Know your worth! Calculate salaries across 18 African countries with real 2025 market data. Free & instant results.',
+    title: 'Take Home Pay Calculator SA 2026 | Free Tool',
+    description: 'Calculate your take home pay after tax in South Africa. Free gross to net salary calculator with 2026 PAYE rates.',
     images: ['/images/salary-calculator-og.jpg'],
   },
 };
@@ -45,15 +45,15 @@ export default function SalaryCalculatorPage() {
         <div className="relative max-w-7xl mx-auto px-8 py-20">
           <div className="text-center">
             <div className="inline-block glass rounded-2xl px-6 py-3 mb-6">
-              <span className="text-white/90 font-medium text-sm tracking-wide">💰 2025 Market Data</span>
+              <span className="text-white/90 font-medium text-sm tracking-wide">💰 2026 Market Data</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-              Free African Salary Calculator <br/>
-              <span className="text-gradient bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">2025</span>
+              Take Home Pay Calculator <br/>
+              <span className="text-gradient bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">South Africa 2026</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-              Discover your true market value with the most comprehensive salary data across Africa. 
-              Make informed career decisions with real-time insights from 15+ countries.
+              Calculate your gross to net salary after PAYE, UIF and SDL deductions.
+              Find out your exact take home pay with real 2026 tax rates across 15+ African countries.
             </p>
             
             {/* Stats Bar */}
@@ -125,11 +125,11 @@ export default function SalaryCalculatorPage() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                How Our Calculator Works
+                How the Gross to Net Salary Calculator Works
               </h2>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                Our advanced algorithm analyzes thousands of data points from verified sources 
-                across Africa to provide you with the most accurate salary estimations available.
+                Our calculator uses 2026 SARS tax tables to deduct PAYE, UIF (1%) and SDL (1%)
+                from your gross salary, showing your exact take home pay each month.
               </p>
               
               <div className="space-y-4">

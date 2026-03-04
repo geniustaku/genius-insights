@@ -3,17 +3,22 @@ import Link from 'next/link';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Africa Professional Tools | South Africa, Nigeria, Kenya Career Calculators',
-  description: 'Professional tools for African markets. SARS-compliant calculators for South Africa, Nigeria, Kenya, Ghana. Trusted by 250K+ African professionals.',
-  keywords: 'Africa professional tools, South Africa tax calculator, Nigeria tax calculator, Kenya tax calculator, Ghana tax calculator, African career tools',
+  title: 'Free Africa Financial Tools | Tax & Salary Calculators',
+  description: 'Free tax calculators, salary tools and investment calculators for South Africa, Nigeria, Kenya, Ghana. SARS-compliant. No sign up, instant results.',
+  keywords: 'free Africa financial tools, South Africa tax calculator free, Nigeria tax calculator, Kenya salary calculator, Ghana VAT calculator, SARS tax calculator, African investment calculator, currency converter Africa, loan calculator south africa, retirement calculator SA, PAYE calculator, UIF calculator, property transfer calculator, JSE investment tools, African financial planning',
   alternates: {
     canonical: '/africa-tools',
   },
   openGraph: {
-    title: 'Africa Professional Tools | South Africa, Nigeria, Kenya Calculators',
-    description: 'Complete African toolkit. Tax, salary, investment tools for major African economies.',
+    title: 'Free Africa Financial & Tax Calculators | No Sign Up',
+    description: 'Free tax, salary, loan and investment calculators for South Africa, Nigeria, Kenya, Ghana. SARS-compliant, instant results.',
     url: 'https://genius-insights.co.za/africa-tools',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Free Africa Financial Tools | Tax & Salary Calculators',
+    description: 'Free SARS-compliant tax calculators, salary tools, investment tools for 6 African countries. No sign up needed.',
   },
 };
 
@@ -128,15 +133,15 @@ export default function AfricaToolsPage() {
               </div>
               
               <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 leading-tight">
-                Professional Tools for
+                Free Financial &amp; Tax Calculators for
                 <span className="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
                   Africa
                 </span>
               </h1>
-              
+
               <p className="text-xl text-green-100 max-w-3xl mx-auto mb-8 leading-relaxed">
-                Comprehensive professional tools for African markets. SARS-compliant calculators, career tools, 
-                and financial planning for major economies across the continent.
+                Free SARS-compliant tax calculators, salary tools, loan calculators and investment planners
+                for South Africa, Nigeria, Kenya, Ghana, Egypt and Morocco. No sign up required.
               </p>
 
               {/* Stats */}

@@ -3,8 +3,15 @@ import Image from 'next/image';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata = {
-  title: 'About Genius Insights | South African Financial Tools Platform',
-  description: 'Learn about Genius Insights - South Africa\'s comprehensive financial tools platform providing calculators, guides, and market data for informed financial decisions.',
+  title: 'About Genius Insights | SA Financial Tools & Calculators',
+  description: 'Genius Insights offers free South African financial calculators, SARS tax tools, market data and expert guides. Trusted by thousands for accurate financial planning.',
+  keywords: ['Genius Insights', 'South Africa financial tools', 'SA calculators', 'SARS tax calculators', 'free financial planning tools South Africa', 'about Genius Insights'],
+  openGraph: {
+    title: 'About Genius Insights | SA Financial Tools & Calculators',
+    description: 'Free South African financial calculators, SARS tax tools, market data and expert guides for informed financial decisions.',
+    url: 'https://www.genius-insights.co.za/about',
+    type: 'website',
+  },
 };
 
 export default function AboutPage() {
@@ -29,11 +36,11 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-6">
-              About Genius Insights
+              About Genius Insights - SA Financial Tools
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              South Africa's most comprehensive financial tools platform, empowering individuals and businesses 
-              to make informed financial decisions with accurate calculators, expert guides, and real-time market data.
+              South Africa&apos;s trusted financial tools platform. Free SARS tax calculators, budgeting tools,
+              market data and expert guides to help you make smarter financial decisions.
             </p>
           </div>
         </div>

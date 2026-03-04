@@ -131,11 +131,11 @@ export default function SouthAfricaFNBCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">🇿🇦 First National Bank</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                FNB Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
+                FNB Bond Repayment <br/>
+                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">& Loan Calculator 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate FNB loans, savings, investments, and eBucks rewards with current 2025 rates and innovative digital solutions.
+                Calculate your FNB home loan bond repayment, personal loan instalment, vehicle finance and eBucks rewards. Current prime-linked rates for 2026.
               </p>
             </div>
           </div>
@@ -144,8 +144,8 @@ export default function SouthAfricaFNBCalculatorPage() {
         <div className="max-w-6xl mx-auto px-8 py-16">
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">FNB Product Calculator</h2>
-              <p className="text-gray-600 text-lg">Calculate payments, returns, and eBucks rewards for FNB products</p>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">FNB Home Loan & Personal Loan Calculator</h2>
+              <p className="text-gray-600 text-lg">Calculate your monthly bond repayment, loan instalment and eBucks rewards at current FNB interest rates</p>
             </div>
             
             <div className="grid lg:grid-cols-2 gap-12">
@@ -327,7 +327,7 @@ export default function SouthAfricaFNBCalculatorPage() {
 
             {/* FNB Products Information */}
             <div className="mt-12">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">FNB Interest Rates & eBucks 2025</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">FNB Interest Rates & Bond Repayment Guide 2026</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-gray-50 rounded-xl p-6 text-center">
                   <h4 className="font-semibold text-gray-900 mb-2">Home Loans</h4>

@@ -11,16 +11,16 @@ export default function ToolsPage() {
   const tools = [
     // TAX & SARS CALCULATORS
     {
-      name: 'SARS Income Tax Calculator 2025',
+      name: 'SARS Income Tax Calculator 2026',
       href: '/south-africa-income-tax-calculator',
-      description: 'Calculate your exact SARS income tax, PAYE, UIF, and SDL with the latest 2025/2026 tax tables and rebates',
+      description: 'Calculate your exact SARS income tax, PAYE, UIF, and SDL with the latest 2026/2027 tax tables and rebates',
       category: 'Tax & SARS',
       popular: true,
       icon: '🇿🇦',
-      tags: ['SARS', 'Income Tax', 'PAYE', 'UIF', '2025']
+      tags: ['SARS', 'Income Tax', 'PAYE', 'UIF', '2026']
     },
     {
-      name: 'VAT Calculator 2025',
+      name: 'VAT Calculator 2026',
       href: '/south-africa-vat-calculator-2025',
       description: 'Calculate 15% VAT on goods and services. Add or remove VAT from prices instantly',
       category: 'Tax & SARS',
@@ -384,11 +384,11 @@ export default function ToolsPage() {
       <section className="bg-gradient-to-br from-emerald-600 via-blue-600 to-purple-600 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            South Africa Financial Tools & Calculators
+            Free South Africa Financial Calculators 2026
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto mb-8">
-            Your one-stop hub for {tools.length}+ free South African financial calculators.
-            SARS tax, property, loans, UIF, bonds, and more. Updated for 2025.
+            {tools.length}+ free online calculators for South Africans. SARS income tax,
+            15% VAT, property transfer, bond, fuel cost, solar and investment tools. Updated for 2026.
           </p>
 
           {/* Quick Stats */}
@@ -398,7 +398,7 @@ export default function ToolsPage() {
               <div className="text-white/80 text-sm">Free Calculators</div>
             </div>
             <div className="bg-white/20 backdrop-blur-sm rounded-xl px-6 py-3">
-              <div className="text-2xl font-bold text-white">2025</div>
+              <div className="text-2xl font-bold text-white">2026</div>
               <div className="text-white/80 text-sm">Tax Year Updated</div>
             </div>
             <div className="bg-white/20 backdrop-blur-sm rounded-xl px-6 py-3">
@@ -539,7 +539,7 @@ export default function ToolsPage() {
               <h3 className="text-xl font-bold mb-4">South Africa's #1 Financial Calculator Hub</h3>
               <p className="text-gray-400">
                 Genius Insights provides free, accurate financial calculators for South Africans.
-                All tools are updated with 2025 SARS tax tables, current interest rates, and
+                All tools are updated with 2026 SARS tax tables, current interest rates, and
                 NCR-compliant calculations.
               </p>
             </div>
@@ -569,7 +569,7 @@ export default function ToolsPage() {
               <h3 className="text-xl font-bold mb-4">Why Use Our Calculators?</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>✓ 100% Free - No registration required</li>
-                <li>✓ SARS 2025/2026 Tax Year compliant</li>
+                <li>✓ SARS 2026/2027 Tax Year compliant</li>
                 <li>✓ NCR-compliant loan calculations</li>
                 <li>✓ Current prime rate: 11.75%</li>
                 <li>✓ Updated monthly with latest rates</li>
@@ -579,7 +579,7 @@ export default function ToolsPage() {
           </div>
 
           <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-            <p>© 2025 Genius Insights. All financial calculations are estimates only. Consult a professional for financial advice.</p>
+            <p>© 2026 Genius Insights. All financial calculations are estimates only. Consult a professional for financial advice.</p>
           </div>
         </div>
       </section>

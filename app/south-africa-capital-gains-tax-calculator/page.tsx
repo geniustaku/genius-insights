@@ -4,31 +4,31 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Capital Gains Tax Calculator 2025 | Free CGT Calculator for Property, Shares & Crypto',
-  description: 'Free SA capital gains tax (CGT) calculator 2025. Calculate CGT on property, shares, crypto sales with annual exclusion (R40,000), inclusion rates & tax brackets. SARS-compliant CGT tool used by 50,000+ investors.',
+  title: 'Capital Gains Tax Calculator SA 2026 | SARS CGT',
+  description: 'Free capital gains tax (CGT) calculator for South Africa 2026. Calculate CGT on property, shares & crypto. R40,000 annual exclusion, 40% inclusion rate. How much CGT do I pay on my house sale?',
   keywords: [
-    'capital gains tax calculator South Africa 2025',
-    'CGT calculator SA',
-    'South Africa CGT calculator',
-    'property capital gains tax SA',
-    'shares CGT calculator',
-    'crypto capital gains tax SA',
-    'capital gains tax on property sale SA',
+    'capital gains tax calculator south africa',
+    'CGT calculator south africa 2026',
+    'capital gains tax on property south africa',
+    'how to calculate capital gains tax south africa',
     'SARS CGT calculator',
-    'CGT inclusion rate South Africa',
-    'R40000 annual exclusion CGT',
-    'capital gains tax rates SA 2025',
-    'how to calculate capital gains tax SA',
-    'CGT on shares South Africa',
-    'property CGT calculator',
-    'cryptocurrency tax calculator SA'
+    'capital gains tax on selling house south africa',
+    'shares capital gains tax south africa',
+    'CGT inclusion rate south africa',
+    'R40000 annual exclusion capital gains',
+    'capital gains tax rates south africa 2026',
+    'property CGT calculator south africa',
+    'CGT on shares JSE south africa',
+    'primary residence exclusion CGT south africa',
+    'crypto capital gains tax south africa',
+    'how much CGT do I pay SARS'
   ],
   alternates: {
     canonical: '/south-africa-capital-gains-tax-calculator',
   },
   openGraph: {
-    title: 'South Africa Capital Gains Tax Calculator 2025 | Free CGT Calculator',
-    description: '💰 Calculate SA capital gains tax on property, shares & crypto! R40K annual exclusion, 40% inclusion rate, SARS-compliant. Free CGT calculator for investors.',
+    title: 'Capital Gains Tax Calculator SA 2026 | SARS CGT',
+    description: 'Calculate capital gains tax on property, shares & crypto in South Africa. R40K exclusion, 40% inclusion rate. Free SARS CGT calculator.',
     url: 'https://genius-insights.co.za/south-africa-capital-gains-tax-calculator',
     type: 'website',
     images: [
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
         url: '/images/sa-cgt-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Capital Gains Tax Calculator 2025',
+        alt: 'South Africa Capital Gains Tax Calculator 2026',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Capital Gains Tax Calculator 2025 | CGT on Property, Shares & Crypto',
-    description: '💰 Calculate South African capital gains tax! R40K exclusion, 40% inclusion rate, accurate CGT calculator.',
+    title: 'Capital Gains Tax Calculator SA 2026 | SARS CGT',
+    description: 'How much CGT do I pay? Calculate capital gains tax on property & shares in South Africa. R40K exclusion, 40% inclusion.',
     images: ['/images/sa-cgt-calculator-og.jpg'],
   },
 };
@@ -59,15 +59,15 @@ export default function SouthAfricaCapitalGainsTaxCalculatorPage() {
           <div className="relative max-w-7xl mx-auto px-8 py-20">
             <div className="text-center">
               <div className="inline-block bg-white/20 rounded-2xl px-6 py-3 mb-6">
-                <span className="text-white/90 font-medium text-sm tracking-wide">💰 2025 CGT Rates & R40K Exclusion</span>
+                <span className="text-white/90 font-medium text-sm tracking-wide">💰 2026 CGT Rates & R40K Exclusion</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Capital Gains Tax Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">South Africa 2025</span>
+                Capital Gains Tax (CGT) Calculator <br/>
+                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate capital gains tax on property, shares, cryptocurrency, and other assets.
-                SARS-compliant with R40,000 annual exclusion, 40% inclusion rate, and current tax brackets.
+                How much CGT do I pay on selling my property, shares or crypto? SARS-compliant calculator
+                with R40,000 annual exclusion, 40% inclusion rate and current tax brackets.
               </p>
 
               {/* Stats Bar */}
@@ -139,7 +139,7 @@ export default function SouthAfricaCapitalGainsTaxCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Understanding SA Capital Gains Tax 2025
+                  How Capital Gains Tax Works in South Africa (SARS)
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                   Capital Gains Tax (CGT) applies when you sell assets like property, shares, or cryptocurrency
@@ -168,7 +168,7 @@ export default function SouthAfricaCapitalGainsTaxCalculatorPage() {
 
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  CGT Calculation Formula
+                  How to Calculate CGT Step-by-Step (SARS)
                 </h3>
 
                 <div className="space-y-4 mb-8">

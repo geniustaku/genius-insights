@@ -4,17 +4,17 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Fuel Cost Calculator 2025 | Petrol & Diesel Price Calculator',
-  description: 'Free SA fuel cost calculator 2025. Calculate petrol & diesel costs, fuel consumption, trip expenses with current SA fuel prices. Used by 200,000+ drivers daily.',
+  title: 'Fuel Cost Calculator SA | Petrol & Diesel Price',
+  description: 'Calculate petrol and diesel costs per trip in South Africa. Current fuel prices, fuel levy breakdown, consumption calculator. Free tool updated with 2026 SA fuel prices.',
   keywords: [
-    'South Africa fuel cost calculator 2025', 'SA petrol price calculator', 'diesel cost calculator SA', 'fuel consumption calculator SA', 'trip cost calculator SA', 'petrol diesel prices South Africa', 'fuel efficiency calculator SA', 'car running costs SA', 'fuel expense calculator SA', 'SA fuel price tracker', 'petrol consumption calculator', 'travel cost calculator SA', 'fuel budget calculator SA', 'vehicle fuel cost SA', 'South African fuel prices 2025'
+    'fuel cost calculator South Africa', 'petrol price calculator SA', 'diesel price calculator SA', 'fuel levy South Africa', 'petrol cost per km calculator', 'trip cost calculator South Africa', 'fuel consumption calculator SA', 'current petrol price SA 2026', 'diesel cost per litre SA', 'car running cost calculator', 'fuel price South Africa today', 'petrol vs diesel cost SA', 'road trip fuel calculator SA', 'vehicle fuel expense calculator', 'SA fuel price March 2026'
   ],
   alternates: {
     canonical: '/south-africa-fuel-cost-calculator',
   },
   openGraph: {
-    title: 'South Africa Fuel Cost Calculator 2025 | Free Petrol & Diesel Calculator',
-    description: '⛽ Calculate SA fuel costs instantly! Petrol & diesel prices, trip expenses, fuel consumption with 2025 rates. Free tool for 200,000+ drivers.',
+    title: 'Fuel Cost Calculator SA | Petrol & Diesel Price',
+    description: 'Calculate petrol and diesel trip costs with current South African fuel prices. Includes fuel levy breakdown and consumption estimates. Free 2026 tool.',
     url: 'https://genius-insights.co.za/south-africa-fuel-cost-calculator',
     type: 'website',
     images: [
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
         url: '/images/sa-fuel-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Fuel Cost Calculator 2025 - Petrol & Diesel Calculator',
+        alt: 'Petrol and Diesel Fuel Cost Calculator South Africa 2026',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Fuel Cost Calculator 2025 | Petrol & Diesel Prices',
-    description: '⛽ Calculate South African fuel costs! Petrol & diesel prices, trip expenses, consumption with 2025 rates.',
+    title: 'Fuel Cost Calculator SA | Petrol & Diesel Price',
+    description: 'Calculate petrol and diesel trip costs with current SA fuel prices. Free fuel levy and consumption calculator for 2026.',
     images: ['/images/sa-fuel-calculator-og.jpg'],
   },
 };
@@ -48,12 +48,12 @@ export default function SouthAfricaFuelCostCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">⛽ Current Fuel Prices</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                SA Fuel Cost Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
+                Petrol &amp; Diesel Cost Calculator <br/>
+                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate fuel costs, consumption, and trip expenses with current South African petrol and diesel prices. 
-                Plan your budget and optimize your fuel efficiency.
+                Calculate fuel costs per trip with current South African petrol and diesel prices.
+                Includes fuel levy breakdown, consumption estimates and cost-per-km calculations.
               </p>
               
               {/* Stats Bar */}
@@ -115,11 +115,11 @@ export default function SouthAfricaFuelCostCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  SA Fuel Price Factors
+                  What Affects Petrol &amp; Diesel Prices in SA
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Understanding what affects South African fuel prices helps you plan better 
-                  and make informed decisions about your transportation costs.
+                  Understanding fuel levy, exchange rates and oil prices helps you budget
+                  smarter for petrol and diesel costs in South Africa.
                 </p>
                 
                 <div className="space-y-4">
@@ -144,7 +144,7 @@ export default function SouthAfricaFuelCostCalculatorPage() {
               
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  Fuel Saving Tips 2025
+                  Fuel Saving Tips 2026
                 </h3>
                 
                 <div className="space-y-4">

@@ -5,17 +5,17 @@ import ToolLayout from '@/components/ToolLayout';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Tax Calculator 2025 | SARS Income Tax & PAYE Calculator',
-  description: 'Free South Africa tax calculator for 2025/2026 tax year. Calculate SARS income tax, PAYE, UIF, SDL accurately. Updated with latest tax tables, rebates & brackets. Used by 100,000+ South Africans.',
+  title: 'SARS Tax Calculator 2026 | Free PAYE Calculator',
+  description: 'Free SARS tax calculator for 2026/2027. Calculate income tax, PAYE, UIF & SDL on your salary. Updated tax tables, brackets & rebates. How much tax will I pay in South Africa?',
   keywords: [
-    'South Africa tax calculator 2025', 'SARS tax calculator', 'South African income tax calculator', 'PAYE calculator South Africa', 'SA tax calculator 2025/2026', 'South Africa tax rates', 'SARS PAYE calculator', 'income tax South Africa', 'SA tax brackets 2025', 'South African tax rebates', 'UIF calculator SA', 'SDL calculator South Africa', 'tax year 2025/2026 SA', 'SARS income tax rates', 'South Africa payroll tax'
+    'SARS tax calculator 2026', 'SARS tax calculator', 'tax calculator south africa', 'PAYE calculator south africa 2026', 'how much tax will I pay south africa', 'income tax calculator south africa', 'SARS PAYE calculator', 'tax brackets south africa 2026', 'salary tax calculator south africa', 'UIF calculator south africa', 'SDL calculator south africa', 'tax tables 2026 south africa SARS', 'calculate my tax south africa', 'south african tax rates 2026/2027', 'SARS eFiling tax calculator'
   ],
   alternates: {
     canonical: '/south-africa-tax-calculator',
   },
   openGraph: {
-    title: 'South Africa Tax Calculator 2025 | Free SARS PAYE Calculator',
-    description: '💰 Calculate your exact South African tax! Updated 2025/2026 SARS rates, rebates & brackets. Free PAYE, UIF, SDL calculator used by 100,000+ taxpayers.',
+    title: 'SARS Tax Calculator 2026 | Free PAYE Calculator',
+    description: 'Free SARS tax calculator for 2026/2027. Calculate income tax, PAYE, UIF & SDL with updated tax tables and brackets.',
     url: 'https://genius-insights.co.za/south-africa-tax-calculator',
     type: 'website',
     images: [
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
         url: '/images/sa-tax-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Tax Calculator 2025 - SARS PAYE Calculator',
+        alt: 'South Africa Tax Calculator 2026 - SARS PAYE Calculator',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'South Africa Tax Calculator 2025 | SARS PAYE Calculator',
-    description: '💰 Free SA tax calculator! Calculate SARS income tax, PAYE, UIF, SDL with 2025/2026 rates. Accurate & updated.',
+    title: 'SARS Tax Calculator 2026 | Free PAYE Calculator',
+    description: 'How much tax will I pay? Free SARS calculator with 2026/2027 PAYE, UIF, SDL rates. Accurate & updated.',
     images: ['/images/sa-tax-calculator-og.jpg'],
   },
 };
@@ -70,10 +70,10 @@ export default function SouthAfricaTaxCalculatorPage() {
       readTime: '8 min read'
     },
     {
-      title: 'Understanding 2025 Tax Brackets',
+      title: 'Understanding 2026 Tax Brackets',
       href: '/articles/sa-tax-brackets-2025',
       image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&h=300&fit=crop&crop=center',
-      excerpt: 'Complete breakdown of South African tax brackets and rebates for 2025/2026',
+      excerpt: 'Complete breakdown of South African tax brackets and rebates for 2026/2027',
       category: 'Tax & SARS',
       readTime: '6 min read'
     },
@@ -91,7 +91,7 @@ export default function SouthAfricaTaxCalculatorPage() {
     <>
       <StructuredData type="tax-calculator" />
       <ToolLayout
-        title="South Africa Tax Calculator 2025"
+        title="SARS Tax Calculator South Africa 2026"
         category="Tax & SARS"
         heroImage="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop&crop=center"
         relatedTools={relatedTools}
@@ -101,7 +101,7 @@ export default function SouthAfricaTaxCalculatorPage() {
         <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="text-center">
-              <div className="text-2xl font-bold text-green-600">2025/26</div>
+              <div className="text-2xl font-bold text-green-600">2026/27</div>
               <div className="text-gray-600 text-sm">Tax Year</div>
             </div>
             <div className="text-center">
@@ -159,16 +159,16 @@ export default function SouthAfricaTaxCalculatorPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                2025/2026 Tax Year Updates
+                SARS Tax Tables & Rates 2026/2027
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Our calculator is fully updated with the latest SARS tax tables, rates, and rebates 
-                for the 2025/2026 tax year to ensure 100% accurate calculations.
+                for the 2026/2027 tax year to ensure 100% accurate calculations.
               </p>
               
               <div className="space-y-4">
                 {[
-                  { icon: '🇿🇦', title: 'SARS Compliant', desc: 'Official 2025/2026 tax tables and rates' },
+                  { icon: '🇿🇦', title: 'SARS Compliant', desc: 'Official 2026/2027 tax tables and rates' },
                   { icon: '💰', title: 'All Tax Types', desc: 'Income tax, PAYE, UIF, SDL calculations' },
                   { icon: '🎯', title: 'Accurate Rebates', desc: 'Primary, secondary, and tertiary rebates' },
                   { icon: '📊', title: 'Monthly & Annual', desc: 'Calculate both monthly and annual tax' }
@@ -188,7 +188,7 @@ export default function SouthAfricaTaxCalculatorPage() {
             
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                2025/2026 Tax Brackets
+                South Africa PAYE Tax Brackets 2026/2027
               </h3>
               
               <div className="space-y-3">

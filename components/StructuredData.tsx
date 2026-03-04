@@ -43,9 +43,9 @@ export default function StructuredData({ type }: StructuredDataProps) {
         return {
           ...baseData,
           "@type": "WebApplication",
-          "name": "African Salary Calculator 2025",
+          "name": "African Salary Calculator 2026",
           "url": "https://www.genius-insights.co.za/salary-calculator",
-          "description": "Free salary calculator for 18 African countries with real 2025 market data",
+          "description": "Free salary calculator for 18 African countries with real 2026 market data",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Any",
           "offers": {
@@ -55,7 +55,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
           },
           "featureList": [
             "Salary calculation for 18+ African countries",
-            "Real-time 2025 market data",
+            "Real-time 2026 market data",
             "Industry-specific salary ranges",
             "Experience level adjustments",
             "Education impact analysis"
@@ -66,7 +66,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
         return {
           ...baseData,
           "@type": "WebApplication",
-          "name": "African Career Assessment Test 2025",
+          "name": "African Career Assessment Test 2026",
           "url": "https://www.genius-insights.co.za/career-assessment",
           "description": "AI-powered career assessment test for finding your ideal career path in Africa",
           "applicationCategory": "EducationalApplication",
@@ -89,7 +89,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
         return {
           ...baseData,
           "@type": "WebApplication",
-          "name": "African Skills Analyzer 2025",
+          "name": "African Skills Analyzer 2026",
           "url": "https://www.genius-insights.co.za/skills-analyzer",
           "description": "AI-powered skills gap analysis and career readiness assessment for African job markets",
           "applicationCategory": "EducationalApplication",
@@ -114,7 +114,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
         return {
           ...baseData,
           "@type": "WebApplication",
-          "name": "Free CV Builder 2025 | Professional Resume Maker",
+          "name": "Free CV Builder 2026 | Professional Resume Maker",
           "url": "https://www.genius-insights.co.za/cv-builder",
           "description": "Create stunning professional CVs with our free CV builder. Choose from 15+ beautiful templates, download as PDF instantly.",
           "applicationCategory": "BusinessApplication",
@@ -139,9 +139,9 @@ export default function StructuredData({ type }: StructuredDataProps) {
         return {
           ...baseData,
           "@type": "WebApplication",
-          "name": "South Africa Investment Calculator 2025",
+          "name": "South Africa Investment Calculator 2026",
           "url": "https://www.genius-insights.co.za/south-africa-investment-calculator",
-          "description": "Calculate investment growth, compound interest, and portfolio returns for South African investments with 2025 rates.",
+          "description": "Calculate investment growth, compound interest, and portfolio returns for South African investments with 2026 rates.",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Any",
           "offers": {
@@ -155,7 +155,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
             "Portfolio growth analysis",
             "TFSA calculations",
             "Offshore investment planning",
-            "2025 market rates"
+            "2026 market rates"
           ]
         };
 
@@ -163,7 +163,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
         return {
           ...baseData,
           "@type": "WebApplication",
-          "name": "South Africa Rental Yield Calculator 2025",
+          "name": "South Africa Rental Yield Calculator 2026",
           "url": "https://www.genius-insights.co.za/south-africa-rental-yield-calculator",
           "description": "Calculate rental yields, property ROI, and cash flow analysis for South African property investments.",
           "applicationCategory": "BusinessApplication",
@@ -179,7 +179,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
             "Cash flow calculation",
             "Property ROI analysis",
             "Investment comparison",
-            "2025 market rates"
+            "2026 market rates"
           ]
         };
 
@@ -187,7 +187,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
         return {
           ...baseData,
           "@type": "WebApplication",
-          "name": "South Africa Business Registration Calculator 2025",
+          "name": "South Africa Business Registration Calculator 2026",
           "url": "https://www.genius-insights.co.za/south-africa-business-registration-calculator",
           "description": "Calculate complete business registration costs in South Africa including CIPC fees, SARS registration, and compliance costs.",
           "applicationCategory": "BusinessApplication",
@@ -203,7 +203,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
             "Annual compliance fees",
             "Entity type comparison",
             "Complete cost breakdown",
-            "2025 updated fees"
+            "2026 updated fees"
           ]
         };
 
@@ -211,7 +211,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
         return {
           ...baseData,
           "@type": "WebApplication",
-          "name": "South Africa Fuel Cost Calculator 2025",
+          "name": "South Africa Fuel Cost Calculator 2026",
           "url": "https://www.genius-insights.co.za/south-africa-fuel-cost-calculator",
           "description": "Calculate fuel costs, consumption, and trip expenses with current South African petrol and diesel prices.",
           "applicationCategory": "BusinessApplication",
@@ -235,7 +235,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
         return {
           ...baseData,
           "@type": "WebApplication",
-          "name": "South Africa Retirement Calculator 2025",
+          "name": "South Africa Retirement Calculator 2026",
           "url": "https://www.genius-insights.co.za/south-africa-retirement-calculator",
           "description": "Plan your financial future with comprehensive South African retirement calculator for pension funds and retirement planning.",
           "applicationCategory": "BusinessApplication",
@@ -251,7 +251,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
             "Provident fund analysis",
             "Compound growth projection",
             "Tax-efficient planning",
-            "2025 contribution limits"
+            "2026 contribution limits"
           ]
         };
 
@@ -259,7 +259,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
         return {
           ...baseData,
           "@type": "WebApplication",
-          "name": "South Africa VAT Calculator 2025",
+          "name": "South Africa VAT Calculator 2026",
           "url": "https://www.genius-insights.co.za/south-africa-vat-calculator",
           "description": "Calculate 15% VAT, VAT inclusive/exclusive prices, and VAT registration thresholds for South African businesses.",
           "applicationCategory": "BusinessApplication",
@@ -283,9 +283,9 @@ export default function StructuredData({ type }: StructuredDataProps) {
         return {
           ...baseData,
           "@type": "WebApplication",
-          "name": "South Africa Tax Calculator 2025",
+          "name": "South Africa Tax Calculator 2026",
           "url": "https://www.genius-insights.co.za/south-africa-tax-calculator",
-          "description": "Calculate SARS income tax, PAYE, UIF, and SDL with updated 2025/2026 tax year rates and brackets.",
+          "description": "Calculate SARS income tax, PAYE, UIF, and SDL with updated 2026/2026 tax year rates and brackets.",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Any",
           "offers": {
@@ -297,7 +297,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
             "SARS income tax calculation",
             "PAYE calculation",
             "UIF and SDL calculation",
-            "2025/2026 tax rates",
+            "2026/2026 tax rates",
             "Tax brackets and rebates",
             "Annual tax planning"
           ]
@@ -307,7 +307,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
         return {
           ...baseData,
           "@type": "WebApplication",
-          "name": "South Africa Loan Calculator 2025",
+          "name": "South Africa Loan Calculator 2026",
           "url": "https://www.genius-insights.co.za/south-africa-loan-calculator",
           "description": "Calculate home loan affordability, bond payments, and loan costs with current South African interest rates.",
           "applicationCategory": "BusinessApplication",
@@ -331,7 +331,7 @@ export default function StructuredData({ type }: StructuredDataProps) {
         return {
           ...baseData,
           "@type": "WebApplication",
-          "name": "South Africa Property Transfer Calculator 2025",
+          "name": "South Africa Property Transfer Calculator 2026",
           "url": "https://www.genius-insights.co.za/south-africa-property-transfer-calculator",
           "description": "Calculate property transfer costs including transfer duty, attorney fees, and bond registration costs in South Africa.",
           "applicationCategory": "BusinessApplication",

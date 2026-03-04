@@ -6,17 +6,17 @@ import ToolLayout from '@/components/ToolLayout';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa VAT Calculator 2025 | Free 15% VAT Calculator & SARS Tool',
-  description: 'Free South African VAT calculator 2025. Calculate 15% VAT, VAT inclusive/exclusive prices, VAT registration thresholds. SARS compliant tool used by 80,000+ businesses.',
+  title: 'VAT Calculator SA 2026 | Add or Remove 15% VAT',
+  description: 'Free 15% VAT calculator for South Africa. Add VAT, remove VAT, convert VAT inclusive to exclusive prices instantly. SARS-compliant tool updated for 2026.',
   keywords: [
-    'South Africa VAT calculator 2025', 'SA VAT calculator 15%', 'VAT inclusive calculator SA', 'VAT exclusive calculator SA', 'SARS VAT calculator', 'South African VAT rates', 'VAT registration threshold SA', 'business VAT calculator SA', 'SA VAT calculation tool', '15% VAT calculator', 'South Africa VAT compliance', 'VAT invoice calculator SA', 'SARS VAT tool', 'SA value added tax calculator', 'VAT refund calculator SA'
+    'VAT calculator South Africa', 'add VAT calculator', 'remove VAT calculator', '15% VAT calculator SA', 'VAT inclusive to exclusive', 'VAT exclusive to inclusive', 'SARS VAT calculator', 'calculate VAT South Africa', 'SA VAT 15 percent', 'VAT calculator online free', 'how to calculate VAT SA', 'VAT amount calculator', 'South Africa VAT rate 2026', 'business VAT calculator', 'VAT invoice calculator SA'
   ],
   alternates: {
     canonical: '/south-africa-vat-calculator',
   },
   openGraph: {
-    title: 'South Africa VAT Calculator 2025 | Free 15% VAT Calculator',
-    description: '💼 Calculate SA VAT instantly! 15% VAT inclusive/exclusive, registration thresholds, SARS compliant. Free tool for 80,000+ businesses.',
+    title: 'VAT Calculator SA 2026 | Add or Remove 15% VAT',
+    description: 'Add or remove 15% VAT instantly. Convert between VAT inclusive and exclusive prices. Free SARS-compliant calculator for South Africa.',
     url: 'https://genius-insights.co.za/south-africa-vat-calculator',
     type: 'website',
     images: [
@@ -24,14 +24,14 @@ export const metadata: Metadata = {
         url: '/images/sa-vat-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa VAT Calculator 2025 - 15% VAT Calculator',
+        alt: 'South Africa 15% VAT Calculator - Add or Remove VAT',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA VAT Calculator 2025 | Free 15% VAT Tool',
-    description: '💼 Calculate South African VAT! 15% VAT inclusive/exclusive, registration info. SARS compliant & free.',
+    title: 'VAT Calculator SA 2026 | Add or Remove 15% VAT',
+    description: 'Add or remove 15% VAT instantly. Convert VAT inclusive to exclusive prices. Free SARS-compliant calculator.',
     images: ['/images/sa-vat-calculator-og.jpg'],
   },
 };
@@ -42,7 +42,7 @@ export default function SouthAfricaVATCalculatorPage() {
       name: 'SARS Tax Calculator',
       href: '/south-africa-tax-calculator',
       image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center',
-      description: 'Calculate income tax, PAYE, UIF, and SDL with 2025/2026 rates',
+      description: 'Calculate income tax, PAYE, UIF, and SDL with 2026/2027 rates',
       category: 'Tax & SARS'
     },
     {
@@ -92,7 +92,7 @@ export default function SouthAfricaVATCalculatorPage() {
     <>
       <StructuredData type="vat-calculator" />
       <ToolLayout
-        title="VAT Calculator 2025"
+        title="Add or Remove 15% VAT - SA Calculator 2026"
         category="Tax & SARS"
         heroImage="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop&crop=center"
         relatedTools={relatedTools}

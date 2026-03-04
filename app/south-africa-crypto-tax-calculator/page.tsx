@@ -4,31 +4,31 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Cryptocurrency Tax Calculator 2025 | Free Crypto CGT & Trading Income Tax Calculator',
-  description: 'Free SA crypto tax calculator 2025. Calculate cryptocurrency capital gains tax (CGT) and trading income tax with SARS compliance. Bitcoin, Ethereum, altcoins - R40K exclusion, 40% inclusion rate. Used by 30,000+ crypto investors.',
+  title: 'Crypto Tax Calculator South Africa 2026 | SARS',
+  description: 'Free crypto tax calculator for South Africa 2026. Calculate Bitcoin & cryptocurrency CGT or trading income tax. R40K exclusion, 40% inclusion rate. Do I pay tax on crypto in SA?',
   keywords: [
-    'cryptocurrency tax calculator South Africa 2025',
-    'crypto tax calculator SA',
-    'bitcoin tax calculator South Africa',
-    'crypto capital gains tax SA',
-    'crypto trading income tax',
-    'SARS crypto tax calculator',
-    'how to calculate crypto tax SA',
-    'cryptocurrency CGT calculator',
-    'bitcoin trading tax South Africa',
-    'ethereum tax calculator SA',
-    'crypto tax compliance SARS',
-    'cryptocurrency income tax SA',
-    'altcoin tax calculator',
-    'crypto capital gains vs trading income',
-    'SARS cryptocurrency guidelines'
+    'crypto tax calculator south africa',
+    'cryptocurrency tax south africa SARS',
+    'bitcoin tax calculator south africa',
+    'do I pay tax on crypto in south africa',
+    'SARS crypto tax calculator 2026',
+    'how to calculate crypto tax south africa',
+    'crypto capital gains tax south africa',
+    'cryptocurrency CGT calculator south africa',
+    'bitcoin trading tax SARS',
+    'crypto tax south africa 2026',
+    'Luno tax calculator south africa',
+    'VALR crypto tax south africa',
+    'declare crypto on SARS eFiling',
+    'crypto capital gains vs income tax SA',
+    'SARS cryptocurrency rules 2026'
   ],
   alternates: {
     canonical: '/south-africa-crypto-tax-calculator',
   },
   openGraph: {
-    title: 'South Africa Cryptocurrency Tax Calculator 2025 | Free Crypto Tax Calculator',
-    description: '₿ Calculate crypto tax in SA! Capital gains vs trading income, R40K exclusion, 40% inclusion rate. Bitcoin, Ethereum & altcoins. SARS-compliant calculator.',
+    title: 'Crypto Tax Calculator South Africa 2026 | SARS',
+    description: 'Calculate crypto tax in South Africa. Capital gains vs trading income, R40K exclusion, 40% inclusion rate. Bitcoin, Ethereum & altcoins.',
     url: 'https://genius-insights.co.za/south-africa-crypto-tax-calculator',
     type: 'website',
     images: [
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
         url: '/images/sa-crypto-tax-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Cryptocurrency Tax Calculator 2025',
+        alt: 'South Africa Cryptocurrency Tax Calculator 2026',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Crypto Tax Calculator 2025 | Bitcoin & Crypto CGT Calculator',
-    description: '₿ Calculate cryptocurrency tax in South Africa! Capital gains vs trading income, SARS compliance.',
+    title: 'Crypto Tax Calculator South Africa 2026 | SARS',
+    description: 'Do I pay tax on crypto in South Africa? Calculate cryptocurrency CGT or trading income tax. SARS-compliant.',
     images: ['/images/sa-crypto-tax-calculator-og.jpg'],
   },
 };
@@ -62,12 +62,12 @@ export default function SouthAfricaCryptoTaxCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">₿ SARS-Compliant Crypto Tax Calculator</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Cryptocurrency Tax Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-200 to-orange-200 bg-clip-text text-transparent">South Africa 2025</span>
+                Crypto Tax Calculator <br/>
+                <span className="bg-gradient-to-r from-yellow-200 to-orange-200 bg-clip-text text-transparent">South Africa 2026 (SARS)</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate cryptocurrency tax for Bitcoin, Ethereum, and altcoins. Understand the difference between
-                capital gains tax (CGT) and trading income tax to stay SARS-compliant.
+                Do I pay tax on crypto in South Africa? Calculate Bitcoin, Ethereum and altcoin tax. Understand
+                capital gains tax (CGT) vs trading income tax and stay SARS-compliant.
               </p>
 
               {/* Stats Bar */}
@@ -139,7 +139,7 @@ export default function SouthAfricaCryptoTaxCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Understanding Crypto Tax in South Africa
+                  How SARS Taxes Cryptocurrency in South Africa
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                   SARS treats cryptocurrency as an asset, not currency. How your crypto gains are taxed
@@ -168,7 +168,7 @@ export default function SouthAfricaCryptoTaxCalculatorPage() {
 
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  Crypto Tax Scenarios
+                  Bitcoin & Crypto Tax Scenarios (Luno, VALR)
                 </h3>
 
                 <div className="space-y-4 mb-8">
@@ -217,7 +217,7 @@ export default function SouthAfricaCryptoTaxCalculatorPage() {
             {/* Additional SARS Guidance Section */}
             <div className="mt-12 pt-8 border-t border-gray-200">
               <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                SARS Cryptocurrency Guidelines 2025
+                SARS Cryptocurrency Tax Rules & Guidelines 2026
               </h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border border-orange-100">

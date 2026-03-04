@@ -2,8 +2,15 @@ import Link from 'next/link';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 export const metadata = {
-  title: 'Contact Genius Insights | Get Support & Share Feedback',
-  description: 'Get in touch with the Genius Insights team. We are here to help with questions, feedback, and suggestions for our South African financial tools platform.',
+  title: 'Contact Us | Genius Insights SA Financial Support',
+  description: 'Contact the Genius Insights team for support with our free SA financial calculators, report issues, or suggest features. We respond within 48 hours.',
+  keywords: ['contact Genius Insights', 'Genius Insights support', 'South Africa financial tools help', 'calculator support SA'],
+  openGraph: {
+    title: 'Contact Us | Genius Insights SA Financial Support',
+    description: 'Get in touch with Genius Insights. Support for SA financial calculators, issue reports and feature suggestions.',
+    url: 'https://www.genius-insights.co.za/contact',
+    type: 'website',
+  },
 };
 
 export default function ContactPage() {
@@ -26,11 +33,11 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-gray-900 mb-6">
-              Contact Genius Insights
+              Contact Genius Insights Support
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Have questions about our calculators? Found an issue? Want to suggest a new feature? 
-              We would love to hear from you and improve our platform based on your feedback.
+              Need help with our SA financial calculators? Found a calculation error? Want to suggest a new tool?
+              Reach out and we will respond within 48 hours.
             </p>
           </div>
         </div>

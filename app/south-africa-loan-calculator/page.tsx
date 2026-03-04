@@ -4,17 +4,33 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Loan Calculator 2025 | Home Loan & Bond Affordability Calculator',
-  description: 'Free South African home loan calculator 2025. Calculate bond affordability, monthly repayments, deposit requirements & loan costs. Updated with latest SA interest rates. Used by 50,000+ homebuyers.',
+  title: 'Home Loan Calculator SA 2026 | Bond Repayment',
+  description: 'How much home loan can I afford? Free SA home loan calculator 2026. Calculate bond repayments, affordability & deposit. Compare FNB, ABSA, Standard Bank, Nedbank rates.',
   keywords: [
-    'South Africa loan calculator 2025', 'home loan calculator SA', 'bond calculator South Africa', 'mortgage calculator SA', 'loan affordability calculator', 'South African home loan rates', 'bond repayment calculator', 'SA mortgage calculator', 'property loan calculator', 'home loan affordability SA', 'bond interest rates SA', 'South Africa mortgage rates', 'home loan deposit calculator', 'property finance calculator SA', 'bond application calculator'
+    'home loan calculator south africa',
+    'bond repayment calculator 2026',
+    'how much home loan can I afford',
+    'home loan affordability calculator SA',
+    'bond calculator south africa',
+    'how much can I borrow for a house',
+    'home loan interest rates south africa 2026',
+    'bond repayment calculator south africa',
+    'property loan calculator SA',
+    'home loan deposit calculator',
+    'fnb home loan calculator',
+    'standard bank home loan calculator',
+    'absa home loan calculator',
+    'nedbank home loan calculator',
+    'home loan pre-approval calculator',
+    'bond amount calculator south africa',
+    'home loan comparison south africa'
   ],
   alternates: {
     canonical: '/south-africa-loan-calculator',
   },
   openGraph: {
-    title: 'South Africa Loan Calculator 2025 | Free Home Loan & Bond Calculator',
-    description: '🏠 Calculate your SA home loan affordability! Free bond calculator with latest interest rates, deposit requirements & monthly payments. Trusted by 50,000+ buyers.',
+    title: 'Home Loan Calculator SA 2026 | Bond Repayment',
+    description: 'How much home loan can I afford? Calculate bond repayments, affordability & deposit requirements. Compare SA bank rates for 2026.',
     url: 'https://genius-insights.co.za/south-africa-loan-calculator',
     type: 'website',
     images: [
@@ -22,14 +38,14 @@ export const metadata: Metadata = {
         url: '/images/sa-loan-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Loan Calculator 2025 - Home Loan Bond Calculator',
+        alt: 'Home Loan Calculator South Africa 2026 - Bond Repayment & Affordability',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'South Africa Home Loan Calculator 2025 | Bond Calculator',
-    description: '🏠 Free SA loan calculator! Calculate bond affordability, monthly payments & deposit with latest rates. Accurate & instant.',
+    title: 'Home Loan Calculator SA 2026 | Bond Repayment',
+    description: 'How much home loan can I afford? Calculate bond repayments & compare SA bank rates. Free instant calculator.',
     images: ['/images/sa-loan-calculator-og.jpg'],
   },
 };
@@ -45,15 +61,15 @@ export default function SouthAfricaLoanCalculatorPage() {
           <div className="relative max-w-7xl mx-auto px-8 py-20">
             <div className="text-center">
               <div className="inline-block bg-white/20 rounded-2xl px-6 py-3 mb-6">
-                <span className="text-white/90 font-medium text-sm tracking-wide">🏠 2025 Interest Rates</span>
+                <span className="text-white/90 font-medium text-sm tracking-wide">🏠 2026 Interest Rates</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                South Africa Loan Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
+                Home Loan Calculator <br/>
+                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate your home loan affordability, bond repayments, and deposit requirements with 
-                the latest South African interest rates. Make informed property decisions today.
+                How much home loan can I afford? Calculate your bond repayments, deposit requirements and
+                total interest costs. Compare rates from FNB, ABSA, Standard Bank and Nedbank.
               </p>
               
               {/* Stats Bar */}
@@ -125,11 +141,11 @@ export default function SouthAfricaLoanCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Home Loan Requirements in SA
+                  How Much Can I Borrow for a House in SA?
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Understanding South African home loan requirements will help you prepare 
-                  for your bond application and increase your approval chances.
+                  Understanding home loan requirements and bond affordability rules will help you
+                  prepare for your application and get approved at the best interest rate.
                 </p>
                 
                 <div className="space-y-4">
@@ -154,7 +170,7 @@ export default function SouthAfricaLoanCalculatorPage() {
               
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  Current SA Bank Rates (2025)
+                  Home Loan Interest Rates SA Banks 2026
                 </h3>
                 
                 <div className="space-y-4">

@@ -4,36 +4,37 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Gratuity Calculator 2025 | Severance Pay & Retrenchment Calculator',
-  description: 'Free SA gratuity calculator 2025. Calculate severance pay, retrenchment packages, end-of-service benefits. BCEA minimum severance, tax on lump sum payments.',
+  title: 'Retrenchment Package Calculator SA 2026 | BCEA',
+  description: 'How much severance pay am I entitled to in South Africa? Free retrenchment package calculator with BCEA minimums. 1 week per year, R550K tax-free.',
   keywords: [
-    'gratuity calculator south africa 2025',
-    'severance pay calculator SA',
-    'retrenchment calculator',
-    'end of service calculator',
-    'bcea severance pay',
-    'retrenchment package calculator',
-    'how much severance pay',
-    'voluntary retrenchment calculator',
-    'golden handshake calculator',
-    'retirement payout calculator',
-    'resignation payout',
-    'service bonus calculator',
-    'termination pay calculator'
+    'retrenchment package calculator south africa',
+    'severance pay calculator south africa 2026',
+    'how much severance pay am I entitled to',
+    'BCEA retrenchment pay calculator',
+    'retrenchment calculator south africa',
+    'section 189 retrenchment calculator',
+    'voluntary retrenchment package calculator',
+    'severance pay tax calculator south africa',
+    'gratuity calculator south africa 2026',
+    'end of service benefits calculator SA',
+    'retrenchment payout tax south africa',
+    'one week per year severance BCEA',
+    'golden handshake calculator south africa',
+    'how much will I get if retrenched'
   ],
   alternates: {
     canonical: '/south-africa-gratuity-calculator',
   },
   openGraph: {
-    title: 'South Africa Gratuity Calculator 2025 | Severance Pay Calculator',
-    description: '💼 Calculate severance & retrenchment pay! BCEA minimum, tax implications. Free calculator.',
+    title: 'Retrenchment Package Calculator SA 2026 | BCEA',
+    description: 'How much severance pay am I entitled to? Calculate retrenchment packages per BCEA. 1 week per year, R550K tax-free.',
     url: 'https://genius-insights.co.za/south-africa-gratuity-calculator',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Gratuity Calculator 2025',
-    description: '💼 Calculate severance pay and retrenchment packages with tax implications.',
+    title: 'Retrenchment Package Calculator SA 2026 | BCEA',
+    description: 'How much severance pay am I entitled to in South Africa? BCEA minimum: 1 week per year of service. R550K tax-free.',
   },
 };
 
@@ -51,12 +52,12 @@ export default function SouthAfricaGratuityCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">💼 Severance & End-of-Service</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Gratuity Calculator <br/>
-                <span className="bg-gradient-to-r from-violet-200 to-purple-200 bg-clip-text text-transparent">South Africa 2025</span>
+                Retrenchment Package Calculator <br/>
+                <span className="bg-gradient-to-r from-violet-200 to-purple-200 bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate your severance package, retrenchment pay, or end-of-service gratuity.
-                Understand BCEA minimums and tax implications.
+                How much severance pay am I entitled to? Calculate your retrenchment package per
+                Section 189 of the LRA and BCEA minimums, including tax on lump sum payouts.
               </p>
 
               {/* Stats Bar */}
@@ -113,11 +114,11 @@ export default function SouthAfricaGratuityCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Severance Pay in SA
+                  BCEA Severance Pay: How Much Am I Entitled To?
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  The Basic Conditions of Employment Act (BCEA) sets minimum severance pay for retrenchment.
-                  Gratuity is only legally required in retrenchment - other payouts depend on your contract.
+                  The BCEA guarantees a minimum of 1 week's pay per completed year of service on retrenchment.
+                  The first R550,000 of your severance package is tax-free under the retirement lump sum tax table.
                 </p>
 
                 <div className="space-y-4">

@@ -3,17 +3,17 @@ import CVBuilder from '@/components/CVBuilder';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Free CV Builder 2025 | Professional Resume Maker with PDF Download | South Africa',
-  description: 'Create professional CVs with our free South African CV builder. 20+ ATS-friendly templates, instant PDF download, optimized for SA job market. Used by 300,000+ job seekers across Africa.',
+  title: 'Free CV Builder South Africa | No Sign Up Required',
+  description: 'Build a professional CV in minutes with free South African CV templates. ATS-friendly resume builder, instant PDF download. No sign up, no watermarks.',
   keywords: [
-    'free CV builder South Africa 2025', 'SA CV maker free', 'South African resume builder', 'CV builder Johannesburg', 'Cape Town CV maker', 'Durban resume builder', 'free CV templates South Africa', 'ATS CV builder SA', 'professional CV maker Africa', 'job application CV builder SA', 'curriculum vitae builder South Africa', 'SA job market CV builder', 'African CV templates free', 'resume maker South Africa', 'CV creator SA', 'South African job CV', 'free resume builder Africa', 'professional resume templates SA', 'CV builder PDF download SA', 'online CV maker South Africa', 'career CV builder Africa', 'job hunting CV builder SA', 'employment CV maker SA', 'graduate CV builder South Africa', 'entry level CV builder SA'
+    'CV template south africa', 'resume builder free', 'professional CV maker', 'free CV builder no sign up', 'CV builder south africa free', 'SA CV maker online', 'South African resume builder', 'ATS CV builder', 'curriculum vitae template SA', 'free resume builder south africa', 'CV PDF download free', 'job application CV south africa', 'graduate CV template SA', 'professional CV south africa', 'online CV maker free no registration', 'resume maker PDF free', 'career CV builder', 'entry level CV template south africa', 'CV format south africa', 'best free CV builder 2026'
   ],
   alternates: {
     canonical: '/cv-builder',
   },
   openGraph: {
-    title: 'Free CV Builder 2025 | South African Resume Maker with PDF Download',
-    description: '📄 Build professional CVs for the SA job market! 20+ ATS-friendly templates, instant PDF download. Trusted by 300,000+ African job seekers.',
+    title: 'Free CV Builder South Africa | Professional Resume Maker - No Sign Up',
+    description: 'Build professional CVs for the SA job market. Free CV templates, ATS-friendly, instant PDF download. No registration required.',
     url: 'https://genius-insights.co.za/cv-builder',
     type: 'website',
     locale: 'en_ZA',
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
         url: '/images/cv-builder-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'Free South African CV Builder 2025 - Professional Resume Maker',
+        alt: 'Free South African CV Builder - Professional Resume Maker',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free CV Builder 2025 | SA Resume Maker',
-    description: '📄 Create professional CVs for South African jobs! 20+ templates, instant PDF download, ATS-optimized for SA market.',
+    title: 'Free CV Builder SA | No Sign Up, PDF Download',
+    description: 'Create professional CVs for South African jobs. Free templates, ATS-optimized, instant PDF. No sign up needed.',
     images: ['/images/cv-builder-og.jpg'],
     site: '@geniusinsights_za',
   },
@@ -50,12 +50,12 @@ export default function CVBuilderPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">📄 Professional CV Builder</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Free South African CV Builder <br/>
-                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
+                Free CV Builder South Africa <br/>
+                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">No Sign Up Required</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Create professional CVs optimized for the South African job market. Choose from 20+ ATS-friendly templates, 
-                download as PDF instantly. Trusted by job seekers across Africa.
+                Build a professional CV with free South African CV templates. ATS-friendly resume builder with instant PDF download.
+                No registration, no watermarks, 100% free forever.
               </p>
               
               {/* Stats Bar */}
@@ -97,7 +97,7 @@ export default function CVBuilderPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Why Choose Our South African CV Builder?
+                  Professional CV Templates for South African Jobs
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                   Create professional CVs tailored for the South African job market. Our builder combines 

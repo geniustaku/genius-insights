@@ -15,10 +15,10 @@ export default function GermanyVATCalculatorPage() {
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
                 Germany VAT Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
+                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">Mehrwertsteuer 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate German VAT (Mehrwertsteuer) with accurate 19% and 7% rates. Get net and gross prices instantly.
+                Calculate 19% German VAT (Mehrwertsteuer/MwSt) instantly. Add or remove VAT with standard and 7% reduced rates for invoices and pricing.
               </p>
             </div>
           </div>
@@ -27,8 +27,8 @@ export default function GermanyVATCalculatorPage() {
         <div className="max-w-6xl mx-auto px-8 py-16">
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">German VAT (Mehrwertsteuer) Calculator</h2>
-              <p className="text-gray-600 text-lg">Calculate VAT inclusive and exclusive amounts with German tax rates</p>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Calculate German Mehrwertsteuer (MwSt)</h2>
+              <p className="text-gray-600 text-lg">Enter an amount to calculate 19% or 7% VAT inclusive and exclusive prices for Germany</p>
             </div>
             
             <div className="grid lg:grid-cols-2 gap-12">
@@ -218,7 +218,7 @@ export default function GermanyVATCalculatorPage() {
 
             {/* VAT Rates Information */}
             <div className="mt-12">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">German VAT Rates 2025</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Germany Mehrwertsteuer Rates 2026</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-gray-50 rounded-xl p-6">
                   <h4 className="font-semibold text-gray-900 mb-4 text-center">Standard Rate: 19%</h4>
@@ -262,7 +262,7 @@ export default function GermanyVATCalculatorPage() {
               <div className="bg-gray-50 rounded-2xl p-6 text-center">
                 <div className="text-3xl mb-2">📊</div>
                 <h4 className="font-semibold text-gray-900 mb-2">Accurate Calculations</h4>
-                <p className="text-gray-600 text-sm">Based on official German VAT rates and tax regulations for 2025</p>
+                <p className="text-gray-600 text-sm">Based on official German VAT rates and tax regulations for 2026</p>
               </div>
               
               <div className="bg-gray-50 rounded-2xl p-6 text-center">

@@ -4,38 +4,38 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa UIF Calculator 2025 | Free Unemployment Benefits & Contribution Calculator',
-  description: 'Free SA UIF calculator 2025. Calculate UIF contributions, unemployment benefits, maternity pay & retrenchment payouts. 1% contribution rate, R17,712 ceiling. uFiling guide included.',
+  title: 'UIF Calculator SA 2026 | How Much Will I Get?',
+  description: 'How much UIF will I get in South Africa? Free UIF payout calculator for unemployment, maternity and retrenchment. 1% rate, R17,712 ceiling. uFiling guide.',
   keywords: [
-    'uif calculator south africa 2025',
-    'uif contribution calculator',
-    'unemployment benefits calculator SA',
-    'uif payout calculator',
-    'uif maternity calculator',
-    'retrenchment calculator south africa',
-    'uif benefits calculator',
-    'how much uif will I get',
-    'uif claim calculator',
-    'unemployment insurance calculator',
-    'uif credit days calculator',
-    'uif daily rate calculator',
-    'ufiling calculator',
-    'uif ceiling 2025',
-    'uif contribution rate'
+    'how much UIF will I get south africa',
+    'UIF calculator south africa 2026',
+    'UIF payout calculator south africa',
+    'UIF claim calculator',
+    'UIF maternity benefits calculator',
+    'UIF retrenchment payout calculator',
+    'how to claim UIF south africa',
+    'UIF contribution calculator SA',
+    'UIF credit days calculator',
+    'uFiling calculator south africa',
+    'unemployment benefits south africa 2026',
+    'UIF daily rate calculator',
+    'how long can I claim UIF',
+    'UIF ceiling 2026 R17712',
+    'domestic worker UIF calculator'
   ],
   alternates: {
     canonical: '/south-africa-uif-calculator',
   },
   openGraph: {
-    title: 'South Africa UIF Calculator 2025 | Unemployment Benefits Calculator',
-    description: '💼 Calculate UIF contributions & benefits! 1% rate, R17,712 ceiling. Unemployment, maternity, retrenchment payouts.',
+    title: 'UIF Calculator SA 2026 | How Much Will I Get?',
+    description: 'How much UIF will I get? Calculate unemployment benefits, maternity pay and retrenchment payouts with 2026 rates.',
     url: 'https://genius-insights.co.za/south-africa-uif-calculator',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA UIF Calculator 2025 | Unemployment Benefits',
-    description: '💼 Calculate UIF contributions & benefits! Unemployment, maternity, retrenchment payouts.',
+    title: 'UIF Calculator SA 2026 | How Much Will I Get?',
+    description: 'How much UIF will I get? Calculate unemployment, maternity and retrenchment payouts. 1% rate, R17,712 ceiling.',
   },
 };
 
@@ -53,12 +53,12 @@ export default function SouthAfricaUIFCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">💼 Unemployment Insurance Fund Calculator</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                UIF Calculator <br/>
-                <span className="bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">South Africa 2025</span>
+                How Much UIF Will I Get <br/>
+                <span className="bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">in South Africa? (2026)</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate your UIF contributions and unemployment benefits. Find out how much you'll receive
-                if retrenched, on maternity leave, or claiming illness benefits.
+                Calculate your UIF payout for unemployment, maternity leave, or retrenchment.
+                Based on your salary, credit days, and the 2026 R17,712 monthly ceiling.
               </p>
 
               {/* Stats Bar */}
@@ -115,12 +115,11 @@ export default function SouthAfricaUIFCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  What is UIF?
+                  How UIF Benefits Work in South Africa
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  The Unemployment Insurance Fund (UIF) provides short-term financial relief to workers who become
-                  unemployed, are on maternity/adoption leave, or are unable to work due to illness. Both employers
-                  and employees contribute 1% each of the employee's salary.
+                  The Unemployment Insurance Fund (UIF) pays 38-60% of your salary when retrenched, on maternity
+                  leave, or unable to work due to illness. Both you and your employer contribute 1% each monthly.
                 </p>
 
                 <div className="space-y-4">

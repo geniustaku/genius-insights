@@ -4,8 +4,8 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa VAT Calculator 2025 | Free 15% VAT Calculator - Add & Remove VAT',
-  description: 'Free SA VAT calculator 2025. Calculate 15% VAT on purchases and sales. Add VAT to prices or remove VAT from totals. Includes VAT registration guide, zero-rated items, SARS compliance tips.',
+  title: 'SA VAT Calculator 2025 | Free 15% VAT Add & Remove',
+  description: 'Free South Africa VAT calculator for 2025. Calculate 15% VAT instantly. Add VAT to prices or remove VAT from totals. SARS-compliant with zero-rated items guide.',
   keywords: [
     'vat calculator south africa 2025',
     'vat calculator 15%',
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     canonical: '/south-africa-vat-calculator-2025',
   },
   openGraph: {
-    title: 'South Africa VAT Calculator 2025 | Free 15% VAT Calculator',
-    description: '💰 Calculate 15% VAT instantly! Add VAT to prices or remove VAT from totals. SARS-compliant calculator with registration guide.',
+    title: 'SA VAT Calculator 2025 | Free 15% VAT Add & Remove',
+    description: 'Calculate 15% VAT instantly. Add VAT to prices or remove VAT from totals. SARS-compliant calculator with registration guide.',
     url: 'https://genius-insights.co.za/south-africa-vat-calculator-2025',
     type: 'website',
     images: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'SA VAT Calculator 2025 | Add & Remove 15% VAT',
-    description: '💰 Calculate VAT instantly! Add/remove 15% VAT. SARS-compliant with registration guide.',
+    description: 'Calculate South Africa VAT instantly. Add or remove 15% VAT. SARS-compliant with registration guide.',
     images: ['/images/sa-vat-calculator-og.jpg'],
   },
 };

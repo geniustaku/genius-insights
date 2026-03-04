@@ -4,31 +4,31 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Solar & Loadshedding Calculator 2025 | Solar Panel Cost & Savings Calculator',
-  description: 'Free SA solar calculator 2025. Calculate solar panel costs, battery sizing, loadshedding backup, ROI & savings. Plan your solar system for Eskom independence. Used by 100,000+ South Africans.',
+  title: 'Solar Calculator SA 2026 | Loadshedding Savings',
+  description: 'Calculate solar panel costs, battery backup and savings for loadshedding in South Africa. Free Eskom alternative planner with ROI, payback period and system sizing.',
   keywords: [
-    'solar calculator South Africa 2025',
-    'loadshedding calculator SA',
-    'solar panel cost calculator',
-    'solar system cost SA',
-    'solar battery calculator',
-    'solar ROI calculator South Africa',
-    'how much do solar panels cost SA',
-    'solar payback period calculator',
-    'Eskom alternative calculator',
-    'off-grid solar calculator SA',
-    'solar inverter sizing calculator',
-    'solar savings calculator SA',
+    'solar calculator South Africa',
+    'loadshedding calculator',
+    'solar panel cost South Africa',
+    'solar panel savings calculator',
+    'Eskom solar alternative',
+    'solar battery calculator SA',
+    'how much does solar cost SA',
+    'solar system price South Africa 2026',
     'loadshedding backup calculator',
-    'solar panel installation cost',
-    'solar power system calculator'
+    'solar ROI calculator SA',
+    'off-grid solar calculator South Africa',
+    'solar payback period SA',
+    'solar inverter battery cost SA',
+    'solar installation cost South Africa',
+    'beat loadshedding solar'
   ],
   alternates: {
     canonical: '/south-africa-solar-loadshedding-calculator',
   },
   openGraph: {
-    title: 'South Africa Solar & Loadshedding Calculator 2025 | Free Solar Cost Calculator',
-    description: '☀️ Calculate solar panel costs, savings & loadshedding backup! Free SA solar calculator with ROI, battery sizing & Eskom savings.',
+    title: 'Solar Calculator SA 2026 | Loadshedding Savings',
+    description: 'Calculate solar panel costs and loadshedding savings. Free Eskom alternative planner with battery sizing, ROI and payback period for South Africa.',
     url: 'https://genius-insights.co.za/south-africa-solar-loadshedding-calculator',
     type: 'website',
     images: [
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
         url: '/images/sa-solar-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Solar & Loadshedding Calculator 2025',
+        alt: 'Solar Panel and Loadshedding Calculator South Africa 2026',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Solar & Loadshedding Calculator 2025 | Solar Panel Cost & ROI',
-    description: '☀️ Calculate solar costs, savings & loadshedding backup! Free calculator for Eskom independence.',
+    title: 'Solar Calculator SA 2026 | Loadshedding Savings',
+    description: 'Calculate solar panel costs and loadshedding savings. Free Eskom alternative planner with ROI and battery sizing.',
     images: ['/images/sa-solar-calculator-og.jpg'],
   },
 };
@@ -62,12 +62,12 @@ export default function SouthAfricaSolarLoadsheddingCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">☀️ Beat Loadshedding & Save Money</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Solar & Loadshedding Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-200 to-white bg-clip-text text-transparent">South Africa 2025</span>
+                Solar Panel Savings &amp; Loadshedding Calculator <br/>
+                <span className="bg-gradient-to-r from-yellow-200 to-white bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate solar panel costs, battery sizing, and savings. Plan your solar system to beat
-                loadshedding and achieve Eskom independence with accurate ROI projections.
+                Calculate solar panel costs, battery backup sizing and Eskom savings. Plan your solar
+                system to beat loadshedding with accurate ROI and payback period projections.
               </p>
 
               {/* Stats Bar */}
@@ -139,11 +139,11 @@ export default function SouthAfricaSolarLoadsheddingCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Why Go Solar in South Africa?
+                  Why Solar Panels Beat Loadshedding in SA
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  With frequent loadshedding and rising Eskom tariffs, solar power is now the most
-                  cost-effective solution for South African homes and businesses.
+                  With frequent loadshedding and rising Eskom tariffs, solar panel savings make it
+                  the most cost-effective Eskom alternative for South African homes and businesses.
                 </p>
 
                 <div className="space-y-4">

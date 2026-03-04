@@ -4,15 +4,15 @@ import CareerAssessment from '@/components/CareerAssessment';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Free African Career Assessment Test 2025 | Find Your Perfect Career in Africa',
-  description: 'Take our free AI-powered career assessment to discover your ideal career path in Africa! Get personalized career recommendations for South Africa, Nigeria, Kenya, Ghana, Egypt & 13+ countries. 95% accuracy rate - start your career transformation today!',
-  keywords: ['African career assessment 2025', 'career test Africa', 'career quiz South Africa', 'find my career Africa', 'career guidance Nigeria', 'career assessment Kenya', 'what career should I choose Africa', 'African career test free', 'career aptitude test Africa', 'professional career assessment', 'career counseling Africa', 'career change Africa', 'best careers in Africa', 'African job market assessment', 'career planning Africa', 'dream job finder Africa'],
+  title: 'Free Career Test South Africa | Personality Quiz',
+  description: 'Take a free career assessment test to find your ideal career path. Personality test for career guidance in South Africa. No sign up, instant results with salary insights.',
+  keywords: ['career test free', 'personality test career', 'career assessment south africa', 'career quiz free online', 'what career suits me', 'career aptitude test free', 'career guidance south africa', 'career personality quiz', 'career test no sign up', 'free career assessment online', 'career counseling south africa', 'job aptitude test', 'career change quiz', 'career finder test free', 'best career test south africa', 'career path assessment', 'skills assessment career'],
   alternates: {
     canonical: '/career-assessment',
   },
   openGraph: {
-    title: 'Free African Career Assessment 2025 | Find Your Dream Career',
-    description: '🎯 Discover your perfect career in Africa! AI-powered assessment with 95% accuracy. Get personalized recommendations for 18+ African countries. Start your transformation today!',
+    title: 'Free Career Test & Personality Quiz | South Africa',
+    description: 'Discover your ideal career with a free personality-based career assessment. Instant results, salary insights, no sign up required.',
     url: '/career-assessment',
     type: 'website',
     images: [
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
         url: '/images/career-assessment-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'African Career Assessment 2025 - Find Your Perfect Career',
+        alt: 'Free Career Assessment Test - Find Your Ideal Career',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'African Career Assessment 2025 | Free Career Test',
-    description: '🎯 Find your dream career in Africa! AI-powered assessment with personalized recommendations for 18+ countries. 95% accuracy rate.',
+    title: 'Free Career Test | Personality Quiz for Careers',
+    description: 'Find your ideal career with a free personality-based career test. No sign up, instant results with salary data.',
     images: ['/images/career-assessment-og.jpg'],
   },
 };
@@ -46,12 +46,12 @@ export default function CareerAssessmentPage() {
               <span className="text-white/90 font-medium text-sm tracking-wide">🎯 AI-Powered Assessment</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-              Free African Career Assessment <br/>
-              <span className="text-gradient bg-gradient-to-r from-yellow-300 to-cyan-300 bg-clip-text text-transparent">Test 2025</span>
+              Free Career Test &amp; <br/>
+              <span className="text-gradient bg-gradient-to-r from-yellow-300 to-cyan-300 bg-clip-text text-transparent">Personality Career Quiz</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-              Unlock your professional potential with Africa's most comprehensive career assessment. 
-              Get personalized insights tailored to the continent's most promising opportunities.
+              Discover your ideal career path with our free personality-based career assessment.
+              No sign up required. Get instant results with salary insights for South Africa and Africa.
             </p>
             
             {/* Stats Bar */}
@@ -93,7 +93,7 @@ export default function CareerAssessmentPage() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                How Our Assessment Works
+                How Our Free Career Assessment Test Works
               </h2>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                 Our AI-powered algorithm analyzes your responses against thousands of successful 

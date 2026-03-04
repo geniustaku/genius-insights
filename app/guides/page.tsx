@@ -2,27 +2,28 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Free South Africa Guides 2025 | SARS Tax, Property Transfer & Financial Help',
-  description: 'Comprehensive free guides for South Africans: SARS tax filing, property transfer, financial planning. Step-by-step tutorials, calculators, and expert advice.',
+  title: 'SA Guides 2026 | SARS Tax & Property Transfer Help',
+  description: 'Free step-by-step guides for South Africa. SARS eFiling, tax returns, property transfer process, buying and selling property. Updated for 2026 tax year.',
   keywords: [
-    'South Africa guides 2025',
-    'SARS guides',
-    'property transfer guides',
-    'financial guides South Africa',
-    'tax help SA',
-    'property buying guides',
-    'South African help guides',
-    'free SA guides',
-    'tax filing help',
-    'property transfer help',
-    'financial planning South Africa'
+    'South Africa guides 2026',
+    'SARS eFiling guide',
+    'property transfer guide South Africa',
+    'how to file tax returns SARS',
+    'property buying guide SA',
+    'SARS tax help free',
+    'property transfer process SA',
+    'tax deductions guide South Africa',
+    'first time home buyer guide SA',
+    'SARS provisional tax guide',
+    'transfer duty guide SA',
+    'financial planning guides South Africa'
   ],
   alternates: {
     canonical: '/guides',
   },
   openGraph: {
-    title: 'Free South Africa Guides 2025 | SARS, Property & Finance Help',
-    description: '📚 Comprehensive free guides for South Africans: Tax filing, property transfer, financial planning. Expert advice made simple.',
+    title: 'SA Guides 2026 | SARS Tax & Property Transfer Help',
+    description: 'Free step-by-step guides for South Africa. SARS eFiling, tax returns, property transfer, buying and selling property. Updated for 2026.',
     url: 'https://genius-insights.co.za/guides',
     type: 'website',
   },
@@ -125,12 +126,12 @@ export default function GuidesPage() {
               <span className="text-white/90 font-medium text-sm tracking-wide">📚 Free Expert Guides</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 leading-tight">
-              South Africa <br/>
-              <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">Guides 2025</span>
+              SARS Tax &amp; Property Transfer <br/>
+              <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">Guides South Africa 2026</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-              Comprehensive, free, step-by-step guides for South Africans.
-              Tax filing, property transfer, financial planning—all in plain language.
+              Free step-by-step guides for South Africans. SARS eFiling, tax returns,
+              property transfer process, buying and selling property&mdash;all in plain language.
             </p>
 
             {/* Stats */}
@@ -148,7 +149,7 @@ export default function GuidesPage() {
                 <div className="text-white/80 text-sm">Free Forever</div>
               </div>
               <div className="bg-white/20 rounded-2xl px-6 py-4 text-center backdrop-blur-sm">
-                <div className="text-3xl font-bold text-white">2025</div>
+                <div className="text-3xl font-bold text-white">2026</div>
                 <div className="text-white/80 text-sm">Updated</div>
               </div>
             </div>
@@ -285,7 +286,7 @@ export default function GuidesPage() {
             </h2>
             <p className="text-gray-600 mb-8 text-lg leading-relaxed">
               Browse all our articles or use the search function to find specific topics.
-              All guides are free, comprehensive, and updated for 2025.
+              All guides are free, comprehensive, and updated for 2026.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link

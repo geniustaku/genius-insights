@@ -3,15 +3,15 @@ import type { Metadata } from 'next';
 import JobComparisonTool from '@/components/JobComparisonTool';
 
 export const metadata: Metadata = {
-  title: 'African Job Comparison Tool | Compare Career Paths',
-  description: 'Compare different career paths across key metrics like salary, growth potential, and work-life balance in the African job market.',
-  keywords: ['job comparison', 'career comparison', 'African careers', 'salary comparison', 'career paths'],
+  title: 'Free Salary Comparison Tool | Compare Jobs SA',
+  description: 'Compare salaries, career growth and work-life balance across jobs in South Africa. Free job comparison tool with real salary data. No sign up required.',
+  keywords: ['salary comparison south africa', 'job comparison tool', 'compare salaries SA', 'career comparison tool free', 'salary calculator south africa', 'compare career paths', 'job salary data south africa', 'work life balance comparison', 'career growth comparison', 'best paying jobs south africa', 'salary benchmark tool', 'compare jobs free online', 'south africa salary guide', 'job market comparison africa'],
   alternates: {
     canonical: '/job-comparison',
   },
   openGraph: {
-    title: 'African Job Comparison Tool | Compare Career Paths',
-    description: 'Compare different career paths across key metrics like salary, growth potential, and work-life balance in the African job market.',
+    title: 'Free Salary & Job Comparison Tool | South Africa',
+    description: 'Compare salaries, career growth and work-life balance across jobs in South Africa. Free tool with real data, no sign up needed.',
     url: '/job-comparison',
     type: 'website',
     images: [
@@ -19,9 +19,15 @@ export const metadata: Metadata = {
         url: '/images/job-comparison-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'African Job Comparison Tool',
+        alt: 'Free Salary and Job Comparison Tool South Africa',
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Compare Job Salaries in South Africa | Free Tool',
+    description: 'Compare salaries, growth potential and work-life balance for different careers in SA. Free, no sign up.',
+    images: ['/images/job-comparison-og.jpg'],
   },
 };
 
@@ -30,17 +36,17 @@ export default function JobComparisonPage() {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-6xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-3">African Job Comparison Tool</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-3">Free Salary &amp; Job Comparison Tool</h1>
           <p className="text-gray-600">
-            Compare different career paths across key metrics like salary, growth potential, and work-life balance in the African job market.
-            Make informed decisions about your career path with data-driven insights.
+            Compare salaries, career growth and work-life balance across different jobs in South Africa and Africa.
+            Make data-driven career decisions with real salary data. Free to use, no sign up required.
           </p>
         </div>
         
         <JobComparisonTool />
         
         <div className="mt-12 bg-gray-50 p-6 rounded-lg">
-          <h2 className="text-xl font-semibold mb-4">Understanding Job Comparisons</h2>
+          <h2 className="text-xl font-semibold mb-4">How to Compare Salaries and Career Paths</h2>
           <p className="mb-6">
             When comparing different career paths, it's important to consider multiple factors beyond just salary.
             Our comparison tool provides insights into various dimensions of different jobs to help you make a holistic decision.

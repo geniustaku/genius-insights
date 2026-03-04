@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Terms and Conditions | Genius Insights',
-  description: 'Terms and Conditions for using Genius Insights platform, career guidance services, and African tech resources.',
+  title: 'Terms and Conditions | Genius Insights South Africa',
+  description: 'Terms and conditions for using Genius Insights financial calculators, tools and resources. Governed by South African law.',
   robots: 'index, follow',
 };
 
@@ -37,15 +37,15 @@ export default function TermsPage() {
 
             <h2 className="text-2xl font-bold text-black mb-6">2. Description of Service</h2>
             <p className="mb-4 text-black">
-              Genius Insights provides career guidance, salary information, skills analysis, and educational content specifically focused on the African technology sector. Our services include:
+              Genius Insights provides financial calculators, tax tools, market data, and educational content focused on the South African financial landscape. Our services include:
             </p>
             <ul className="list-disc list-inside mb-6 space-y-2 text-black">
-              <li>Career assessment tools and recommendations</li>
-              <li>Salary calculation and market data for African countries</li>
-              <li>Skills gap analysis and learning recommendations</li>
-              <li>Educational articles and industry insights</li>
-              <li>Job market trends and analysis</li>
-              <li>Professional development resources</li>
+              <li>SARS tax calculators and financial planning tools</li>
+              <li>VAT, income tax, and property transfer calculators</li>
+              <li>Interest rate and currency exchange data</li>
+              <li>Educational articles and financial guides</li>
+              <li>Market trends and economic analysis</li>
+              <li>Budgeting and retirement planning resources</li>
             </ul>
 
             <h2 className="text-2xl font-bold text-black mb-6">3. User Accounts and Registration</h2>

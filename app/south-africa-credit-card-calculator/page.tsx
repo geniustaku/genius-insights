@@ -4,37 +4,38 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Credit Card Calculator 2025 | Credit Card Payoff & Interest Calculator',
-  description: 'Free SA credit card calculator 2025. Calculate credit card payoff time, interest charges, minimum vs fixed payments. See how much you can save by paying more.',
+  title: 'Credit Card Interest Calculator SA 2026 | Payoff',
+  description: 'Credit card interest calculator South Africa. How long to pay off credit card? Calculate interest charges, minimum vs fixed payments. FNB, ABSA, Nedbank, Standard Bank rates.',
   keywords: [
-    'credit card calculator south africa 2025',
+    'credit card interest calculator South Africa',
     'credit card payoff calculator',
-    'credit card interest calculator',
-    'minimum payment calculator',
-    'credit card debt calculator',
     'how long to pay off credit card',
+    'credit card interest rate South Africa',
+    'minimum payment calculator credit card',
+    'credit card debt calculator SA',
+    'FNB credit card interest rate',
+    'Standard Bank credit card rate',
+    'ABSA credit card calculator',
+    'Nedbank credit card interest',
+    'Capitec credit card rate',
     'credit card balance calculator',
-    'fnb credit card calculator',
-    'nedbank credit card calculator',
-    'standard bank credit card',
-    'absa credit card calculator',
-    'capitec credit card',
-    'credit card interest rate SA',
-    'debt payoff calculator'
+    'debt payoff calculator South Africa',
+    'credit card repayment calculator',
+    'NCR interest rate cap'
   ],
   alternates: {
     canonical: '/south-africa-credit-card-calculator',
   },
   openGraph: {
-    title: 'South Africa Credit Card Calculator 2025 | Payoff Calculator',
-    description: '💳 Calculate credit card payoff! See interest charges, compare payment strategies. Free calculator.',
+    title: 'Credit Card Interest Calculator South Africa 2026',
+    description: 'How long to pay off your credit card? Calculate interest charges and compare minimum vs fixed payment strategies. All SA bank rates.',
     url: 'https://genius-insights.co.za/south-africa-credit-card-calculator',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Credit Card Calculator 2025',
-    description: '💳 Calculate credit card payoff and compare payment strategies.',
+    title: 'Credit Card Interest Calculator SA 2026',
+    description: 'How long to pay off your credit card? Calculate interest and compare payment strategies.',
   },
 };
 
@@ -52,12 +53,11 @@ export default function SouthAfricaCreditCardCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">💳 Credit Card Debt Calculator</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Credit Card Calculator <br/>
-                <span className="bg-gradient-to-r from-rose-200 to-pink-200 bg-clip-text text-transparent">South Africa 2025</span>
+                Credit Card Interest <br/>
+                <span className="bg-gradient-to-r from-rose-200 to-pink-200 bg-clip-text text-transparent">& Payoff Calculator SA 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                See how long it takes to pay off your credit card and how much interest you'll pay.
-                Compare minimum payments vs fixed payments to find the best strategy.
+                How long to pay off your credit card? See how much interest you will pay with minimum payments vs fixed payments. Compare FNB, ABSA, Nedbank, Standard Bank rates.
               </p>
 
               {/* Stats Bar */}
@@ -114,7 +114,7 @@ export default function SouthAfricaCreditCardCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Credit Card Interest in SA
+                  How Credit Card Interest Works in South Africa
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                   Credit cards charge interest monthly on your outstanding balance. SA credit card rates
@@ -144,7 +144,7 @@ export default function SouthAfricaCreditCardCalculatorPage() {
 
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  SA Bank Credit Card Rates (2025)
+                  SA Bank Credit Card Rates (2026)
                 </h3>
 
                 <div className="overflow-x-auto mb-8">

@@ -10,21 +10,21 @@ import HomePageClient from '@/components/HomePageClient';
 
 // Generate comprehensive SEO metadata
 export const metadata: Metadata = {
-  title: 'Genius Insights | South Africa Financial Tools, SARS Tax Calculator & Business News',
-  description: 'South Africa\'s leading financial intelligence platform. Free SARS tax calculator, property transfer calculator, retirement planner, document converter, and expert business news. Updated daily with latest SA market insights.',
-  keywords: 'South Africa, SARS tax calculator, South African financial news, property transfer calculator, retirement planning, document converter, business news South Africa, JSE, financial tools, tax calculator 2025, SA market news, fintech South Africa',
+  title: 'Tax Calculator South Africa 2026 | Genius Insights',
+  description: 'Free SARS tax calculator, PAYE calculator & salary calculator for South Africa. Calculate income tax, property transfer costs & bond repayments. 2026 rates.',
+  keywords: 'tax calculator south africa, SARS tax calculator, PAYE calculator, salary calculator south africa, income tax calculator south africa, take home pay calculator south africa, how much tax do I pay south africa, property transfer cost calculator, bond calculator south africa, home loan calculator south africa, VAT calculator south africa, UIF calculator, capital gains tax calculator south africa, retirement annuity calculator south africa, SARS tax tables 2026, calculate my salary after tax south africa, property transfer duty calculator, how to calculate PAYE in south africa, cost of buying a house south africa, personal loan calculator south africa, car finance calculator south africa, TFSA calculator, overtime calculator south africa, payroll calculator south africa, financial tools south africa, free online calculator south africa',
   openGraph: {
-    title: 'Genius Insights | South Africa Financial Intelligence & Tools',
-    description: 'Free financial calculators, expert market analysis, and business news for South Africans. SARS tax calculator, property transfer tools, retirement planning & more.',
+    title: 'Tax Calculator South Africa 2026 - Free PAYE & Salary Tools',
+    description: 'Free SARS tax calculator, PAYE calculator, salary & property transfer calculators for South Africa. Updated with 2026 tax tables and rates.',
     type: 'website',
     url: 'https://www.genius-insights.co.za',
     siteName: 'Genius Insights',
     images: [
       {
-        url: 'https://www.genius-insights.co.za/images/og-home.jpg',
+        url: 'https://www.genius-insights.co.za/api/og?title=Free+SA+Financial+Tools+2026&subtitle=Tax+Calculators+%E2%80%A2+Property+Tools+%E2%80%A2+Expert+Guides',
         width: 1200,
         height: 630,
-        alt: 'Genius Insights - South Africa Financial Intelligence',
+        alt: 'Genius Insights - Free Tax Calculator South Africa with PAYE, Salary and Property Tools',
       }
     ],
     locale: 'en_ZA',
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@GeniusInsightsZA',
-    title: 'Genius Insights | South Africa Financial Intelligence',
-    description: 'Free SARS tax calculator, property tools, retirement planning & expert SA business news',
-    images: ['https://www.genius-insights.co.za/images/og-home.jpg'],
+    title: 'Tax Calculator South Africa | Free PAYE & Salary Tools',
+    description: 'Free SARS tax calculator, PAYE calculator, salary calculator & property transfer tools for South Africa. Updated 2026 tax tables.',
+    images: ['https://www.genius-insights.co.za/api/og?title=Free+SA+Financial+Tools+2026&subtitle=Tax+Calculators+%E2%80%A2+Property+Tools+%E2%80%A2+Expert+Guides'],
   },
   alternates: {
     canonical: 'https://www.genius-insights.co.za',
@@ -125,7 +125,7 @@ export default async function Home() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Genius Insights',
-    description: 'South Africa financial intelligence platform with tools, calculators, and expert market analysis',
+    description: 'Free tax calculator South Africa - SARS PAYE calculator, salary calculator, income tax calculator, property transfer cost calculator, bond calculator and 35+ financial tools updated with 2026 rates',
     url: 'https://www.genius-insights.co.za',
     potentialAction: {
       '@type': 'SearchAction',
@@ -194,13 +194,67 @@ export default async function Home() {
 
       {/* Main Content */}
       <main className="bg-gradient-to-b from-gray-50 to-white min-h-screen">
+
+        {/* Hero Section - Value Proposition with H1 */}
+        <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-12 sm:py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
+                  Free Tax Calculator South Africa 2026
+                </h1>
+                <p className="text-lg sm:text-xl text-slate-300 mb-6 leading-relaxed">
+                  Calculate your SARS income tax, PAYE, take-home salary and more. 35+ free financial calculators including property transfer costs, bond repayments, and expert guides — updated with the latest 2026 tax tables.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/south-africa-income-tax-calculator" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all">
+                    Tax Calculator
+                  </Link>
+                  <Link href="/tools" className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl font-semibold backdrop-blur-sm border border-white/20 transition-all">
+                    Browse All Tools
+                  </Link>
+                </div>
+                <div className="flex items-center gap-6 mt-8 text-sm text-slate-400">
+                  <span className="flex items-center gap-1.5"><span className="text-green-400">✓</span> 100% Free Calculators</span>
+                  <span className="flex items-center gap-1.5"><span className="text-green-400">✓</span> SARS 2026 Tax Tables</span>
+                  <span className="flex items-center gap-1.5"><span className="text-green-400">✓</span> No Login Required</span>
+                </div>
+              </div>
+
+              {/* Quick Calculator Links */}
+              <div className="grid grid-cols-2 gap-3">
+                <Link href="/south-africa-income-tax-calculator" className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/20 transition-all group">
+                  <div className="text-2xl mb-2">🇿🇦</div>
+                  <div className="font-bold text-white text-sm">Income Tax Calculator</div>
+                  <div className="text-xs text-slate-400">SARS PAYE 2026 Rates</div>
+                </Link>
+                <Link href="/south-africa-property-transfer-calculator" className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/20 transition-all group">
+                  <div className="text-2xl mb-2">🏠</div>
+                  <div className="font-bold text-white text-sm">Property Transfer</div>
+                  <div className="text-xs text-slate-400">Transfer Duty Calculator</div>
+                </Link>
+                <Link href="/south-africa-bond-calculator" className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/20 transition-all group">
+                  <div className="text-2xl mb-2">🏡</div>
+                  <div className="font-bold text-white text-sm">Bond Calculator</div>
+                  <div className="text-xs text-slate-400">Home Loan Repayments</div>
+                </Link>
+                <Link href="/south-africa-personal-loan-calculator" className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/20 transition-all group">
+                  <div className="text-2xl mb-2">💰</div>
+                  <div className="font-bold text-white text-sm">Personal Loan</div>
+                  <div className="text-xs text-slate-400">NCR Rates Calculator</div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
 
-          {/* Hero Section - Latest Article */}
+          {/* Latest News Article */}
           {latestArticle && (
             <section className="mb-10 sm:mb-12">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900">🔥 Latest News</h2>
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Latest News</h2>
               </div>
 
               <Link href={`/articles/${latestArticle.slug}`} className="group block">
@@ -222,7 +276,7 @@ export default async function Home() {
                       </div>
                     </div>
 
-                    {/* Content - Text below/beside image */}
+                    {/* Content */}
                     <div className="p-6 sm:p-8 flex flex-col justify-center">
                       <div className="flex flex-wrap items-center gap-2 mb-3">
                         <span className="bg-blue-100 text-blue-700 px-3 py-1 text-xs font-semibold rounded-full">
@@ -231,9 +285,9 @@ export default async function Home() {
                         <span className="text-sm text-gray-500">{formatDate(latestArticle.published_at)}</span>
                       </div>
 
-                      <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
                         {latestArticle.title}
-                      </h1>
+                      </h3>
 
                       <p className="text-gray-600 mb-4 line-clamp-3 text-sm sm:text-base">
                         {latestArticle.excerpt}
@@ -269,16 +323,16 @@ export default async function Home() {
                 <div className="relative z-10 grid md:grid-cols-2 gap-6 items-center text-white">
                   <div className="text-white">
                     <div className="flex items-center gap-3 mb-4">
-                      <h2 className="text-2xl sm:text-3xl font-bold text-white" style={{color: 'white'}}>📄 Document Converter</h2>
+                      <h2 className="text-2xl sm:text-3xl font-bold text-white">📄 Document Converter</h2>
                       <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md">FREE</span>
                     </div>
-                    <p className="text-white mb-6 text-base sm:text-lg" style={{color: 'white'}}>
+                    <p className="text-white mb-6 text-base sm:text-lg">
                       Convert PDF, Word, Excel, and PowerPoint files instantly. No registration required!
                     </p>
                     <div className="flex flex-wrap gap-2 mb-6">
-                      <span className="bg-slate-700/60 backdrop-blur-sm px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-600 text-white" style={{color: 'white'}}>✓ PDF to Word</span>
-                      <span className="bg-slate-700/60 backdrop-blur-sm px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-600 text-white" style={{color: 'white'}}>✓ Excel to PDF</span>
-                      <span className="bg-slate-700/60 backdrop-blur-sm px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-600 text-white" style={{color: 'white'}}>✓ PowerPoint</span>
+                      <span className="bg-slate-700/60 backdrop-blur-sm px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-600 text-white">✓ PDF to Word</span>
+                      <span className="bg-slate-700/60 backdrop-blur-sm px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-600 text-white">✓ Excel to PDF</span>
+                      <span className="bg-slate-700/60 backdrop-blur-sm px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-600 text-white">✓ PowerPoint</span>
                     </div>
                     <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all">
                       Try Converter Now →
@@ -288,19 +342,19 @@ export default async function Home() {
                   <div className="hidden md:grid grid-cols-2 gap-3">
                     <div className="bg-slate-700/40 backdrop-blur-sm rounded-xl p-4 text-center border border-slate-600">
                       <div className="text-3xl mb-2">📄</div>
-                      <div className="text-white font-semibold text-sm" style={{color: 'white'}}>PDF</div>
+                      <div className="text-white font-semibold text-sm">PDF</div>
                     </div>
                     <div className="bg-slate-700/40 backdrop-blur-sm rounded-xl p-4 text-center border border-slate-600">
                       <div className="text-3xl mb-2">📝</div>
-                      <div className="text-white font-semibold text-sm" style={{color: 'white'}}>Word</div>
+                      <div className="text-white font-semibold text-sm">Word</div>
                     </div>
                     <div className="bg-slate-700/40 backdrop-blur-sm rounded-xl p-4 text-center border border-slate-600">
                       <div className="text-3xl mb-2">📊</div>
-                      <div className="text-white font-semibold text-sm" style={{color: 'white'}}>Excel</div>
+                      <div className="text-white font-semibold text-sm">Excel</div>
                     </div>
                     <div className="bg-slate-700/40 backdrop-blur-sm rounded-xl p-4 text-center border border-slate-600">
                       <div className="text-3xl mb-2">📽️</div>
-                      <div className="text-white font-semibold text-sm" style={{color: 'white'}}>PowerPoint</div>
+                      <div className="text-white font-semibold text-sm">PowerPoint</div>
                     </div>
                   </div>
                 </div>
@@ -421,7 +475,7 @@ export default async function Home() {
           {/* Popular Tools - Featured 8 */}
           <section className="mb-10 sm:mb-12">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">🔥 Most Popular Calculators</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">🔥 Most Popular SA Tax & Financial Calculators</h2>
               <Link href="/tools" className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1">
                 View All 35+
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -437,10 +491,10 @@ export default async function Home() {
                     <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-2xl">🇿🇦</div>
                     <div>
                       <h3 className="font-bold text-gray-900 group-hover:text-green-600 transition-colors text-sm">Income Tax Calculator</h3>
-                      <p className="text-xs text-gray-500">SARS 2025</p>
+                      <p className="text-xs text-gray-500">SARS 2026</p>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600">Calculate PAYE, UIF with latest rates</p>
+                  <p className="text-sm text-gray-600">How much tax do I pay? Calculate PAYE, UIF with 2026 rates</p>
                 </div>
               </Link>
 
@@ -453,7 +507,7 @@ export default async function Home() {
                       <p className="text-xs text-gray-500">eFiling</p>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600">Estimate your SARS refund</p>
+                  <p className="text-sm text-gray-600">Estimate your SARS eFiling tax refund</p>
                 </div>
               </Link>
 
@@ -479,7 +533,7 @@ export default async function Home() {
                       <p className="text-xs text-gray-500">27.5% Tax Benefit</p>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600">Plan retirement with tax savings</p>
+                  <p className="text-sm text-gray-600">Retirement annuity calculator with tax savings</p>
                 </div>
               </Link>
 
@@ -492,7 +546,7 @@ export default async function Home() {
                       <p className="text-xs text-gray-500">Home Loans</p>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600">Calculate affordability & repayments</p>
+                  <p className="text-sm text-gray-600">Home loan affordability & monthly repayments</p>
                 </div>
               </Link>
 
@@ -527,11 +581,11 @@ export default async function Home() {
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center text-2xl">⚡</div>
                     <div>
-                      <h3 className="font-bold text-white text-sm" style={{color: 'white'}}>View All Tools</h3>
-                      <p className="text-xs text-white" style={{color: 'white'}}>35+ Calculators</p>
+                      <h3 className="font-bold text-white text-sm">View All Tools</h3>
+                      <p className="text-xs text-white">35+ Calculators</p>
                     </div>
                   </div>
-                  <p className="text-sm text-white" style={{color: 'white'}}>Explore all financial tools →</p>
+                  <p className="text-sm text-white">Explore all financial tools →</p>
                 </div>
               </Link>
 
@@ -548,9 +602,9 @@ export default async function Home() {
             </div>
           </div>
 
-          {/* Employment & Salary Calculators */}
+          {/* Salary & PAYE Calculators */}
           <section className="mb-10 sm:mb-12">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">💼 Employment & Salary</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">💼 Salary & PAYE Calculators</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <Link href="/south-africa-payroll-calculator" className="group">
                 <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
@@ -558,7 +612,7 @@ export default async function Home() {
                     <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-xl">💼</div>
                     <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors text-sm">Payroll Calculator</h3>
                   </div>
-                  <p className="text-xs text-gray-600">PAYE, UIF & take-home pay</p>
+                  <p className="text-xs text-gray-600">Calculate PAYE, UIF & take-home pay</p>
                 </div>
               </Link>
               <Link href="/south-africa-uif-calculator" className="group">
@@ -585,15 +639,15 @@ export default async function Home() {
                     <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center text-xl">💵</div>
                     <h3 className="font-bold text-gray-900 group-hover:text-green-600 transition-colors text-sm">Salary Calculator</h3>
                   </div>
-                  <p className="text-xs text-gray-600">Gross to net salary</p>
+                  <p className="text-xs text-gray-600">Calculate salary after tax</p>
                 </div>
               </Link>
             </div>
           </section>
 
-          {/* Banking & Loans */}
+          {/* Home Loan & Personal Loan Calculators */}
           <section className="mb-10 sm:mb-12">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">🏦 Banking & Loans</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">🏦 Home Loan & Personal Loan Calculators</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <Link href="/south-africa-personal-loan-calculator" className="group">
                 <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
@@ -634,9 +688,9 @@ export default async function Home() {
             </div>
           </section>
 
-          {/* Investment & Savings */}
+          {/* Investment & TFSA Calculators */}
           <section className="mb-10 sm:mb-12">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">📈 Investment & Savings</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">📈 Investment & TFSA Calculators</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <Link href="/south-africa-tfsa-calculator" className="group">
                 <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
@@ -677,9 +731,9 @@ export default async function Home() {
             </div>
           </section>
 
-          {/* Property & Tax Calculators */}
+          {/* Property Transfer & VAT Calculators */}
           <section className="mb-10 sm:mb-12">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">🏠 Property & Tax</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">🏠 Property Transfer & VAT Calculators</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <Link href="/south-africa-property-transfer-calculator" className="group">
                 <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
@@ -687,7 +741,7 @@ export default async function Home() {
                     <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center text-xl">🏠</div>
                     <h3 className="font-bold text-gray-900 group-hover:text-orange-600 transition-colors text-sm">Property Transfer</h3>
                   </div>
-                  <p className="text-xs text-gray-600">Transfer duty & costs</p>
+                  <p className="text-xs text-gray-600">Property transfer duty & buying costs</p>
                 </div>
               </Link>
               <Link href="/south-africa-rental-yield-calculator" className="group">
@@ -699,13 +753,13 @@ export default async function Home() {
                   <p className="text-xs text-gray-600">Property returns</p>
                 </div>
               </Link>
-              <Link href="/south-africa-vat-calculator-2025" className="group">
+              <Link href="/south-africa-vat-calculator" className="group">
                 <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center text-xl">🧾</div>
                     <h3 className="font-bold text-gray-900 group-hover:text-teal-600 transition-colors text-sm">VAT Calculator</h3>
                   </div>
-                  <p className="text-xs text-gray-600">15% VAT add/remove</p>
+                  <p className="text-xs text-gray-600">Calculate 15% VAT inclusive/exclusive</p>
                 </div>
               </Link>
               <Link href="/south-africa-estate-duty-calculator" className="group">
@@ -826,9 +880,9 @@ export default async function Home() {
                 <div className="w-16 h-16 bg-slate-700 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <span className="text-3xl">📧</span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4" style={{color: 'white'}}>Stay Updated</h2>
-                <p className="text-white mb-8 text-sm sm:text-base" style={{color: 'white'}}>
-                  Get weekly insights on South African financial news, SARS updates, and market trends delivered to your inbox.
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">Stay Updated</h2>
+                <p className="text-white mb-8 text-sm sm:text-base">
+                  Get weekly South African tax tips, SARS updates, new calculator alerts and financial planning insights delivered to your inbox.
                 </p>
                 <div className="max-w-md mx-auto">
                   <NewsletterSignup variant="compact" />
@@ -852,7 +906,7 @@ export default async function Home() {
                 <span className="font-bold text-lg">Genius Insights</span>
               </div>
               <p className="text-gray-400 text-sm">
-                South Africa's leading financial intelligence platform.
+                South Africa's free tax calculator, PAYE calculator, salary tools and financial guides. Updated with 2026 SARS tax tables.
               </p>
             </div>
 
@@ -883,7 +937,7 @@ export default async function Home() {
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-            <p>© 2025 Genius Insights. All rights reserved.</p>
+            <p>© 2026 Genius Insights. All rights reserved.</p>
           </div>
         </div>
       </footer>

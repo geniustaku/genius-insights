@@ -4,38 +4,40 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Car Finance Calculator 2025 | Vehicle Finance & Balloon Payment Calculator',
-  description: 'Free SA car finance calculator 2025. Calculate vehicle finance with balloon payments, deposits, interest rates. Compare new vs used car finance. NCR-compliant calculations.',
+  title: 'Car Finance Calculator SA 2026 | Balloon Payment',
+  description: 'How much will my car payment be? Free SA car finance calculator with balloon payment, residual value & deposit options. Compare WesBank, MFC & bank rates. New & used cars.',
   keywords: [
-    'car finance calculator south africa 2025',
-    'vehicle finance calculator SA',
-    'balloon payment calculator',
-    'car loan calculator',
-    'wesbank calculator',
-    'mfc calculator',
-    'vehicle finance rates',
-    'car payment calculator',
-    'new car finance calculator',
-    'used car finance calculator',
-    'balloon payment options',
-    'vehicle loan calculator',
-    'auto finance calculator SA',
-    'car installment calculator',
-    'how much car can I afford'
+    'car finance calculator south africa',
+    'balloon payment calculator south africa',
+    'vehicle finance calculator SA 2026',
+    'how much will my car payment be',
+    'car installment calculator south africa',
+    'residual value calculator car',
+    'wesbank car finance calculator',
+    'mfc vehicle finance calculator',
+    'how much car can I afford south africa',
+    'car loan calculator with balloon payment',
+    'used car finance calculator SA',
+    'new car finance calculator south africa',
+    'vehicle finance interest rates SA 2026',
+    'car repayment calculator south africa',
+    'balloon payment car finance explained',
+    'instalment sale agreement calculator',
+    'car finance with deposit calculator'
   ],
   alternates: {
     canonical: '/south-africa-car-finance-calculator',
   },
   openGraph: {
-    title: 'South Africa Car Finance Calculator 2025 | Vehicle & Balloon Calculator',
-    description: '🚗 Calculate car finance with balloon payments! Deposits, interest rates, new vs used. Free calculator.',
+    title: 'Car Finance Calculator SA 2026 | Balloon Payment',
+    description: 'How much will my car payment be? Calculate vehicle finance with balloon payment, residual value & deposit. Compare WesBank, MFC & bank rates.',
     url: 'https://genius-insights.co.za/south-africa-car-finance-calculator',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Car Finance Calculator 2025 | Balloon Payments',
-    description: '🚗 Calculate vehicle finance! Balloon payments, deposits, bank rates. Free calculator.',
+    title: 'Car Finance Calculator SA 2026 | Balloon Payment',
+    description: 'How much will my car payment be? Calculate with balloon payment, deposit & interest rates. Free SA vehicle finance calculator.',
   },
 };
 
@@ -54,11 +56,11 @@ export default function SouthAfricaCarFinanceCalculatorPage() {
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
                 Car Finance Calculator <br/>
-                <span className="bg-gradient-to-r from-orange-200 to-red-200 bg-clip-text text-transparent">South Africa 2025</span>
+                <span className="bg-gradient-to-r from-orange-200 to-red-200 bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate vehicle finance with balloon payments, deposits, and accurate interest rates.
-                Compare new vs used car financing options for SA buyers.
+                How much will my car payment be? Calculate vehicle finance with balloon payment options,
+                deposits and residual values. Compare new vs used car finance rates from SA banks.
               </p>
 
               {/* Stats Bar */}
@@ -115,12 +117,12 @@ export default function SouthAfricaCarFinanceCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Vehicle Finance in South Africa
+                  How Does Car Finance Work in South Africa?
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Vehicle finance is a secured loan where the car serves as collateral. Interest rates are typically
-                  lower than personal loans, and you can choose between instalment sale (you own the car from day 1)
-                  or lease agreements (bank owns the car).
+                  Vehicle finance is a secured loan where the car serves as collateral. You can choose between
+                  an instalment sale agreement (you own the car from day 1) or a lease agreement. A balloon
+                  payment (residual value) lowers your monthly instalments but is due at the end of the term.
                 </p>
 
                 <div className="space-y-4">
@@ -145,7 +147,7 @@ export default function SouthAfricaCarFinanceCalculatorPage() {
 
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  Finance Types
+                  Car Finance Options: Balloon Payment Explained
                 </h3>
 
                 <div className="space-y-4 mb-8">

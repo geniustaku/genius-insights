@@ -4,38 +4,40 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Personal Loan Calculator 2025 | Free Loan Repayment Calculator',
-  description: 'Free SA personal loan calculator 2025. Calculate monthly repayments with NCR-compliant fees, initiation fees, service charges. Compare FNB, Standard Bank, ABSA, Capitec loan rates.',
+  title: 'Personal Loan Calculator SA 2026 | Compare Rates',
+  description: 'How much can I borrow? Free SA personal loan calculator with NCR fees, initiation fees & service charges. Compare Capitec, FNB, ABSA, Standard Bank & Nedbank loan rates 2026.',
   keywords: [
-    'personal loan calculator south africa 2025',
-    'loan calculator SA',
-    'loan repayment calculator',
+    'personal loan calculator south africa',
+    'how much can I borrow personal loan',
+    'loan repayment calculator south africa',
+    'capitec personal loan calculator',
     'fnb personal loan calculator',
-    'standard bank loan calculator',
-    'absa loan calculator',
-    'capitec loan calculator',
-    'nedbank loan calculator',
+    'standard bank personal loan calculator',
+    'absa personal loan calculator',
+    'nedbank personal loan calculator',
     'african bank loan calculator',
-    'ncr loan calculator',
-    'how much can I borrow',
-    'loan interest calculator',
-    'monthly loan repayment calculator',
-    'unsecured loan calculator',
-    'bank loan calculator SA'
+    'NCR loan calculator south africa',
+    'personal loan interest rates SA 2026',
+    'unsecured loan calculator south africa',
+    'loan initiation fee calculator',
+    'monthly loan repayment calculator SA',
+    'how much will my loan repayments be',
+    'personal loan comparison south africa',
+    'best personal loan rates south africa 2026'
   ],
   alternates: {
     canonical: '/south-africa-personal-loan-calculator',
   },
   openGraph: {
-    title: 'South Africa Personal Loan Calculator 2025 | Loan Repayment Calculator',
-    description: '💰 Calculate personal loan repayments! NCR-compliant fees, compare bank rates. FNB, ABSA, Capitec, Nedbank rates.',
+    title: 'Personal Loan Calculator SA 2026 | Compare Rates',
+    description: 'How much can I borrow? Calculate personal loan repayments with NCR fees. Compare Capitec, FNB, ABSA, Standard Bank & Nedbank rates.',
     url: 'https://genius-insights.co.za/south-africa-personal-loan-calculator',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Personal Loan Calculator 2025',
-    description: '💰 Calculate loan repayments! NCR fees, bank rate comparison. Free calculator.',
+    title: 'Personal Loan Calculator SA 2026 | Compare Rates',
+    description: 'How much can I borrow? Calculate repayments with NCR fees & compare SA bank rates. Free personal loan calculator.',
   },
 };
 
@@ -54,11 +56,11 @@ export default function SouthAfricaPersonalLoanCalculatorPage() {
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
                 Personal Loan Calculator <br/>
-                <span className="bg-gradient-to-r from-pink-200 to-rose-200 bg-clip-text text-transparent">South Africa 2025</span>
+                <span className="bg-gradient-to-r from-pink-200 to-rose-200 bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate monthly repayments with accurate NCR fee caps. Compare rates from major SA banks
-                including FNB, Standard Bank, ABSA, Nedbank, and Capitec.
+                How much can I borrow? Calculate your monthly loan repayments with NCR-compliant initiation fees
+                and service charges. Compare rates from Capitec, FNB, Standard Bank, ABSA and Nedbank.
               </p>
 
               {/* Stats Bar */}
@@ -115,12 +117,12 @@ export default function SouthAfricaPersonalLoanCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Personal Loans in South Africa
+                  How Much Can I Borrow With a Personal Loan?
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Personal loans (unsecured loans) are regulated by the National Credit Regulator (NCR).
-                  Interest rates, fees, and charges are capped to protect consumers. Always compare
-                  quotes from multiple lenders before committing.
+                  Personal loans in South Africa are regulated by the National Credit Regulator (NCR).
+                  Interest rates, initiation fees and service charges are capped to protect consumers.
+                  Always compare quotes from multiple banks before committing.
                 </p>
 
                 <div className="space-y-4">
@@ -145,7 +147,7 @@ export default function SouthAfricaPersonalLoanCalculatorPage() {
 
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  Loan Requirements
+                  Personal Loan Requirements SA Banks
                 </h3>
 
                 <div className="space-y-4 mb-8">

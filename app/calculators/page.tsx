@@ -12,10 +12,10 @@ export default function CalculatorsPage() {
       description: 'SARS-compliant tax calculators for individuals and businesses',
       calculators: [
         {
-          name: 'SARS Income Tax Calculator 2025',
+          name: 'SARS Income Tax Calculator 2026',
           href: '/south-africa-tax-calculator',
           image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center',
-          description: 'Calculate income tax, PAYE, UIF, and SDL with 2025/2026 tax year rates',
+          description: 'Calculate income tax, PAYE, UIF, and SDL with 2026/2027 tax year rates',
           tags: ['Income Tax', 'PAYE', 'UIF', 'SDL']
         },
         {
@@ -173,11 +173,11 @@ export default function CalculatorsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              South African Financial Calculators
+              Free SA Financial Calculators &mdash; Tax, Property &amp; Loans
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
-              Free, accurate, and up-to-date financial calculators for South Africa. Calculate tax, property costs, 
-              loans, insurance, retirement planning, and more with the latest SA rates and regulations for 2025.
+              Free, SARS-compliant financial calculators for South Africa. Calculate income tax, property transfer
+              costs, bond repayments, investment returns and more with 2026 rates and regulations.
             </p>
             <div className="inline-flex items-center space-x-6 text-sm text-gray-600">
               <span className="flex items-center">
@@ -186,7 +186,7 @@ export default function CalculatorsPage() {
               </span>
               <span className="flex items-center">
                 <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                2025 Updated
+                2026 Updated
               </span>
               <span className="flex items-center">
                 <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
@@ -252,7 +252,7 @@ export default function CalculatorsPage() {
                               Free Calculator
                             </span>
                             <span className="text-sm text-gray-500">
-                              2025 Updated
+                              2026 Updated
                             </span>
                           </div>
                           
@@ -421,7 +421,7 @@ export default function CalculatorsPage() {
             <div>
               <h3 className="font-bold text-lg text-gray-900 mb-4">Tax Calculators</h3>
               <ul className="text-sm text-gray-600 space-y-2">
-                <li>• SARS Income Tax Calculator 2025</li>
+                <li>• SARS Income Tax Calculator 2026</li>
                 <li>• PAYE Tax Calculator South Africa</li>
                 <li>• VAT Calculator SA</li>
                 <li>• UIF Contribution Calculator</li>

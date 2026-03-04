@@ -4,31 +4,33 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Bond Calculator 2025 | Free Home Loan & Affordability Calculator',
-  description: 'Free SA bond calculator 2025. Calculate home loan affordability, monthly bond repayments, total interest costs with current 11.75% prime rate. Property affordability calculator for South African home buyers.',
+  title: 'Bond Calculator SA 2026 | Monthly Repayments',
+  description: 'How much will my bond repayments be? Free SA bond calculator with 2026 interest rates. Calculate home loan affordability, monthly bond repayments & total interest. Compare bank rates.',
   keywords: [
-    'bond calculator South Africa 2025',
-    'home loan calculator SA',
-    'bond affordability calculator',
-    'home loan affordability South Africa',
+    'bond calculator south africa',
     'bond repayment calculator',
-    'mortgage calculator SA',
-    'property affordability calculator',
+    'home loan calculator south africa 2026',
+    'how much will my bond repayments be',
     'how much bond can I afford',
+    'bond affordability calculator SA',
+    'home loan affordability calculator',
+    'monthly bond repayment calculator',
+    'bond interest calculator south africa',
+    'ooba bond calculator',
+    'property affordability calculator SA',
     'home loan calculator with deposit',
-    'bond interest calculator',
-    'property bond calculator',
-    'housing loan calculator SA',
     'bond qualification calculator',
-    'mortgage affordability calculator',
-    'home buying calculator South Africa'
+    'how much home loan can I qualify for',
+    'bond calculator with interest rate',
+    'SA prime rate bond calculator',
+    'home loan monthly payment calculator'
   ],
   alternates: {
     canonical: '/south-africa-bond-calculator',
   },
   openGraph: {
-    title: 'South Africa Bond Calculator 2025 | Free Home Loan Calculator',
-    description: '🏠 Calculate bond affordability & monthly repayments! Current prime rate 11.75%. Find out how much property you can afford.',
+    title: 'Bond Calculator SA 2026 | Monthly Repayments',
+    description: 'How much will my bond repayments be? Calculate home loan affordability, monthly repayments & total interest with current SA prime rate. Free bond calculator.',
     url: 'https://genius-insights.co.za/south-africa-bond-calculator',
     type: 'website',
     images: [
@@ -36,14 +38,14 @@ export const metadata: Metadata = {
         url: '/images/sa-bond-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Bond Calculator 2025',
+        alt: 'Bond Calculator South Africa 2026 - Home Loan Repayment Calculator',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Bond Calculator 2025 | Home Loan Affordability Calculator',
-    description: '🏠 Calculate home loan affordability! Prime rate 11.75%. Instant bond repayment calculations.',
+    title: 'Bond Calculator SA 2026 | Monthly Repayments',
+    description: 'How much will my bond repayments be? Calculate home loan affordability with current SA interest rates. Free & instant.',
     images: ['/images/sa-bond-calculator-og.jpg'],
   },
 };
@@ -63,11 +65,11 @@ export default function SouthAfricaBondCalculatorPage() {
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
                 Bond Calculator <br/>
-                <span className="bg-gradient-to-r from-cyan-200 to-teal-200 bg-clip-text text-transparent">South Africa 2025</span>
+                <span className="bg-gradient-to-r from-cyan-200 to-teal-200 bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate home loan affordability and monthly bond repayments with accurate 2025 interest rates.
-                Find out how much property you can afford with our free bond calculator.
+                How much will my bond repayments be? Calculate your monthly home loan repayments, bond affordability
+                and total interest with the latest 2026 SA interest rates. Find out how much you can afford.
               </p>
 
               {/* Stats Bar */}
@@ -139,12 +141,12 @@ export default function SouthAfricaBondCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  How to Calculate Bond Repayments
+                  How Much Will My Bond Repayments Be?
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Home loan repayments are calculated using an amortization formula that considers the bond amount,
-                  interest rate, and loan term. South African banks use the prime lending rate (currently 11.75%)
-                  as the base rate.
+                  Monthly bond repayments depend on the loan amount, interest rate and term. South African banks
+                  use the prime lending rate as the base rate. Use our bond calculator above to get your exact
+                  monthly repayment amount instantly.
                 </p>
 
                 <div className="space-y-4">
@@ -169,7 +171,7 @@ export default function SouthAfricaBondCalculatorPage() {
 
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  Bond Affordability Rules
+                  How Much Bond Can I Afford?
                 </h3>
 
                 <div className="space-y-4 mb-8">
@@ -217,7 +219,7 @@ export default function SouthAfricaBondCalculatorPage() {
             {/* Current Interest Rates */}
             <div className="mt-12 pt-8 border-t border-gray-200">
               <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                South African Home Loan Interest Rates 2025
+                Current Bond Interest Rates South Africa 2026
               </h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-100">
@@ -253,7 +255,7 @@ export default function SouthAfricaBondCalculatorPage() {
             {/* Additional Costs */}
             <div className="mt-12 pt-8 border-t border-gray-200">
               <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                Additional Home Buying Costs in South Africa
+                Hidden Costs When Buying a House in South Africa
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 border border-blue-100">

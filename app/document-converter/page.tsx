@@ -5,15 +5,15 @@ import AdSenseAd from '@/components/AdSenseAd';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: "Free Online Document Converter | Convert PDF to Word, Excel to PDF, PowerPoint Converter 2025",
-  description: "Convert PDF to Word, Word to PDF, Excel to PDF, PowerPoint to PDF online free. No software download required. Secure document conversion tool supports DOC, DOCX, XLS, XLSX, PPT, PPTX files. Fast & reliable document converter.",
-  keywords: "PDF to Word converter, Word to PDF converter, Excel to PDF converter, PowerPoint to PDF, convert PDF to Word online free, convert Word to PDF online, convert Excel to PDF, convert PPT to PDF, document converter online free, PDF converter, DOCX to PDF, XLS to PDF converter, PPTX to PDF converter, online file converter, free document conversion tool, convert documents online, PDF to DOCX converter, Word document converter, Excel file converter, PowerPoint file converter, convert PDF to editable Word, PDF to Word converter free download, convert PDF to Word without software, best PDF to Word converter, convert scanned PDF to Word, PDF to Word converter online, convert PDF to Word document, PDF to Microsoft Word converter, convert PDF file to Word document, online PDF to Word conversion, free PDF to Word converter online, convert PDF to Word format, PDF to DOC converter, PDF to DOCX online, convert PDF to editable text, PDF text converter, document format converter, file format converter, convert office documents, Microsoft Office converter, LibreOffice converter, online document conversion, secure document converter, fast document conversion, bulk document converter, batch file converter",
+  title: "Convert PDF to Word Free Online | No Sign Up",
+  description: "Convert PDF to Word, Word to PDF, Excel to PDF free online. No sign up, no software needed. Fast, secure document converter. Supports DOC, DOCX, XLS, PPT files.",
+  keywords: "PDF to Word converter free, convert PDF free online, online converter no sign up, Word to PDF free, PDF to Word no registration, document converter free online, Excel to PDF converter, convert PDF to editable Word, free PDF converter online, PDF to DOCX free, Word to PDF no download, convert documents online free, PowerPoint to PDF converter, best free PDF converter, secure document converter, convert PDF without software, PDF to Word online free no email, batch document converter, file format converter free",
   alternates: {
     canonical: "https://www.genius-insights.co.za/document-converter",
   },
   openGraph: {
-    title: "Free PDF to Word & Document Converter | Convert Files Online 2025",
-    description: "Convert PDF to Word, Excel to PDF, PowerPoint files online free. No registration required. Secure, fast document conversion tool supports all major file formats.",
+    title: "Convert PDF to Word Free | No Sign Up Online Converter",
+    description: "Convert PDF to Word, Word to PDF, Excel to PDF free. No sign up needed. Fast, secure online document converter.",
     type: "website",
     url: "https://www.genius-insights.co.za/document-converter",
     siteName: "Genius Insights Document Converter",
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Document Converter | PDF to Word, Excel to PDF Online",
-    description: "🔄 Convert PDF to Word, Word to PDF, Excel to PDF online FREE! No software needed. Fast, secure document conversion tool. ⚡",
+    title: "Convert PDF to Word Free | No Sign Up Required",
+    description: "Convert PDF to Word, Word to PDF, Excel to PDF online free. No sign up, no software. Fast and secure converter.",
     images: ['/images/document-converter-twitter.jpg'],
   },
   robots: {
@@ -82,10 +82,10 @@ export default function DocumentConverterPage() {
         {/* SEO-Optimized Hero Section */}
         <div className="max-w-4xl mx-auto px-6 text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Free Online <span className="text-gradient bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Document Converter</span>
+            Convert PDF to Word <span className="text-gradient bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Free Online</span>
           </h1>
           <h2 className="text-xl md:text-2xl text-gray-600 mb-8 font-medium">
-            Convert PDF to Word, Word to PDF, Excel to PDF, PowerPoint Files Online - No Software Required
+            PDF to Word, Word to PDF, Excel to PDF - No Sign Up, No Software, 100% Free
           </h2>
           
           {/* Popular Conversion Types Showcase */}
@@ -690,7 +690,7 @@ export default function DocumentConverterPage() {
           
           <div className="border-t border-gray-800 pt-6 text-center">
             <p className="text-gray-400 text-sm">
-              © 2025 Genius Insights. Free document conversion tool - PDF to Word, Excel to PDF, and more.
+              © 2026 Genius Insights. Free document conversion tool - PDF to Word, Excel to PDF, and more.
             </p>
           </div>
         </div>

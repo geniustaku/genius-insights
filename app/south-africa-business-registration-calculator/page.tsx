@@ -4,17 +4,31 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Business Registration Cost Calculator 2025 | CIPC & SARS Fees',
-  description: 'Free SA business registration cost calculator 2025. Calculate CIPC fees, SARS registration, annual returns, compliance costs. Complete guide for 100,000+ entrepreneurs.',
+  title: 'CIPC Registration Cost Calculator 2026 | Pty Ltd',
+  description: 'Calculate CIPC company registration costs for Pty Ltd, CC & sole proprietor. CIPC fees, SARS registration, annual return costs. Register a company in South Africa.',
   keywords: [
-    'South Africa business registration cost 2025', 'CIPC registration fees SA', 'company registration cost SA', 'SARS business registration fees', 'close corporation cost SA', 'annual return fees CIPC', 'business compliance costs SA', 'SA company formation costs', 'CIPC annual fees', 'business startup costs SA', 'company registration calculator SA', 'SMAS registration fees', 'VAT registration cost SA', 'business license fees SA', 'SA entrepreneur costs'
+    'CIPC registration cost',
+    'register Pty Ltd South Africa',
+    'company registration South Africa cost',
+    'CIPC fees 2026',
+    'how to register a company in South Africa',
+    'Pty Ltd registration cost',
+    'CIPC online registration',
+    'close corporation registration',
+    'SARS registration for business',
+    'CIPC annual return fees',
+    'company registration calculator',
+    'register a business South Africa',
+    'CIPC name reservation cost',
+    'B-BBEE registration cost',
+    'VAT registration South Africa'
   ],
   alternates: {
     canonical: '/south-africa-business-registration-calculator',
   },
   openGraph: {
-    title: 'South Africa Business Registration Calculator 2025 | Free CIPC & SARS Fees',
-    description: '🏢 Calculate SA business registration costs! CIPC fees, SARS registration, compliance costs with 2025 rates. Free tool for 100,000+ entrepreneurs.',
+    title: 'CIPC Company Registration Cost Calculator 2026',
+    description: 'Calculate CIPC registration costs for Pty Ltd, CC & sole proprietor. Includes SARS registration, annual returns & compliance fees.',
     url: 'https://genius-insights.co.za/south-africa-business-registration-calculator',
     type: 'website',
     images: [
@@ -22,14 +36,14 @@ export const metadata: Metadata = {
         url: '/images/sa-business-registration-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Business Registration Calculator 2025 - CIPC & SARS Fees',
+        alt: 'CIPC Company Registration Cost Calculator 2026',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Business Registration Calculator 2025 | CIPC & SARS Fees',
-    description: '🏢 Calculate South African business registration costs! CIPC fees, SARS registration, compliance with 2025 rates.',
+    title: 'CIPC Registration Cost Calculator 2026 | Pty Ltd',
+    description: 'Calculate CIPC company registration costs for Pty Ltd, CC & sole proprietor in South Africa.',
     images: ['/images/sa-business-registration-og.jpg'],
   },
 };
@@ -48,12 +62,11 @@ export default function SouthAfricaBusinessRegistrationCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">🏢 CIPC & SARS Compliant</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                SA Business Registration Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
+                CIPC Company Registration <br/>
+                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">Cost Calculator 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate complete business registration costs in South Africa. CIPC fees, SARS registration, 
-                annual compliance costs, and ongoing requirements with 2025 rates.
+                Calculate how much it costs to register a Pty Ltd, Close Corporation or sole proprietor in South Africa. CIPC fees, SARS registration, annual returns and compliance costs.
               </p>
               
               {/* Stats Bar */}
@@ -71,7 +84,7 @@ export default function SouthAfricaBusinessRegistrationCalculatorPage() {
                   <div className="text-white/80 text-sm">Compliant</div>
                 </div>
                 <div className="bg-white/20 rounded-2xl px-6 py-4 text-center backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-white">2025</div>
+                  <div className="text-2xl font-bold text-white">2026</div>
                   <div className="text-white/80 text-sm">Updated Fees</div>
                 </div>
               </div>
@@ -115,11 +128,11 @@ export default function SouthAfricaBusinessRegistrationCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  SA Business Entity Types
+                  Pty Ltd vs CC vs Sole Proprietor - Which to Register?
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Choose the right business structure for your needs. Each entity type has different 
-                  registration costs, compliance requirements, and tax implications.
+                  Choose the right CIPC business structure for your needs. Each entity type has different
+                  registration costs, compliance requirements, and tax implications under South African law.
                 </p>
                 
                 <div className="space-y-4">
@@ -144,7 +157,7 @@ export default function SouthAfricaBusinessRegistrationCalculatorPage() {
               
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  CIPC Registration Process
+                  How to Register a Pty Ltd at CIPC (Step-by-Step)
                 </h3>
                 
                 <div className="space-y-4">

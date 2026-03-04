@@ -4,36 +4,37 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Inflation Calculator 2025 | CPI & Purchasing Power Calculator',
-  description: 'Free SA inflation calculator 2025. Calculate the impact of inflation on your money. Historical CPI rates, purchasing power calculator, future value estimator.',
+  title: 'Inflation Calculator SA 2026 | CPI & Cost of Living',
+  description: 'What is the inflation rate in South Africa? Free CPI inflation calculator with historical rates from Stats SA. See how the cost of living affects your money.',
   keywords: [
-    'inflation calculator south africa 2025',
-    'cpi calculator SA',
-    'purchasing power calculator',
-    'inflation rate south africa',
-    'cost of living calculator',
-    'future value calculator',
-    'rand value over time',
-    'money value calculator',
-    'inflation impact calculator',
-    'sa inflation history',
-    'price increase calculator',
-    'sarb inflation target',
-    'real value calculator'
+    'inflation rate south africa 2026',
+    'inflation calculator south africa',
+    'CPI calculator south africa',
+    'what is the inflation rate in south africa',
+    'cost of living calculator south africa',
+    'south africa CPI rate 2026',
+    'purchasing power calculator rand',
+    'Stats SA inflation rate',
+    'SARB inflation target 3 to 6 percent',
+    'rand value over time calculator',
+    'inflation impact on salary south africa',
+    'food inflation south africa 2026',
+    'historical inflation rate south africa',
+    'real value of money calculator SA'
   ],
   alternates: {
     canonical: '/south-africa-inflation-calculator',
   },
   openGraph: {
-    title: 'South Africa Inflation Calculator 2025 | CPI Calculator',
-    description: '📈 Calculate inflation impact! See how your money loses value over time. Historical SA CPI rates.',
+    title: 'Inflation Calculator SA 2026 | CPI & Cost of Living',
+    description: 'What is the inflation rate in South Africa? Calculate how CPI and cost of living changes affect your purchasing power.',
     url: 'https://genius-insights.co.za/south-africa-inflation-calculator',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Inflation Calculator 2025',
-    description: '📈 Calculate inflation impact on your money with historical SA CPI rates.',
+    title: 'Inflation Calculator SA 2026 | CPI & Cost of Living',
+    description: 'What is the inflation rate in South Africa? Calculate how inflation erodes your purchasing power with historical CPI data.',
   },
 };
 
@@ -51,12 +52,12 @@ export default function SouthAfricaInflationCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">📈 CPI & Purchasing Power</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Inflation Calculator <br/>
-                <span className="bg-gradient-to-r from-indigo-200 to-purple-200 bg-clip-text text-transparent">South Africa 2025</span>
+                What Is the Inflation Rate <br/>
+                <span className="bg-gradient-to-r from-indigo-200 to-purple-200 bg-clip-text text-transparent">in South Africa? (2026)</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                See how inflation erodes your purchasing power over time. Calculate the future value
-                of money or compare what things cost in the past.
+                Calculate how inflation and the cost of living erode your purchasing power.
+                Uses official Stats SA CPI data and SARB's 3-6% inflation target band.
               </p>
 
               {/* Stats Bar */}
@@ -113,11 +114,11 @@ export default function SouthAfricaInflationCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Understanding Inflation
+                  How CPI Inflation Affects Your Money in SA
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Inflation measures how prices increase over time, eroding your money's purchasing power.
-                  The SA Reserve Bank targets inflation between 3-6% to maintain economic stability.
+                  Stats SA measures the Consumer Price Index (CPI) monthly. The SARB targets 3-6% inflation.
+                  If your salary increase is below CPI, you are effectively earning less each year.
                 </p>
 
                 <div className="space-y-4">

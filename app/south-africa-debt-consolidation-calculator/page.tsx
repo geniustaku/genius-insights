@@ -4,31 +4,33 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Debt Consolidation Calculator 2025 | Free Loan Consolidation Savings Calculator',
-  description: 'Free SA debt consolidation calculator 2025. Compare multiple debts vs. single consolidation loan. Calculate monthly savings, total interest, payback time. Credit cards, personal loans, store accounts - see if consolidation saves money.',
+  title: 'Debt Consolidation Calculator SA 2026 | Save',
+  description: 'Should I consolidate my debt? Free SA calculator compares your credit cards, store accounts & loans vs one consolidation loan. See how much you save monthly. Debt review vs consolidation.',
   keywords: [
-    'debt consolidation calculator South Africa 2025',
-    'loan consolidation calculator SA',
-    'debt consolidation savings calculator',
-    'consolidate debt South Africa',
-    'debt review calculator SA',
-    'multiple debt calculator',
-    'credit card consolidation SA',
-    'personal loan consolidation calculator',
-    'debt payoff calculator South Africa',
-    'consolidation loan calculator',
-    'debt management calculator SA',
-    'reduce debt payments calculator',
-    'debt relief calculator South Africa',
-    'compare debt consolidation',
-    'consolidation vs current debt'
+    'debt consolidation calculator south africa',
+    'consolidate my debt south africa',
+    'debt consolidation loan south africa',
+    'debt review vs debt consolidation',
+    'how to consolidate debt south africa',
+    'credit card debt consolidation SA',
+    'store account consolidation calculator',
+    'debt consolidation calculator with interest',
+    'combine debts into one payment SA',
+    'debt payoff calculator south africa',
+    'debt relief calculator south africa',
+    'reduce monthly debt payments calculator',
+    'debt review calculator south africa',
+    'consolidation loan interest rates SA 2026',
+    'is debt consolidation worth it south africa',
+    'best debt consolidation loans south africa',
+    'debt management calculator south africa'
   ],
   alternates: {
     canonical: '/south-africa-debt-consolidation-calculator',
   },
   openGraph: {
-    title: 'South Africa Debt Consolidation Calculator 2025 | Free Savings Calculator',
-    description: '💳 Calculate debt consolidation savings! Compare multiple debts vs. single loan. See monthly savings, total interest reduction & payoff time.',
+    title: 'Debt Consolidation Calculator SA 2026 | Save',
+    description: 'Should I consolidate my debt? Compare multiple debts vs one loan. See monthly savings, interest reduction & payoff time. Free SA calculator.',
     url: 'https://genius-insights.co.za/south-africa-debt-consolidation-calculator',
     type: 'website',
     images: [
@@ -36,14 +38,14 @@ export const metadata: Metadata = {
         url: '/images/sa-debt-consolidation-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Debt Consolidation Calculator 2025',
+        alt: 'Debt Consolidation Calculator South Africa 2026 - Compare & Save',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Debt Consolidation Calculator 2025 | Compare Loans vs. Multiple Debts',
-    description: '💳 Calculate if debt consolidation saves money! Monthly payment reduction, total interest comparison.',
+    title: 'Debt Consolidation Calculator SA 2026 | Save',
+    description: 'Should I consolidate my debt? Compare credit cards, store accounts & loans vs one payment. See your monthly savings.',
     images: ['/images/sa-debt-consolidation-calculator-og.jpg'],
   },
 };
@@ -63,11 +65,11 @@ export default function SouthAfricaDebtConsolidationCalculatorPage() {
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
                 Debt Consolidation Calculator <br/>
-                <span className="bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">South Africa 2025</span>
+                <span className="bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Compare your current multiple debts against a single consolidation loan. Calculate monthly savings,
-                total interest reduction, and see if debt consolidation is right for you.
+                Should I consolidate my debt? Compare your credit cards, store accounts and personal loans
+                against one consolidation loan. See how much you can save on monthly payments and total interest.
               </p>
 
               {/* Stats Bar */}
@@ -139,11 +141,12 @@ export default function SouthAfricaDebtConsolidationCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  What is Debt Consolidation?
+                  How to Consolidate Debt in South Africa
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Debt consolidation combines multiple debts (credit cards, personal loans, store accounts) into
-                  one single loan with a lower interest rate and simplified monthly payment.
+                  Debt consolidation combines your credit cards, store accounts and personal loans into
+                  one single payment with a lower interest rate. Use our calculator above to see if
+                  consolidation will save you money each month.
                 </p>
 
                 <div className="space-y-4">
@@ -168,7 +171,7 @@ export default function SouthAfricaDebtConsolidationCalculatorPage() {
 
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  When to Consolidate Debt
+                  Is Debt Consolidation Worth It in SA?
                 </h3>
 
                 <div className="space-y-4 mb-8">

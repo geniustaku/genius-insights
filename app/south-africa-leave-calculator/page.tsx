@@ -4,37 +4,37 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Leave Calculator 2025 | BCEA Annual Leave & Sick Leave Calculator',
-  description: 'Free SA leave calculator 2025. Calculate annual leave, sick leave, family responsibility leave. BCEA compliant leave entitlements and accrued leave payout calculator.',
+  title: 'Leave Days Calculator SA 2026 | BCEA Entitlement',
+  description: 'How many leave days do I get in South Africa? Free BCEA leave calculator for annual leave (21 days), sick leave (30 days) and leave payout. Know your rights.',
   keywords: [
-    'leave calculator south africa 2025',
-    'annual leave calculator SA',
-    'sick leave calculator',
-    'leave days calculator',
-    'BCEA leave entitlement',
-    'how many leave days',
-    'leave payout calculator',
-    'accrued leave calculator',
-    'family responsibility leave',
-    'maternity leave calculator',
-    'paternity leave SA',
-    'leave balance calculator',
-    'holiday leave calculator',
-    'vacation days calculator SA'
+    'how many leave days do I get in south africa',
+    'leave calculator south africa 2026',
+    'annual leave entitlement south africa BCEA',
+    'sick leave days south africa',
+    'leave payout calculator south africa',
+    'BCEA leave days calculator',
+    'accrued leave payout calculator SA',
+    'family responsibility leave south africa',
+    'maternity leave calculator south africa',
+    'paternity leave south africa 2026',
+    'how many sick days per year south africa',
+    'leave balance calculator SA',
+    'unused leave payout on resignation',
+    'annual leave accrual rate south africa'
   ],
   alternates: {
     canonical: '/south-africa-leave-calculator',
   },
   openGraph: {
-    title: 'South Africa Leave Calculator 2025 | BCEA Leave Entitlements',
-    description: '🏖️ Calculate your leave! Annual leave, sick leave, family leave. BCEA compliant calculator.',
+    title: 'Leave Days Calculator SA 2026 | BCEA Entitlement',
+    description: 'How many leave days do I get in South Africa? Calculate annual leave, sick leave and leave payout per the BCEA.',
     url: 'https://genius-insights.co.za/south-africa-leave-calculator',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Leave Calculator 2025',
-    description: '🏖️ Calculate annual leave, sick leave, family leave. BCEA compliant.',
+    title: 'Leave Days Calculator SA 2026 | BCEA Entitlement',
+    description: 'How many leave days do I get? Calculate annual leave (21 days), sick leave (30 days) and leave payout per BCEA.',
   },
 };
 
@@ -52,12 +52,12 @@ export default function SouthAfricaLeaveCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">🏖️ BCEA Leave Entitlements</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Leave Calculator <br/>
-                <span className="bg-gradient-to-r from-sky-200 to-blue-200 bg-clip-text text-transparent">South Africa 2025</span>
+                How Many Leave Days Do I Get <br/>
+                <span className="bg-gradient-to-r from-sky-200 to-blue-200 bg-clip-text text-transparent">in South Africa? (2026)</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate your leave entitlements according to BCEA. Track annual leave, sick leave,
-                family responsibility leave, and calculate your leave payout value.
+                Calculate your BCEA leave entitlement: 21 days annual leave, 30 days sick leave per cycle,
+                family responsibility leave, and your accrued leave payout value.
               </p>
 
               {/* Stats Bar */}
@@ -114,12 +114,11 @@ export default function SouthAfricaLeaveCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  BCEA Leave Rights
+                  Annual Leave Entitlement per BCEA
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  The Basic Conditions of Employment Act (BCEA) guarantees minimum leave entitlements
-                  for all employees in South Africa. These are minimum standards - your employer may
-                  offer more generous leave.
+                  The Basic Conditions of Employment Act (BCEA) Section 20-27 guarantees minimum leave days
+                  for all employees in South Africa. You accrue 1 leave day for every 17 days worked.
                 </p>
 
                 <div className="space-y-4">
@@ -165,7 +164,7 @@ export default function SouthAfricaLeaveCalculatorPage() {
                 </div>
 
                 <div className="p-6 bg-gradient-to-r from-sky-50 to-blue-50 rounded-2xl border border-sky-200">
-                  <h4 className="font-semibold text-sky-900 mb-2">Public Holidays 2025</h4>
+                  <h4 className="font-semibold text-sky-900 mb-2">Public Holidays 2026</h4>
                   <p className="text-sky-800 text-sm leading-relaxed">
                     12 public holidays in SA. If you work on a public holiday, you're entitled to double pay
                     or a day off. Public holidays don't count as annual leave.

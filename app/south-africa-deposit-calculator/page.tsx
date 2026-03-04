@@ -4,36 +4,40 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Fixed Deposit Calculator 2025 | Savings & Interest Calculator',
-  description: 'Free SA fixed deposit calculator 2025. Calculate returns on fixed deposits, savings accounts. Compare bank rates FNB, ABSA, Capitec, Nedbank. Interest tax calculator included.',
+  title: 'Fixed Deposit Calculator SA 2026 | Best Rates',
+  description: 'How much interest will I earn? Free SA fixed deposit calculator 2026. Compare best fixed deposit rates from Capitec, FNB, ABSA, Nedbank & African Bank. Compound interest & tax included.',
   keywords: [
-    'fixed deposit calculator south africa 2025',
-    'deposit interest calculator',
-    'savings calculator SA',
-    'bank interest calculator',
-    'compound interest calculator',
+    'fixed deposit calculator south africa',
+    'best fixed deposit rates south africa 2026',
+    'how much interest will I earn on savings',
+    'compound interest calculator south africa',
+    'capitec fixed deposit rates 2026',
     'fnb fixed deposit rates',
-    'capitec fixed deposit',
-    'absa fixed deposit calculator',
-    'nedbank deposit rates',
-    'african bank fixed deposit',
-    'interest on savings calculator',
-    'money market calculator',
-    'term deposit calculator'
+    'absa fixed deposit rates',
+    'nedbank fixed deposit rates',
+    'african bank fixed deposit rates',
+    'savings interest calculator south africa',
+    'fixed deposit rates comparison SA',
+    'notice deposit calculator south africa',
+    'money market rates south africa',
+    'tax free savings account calculator',
+    'term deposit calculator south africa',
+    'interest on R100 000 fixed deposit',
+    'best savings account rates south africa 2026'
   ],
   alternates: {
     canonical: '/south-africa-deposit-calculator',
   },
   openGraph: {
-    title: 'South Africa Fixed Deposit Calculator 2025 | Bank Interest Calculator',
-    description: '💰 Calculate fixed deposit returns! Compare SA bank rates. Tax on interest included.',
+    title: 'Fixed Deposit Calculator SA 2026 | Best Rates',
+    description: 'How much interest will I earn? Compare best fixed deposit rates from Capitec, FNB, ABSA, Nedbank & African Bank. Compound interest calculator.',
     url: 'https://genius-insights.co.za/south-africa-deposit-calculator',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Fixed Deposit Calculator 2025',
-    description: '💰 Calculate savings returns with compound interest and tax implications.',
+    title: 'Fixed Deposit Calculator SA 2026 | Best Rates',
+    description: 'How much interest will I earn? Compare best SA fixed deposit rates & calculate compound interest. Free calculator.',
   },
 };
 
@@ -51,12 +55,12 @@ export default function SouthAfricaDepositCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">💰 Fixed Deposit & Savings</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Deposit Calculator <br/>
-                <span className="bg-gradient-to-r from-cyan-200 to-blue-200 bg-clip-text text-transparent">South Africa 2025</span>
+                Fixed Deposit Calculator <br/>
+                <span className="bg-gradient-to-r from-cyan-200 to-blue-200 bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate returns on fixed deposits and savings accounts. Compare bank rates
-                and understand tax implications on your interest income.
+                How much interest will I earn? Calculate returns on fixed deposits with compound interest.
+                Compare the best rates from Capitec, FNB, ABSA, Nedbank and African Bank.
               </p>
 
               {/* Stats Bar */}
@@ -113,11 +117,11 @@ export default function SouthAfricaDepositCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Fixed Deposits in SA
+                  Best Fixed Deposit Rates in South Africa 2026
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                   Fixed deposits offer guaranteed returns at higher rates than savings accounts.
-                  You lock your money for a set period in exchange for better interest rates.
+                  Lock your money for a set period and earn more interest. Compare SA bank rates above.
                 </p>
 
                 <div className="space-y-4">
@@ -142,7 +146,7 @@ export default function SouthAfricaDepositCalculatorPage() {
 
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  Types of Deposits
+                  Fixed Deposit vs Notice Deposit vs Money Market
                 </h3>
 
                 <div className="space-y-4 mb-8">

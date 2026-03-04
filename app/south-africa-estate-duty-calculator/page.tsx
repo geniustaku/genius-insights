@@ -4,31 +4,31 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Estate Duty Calculator 2025 | Free Death Tax & Inheritance Tax Calculator',
-  description: 'Free SA estate duty calculator 2025. Calculate death tax (estate duty) on inheritance with R3.5M abatement, 20-25% rates, spouse deductions. Estate planning tool for wills, trusts & inheritance. SARS-compliant calculator.',
+  title: 'Estate Duty Calculator South Africa 2026 | SARS',
+  description: 'Free estate duty calculator for South Africa 2026. Calculate inheritance tax with R3.5M abatement, 20-25% rates & spouse deduction. How much estate duty will my heirs pay?',
   keywords: [
-    'estate duty calculator South Africa 2025',
-    'death tax calculator SA',
-    'inheritance tax calculator',
-    'estate duty rates South Africa',
-    'R3.5 million abatement',
-    'estate planning calculator SA',
-    'will and estate calculator',
-    'inheritance tax planning',
-    'estate duty exemption SA',
-    'death estate calculator',
-    'spouse deduction estate duty',
+    'estate duty calculator south africa',
+    'inheritance tax calculator south africa',
+    'death tax calculator south africa',
+    'estate duty south africa 2026',
+    'how much estate duty do I pay',
     'SARS estate duty calculator',
-    'estate duty threshold',
-    'estate tax South Africa',
-    'inheritance duty calculator'
+    'R3.5 million abatement estate duty',
+    'estate planning calculator south africa',
+    'estate duty rates south africa 2026',
+    'inheritance tax south africa exemption',
+    'estate duty spouse deduction',
+    'estate duty on property south africa',
+    'will and testament estate duty',
+    'estate duty threshold south africa',
+    'how to reduce estate duty south africa'
   ],
   alternates: {
     canonical: '/south-africa-estate-duty-calculator',
   },
   openGraph: {
-    title: 'South Africa Estate Duty Calculator 2025 | Free Inheritance Tax Calculator',
-    description: '⚰️ Calculate estate duty (death tax)! R3.5M abatement, 20-25% rates, spouse deductions. Plan your estate & reduce inheritance tax.',
+    title: 'Estate Duty Calculator South Africa 2026 | SARS',
+    description: 'Calculate estate duty & inheritance tax in South Africa. R3.5M abatement, 20-25% rates, spouse deductions. Free estate planning calculator.',
     url: 'https://genius-insights.co.za/south-africa-estate-duty-calculator',
     type: 'website',
     images: [
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
         url: '/images/sa-estate-duty-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Estate Duty Calculator 2025',
+        alt: 'South Africa Estate Duty Calculator 2026',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Estate Duty Calculator 2025 | Death Tax & Inheritance Planning',
-    description: '⚰️ Calculate estate duty! R3.5M exemption, spouse deductions, 20-25% rates. Estate planning tool.',
+    title: 'Estate Duty Calculator South Africa 2026 | SARS',
+    description: 'How much inheritance tax will my heirs pay? Estate duty calculator with R3.5M exemption, spouse deduction, 20-25% rates.',
     images: ['/images/sa-estate-duty-calculator-og.jpg'],
   },
 };
@@ -62,12 +62,12 @@ export default function SouthAfricaEstateDutyCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">⚰️ Estate Planning & Inheritance Tax</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Estate Duty Calculator <br/>
-                <span className="bg-gradient-to-r from-pink-200 to-purple-200 bg-clip-text text-transparent">South Africa 2025</span>
+                Estate Duty & Inheritance Tax Calculator <br/>
+                <span className="bg-gradient-to-r from-pink-200 to-purple-200 bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate estate duty (death tax) on your estate with accurate 2025 rates. Plan your inheritance,
-                minimize tax liability with spouse deductions, trusts, and charitable bequests.
+                How much estate duty will my heirs pay? Calculate inheritance tax on your estate with 2026 SARS rates,
+                R3.5M abatement, spouse deductions, trusts and charitable bequests.
               </p>
 
               {/* Stats Bar */}
@@ -139,7 +139,7 @@ export default function SouthAfricaEstateDutyCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  What is Estate Duty in South Africa?
+                  Estate Duty (Inheritance Tax) in South Africa Explained
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                   Estate Duty (also called death tax or inheritance tax) is a tax levied on the estate of a deceased
@@ -168,7 +168,7 @@ export default function SouthAfricaEstateDutyCalculatorPage() {
 
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  Estate Duty Calculation Formula
+                  How SARS Calculates Estate Duty Step-by-Step
                 </h3>
 
                 <div className="space-y-4 mb-8">
@@ -222,7 +222,7 @@ export default function SouthAfricaEstateDutyCalculatorPage() {
             {/* Estate Planning Strategies */}
             <div className="mt-12 pt-8 border-t border-gray-200">
               <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                Strategies to Reduce Estate Duty
+                How to Reduce Estate Duty in South Africa
               </h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border border-indigo-100">

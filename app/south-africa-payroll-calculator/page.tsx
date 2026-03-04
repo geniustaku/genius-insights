@@ -4,31 +4,31 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Payroll Calculator 2025 | Free PAYE, UIF & Take-Home Pay Calculator',
-  description: 'Free SA payroll calculator 2025. Calculate take-home salary with PAYE tax, UIF, pension, medical aid deductions. Accurate monthly & annual net pay calculator for employees & employers. SARS-compliant payroll tool.',
+  title: 'Salary & PAYE Calculator South Africa 2026',
+  description: 'Free salary calculator South Africa 2026. Calculate take-home pay after PAYE tax, UIF & pension deductions. Gross to net pay, payslip breakdown for employees & employers.',
   keywords: [
-    'payroll calculator South Africa 2025',
-    'take-home pay calculator SA',
-    'salary calculator South Africa',
-    'PAYE calculator SA',
-    'UIF calculator',
-    'net salary calculator South Africa',
-    'gross to net salary calculator',
-    'employee tax calculator SA',
-    'SARS PAYE calculator',
-    'monthly salary calculator',
-    'annual salary calculator SA',
-    'pension deduction calculator',
-    'medical aid tax credit',
-    'employer cost calculator SA',
-    'SDL calculator South Africa'
+    'salary calculator south africa 2026',
+    'PAYE calculator south africa',
+    'take home pay calculator south africa',
+    'payroll calculator south africa',
+    'gross to net salary calculator south africa',
+    'net pay calculator south africa',
+    'how much PAYE do I pay',
+    'UIF calculator south africa',
+    'payslip calculator south africa',
+    'monthly salary calculator after tax',
+    'employer cost calculator south africa',
+    'SDL calculator south africa',
+    'pension deduction calculator SARS',
+    'medical aid tax credit calculator',
+    'salary after deductions south africa'
   ],
   alternates: {
     canonical: '/south-africa-payroll-calculator',
   },
   openGraph: {
-    title: 'South Africa Payroll Calculator 2025 | Free Take-Home Pay Calculator',
-    description: '💼 Calculate take-home salary! PAYE, UIF, pension, medical aid deductions. See monthly & annual net pay. For employees & employers.',
+    title: 'Salary & PAYE Calculator South Africa 2026',
+    description: 'Calculate take-home salary after PAYE, UIF & pension deductions. Free gross to net salary calculator for South Africa 2026.',
     url: 'https://genius-insights.co.za/south-africa-payroll-calculator',
     type: 'website',
     images: [
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
         url: '/images/sa-payroll-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Payroll Calculator 2025',
+        alt: 'South Africa Payroll Calculator 2026',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Payroll Calculator 2025 | PAYE, UIF & Net Salary Calculator',
-    description: '💼 Calculate take-home pay with PAYE, UIF, pension & medical aid deductions. SARS-compliant.',
+    title: 'Salary & PAYE Calculator South Africa 2026',
+    description: 'Calculate your take-home pay with PAYE, UIF, pension & medical aid deductions. Free SARS-compliant salary calculator.',
     images: ['/images/sa-payroll-calculator-og.jpg'],
   },
 };
@@ -62,12 +62,12 @@ export default function SouthAfricaPayrollCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">💼 SARS-Compliant Payroll Calculator</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Payroll & Take-Home Pay Calculator <br/>
-                <span className="bg-gradient-to-r from-cyan-200 to-blue-200 bg-clip-text text-transparent">South Africa 2025</span>
+                Salary & PAYE Calculator <br/>
+                <span className="bg-gradient-to-r from-cyan-200 to-blue-200 bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate your take-home salary with accurate PAYE tax, UIF, pension, and medical aid deductions.
-                Perfect for employees checking their payslips and employers calculating payroll costs.
+                How much PAYE do I pay? Calculate your take-home salary after PAYE tax, UIF, pension and medical aid deductions.
+                Gross to net pay calculator for employees and employers.
               </p>
 
               {/* Stats Bar */}
@@ -139,7 +139,7 @@ export default function SouthAfricaPayrollCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Understanding Your Payslip Deductions
+                  PAYE, UIF & Payslip Deductions Explained
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                   South African employees have several statutory and voluntary deductions from their gross salary.
@@ -168,7 +168,7 @@ export default function SouthAfricaPayrollCalculatorPage() {
 
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  PAYE Tax Brackets 2024/2025
+                  South Africa PAYE Tax Brackets 2026/2027
                 </h3>
 
                 <div className="space-y-3 mb-8">
@@ -222,7 +222,7 @@ export default function SouthAfricaPayrollCalculatorPage() {
                       <span className="text-teal-600 text-sm font-bold">💡</span>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-teal-900 mb-2">Tax Rebates 2024/2025</h4>
+                      <h4 className="font-semibold text-teal-900 mb-2">Tax Rebates 2026/2027</h4>
                       <ul className="text-teal-800 text-sm leading-relaxed space-y-1">
                         <li>• Primary rebate: R17,235 (all taxpayers)</li>
                         <li>• Secondary rebate: R9,444 (age 65+)</li>

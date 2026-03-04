@@ -4,31 +4,31 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'Capitec Bank Calculator 2025 | Free Capitec Loan, Savings & Account Calculator',
-  description: 'Free Capitec calculator 2025. Calculate Capitec personal loans, GlobalOne fees, fixed deposits, credit facilities & Access home loans. Official rates for South Africa\'s largest bank. Used by 20,000+ customers.',
+  title: 'Capitec Personal Loan Calculator 2026 | Free',
+  description: 'Capitec personal loan calculator 2026. How much can I borrow from Capitec? Calculate loan repayment, GlobalOne fees, fixed deposit & Access home loan rates.',
   keywords: [
-    'Capitec calculator 2025',
-    'Capitec loan calculator',
     'Capitec personal loan calculator',
-    'GlobalOne calculator',
-    'Capitec fixed deposit calculator',
-    'Capitec savings calculator',
+    'how much can I borrow from Capitec',
+    'Capitec loan calculator',
+    'Capitec affordability calculator',
     'Capitec home loan calculator',
     'Capitec Access home loan',
     'Capitec credit facility calculator',
-    'Capitec bank fees',
-    'Capitec interest rates 2025',
-    'Capitec affordability calculator',
+    'Capitec fixed deposit calculator',
+    'Capitec interest rate 2026',
     'GlobalOne account fees',
-    'Capitec bank calculator SA',
-    'how much can I borrow Capitec'
+    'Capitec loan repayment calculator',
+    'Capitec bank fees 2026',
+    'Capitec savings calculator',
+    'Capitec loan application',
+    'Capitec monthly instalment'
   ],
   alternates: {
     canonical: '/south-africa-capitec-calculator',
   },
   openGraph: {
-    title: 'Capitec Bank Calculator 2025 | Free Loan & Savings Calculator',
-    description: '🏦 Calculate Capitec loans, savings & bank fees! GlobalOne, personal loans, fixed deposits with 2025 rates. SA\'s largest bank calculator.',
+    title: 'Capitec Personal Loan Calculator 2026',
+    description: 'How much can I borrow from Capitec? Calculate personal loan repayment, GlobalOne fees, fixed deposits & Access home loan with 2026 rates.',
     url: 'https://genius-insights.co.za/south-africa-capitec-calculator',
     type: 'website',
     images: [
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
         url: '/images/sa-capitec-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'Capitec Bank Calculator 2025',
+        alt: 'Capitec Personal Loan Calculator 2026',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Capitec Calculator 2025 | Loan, Savings & Account Fees',
-    description: '🏦 Calculate Capitec personal loans, GlobalOne fees & fixed deposits with 2025 rates!',
+    title: 'Capitec Personal Loan Calculator 2026',
+    description: 'How much can I borrow from Capitec? Calculate loan repayment, GlobalOne fees & fixed deposits.',
     images: ['/images/sa-capitec-calculator-og.jpg'],
   },
 };
@@ -62,12 +62,11 @@ export default function SouthAfricaCapitecCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">🏦 South Africa's Largest Bank</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Capitec Bank Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
+                Capitec Loan Repayment <br/>
+                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">& Personal Loan Calculator 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate Capitec personal loans, credit facilities, GlobalOne bank fees, fixed deposits,
-                and Access home loans with current 2025 interest rates and fees.
+                How much can I borrow from Capitec? Calculate personal loan repayment, credit facility, GlobalOne fees, fixed deposit and Access home loan with current 2026 rates.
               </p>
 
               {/* Stats Bar */}
@@ -139,7 +138,7 @@ export default function SouthAfricaCapitecCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Why Choose Capitec Bank?
+                  Why Choose Capitec for Personal Loans?
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                   Capitec is South Africa's largest retail bank with over 21 million active clients.
@@ -168,7 +167,7 @@ export default function SouthAfricaCapitecCalculatorPage() {
 
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  Capitec Products 2025
+                  Capitec Products 2026
                 </h3>
 
                 <div className="space-y-4 mb-8">

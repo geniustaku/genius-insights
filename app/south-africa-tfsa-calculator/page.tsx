@@ -4,31 +4,31 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa TFSA Calculator 2025 | Free Tax-Free Savings Account Growth Calculator',
-  description: 'Free SA TFSA calculator 2025. Calculate tax-free savings growth with R36K annual limit, R500K lifetime cap. Compare TFSA vs taxable investments. Tax savings, compound interest, investment planning tool. SARS-approved tax-free account.',
+  title: 'Tax Free Savings Account Calculator SA 2026',
+  description: 'TFSA calculator South Africa. Calculate tax-free savings growth with R36,000 annual limit & R500,000 lifetime cap. Compare TFSA vs taxable investments. SARS rules.',
   keywords: [
-    'TFSA calculator South Africa 2025',
-    'tax-free savings account calculator',
-    'TFSA growth calculator SA',
+    'tax free savings account calculator',
+    'TFSA calculator South Africa',
+    'tax free savings account South Africa',
     'R36000 annual limit TFSA',
-    'R500000 lifetime limit',
-    'tax-free investment calculator',
-    'TFSA vs taxable investment',
-    'tax-free savings growth',
+    'R500000 lifetime limit TFSA',
     'TFSA contribution calculator',
+    'TFSA vs taxable investment',
     'best TFSA South Africa',
-    'TFSA tax savings calculator',
-    'compound interest TFSA',
-    'TFSA investment returns',
-    'tax-free account SA',
-    'SARS TFSA rules'
+    'tax free investment calculator',
+    'TFSA compound interest calculator',
+    'SARS TFSA rules 2026',
+    'TFSA over-contribution penalty',
+    'EasyEquities TFSA',
+    'Satrix TFSA',
+    'Allan Gray TFSA'
   ],
   alternates: {
     canonical: '/south-africa-tfsa-calculator',
   },
   openGraph: {
-    title: 'South Africa TFSA Calculator 2025 | Free Tax-Free Savings Calculator',
-    description: '📈 Calculate TFSA growth tax-free! R36K annual, R500K lifetime limits. See tax savings vs. regular investments. Maximize your returns!',
+    title: 'Tax Free Savings Account Calculator SA 2026',
+    description: 'Calculate TFSA growth with R36,000 annual limit & R500,000 lifetime cap. Compare tax-free vs taxable investment returns.',
     url: 'https://genius-insights.co.za/south-africa-tfsa-calculator',
     type: 'website',
     images: [
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
         url: '/images/sa-tfsa-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa TFSA Calculator 2025',
+        alt: 'Tax Free Savings Account Calculator South Africa 2026',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA TFSA Calculator 2025 | Tax-Free Savings Growth & Returns',
-    description: '📈 Calculate TFSA growth! R36K annual, R500K lifetime limits. See your tax-free investment returns.',
+    title: 'Tax Free Savings Account Calculator SA 2026',
+    description: 'Calculate TFSA growth with R36,000 annual & R500,000 lifetime limits. See tax-free vs taxable returns.',
     images: ['/images/sa-tfsa-calculator-og.jpg'],
   },
 };
@@ -62,12 +62,12 @@ export default function SouthAfricaTFSACalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">📈 Tax-Free Growth & Compound Interest</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                TFSA Calculator <br/>
-                <span className="bg-gradient-to-r from-green-200 to-teal-200 bg-clip-text text-transparent">South Africa 2025</span>
+                Tax Free Savings Account <br/>
+                <span className="bg-gradient-to-r from-green-200 to-teal-200 bg-clip-text text-transparent">Calculator South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate tax-free savings account (TFSA) growth with R36,000 annual and R500,000 lifetime limits.
-                See how much tax you'll save compared to regular taxable investments.
+                Calculate your TFSA growth with the R36,000 annual limit and R500,000 lifetime cap.
+                See how much tax you save compared to taxable investments with this free calculator.
               </p>
 
               {/* Stats Bar */}
@@ -139,7 +139,7 @@ export default function SouthAfricaTFSACalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  What is a TFSA in South Africa?
+                  What is a Tax Free Savings Account (TFSA)?
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                   A Tax-Free Savings Account (TFSA) is a government-approved investment account where all growth,
@@ -220,7 +220,7 @@ export default function SouthAfricaTFSACalculatorPage() {
             {/* TFSA Rules & Penalties */}
             <div className="mt-12 pt-8 border-t border-gray-200">
               <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                TFSA Rules & Penalties (2025)
+                TFSA Rules & Penalties (2026)
               </h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-6 border border-emerald-100">

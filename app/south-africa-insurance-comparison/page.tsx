@@ -371,11 +371,11 @@ export default function SouthAfricaInsuranceComparison() {
               <span className="text-white/90 font-medium text-sm tracking-wide">🇿🇦 South African Insurance Market</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              South Africa Insurance <br/>
-              <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">Comparison 2025</span>
+              Compare Cheapest Insurance <br/>
+              <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">South Africa 2026</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-              Compare life, motor, home, medical aid, and funeral cover from Sanlam, Discovery, Old Mutual, and other top South African insurers.
+              Compare the cheapest life, car, home, medical aid and funeral cover quotes from Sanlam, Discovery, Old Mutual, OUTsurance, Santam and more.
             </p>
           </div>
         </div>
@@ -384,8 +384,8 @@ export default function SouthAfricaInsuranceComparison() {
       <div className="max-w-6xl mx-auto px-8 py-16">
         <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">South African Insurance Comparison Tool</h2>
-            <p className="text-gray-600 text-lg">Compare quotes from Sanlam, Discovery, Old Mutual, Momentum, Liberty, and more</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Compare Insurance Quotes Side-by-Side</h2>
+            <p className="text-gray-600 text-lg">Find the cheapest insurance in South Africa - compare quotes from Sanlam, Discovery, Old Mutual, OUTsurance and more</p>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-12">
@@ -607,7 +607,7 @@ export default function SouthAfricaInsuranceComparison() {
           {/* Provider Comparison Section */}
           {comparisonResults.length > 0 && (
             <div className="mt-12">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Compare South African Insurance Providers</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Cheapest Insurance Providers Compared</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {comparisonResults.slice(0, 6).map((comparison, index) => (
                   <div key={index} className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
@@ -672,7 +672,7 @@ export default function SouthAfricaInsuranceComparison() {
 
           {/* South African Insurance Market Information */}
           <div className="mt-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">South African Insurance Market 2025</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">South African Insurance Market 2026</h3>
             <div className="grid md:grid-cols-4 gap-6">
               <div className="bg-gray-50 rounded-xl p-6 text-center">
                 <h4 className="font-semibold text-gray-900 mb-2">Life Insurance</h4>

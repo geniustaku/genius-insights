@@ -173,6 +173,17 @@ p, li, span {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
 }
+
+/* Ensure all form inputs have visible black text */
+input, textarea, select {
+  color: #111827;
+}
+
+::placeholder {
+  color: #9CA3AF;
+  opacity: 1;
+}
+
 /* Article content styling - Enhanced readability */
 .article-content {
   max-width: 700px;

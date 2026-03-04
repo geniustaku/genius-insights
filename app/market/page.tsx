@@ -114,11 +114,11 @@ export default function MarketPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              South African Market Data & Financial Rates
+              South Africa Market Data: JSE, Rand &amp; Interest Rates
             </h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Live financial market data, interest rates, currency exchange rates, and economic indicators 
-              for South Africa. Updated in real-time for accurate financial planning and investment decisions.
+              Live JSE All Share index, USD/ZAR exchange rate, SARB repo rate, fuel prices and bank interest rates.
+              Free South African financial data updated daily for investment and planning decisions.
             </p>
           </div>
 
@@ -144,7 +144,7 @@ export default function MarketPage() {
               
               {/* Key Indicators */}
               <div className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Key Financial Indicators</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Live SA Financial Indicators &amp; Exchange Rates</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {marketData.indicators.map((indicator, index) => (
                     <div key={index} className="bg-white rounded-lg border border-gray-200 p-4">
@@ -261,7 +261,7 @@ export default function MarketPage() {
                 {/* Fuel Prices Tab */}
                 {selectedTab === 'fuel' && (
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-6">Current Fuel Prices (January 2025)</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-6">Current Fuel Prices (March 2026)</h3>
                     <div className="grid md:grid-cols-2 gap-4">
                       {marketData.fuelPrices.map((fuel, index) => (
                         <div key={index} className="bg-gray-50 rounded-lg p-4">
@@ -284,7 +284,7 @@ export default function MarketPage() {
                 {/* Tax Rates Tab */}
                 {selectedTab === 'tax' && (
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-6">2025/2026 Tax Year Rates</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-6">2026/2027 Tax Year Rates</h3>
                     <div className="space-y-4">
                       {marketData.taxRates.map((bracket, index) => (
                         <div key={index} className="bg-gray-50 rounded-lg p-4">
@@ -299,7 +299,7 @@ export default function MarketPage() {
                       ))}
                     </div>
                     <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-                      <h4 className="font-semibold text-blue-900 mb-2">Tax Rebates for 2025/2026</h4>
+                      <h4 className="font-semibold text-blue-900 mb-2">Tax Rebates for 2026/2027</h4>
                       <ul className="text-sm text-blue-800 space-y-1">
                         <li>• Primary rebate: R17,235 (under 65)</li>
                         <li>• Secondary rebate: R9,444 (65-74 years)</li>

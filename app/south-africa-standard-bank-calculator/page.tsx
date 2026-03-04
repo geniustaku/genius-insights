@@ -120,11 +120,11 @@ export default function SouthAfricaStandardBankCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">🇿🇦 Standard Bank South Africa</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Standard Bank Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
+                Standard Bank Bond Repayment <br/>
+                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">& Loan Calculator 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate Standard Bank loans, savings, investments, and insurance products with current 2025 rates and terms.
+                Calculate your Standard Bank home loan bond repayment, personal loan instalment, vehicle finance and fixed deposit returns with current 2026 rates.
               </p>
             </div>
           </div>
@@ -133,8 +133,8 @@ export default function SouthAfricaStandardBankCalculatorPage() {
         <div className="max-w-6xl mx-auto px-8 py-16">
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Standard Bank Product Calculator</h2>
-              <p className="text-gray-600 text-lg">Calculate payments, returns, and costs for Standard Bank products</p>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Standard Bank Home Loan & Personal Loan Calculator</h2>
+              <p className="text-gray-600 text-lg">Calculate your monthly bond repayment, loan instalment and savings returns at current Standard Bank rates</p>
             </div>
             
             <div className="grid lg:grid-cols-2 gap-12">
@@ -288,7 +288,7 @@ export default function SouthAfricaStandardBankCalculatorPage() {
 
             {/* Standard Bank Products & Services */}
             <div className="mt-12">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Standard Bank Products 2025</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Standard Bank Interest Rates & Bond Repayment Guide 2026</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-gray-50 rounded-xl p-6 text-center">
                   <h4 className="font-semibold text-gray-900 mb-2">Home Loans</h4>

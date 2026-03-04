@@ -3,31 +3,31 @@ import Link from 'next/link';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'SARS Tax Guides 2025 | Complete South Africa Tax Filing & eFiling Help',
-  description: 'Free comprehensive SARS guides for 2025: eFiling registration, tax returns, provisional tax, refunds, tax clearance. Step-by-step tutorials for South African taxpayers.',
+  title: 'SARS eFiling Guide 2026 | Tax Returns & Refunds',
+  description: 'Free SARS eFiling guides for 2026. How to register, submit ITR12 tax returns, claim deductions, track refunds and get tax clearance certificates. Step-by-step help.',
   keywords: [
-    'SARS guides 2025',
-    'SARS eFiling help',
-    'South Africa tax guides',
-    'SARS tax filing tutorials',
-    'how to use SARS eFiling',
-    'SARS step by step guide',
-    'tax return help South Africa',
+    'SARS eFiling guide 2026',
+    'how to submit tax return SARS',
+    'SARS eFiling registration step by step',
+    'SARS tax refund guide',
+    'ITR12 filing guide South Africa',
     'SARS provisional tax guide',
-    'SARS refund help',
-    'tax clearance certificate guide',
-    'SARS eFiling registration',
-    'South African tax help',
-    'SARS filing assistance',
-    'tax compliance South Africa',
-    'SARS how to guides'
+    'tax deductions South Africa 2026',
+    'SARS tax clearance certificate how to',
+    'how to file taxes South Africa',
+    'SARS income tax guide',
+    'tax return help South Africa free',
+    'SARS eFiling tutorial',
+    'how to claim tax refund SARS',
+    'self employed tax guide SA',
+    'SARS tax season 2026'
   ],
   alternates: {
     canonical: '/guides/sars-tax-guides',
   },
   openGraph: {
-    title: 'Complete SARS Tax Guides 2025 | South Africa Tax Filing Help',
-    description: '📚 Free comprehensive SARS guides: eFiling registration, tax returns, provisional tax, refunds & more. Step-by-step help for SA taxpayers.',
+    title: 'SARS eFiling Guide 2026 | Tax Returns & Refunds',
+    description: 'Free SARS eFiling guides. How to register, submit ITR12 tax returns, claim deductions and track refunds. Step-by-step help for 2026 tax season.',
     url: 'https://genius-insights.co.za/guides/sars-tax-guides',
     type: 'website',
   },
@@ -94,7 +94,7 @@ export default function SARSTaxGuidesPage() {
   const tools = [
     {
       title: 'Income Tax Calculator',
-      description: 'Calculate your SARS income tax, PAYE, UIF, and take-home salary for 2025/2026',
+      description: 'Calculate your SARS income tax, PAYE, UIF, and take-home salary for 2026/2027',
       link: '/south-africa-income-tax-calculator',
       icon: '🧮',
       color: 'from-blue-600 to-indigo-700'
@@ -112,12 +112,12 @@ export default function SARSTaxGuidesPage() {
               <span className="text-white/90 font-medium text-sm tracking-wide">📚 Complete SARS Help Center</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-              SARS Tax Guides <br/>
-              <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
+              SARS eFiling &amp; Tax Return Guides <br/>
+              <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">South Africa 2026</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-              Free, comprehensive, step-by-step guides for all your South African tax needs.
-              From eFiling registration to filing returns, we've got you covered.
+              Free step-by-step guides to register for SARS eFiling, submit ITR12 tax returns,
+              claim deductions, track refunds and get tax clearance certificates.
             </p>
 
             {/* Stats */}
@@ -135,7 +135,7 @@ export default function SARSTaxGuidesPage() {
                 <div className="text-white/80 text-sm">Always</div>
               </div>
               <div className="bg-white/20 rounded-2xl px-6 py-4 text-center backdrop-blur-sm">
-                <div className="text-2xl font-bold text-white">2025</div>
+                <div className="text-2xl font-bold text-white">2026</div>
                 <div className="text-white/80 text-sm">Updated</div>
               </div>
             </div>
@@ -159,11 +159,11 @@ export default function SARSTaxGuidesPage() {
         {/* Guides Grid */}
         <div className="mb-16">
           <h2 className="text-3xl font-display font-bold text-gray-900 mb-4 text-center">
-            📖 Complete SARS Guides
+            How to File Taxes with SARS eFiling
           </h2>
           <p className="text-gray-600 text-center mb-12 max-w-3xl mx-auto text-lg">
-            Step-by-step tutorials covering every aspect of SARS tax filing and compliance.
-            Written in plain language with real examples.
+            Step-by-step guides for SARS eFiling registration, ITR12 submission, tax deductions,
+            refund tracking and tax clearance. Written in plain language with real examples.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -282,7 +282,7 @@ export default function SARSTaxGuidesPage() {
               Need More Help?
             </h2>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              All our guides are free, comprehensive, and updated for 2025.
+              All our guides are free, comprehensive, and updated for 2026.
               If you need personalized tax advice, consider consulting a registered tax practitioner.
             </p>
             <div className="flex flex-wrap justify-center gap-4">

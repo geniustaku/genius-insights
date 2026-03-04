@@ -4,15 +4,15 @@ import SkillsAnalyzer from '@/components/SkillsAnalyzer';
 import StructuredData from '@/components/StructuredData';
 
 export const metadata: Metadata = {
-  title: 'Free African Skills Analyzer 2025 | AI-Powered Career Skills Assessment',
-  description: 'Discover your career strengths with our AI-powered skills analyzer. Get personalized recommendations, identify skill gaps, and find learning pathways for African job markets. Free assessment tool.',
-  keywords: ['skills analyzer', 'career assessment', 'African jobs', 'skill gap analysis', 'professional development', 'AI career tool', 'tech skills', 'African job market'],
+  title: 'Free Skills Gap Analyzer | Career Skills Test SA',
+  description: 'Analyze your career skills and find gaps with our free skills assessment tool. Get personalized learning paths for South Africa jobs. No sign up, AI-powered results.',
+  keywords: ['skills analyzer free', 'skills gap analysis tool', 'career skills assessment south africa', 'skills test online free', 'professional skills assessment', 'AI skills analyzer', 'tech skills assessment', 'skills gap finder', 'career development tool free', 'upskilling south africa', 'skills audit tool', 'competency assessment free', 'job skills matcher', 'career skills test no sign up', 'south africa skills shortage'],
   alternates: {
     canonical: '/skills-analyzer',
   },
   openGraph: {
-    title: 'Free African Skills Analyzer 2025 | AI-Powered Career Skills Assessment',
-    description: 'Discover your career strengths with our AI-powered skills analyzer. Get personalized recommendations for African job markets.',
+    title: 'Free Skills Gap Analyzer | Career Skills Assessment',
+    description: 'Find your skill gaps and get personalized learning paths. Free AI-powered skills assessment for South Africa careers. No sign up required.',
     url: '/skills-analyzer',
     type: 'website',
     images: [
@@ -20,9 +20,15 @@ export const metadata: Metadata = {
         url: '/images/skills-analyzer-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'African Skills Analyzer',
+        alt: 'Free Skills Gap Analyzer - Career Skills Assessment',
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Free Skills Gap Analyzer | No Sign Up',
+    description: 'Analyze your career skills, find gaps, and get learning paths. Free AI-powered tool for SA job market.',
+    images: ['/images/skills-analyzer-og.jpg'],
   },
 };
 
@@ -37,10 +43,10 @@ export default function SkillsAnalyzerPage() {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
             <div className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-                Free African Skills Analyzer 2025
+                Free Skills Gap Analyzer &amp; Career Skills Test
               </h1>
               <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Discover your career strengths with AI-powered analysis. Get personalized recommendations and identify skill gaps for African job markets.
+                Analyze your skills, identify career gaps, and get personalized learning paths. AI-powered skills assessment for South Africa and African job markets. No sign up required.
               </p>
               <div className="flex flex-wrap justify-center gap-6 text-blue-100">
                 <div className="flex items-center">
@@ -74,7 +80,7 @@ export default function SkillsAnalyzerPage() {
           <div className="mt-16 glass-card p-8 rounded-2xl">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-4">
-                How to Use Your Skills Analysis
+                How the Free Skills Gap Analysis Works
               </h2>
               <p className="text-gray-600 max-w-3xl mx-auto">
                 Our AI-powered skills analyzer compares your current skillset with market requirements for African careers. 

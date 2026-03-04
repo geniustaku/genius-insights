@@ -6,17 +6,17 @@ import ToolLayout from '@/components/ToolLayout';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Retirement Calculator 2025 | Pension Fund & Retirement Planning',
-  description: 'Free SA retirement calculator 2025. Calculate pension fund, retirement annuity, provident fund savings. Plan your financial future with 2025 rates. Used by 150,000+ South Africans.',
+  title: 'Retirement Calculator SA 2026 | How Much to Retire',
+  description: 'How much do I need to retire in South Africa? Free retirement calculator with living annuity, life annuity and two-pot system projections. Plan your 2026 retirement.',
   keywords: [
-    'South Africa retirement calculator 2025', 'SA pension calculator', 'retirement planning South Africa', 'pension fund calculator SA', 'retirement annuity calculator', 'provident fund calculator SA', 'South African retirement planning', 'pension savings calculator', 'retirement income calculator SA', 'annuity calculator South Africa', 'pension withdrawal calculator', 'retirement fund calculator', 'SA retirement savings', 'financial planning calculator SA', 'retirement age calculator South Africa'
+    'how much do I need to retire in south africa', 'retirement calculator south africa 2026', 'living annuity calculator south africa', 'life annuity vs living annuity', 'retirement annuity calculator SA', 'how much money to retire comfortably south africa', 'retirement planning south africa 2026', 'two-pot retirement system calculator', 'retirement income calculator south africa', 'provident fund retirement calculator', 'retirement savings goal calculator SA', 'when can I retire south africa', 'retirement age south africa 2026', 'compound interest retirement calculator SA', 'preservation fund calculator south africa'
   ],
   alternates: {
     canonical: '/south-africa-retirement-calculator',
   },
   openGraph: {
-    title: 'South Africa Retirement Calculator 2025 | Free Pension & Retirement Planning',
-    description: '🏦 Plan your SA retirement! Calculate pension, provident fund, retirement annuity with 2025 rates. Free retirement planning tool for 150,000+ users.',
+    title: 'Retirement Calculator SA 2026 | How Much to Retire',
+    description: 'How much do I need to retire in South Africa? Calculate retirement savings with living annuity, two-pot system and 2026 rates.',
     url: 'https://genius-insights.co.za/south-africa-retirement-calculator',
     type: 'website',
     images: [
@@ -24,14 +24,14 @@ export const metadata: Metadata = {
         url: '/images/sa-retirement-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Retirement Calculator 2025 - Pension Planning',
+        alt: 'South Africa Retirement Calculator 2026 - Pension Planning',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Retirement Calculator 2025 | Pension Planning Tool',
-    description: '🏦 Free SA retirement calculator! Plan pension, provident fund, retirement savings with 2025 rates.',
+    title: 'Retirement Calculator SA 2026 | How Much to Retire',
+    description: 'How much do I need to retire in South Africa? Free retirement calculator with living annuity and two-pot system projections.',
     images: ['/images/sa-retirement-calculator-og.jpg'],
   },
 };
@@ -42,7 +42,7 @@ export default function SouthAfricaRetirementCalculatorPage() {
       name: 'SARS Tax Calculator',
       href: '/south-africa-tax-calculator',
       image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center',
-      description: 'Calculate income tax, PAYE, UIF, and SDL with 2025/2026 rates',
+      description: 'Calculate income tax, PAYE, UIF, and SDL with 2026/2027 rates',
       category: 'Tax & SARS'
     },
     {
@@ -92,7 +92,7 @@ export default function SouthAfricaRetirementCalculatorPage() {
     <>
       <StructuredData type="retirement-calculator" />
       <ToolLayout
-        title="Retirement Calculator 2025"
+        title="Retirement Calculator 2026"
         category="Investment"
         heroImage="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=400&fit=crop&crop=center"
         relatedTools={relatedTools}
@@ -104,15 +104,15 @@ export default function SouthAfricaRetirementCalculatorPage() {
           <div className="relative max-w-7xl mx-auto px-8 py-20">
             <div className="text-center">
               <div className="inline-block bg-white/20 rounded-2xl px-6 py-3 mb-6">
-                <span className="text-white/90 font-medium text-sm tracking-wide">🏦 2025 Retirement Planning</span>
+                <span className="text-white/90 font-medium text-sm tracking-wide">🏦 2026 Retirement Planning</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                SA Retirement Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
+                How Much Do I Need to Retire <br/>
+                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">in South Africa? (2026)</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Plan your financial future with our comprehensive South African retirement calculator. 
-                Calculate pension funds, retirement annuities, and investment growth with 2025 rates.
+                Calculate your retirement savings goal with living annuity and life annuity projections.
+                Includes the two-pot retirement system and 2026 tax rates.
               </p>
               
               {/* Stats Bar */}
@@ -126,7 +126,7 @@ export default function SouthAfricaRetirementCalculatorPage() {
                   <div className="text-white/80 text-sm">Retirement Planned</div>
                 </div>
                 <div className="bg-white/20 rounded-2xl px-6 py-4 text-center backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-white">2025</div>
+                  <div className="text-2xl font-bold text-white">2026</div>
                   <div className="text-white/80 text-sm">Updated Rates</div>
                 </div>
                 <div className="bg-white/20 rounded-2xl px-6 py-4 text-center backdrop-blur-sm">
@@ -184,11 +184,11 @@ export default function SouthAfricaRetirementCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  SA Retirement Fund Types
+                  Retirement Fund Options in South Africa
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Understanding the different retirement fund options in South Africa will help you 
-                  make informed decisions about your financial future and retirement planning.
+                  Choose between pension funds, provident funds, retirement annuities and preservation funds.
+                  The two-pot system (from September 2024) splits new contributions into savings and retirement pots.
                 </p>
                 
                 <div className="space-y-4">
@@ -213,7 +213,7 @@ export default function SouthAfricaRetirementCalculatorPage() {
               
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  2025 Retirement Planning Tips
+                  2026 Retirement Planning Tips
                 </h3>
                 
                 <div className="space-y-4">

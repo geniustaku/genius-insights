@@ -4,31 +4,31 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Freelancer & Provisional Tax Calculator 2025 | Free Self-Employed Tax Calculator',
-  description: 'Free SA freelancer & provisional tax calculator 2025. Calculate income tax, provisional payments (Aug & Feb), business deductions, retirement contributions. Self-employed, contractors, consultants - SARS-compliant tax tool.',
+  title: 'Provisional Tax Calculator SA 2026 | Freelancer',
+  description: 'Free provisional tax calculator for South Africa 2026. Calculate freelancer tax, IRP6 payments (Aug & Feb), business deductions & penalties. SARS-compliant for self-employed & contractors.',
   keywords: [
-    'freelancer tax calculator South Africa 2025',
-    'provisional tax calculator SA',
-    'self-employed tax calculator',
-    'freelance income tax SA',
-    'provisional tax payments calculator',
-    'contractor tax calculator South Africa',
-    'self-employed SARS tax',
-    'provisional tax dates SA',
-    'freelancer deductions calculator',
-    'business expense tax calculator',
-    'self-employed retirement contributions',
+    'provisional tax calculator south africa 2026',
+    'freelancer tax calculator south africa',
+    'SARS provisional tax calculator',
+    'self-employed tax calculator south africa',
+    'IRP6 provisional tax calculator',
+    'provisional tax payments south africa',
+    'how to calculate provisional tax SARS',
+    'contractor tax calculator south africa',
+    'provisional tax dates 2026',
+    'freelancer tax deductions south africa',
+    'independent contractor tax SARS',
     'provisional tax penalty calculator',
-    'independent contractor tax SA',
-    'freelance tax deductions',
-    'SARS provisional tax calculator'
+    'self-employed income tax south africa',
+    'business expense deductions SARS',
+    'provisional tax August February payment'
   ],
   alternates: {
     canonical: '/south-africa-freelancer-provisional-tax-calculator',
   },
   openGraph: {
-    title: 'South Africa Freelancer & Provisional Tax Calculator 2025 | Free Calculator',
-    description: '💼 Calculate freelancer income tax & provisional payments! Business deductions, retirement contributions, Aug & Feb payment dates. SARS-compliant.',
+    title: 'Provisional Tax Calculator SA 2026 | Freelancer',
+    description: 'Calculate freelancer & provisional tax for South Africa 2026. IRP6 payments, business deductions, retirement contributions. SARS-compliant.',
     url: 'https://genius-insights.co.za/south-africa-freelancer-provisional-tax-calculator',
     type: 'website',
     images: [
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
         url: '/images/sa-freelancer-tax-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Freelancer & Provisional Tax Calculator 2025',
+        alt: 'South Africa Freelancer & Provisional Tax Calculator 2026',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Freelancer Tax Calculator 2025 | Provisional Tax & Deductions',
-    description: '💼 Calculate self-employed income tax! Provisional payments, business deductions, SARS compliance.',
+    title: 'Provisional Tax Calculator SA 2026 | Freelancer',
+    description: 'Calculate self-employed provisional tax for South Africa. IRP6 payments, business deductions, SARS compliance.',
     images: ['/images/sa-freelancer-tax-calculator-og.jpg'],
   },
 };
@@ -62,12 +62,12 @@ export default function SouthAfricaFreelancerProvisionalTaxCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">💼 Self-Employed Tax Calculator</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Freelancer & Provisional Tax Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-200 to-pink-200 bg-clip-text text-transparent">South Africa 2025</span>
+                Provisional Tax Calculator <br/>
+                <span className="bg-gradient-to-r from-yellow-200 to-pink-200 bg-clip-text text-transparent">Freelancer & Self-Employed 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate income tax, provisional tax payments, and deductions for freelancers, contractors,
-                and self-employed individuals. Stay SARS-compliant with accurate tax planning.
+                How to calculate provisional tax for SARS? Work out your IRP6 payments, business deductions,
+                and tax liability as a freelancer, contractor or self-employed individual in South Africa.
               </p>
 
               {/* Stats Bar */}
@@ -139,7 +139,7 @@ export default function SouthAfricaFreelancerProvisionalTaxCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  Understanding Provisional Tax in SA
+                  How Provisional Tax Works in South Africa (SARS IRP6)
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                   Provisional tax is a pre-payment system where self-employed individuals, freelancers, and
@@ -168,7 +168,7 @@ export default function SouthAfricaFreelancerProvisionalTaxCalculatorPage() {
 
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  Provisional Tax Payment Dates
+                  SARS Provisional Tax Payment Dates 2026
                 </h3>
 
                 <div className="space-y-4 mb-8">
@@ -227,7 +227,7 @@ export default function SouthAfricaFreelancerProvisionalTaxCalculatorPage() {
             {/* Deductible Expenses Section */}
             <div className="mt-12 pt-8 border-t border-gray-200">
               <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                Tax-Deductible Business Expenses for Freelancers
+                SARS Allowable Business Deductions for Freelancers
               </h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-100">

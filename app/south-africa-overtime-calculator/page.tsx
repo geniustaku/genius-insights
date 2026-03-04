@@ -4,37 +4,37 @@ import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Overtime Calculator 2025 | BCEA Overtime Pay Calculator',
-  description: 'Free SA overtime calculator 2025. Calculate overtime pay, Sunday pay, public holiday rates. BCEA compliant - 1.5x and 2x rates. Free overtime calculator South Africa.',
+  title: 'Overtime Pay Calculator SA 2026 | BCEA Rates',
+  description: 'How much is overtime pay in South Africa? Free BCEA overtime calculator with 1.5x weekday, 2x Sunday and public holiday rates. Calculate your overtime pay now.',
   keywords: [
-    'overtime calculator south africa 2025',
+    'overtime calculator south africa 2026',
+    'how much is overtime pay in south africa',
+    'BCEA overtime rates 2026',
     'overtime pay calculator SA',
-    'BCEA overtime calculator',
-    'sunday pay calculator',
-    'public holiday pay calculator',
-    'overtime rates south africa',
-    'how to calculate overtime',
-    '1.5 overtime rate',
-    'double time calculator',
-    'labour law overtime',
-    'overtime hours calculator',
-    'extra pay calculator',
-    'shift pay calculator SA',
-    'nightshift pay calculator'
+    'sunday pay rate south africa',
+    'public holiday pay calculator SA',
+    'how to calculate overtime south africa',
+    'overtime 1.5 times normal rate',
+    'double time pay south africa',
+    'labour law overtime pay BCEA',
+    'nightshift pay calculator south africa',
+    'overtime hours limit south africa',
+    'time and a half calculator SA',
+    'is overtime compulsory in south africa'
   ],
   alternates: {
     canonical: '/south-africa-overtime-calculator',
   },
   openGraph: {
-    title: 'South Africa Overtime Calculator 2025 | BCEA Overtime Rates',
-    description: '⏰ Calculate overtime pay! BCEA compliant 1.5x and 2x rates. Sunday, public holiday pay calculator.',
+    title: 'Overtime Pay Calculator SA 2026 | BCEA Rates',
+    description: 'How much is overtime pay in South Africa? Calculate BCEA overtime at 1.5x weekday, 2x Sunday and public holiday rates.',
     url: 'https://genius-insights.co.za/south-africa-overtime-calculator',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Overtime Calculator 2025 | BCEA Rates',
-    description: '⏰ Calculate overtime pay! BCEA compliant rates for weekdays, Sundays, public holidays.',
+    title: 'Overtime Pay Calculator SA 2026 | BCEA Rates',
+    description: 'How much is overtime pay in South Africa? Calculate BCEA 1.5x and 2x rates for weekdays, Sundays and public holidays.',
   },
 };
 
@@ -52,12 +52,12 @@ export default function SouthAfricaOvertimeCalculatorPage() {
                 <span className="text-white/90 font-medium text-sm tracking-wide">⏰ BCEA Compliant Calculator</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                Overtime Calculator <br/>
-                <span className="bg-gradient-to-r from-amber-200 to-orange-200 bg-clip-text text-transparent">South Africa 2025</span>
+                How Much Is Overtime Pay <br/>
+                <span className="bg-gradient-to-r from-amber-200 to-orange-200 bg-clip-text text-transparent">in South Africa? (2026)</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate overtime pay according to BCEA regulations. Weekday overtime at 1.5x,
-                Sundays and public holidays at 2x your normal rate.
+                Calculate your overtime pay per the BCEA. Weekday overtime at 1.5x your normal rate,
+                Sundays at 2x, and public holidays at double pay. Know your rights.
               </p>
 
               {/* Stats Bar */}
@@ -114,11 +114,11 @@ export default function SouthAfricaOvertimeCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  BCEA Overtime Rules
+                  BCEA Overtime Rules in South Africa
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  The Basic Conditions of Employment Act (BCEA) sets minimum standards for overtime pay
-                  in South Africa. Employers must pay at least 1.5x the normal wage for overtime worked.
+                  The Basic Conditions of Employment Act (BCEA) Section 10 sets minimum overtime pay rates.
+                  Employers must pay at least 1.5x (time and a half) for weekday overtime and 2x for Sundays.
                 </p>
 
                 <div className="space-y-4">

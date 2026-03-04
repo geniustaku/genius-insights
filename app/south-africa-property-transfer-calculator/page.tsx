@@ -6,17 +6,33 @@ import ToolLayout from '@/components/ToolLayout';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'South Africa Property Transfer Calculator 2025 | Transfer Duty & Costs Calculator',
-  description: 'Free SA property transfer cost calculator 2025. Calculate transfer duty, attorney fees, bond registration & all property transfer costs. Updated with latest rates. Used by 75,000+ property buyers.',
+  title: 'Transfer Cost Calculator SA 2026 | Transfer Duty',
+  description: 'Calculate transfer costs when buying a house in South Africa. Transfer duty, conveyancing fees, bond registration costs & attorney fees with 2026 rates. Free instant calculator.',
   keywords: [
-    'South Africa property transfer calculator 2025', 'transfer duty calculator SA', 'property transfer costs SA', 'transfer duty rates South Africa', 'bond registration costs SA', 'conveyancing fees calculator', 'property attorney fees SA', 'SA transfer costs calculator', 'property purchase costs SA', 'transfer duty exemption SA', 'first time buyer transfer duty', 'property transfer fees calculator', 'conveyancer fees SA', 'property buying costs SA', 'transfer cost calculator'
+    'transfer cost calculator south africa',
+    'transfer duty calculator 2026',
+    'how much are transfer costs when buying a house',
+    'property transfer costs south africa',
+    'conveyancing fees calculator SA',
+    'transfer duty rates 2026 south africa',
+    'bond registration costs calculator',
+    'property attorney fees south africa',
+    'first time buyer transfer duty exemption',
+    'transfer costs when buying a house south africa',
+    'deeds office fees calculator',
+    'property buying costs south africa 2026',
+    'transfer duty exemption R1 million',
+    'conveyancer fees south africa',
+    'how much is transfer duty on a house',
+    'property transfer process south africa',
+    'additional costs when buying a house SA'
   ],
   alternates: {
     canonical: '/south-africa-property-transfer-calculator',
   },
   openGraph: {
-    title: 'South Africa Property Transfer Calculator 2025 | Free Transfer Duty Calculator',
-    description: '🏠 Calculate all SA property transfer costs! Transfer duty, attorney fees, bond registration with 2025 rates. Free & accurate for property buyers.',
+    title: 'Transfer Cost Calculator SA 2026 | Transfer Duty',
+    description: 'Calculate all transfer costs when buying a house in SA. Transfer duty, conveyancing fees, bond registration & attorney fees. Updated 2026 rates.',
     url: 'https://genius-insights.co.za/south-africa-property-transfer-calculator',
     type: 'website',
     images: [
@@ -24,14 +40,14 @@ export const metadata: Metadata = {
         url: '/images/sa-property-transfer-calculator-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'South Africa Property Transfer Calculator 2025 - Transfer Duty Calculator',
+        alt: 'Transfer Cost Calculator South Africa 2026 - Transfer Duty & Conveyancing Fees',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SA Property Transfer Calculator 2025 | Transfer Duty & Costs',
-    description: '🏠 Calculate all property transfer costs in SA! Transfer duty, attorney fees, bond costs with 2025 rates. Free calculator.',
+    title: 'Transfer Cost Calculator SA 2026 | Transfer Duty',
+    description: 'How much are transfer costs when buying a house? Calculate transfer duty, conveyancing fees & bond registration with 2026 SA rates.',
     images: ['/images/sa-property-transfer-calculator-og.jpg'],
   },
 };
@@ -42,7 +58,7 @@ export default function SouthAfricaPropertyTransferCalculatorPage() {
       name: 'SARS Tax Calculator',
       href: '/south-africa-tax-calculator',
       image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop&crop=center',
-      description: 'Calculate income tax, PAYE, UIF, and SDL with 2025/2026 rates',
+      description: 'Calculate income tax, PAYE, UIF, and SDL with 2026/2027 rates',
       category: 'Tax & SARS'
     },
     {
@@ -92,7 +108,7 @@ export default function SouthAfricaPropertyTransferCalculatorPage() {
     <>
       <StructuredData type="property-transfer-calculator" />
       <ToolLayout
-        title="Property Transfer Calculator 2025"
+        title="Transfer Cost Calculator South Africa 2026"
         category="Property"
         heroImage="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=400&fit=crop&crop=center"
         relatedTools={relatedTools}
@@ -104,21 +120,21 @@ export default function SouthAfricaPropertyTransferCalculatorPage() {
           <div className="relative max-w-7xl mx-auto px-8 py-20">
             <div className="text-center">
               <div className="inline-block bg-white/20 rounded-2xl px-6 py-3 mb-6">
-                <span className="text-white/90 font-medium text-sm tracking-wide">🏠 2025 Transfer Rates</span>
+                <span className="text-white/90 font-medium text-sm tracking-wide">🏠 2026 Transfer Rates</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-                SA Property Transfer Calculator <br/>
-                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
+                Transfer Cost Calculator <br/>
+                <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">South Africa 2026</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-                Calculate all South African property transfer costs including transfer duty, attorney fees, 
-                bond registration, and conveyancing costs with the latest 2025 rates.
+                How much are transfer costs when buying a house? Calculate transfer duty, conveyancing fees,
+                bond registration costs and attorney fees with the latest 2026 South African rates.
               </p>
               
               {/* Stats Bar */}
               <div className="flex flex-wrap justify-center gap-8 mt-12">
                 <div className="bg-white/20 rounded-2xl px-6 py-4 text-center backdrop-blur-sm">
-                  <div className="text-2xl font-bold text-white">2025</div>
+                  <div className="text-2xl font-bold text-white">2026</div>
                   <div className="text-white/80 text-sm">Updated Rates</div>
                 </div>
                 <div className="bg-white/20 rounded-2xl px-6 py-4 text-center backdrop-blur-sm">
@@ -184,11 +200,11 @@ export default function SouthAfricaPropertyTransferCalculatorPage() {
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-3xl font-display font-bold text-gray-900 mb-6">
-                  2025 Transfer Duty Rates
+                  Transfer Duty Rates South Africa 2026
                 </h2>
                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                  Stay informed with the latest South African transfer duty rates and property 
-                  transfer costs to budget accurately for your property purchase.
+                  How much is transfer duty on a house in South Africa? Use our calculator to see the
+                  exact transfer duty, conveyancing fees and total costs when buying property in 2026.
                 </p>
                 
                 <div className="space-y-4">
@@ -213,7 +229,7 @@ export default function SouthAfricaPropertyTransferCalculatorPage() {
               
               <div>
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-6">
-                  Typical Transfer Costs Breakdown
+                  What Are the Costs When Buying a House in SA?
                 </h3>
                 
                 <div className="space-y-4">

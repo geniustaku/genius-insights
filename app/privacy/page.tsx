@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Genius Insights',
-  description: 'Privacy Policy for Genius Insights - Learn how we collect, use, and protect your personal information on our African tech career platform.',
+  title: 'Privacy Policy | Genius Insights South Africa',
+  description: 'Genius Insights privacy policy. How we collect, use and protect your data on our South African financial tools platform. POPIA compliant.',
   robots: 'index, follow',
 };
 
@@ -32,7 +32,7 @@ export default function PrivacyPage() {
             <section className="mb-12">
               <h2 className="text-2xl font-bold text-slate-800 mb-6">1. Introduction</h2>
               <p className="text-slate-700 leading-relaxed mb-4">
-                Welcome to Genius Insights ("we," "our," or "us"). We are committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services related to African tech careers, salary insights, and professional development tools.
+                Welcome to Genius Insights ("we," "our," or "us"). We are committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our South African financial tools, calculators, and educational resources.
               </p>
               <p className="text-slate-700 leading-relaxed">
                 By accessing or using our services, you agree to the collection and use of information in accordance with this Privacy Policy.

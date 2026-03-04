@@ -3,31 +3,31 @@ import Link from 'next/link';
 import AdSenseAd from '@/components/AdSenseAd';
 
 export const metadata: Metadata = {
-  title: 'Property Transfer Guides South Africa 2025 | Complete Property Buying & Selling Help',
-  description: 'Free comprehensive property transfer guides for SA 2025: buying property, selling, bond registration, transfer costs, documents, attorneys. Step-by-step help for SA property buyers and sellers.',
+  title: 'Property Transfer Guide SA 2026 | Costs & Process',
+  description: 'Free property transfer guide for South Africa. Transfer duty, conveyancing fees, bond registration costs, timelines and documents. First-time buyer help for 2026.',
   keywords: [
-    'property transfer guides South Africa',
-    'property buying guide SA',
-    'property selling guide',
-    'property transfer help',
-    'bond registration guide',
-    'transfer duty guide',
-    'property documents checklist',
-    'property attorney guide',
+    'property transfer guide South Africa',
+    'property transfer costs SA 2026',
+    'transfer duty South Africa',
+    'conveyancing fees South Africa',
+    'bond registration costs SA',
+    'property transfer process South Africa',
     'first time home buyer guide SA',
-    'property transfer timeline',
-    'property transfer costs guide',
-    'estate property buying guide',
-    'South Africa property guides 2025',
-    'property transfer process SA',
-    'property buying help South Africa'
+    'property buying guide South Africa',
+    'how long does property transfer take SA',
+    'property transfer documents checklist',
+    'transfer attorney fees SA',
+    'selling property guide South Africa',
+    'property transfer timeline SA',
+    'ooba bond calculator',
+    'property costs South Africa 2026'
   ],
   alternates: {
     canonical: '/guides/property-transfer-guides',
   },
   openGraph: {
-    title: 'Complete Property Transfer Guides 2025 | South Africa Property Help',
-    description: '🏠 Free comprehensive property guides: buying, selling, transfer costs, bond registration & more. Step-by-step help for SA property transactions.',
+    title: 'Property Transfer Guide SA 2026 | Costs & Process',
+    description: 'Free property transfer guide. Transfer duty, conveyancing fees, bond costs, timelines and documents for South Africa. Updated for 2026.',
     url: 'https://genius-insights.co.za/guides/property-transfer-guides',
     type: 'website',
   },
@@ -64,7 +64,7 @@ export default function PropertyTransferGuidesPage() {
     },
     {
       title: 'Transfer Duty Calculator & Guide',
-      description: 'Master transfer duty calculations with 2025 rates, exemptions, and strategies to minimize your transfer duty costs.',
+      description: 'Master transfer duty calculations with 2026 rates, exemptions, and strategies to minimize your transfer duty costs.',
       link: '/articles/transfer-duty-calculator-guide-south-africa',
       duration: '12 min read',
       level: 'Intermediate',
@@ -155,12 +155,12 @@ export default function PropertyTransferGuidesPage() {
               <span className="text-white/90 font-medium text-sm tracking-wide">🏠 Complete Property Help Center</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
-              Property Transfer Guides <br/>
-              <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">2025</span>
+              Property Transfer Costs &amp; Process Guide <br/>
+              <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">South Africa 2026</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light mb-8">
-              Free, comprehensive, step-by-step guides for buying, selling, and transferring property in South Africa.
-              Everything you need to know in one place.
+              Free guides on transfer duty, conveyancing fees, bond registration and the full
+              property transfer process in South Africa. For first-time buyers and sellers.
             </p>
 
             {/* Stats */}
@@ -178,7 +178,7 @@ export default function PropertyTransferGuidesPage() {
                 <div className="text-white/80 text-sm">Always</div>
               </div>
               <div className="bg-white/20 rounded-2xl px-6 py-4 text-center backdrop-blur-sm">
-                <div className="text-2xl font-bold text-white">2025</div>
+                <div className="text-2xl font-bold text-white">2026</div>
                 <div className="text-white/80 text-sm">Updated</div>
               </div>
             </div>
@@ -202,11 +202,11 @@ export default function PropertyTransferGuidesPage() {
         {/* Guides Grid */}
         <div className="mb-16">
           <h2 className="text-3xl font-display font-bold text-gray-900 mb-4 text-center">
-            📖 Complete Property Guides
+            Property Transfer, Buying &amp; Selling Guides
           </h2>
           <p className="text-gray-600 text-center mb-12 max-w-3xl mx-auto text-lg">
-            Step-by-step tutorials covering every aspect of property buying, selling, and transfer in South Africa.
-            Written in plain language with real examples.
+            Step-by-step guides covering transfer duty, conveyancing fees, bond registration,
+            property transfer timelines and documents. Written in plain language with 2026 costs.
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -329,7 +329,7 @@ export default function PropertyTransferGuidesPage() {
               Need Professional Help?
             </h2>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              All our guides are free, comprehensive, and updated for 2025.
+              All our guides are free, comprehensive, and updated for 2026.
               For legal advice and representation, consult a registered conveyancing attorney.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
