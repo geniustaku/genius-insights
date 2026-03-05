@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaEstateDutyCalculator from '@/components/SouthAfricaEstateDutyCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Estate Duty Calculator South Africa 2026 | SARS',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-estate-duty-calculator-og.jpg',
+        url: '/api/og?title=Estate+Duty+Calculator+SA+2026&subtitle=Inheritance+Tax+with+R3.5M+Abatement',
         width: 1200,
         height: 630,
         alt: 'South Africa Estate Duty Calculator 2026',
@@ -44,14 +45,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Estate Duty Calculator South Africa 2026 | SARS',
     description: 'How much inheritance tax will my heirs pay? Estate duty calculator with R3.5M exemption, spouse deduction, 20-25% rates.',
-    images: ['/images/sa-estate-duty-calculator-og.jpg'],
+    images: ['/api/og?title=Estate+Duty+Calculator+SA+2026&subtitle=Inheritance+Tax+with+R3.5M+Abatement'],
   },
 };
 
 export default function SouthAfricaEstateDutyCalculatorPage() {
   return (
     <>
-      <StructuredData type="tax-calculator" />
+      <StructuredData
+        type="tax-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Estate Duty Calculator', url: 'https://www.genius-insights.co.za/south-africa-estate-duty-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50 to-purple-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-b-3xl">
@@ -305,6 +313,7 @@ export default function SouthAfricaEstateDutyCalculatorPage() {
             </div>
           </div>
         </div>
+        <RelatedCalculators currentSlug="south-africa-estate-duty-calculator" />
       </div>
     </>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaLoanCalculator from '@/components/SouthAfricaLoanCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Home Loan Calculator SA 2026 | Bond Repayment',
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-loan-calculator-og.jpg',
+        url: '/api/og?title=Home+Loan+Calculator+SA+2026&subtitle=Bond+Repayment+%26+Affordability',
         width: 1200,
         height: 630,
         alt: 'Home Loan Calculator South Africa 2026 - Bond Repayment & Affordability',
@@ -46,14 +47,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Home Loan Calculator SA 2026 | Bond Repayment',
     description: 'How much home loan can I afford? Calculate bond repayments & compare SA bank rates. Free instant calculator.',
-    images: ['/images/sa-loan-calculator-og.jpg'],
+    images: ['/api/og?title=Home+Loan+Calculator+SA+2026&subtitle=Bond+Repayment+%26+Affordability'],
   },
 };
 
 export default function SouthAfricaLoanCalculatorPage() {
   return (
     <>
-      <StructuredData type="loan-calculator" />
+      <StructuredData
+        type="loan-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Home Loan Calculator', url: 'https://www.genius-insights.co.za/south-africa-loan-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-cyan-600 to-teal-700 rounded-b-3xl">
@@ -214,6 +222,11 @@ export default function SouthAfricaLoanCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-loan-calculator" />
         </div>
       </div>
     </>

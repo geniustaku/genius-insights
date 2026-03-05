@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaPensionCalculator from '@/components/SouthAfricaPensionCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Pension Fund Calculator SA 2026 | Tax Savings',
@@ -41,7 +42,19 @@ export const metadata: Metadata = {
 export default function SouthAfricaPensionCalculatorPage() {
   return (
     <>
-      <StructuredData type="investment-calculator" />
+      <StructuredData
+        type="investment-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Pension Calculator', url: 'https://www.genius-insights.co.za/south-africa-pension-calculator' },
+        ]}
+        faqs={[
+          { question: 'How much should I contribute to my pension?', answer: 'Financial advisors recommend 15% of your salary. The minimum to get full tax benefit is whatever reaches the 27.5% cap. Start as early as possible - compound interest is your friend.' },
+          { question: 'Can I access my pension before retirement?', answer: 'You can access your pension fund if you resign, are retrenched, or emigrate. However, early withdrawal is heavily taxed. Retirement annuities cannot be accessed before age 55.' },
+          { question: 'What is the two-pot retirement system?', answer: 'From September 2024, new contributions split into: Savings pot (1/3) - accessible once per year, and Retirement pot (2/3) - preserved until retirement. Minimum withdrawal R2,000.' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-teal-50 to-cyan-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-teal-600 via-cyan-600 to-blue-600 rounded-b-3xl">
@@ -212,6 +225,11 @@ export default function SouthAfricaPensionCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-pension-calculator" />
         </div>
       </div>
     </>

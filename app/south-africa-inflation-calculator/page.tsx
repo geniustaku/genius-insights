@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaInflationCalculator from '@/components/SouthAfricaInflationCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Inflation Calculator SA 2026 | CPI & Cost of Living',
@@ -41,7 +42,14 @@ export const metadata: Metadata = {
 export default function SouthAfricaInflationCalculatorPage() {
   return (
     <>
-      <StructuredData type="investment-calculator" />
+      <StructuredData
+        type="investment-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Inflation Calculator', url: 'https://www.genius-insights.co.za/south-africa-inflation-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50 to-purple-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-b-3xl">
@@ -201,6 +209,11 @@ export default function SouthAfricaInflationCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-inflation-calculator" />
         </div>
       </div>
     </>

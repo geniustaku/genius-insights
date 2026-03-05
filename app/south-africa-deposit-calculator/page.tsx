@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaDepositCalculator from '@/components/SouthAfricaDepositCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Fixed Deposit Calculator SA 2026 | Best Rates',
@@ -44,7 +45,14 @@ export const metadata: Metadata = {
 export default function SouthAfricaDepositCalculatorPage() {
   return (
     <>
-      <StructuredData type="investment-calculator" />
+      <StructuredData
+        type="investment-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Fixed Deposit Calculator', url: 'https://www.genius-insights.co.za/south-africa-deposit-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-cyan-50 to-blue-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-600 rounded-b-3xl">
@@ -176,6 +184,11 @@ export default function SouthAfricaDepositCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-deposit-calculator" />
         </div>
       </div>
     </>

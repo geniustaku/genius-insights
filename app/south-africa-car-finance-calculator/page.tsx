@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaCarFinanceCalculator from '@/components/SouthAfricaCarFinanceCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Car Finance Calculator SA 2026 | Balloon Payment',
@@ -44,7 +45,14 @@ export const metadata: Metadata = {
 export default function SouthAfricaCarFinanceCalculatorPage() {
   return (
     <>
-      <StructuredData type="loan-calculator" />
+      <StructuredData
+        type="loan-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Car Finance Calculator', url: 'https://www.genius-insights.co.za/south-africa-car-finance-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50 to-red-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-orange-500 via-red-500 to-rose-600 rounded-b-3xl">
@@ -180,6 +188,11 @@ export default function SouthAfricaCarFinanceCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-car-finance-calculator" />
         </div>
       </div>
     </>

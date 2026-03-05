@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SalaryCalculator from '@/components/SalaryCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Take Home Pay Calculator SA 2026 | Gross to Net',
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/salary-calculator-og.jpg',
+        url: '/api/og?title=Take+Home+Pay+Calculator+SA+2026&subtitle=Gross+to+Net+Salary+Calculator',
         width: 1200,
         height: 630,
         alt: 'African Salary Calculator 2026 - Calculate Your Worth',
@@ -30,14 +31,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Take Home Pay Calculator SA 2026 | Free Tool',
     description: 'Calculate your take home pay after tax in South Africa. Free gross to net salary calculator with 2026 PAYE rates.',
-    images: ['/images/salary-calculator-og.jpg'],
+    images: ['/api/og?title=Take+Home+Pay+Calculator+SA+2026&subtitle=Gross+to+Net+Salary+Calculator'],
   },
 };
 
 export default function SalaryCalculatorPage() {
   return (
     <>
-      <StructuredData type="salary-calculator" />
+      <StructuredData
+        type="salary-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Salary Calculator', url: 'https://www.genius-insights.co.za/salary-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-elegant rounded-b-3xl">
@@ -195,6 +203,8 @@ export default function SalaryCalculatorPage() {
           </div>
         </div>
       </div>
+
+        <RelatedCalculators currentSlug="salary-calculator" />
       </div>
     </>
   );

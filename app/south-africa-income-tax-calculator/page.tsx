@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaIncomeTaxCalculator from '@/components/SouthAfricaIncomeTaxCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'SARS Income Tax Calculator 2026 | Free SA Tool',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-income-tax-og.jpg',
+        url: '/api/og?title=SARS+Income+Tax+Calculator+2026&subtitle=Free+SA+PAYE+%26+Take-Home+Pay+Tool',
         width: 1200,
         height: 630,
         alt: 'South Africa Income Tax Calculator 2026 - SARS PAYE Calculator',
@@ -44,14 +45,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'SARS Income Tax Calculator 2026 | Free SA Tool',
     description: 'Calculate your SARS income tax & take-home salary for 2026/2027. PAYE, UIF, tax brackets & rebates included.',
-    images: ['/images/sa-income-tax-og.jpg'],
+    images: ['/api/og?title=SARS+Income+Tax+Calculator+2026&subtitle=Free+SA+PAYE+%26+Take-Home+Pay+Tool'],
   },
 };
 
 export default function SouthAfricaIncomeTaxCalculatorPage() {
   return (
     <>
-      <StructuredData type="tax-calculator" />
+      <StructuredData
+        type="tax-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Income Tax Calculator', url: 'https://www.genius-insights.co.za/south-africa-income-tax-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 rounded-b-3xl">
@@ -215,6 +223,8 @@ export default function SouthAfricaIncomeTaxCalculatorPage() {
             </div>
           </div>
         </div>
+
+        <RelatedCalculators currentSlug="south-africa-income-tax-calculator" />
       </div>
     </>
   );

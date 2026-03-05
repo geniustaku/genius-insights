@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaTFSACalculator from '@/components/SouthAfricaTFSACalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Tax Free Savings Account Calculator SA 2026',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-tfsa-calculator-og.jpg',
+        url: '/api/og?title=TFSA+Calculator+SA+2026&subtitle=Tax+Free+Savings+Account+Growth',
         width: 1200,
         height: 630,
         alt: 'Tax Free Savings Account Calculator South Africa 2026',
@@ -44,14 +45,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Tax Free Savings Account Calculator SA 2026',
     description: 'Calculate TFSA growth with R36,000 annual & R500,000 lifetime limits. See tax-free vs taxable returns.',
-    images: ['/images/sa-tfsa-calculator-og.jpg'],
+    images: ['/api/og?title=TFSA+Calculator+SA+2026&subtitle=Tax+Free+Savings+Account+Growth'],
   },
 };
 
 export default function SouthAfricaTFSACalculatorPage() {
   return (
     <>
-      <StructuredData type="investment-calculator" />
+      <StructuredData
+        type="investment-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'TFSA Calculator', url: 'https://www.genius-insights.co.za/south-africa-tfsa-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-emerald-50 to-teal-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-emerald-600 via-teal-600 to-green-700 rounded-b-3xl">
@@ -324,6 +332,11 @@ export default function SouthAfricaTFSACalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-tfsa-calculator" />
         </div>
       </div>
     </>

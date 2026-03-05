@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaBondCalculator from '@/components/SouthAfricaBondCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Bond Calculator SA 2026 | Monthly Repayments',
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-bond-calculator-og.jpg',
+        url: '/api/og?title=Bond+Calculator+SA+2026&subtitle=Monthly+Repayments+%26+Affordability',
         width: 1200,
         height: 630,
         alt: 'Bond Calculator South Africa 2026 - Home Loan Repayment Calculator',
@@ -46,14 +47,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bond Calculator SA 2026 | Monthly Repayments',
     description: 'How much will my bond repayments be? Calculate home loan affordability with current SA interest rates. Free & instant.',
-    images: ['/images/sa-bond-calculator-og.jpg'],
+    images: ['/api/og?title=Bond+Calculator+SA+2026&subtitle=Monthly+Repayments+%26+Affordability'],
   },
 };
 
 export default function SouthAfricaBondCalculatorPage() {
   return (
     <>
-      <StructuredData type="loan-calculator" />
+      <StructuredData
+        type="loan-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Bond Calculator', url: 'https://www.genius-insights.co.za/south-africa-bond-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-cyan-600 to-teal-700 rounded-b-3xl">
@@ -300,6 +308,11 @@ export default function SouthAfricaBondCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-bond-calculator" />
         </div>
       </div>
     </>

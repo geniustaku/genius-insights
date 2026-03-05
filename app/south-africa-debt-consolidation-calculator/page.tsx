@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaDebtConsolidationCalculator from '@/components/SouthAfricaDebtConsolidationCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Debt Consolidation Calculator SA 2026 | Save',
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-debt-consolidation-calculator-og.jpg',
+        url: '/api/og?title=Debt+Consolidation+Calculator+SA+2026&subtitle=Compare+%26+Save+on+Monthly+Payments',
         width: 1200,
         height: 630,
         alt: 'Debt Consolidation Calculator South Africa 2026 - Compare & Save',
@@ -46,14 +47,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Debt Consolidation Calculator SA 2026 | Save',
     description: 'Should I consolidate my debt? Compare credit cards, store accounts & loans vs one payment. See your monthly savings.',
-    images: ['/images/sa-debt-consolidation-calculator-og.jpg'],
+    images: ['/api/og?title=Debt+Consolidation+Calculator+SA+2026&subtitle=Compare+%26+Save+on+Monthly+Payments'],
   },
 };
 
 export default function SouthAfricaDebtConsolidationCalculatorPage() {
   return (
     <>
-      <StructuredData type="loan-calculator" />
+      <StructuredData
+        type="loan-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Debt Consolidation Calculator', url: 'https://www.genius-insights.co.za/south-africa-debt-consolidation-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 rounded-b-3xl">
@@ -261,6 +269,11 @@ export default function SouthAfricaDebtConsolidationCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-debt-consolidation-calculator" />
         </div>
       </div>
     </>

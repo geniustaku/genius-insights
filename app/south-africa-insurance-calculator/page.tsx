@@ -2,6 +2,7 @@
 
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export default function SouthAfricaInsuranceCalculatorPage() {
   const handleInsuranceTypeChange = () => {
@@ -154,7 +155,14 @@ export default function SouthAfricaInsuranceCalculatorPage() {
 
   return (
     <>
-      <StructuredData type="investment-calculator" />
+      <StructuredData
+        type="investment-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Insurance Calculator', url: 'https://www.genius-insights.co.za/south-africa-insurance-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
         <div className="relative overflow-hidden bg-gradient-to-br from-green-600 to-blue-600 rounded-b-3xl">
           <div className="relative max-w-7xl mx-auto px-8 py-20">
@@ -431,6 +439,11 @@ export default function SouthAfricaInsuranceCalculatorPage() {
             style={{ display: 'block', minHeight: '90px' }}
             className="border border-gray-200 rounded-lg"
           />
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-insurance-calculator" />
         </div>
       </div>
     </>

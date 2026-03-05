@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-retirement-calculator-og.jpg',
+        url: '/api/og?title=Retirement+Calculator+SA+2026&subtitle=How+Much+Do+I+Need+to+Retire+in+South+Africa',
         width: 1200,
         height: 630,
         alt: 'South Africa Retirement Calculator 2026 - Pension Planning',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Retirement Calculator SA 2026 | How Much to Retire',
     description: 'How much do I need to retire in South Africa? Free retirement calculator with living annuity and two-pot system projections.',
-    images: ['/images/sa-retirement-calculator-og.jpg'],
+    images: ['/api/og?title=Retirement+Calculator+SA+2026&subtitle=How+Much+Do+I+Need+to+Retire+in+South+Africa'],
   },
 };
 
@@ -90,7 +90,14 @@ export default function SouthAfricaRetirementCalculatorPage() {
 
   return (
     <>
-      <StructuredData type="retirement-calculator" />
+      <StructuredData
+        type="retirement-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Retirement Calculator', url: 'https://www.genius-insights.co.za/south-africa-retirement-calculator' },
+        ]}
+      />
       <ToolLayout
         title="Retirement Calculator 2026"
         category="Investment"

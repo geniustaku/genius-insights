@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaBusinessRegistrationCalculator from '@/components/SouthAfricaBusinessRegistrationCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'CIPC Registration Cost Calculator 2026 | Pty Ltd',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-business-registration-og.jpg',
+        url: '/api/og?title=CIPC+Company+Registration+Cost+Calculator+2026&subtitle=Pty+Ltd+CC+and+Sole+Proprietor+Registration+Costs',
         width: 1200,
         height: 630,
         alt: 'CIPC Company Registration Cost Calculator 2026',
@@ -44,14 +45,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'CIPC Registration Cost Calculator 2026 | Pty Ltd',
     description: 'Calculate CIPC company registration costs for Pty Ltd, CC & sole proprietor in South Africa.',
-    images: ['/images/sa-business-registration-og.jpg'],
+    images: ['/api/og?title=CIPC+Company+Registration+Cost+Calculator+2026&subtitle=Pty+Ltd+CC+and+Sole+Proprietor+Registration+Costs'],
   },
 };
 
 export default function SouthAfricaBusinessRegistrationCalculatorPage() {
   return (
     <>
-      <StructuredData type="business-calculator" />
+      <StructuredData
+        type="business-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Business Registration Calculator', url: 'https://www.genius-insights.co.za/south-africa-business-registration-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 rounded-b-3xl">
@@ -204,6 +212,11 @@ export default function SouthAfricaBusinessRegistrationCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-business-registration-calculator" />
         </div>
       </div>
     </>

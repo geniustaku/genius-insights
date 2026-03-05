@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-vat-calculator-og.jpg',
+        url: '/api/og?title=VAT+Calculator+SA+2026&subtitle=Add+or+Remove+15+Percent+VAT+Instantly',
         width: 1200,
         height: 630,
         alt: 'South Africa 15% VAT Calculator - Add or Remove VAT',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'VAT Calculator SA 2026 | Add or Remove 15% VAT',
     description: 'Add or remove 15% VAT instantly. Convert VAT inclusive to exclusive prices. Free SARS-compliant calculator.',
-    images: ['/images/sa-vat-calculator-og.jpg'],
+    images: ['/api/og?title=VAT+Calculator+SA+2026&subtitle=Add+or+Remove+15+Percent+VAT+Instantly'],
   },
 };
 
@@ -90,7 +90,14 @@ export default function SouthAfricaVATCalculatorPage() {
 
   return (
     <>
-      <StructuredData type="vat-calculator" />
+      <StructuredData
+        type="vat-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'VAT Calculator', url: 'https://www.genius-insights.co.za/south-africa-vat-calculator' },
+        ]}
+      />
       <ToolLayout
         title="Add or Remove 15% VAT - SA Calculator 2026"
         category="Tax & SARS"

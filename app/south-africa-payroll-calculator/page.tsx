@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaPayrollCalculator from '@/components/SouthAfricaPayrollCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Salary & PAYE Calculator South Africa 2026',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-payroll-calculator-og.jpg',
+        url: '/api/og?title=Salary+%26+PAYE+Calculator+SA+2026&subtitle=Take-Home+Pay+After+PAYE%2C+UIF+%26+Pension',
         width: 1200,
         height: 630,
         alt: 'South Africa Payroll Calculator 2026',
@@ -44,14 +45,27 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Salary & PAYE Calculator South Africa 2026',
     description: 'Calculate your take-home pay with PAYE, UIF, pension & medical aid deductions. Free SARS-compliant salary calculator.',
-    images: ['/images/sa-payroll-calculator-og.jpg'],
+    images: ['/api/og?title=Salary+%26+PAYE+Calculator+SA+2026&subtitle=Take-Home+Pay+After+PAYE%2C+UIF+%26+Pension'],
   },
 };
 
 export default function SouthAfricaPayrollCalculatorPage() {
   return (
     <>
-      <StructuredData type="salary-calculator" />
+      <StructuredData
+        type="salary-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Payroll Calculator', url: 'https://www.genius-insights.co.za/south-africa-payroll-calculator' },
+        ]}
+        faqs={[
+          { question: "Why is my PAYE different each month?", answer: "PAYE is calculated on your annualized income. Bonuses, overtime, or backdated increases can push you into a higher tax bracket temporarily, increasing that month's PAYE. It balances out over the year." },
+          { question: "Can I claim back medical aid contributions?", answer: "No, you can't claim back the contributions themselves. However, you receive a medical tax credit (R364/month + R246/dependent) that reduces your PAYE. If your employer didn't apply it, claim on your annual tax return." },
+          { question: "What happens to my UIF contributions?", answer: "UIF provides income protection if you lose your job, are on maternity leave, or sick leave (after sick leave is exhausted). You can claim up to 58% of your salary for up to 12 months (depending on contribution history)." },
+          { question: "Should I contribute to a pension fund?", answer: "Yes! Pension contributions are pre-tax, reducing your taxable income and PAYE. A R3,000/month pension contribution saves approximately R930-R1,350 in PAYE (depending on bracket), while building retirement savings. It's one of the best tax benefits available." },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-teal-50 to-cyan-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-teal-600 via-cyan-600 to-blue-700 rounded-b-3xl">
@@ -324,6 +338,7 @@ export default function SouthAfricaPayrollCalculatorPage() {
             </div>
           </div>
         </div>
+        <RelatedCalculators currentSlug="south-africa-payroll-calculator" />
       </div>
     </>
   );

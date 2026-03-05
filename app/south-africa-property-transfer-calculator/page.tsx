@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-property-transfer-calculator-og.jpg',
+        url: '/api/og?title=Transfer+Cost+Calculator+SA+2026&subtitle=Transfer+Duty+Conveyancing+and+Bond+Registration+Fees',
         width: 1200,
         height: 630,
         alt: 'Transfer Cost Calculator South Africa 2026 - Transfer Duty & Conveyancing Fees',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Transfer Cost Calculator SA 2026 | Transfer Duty',
     description: 'How much are transfer costs when buying a house? Calculate transfer duty, conveyancing fees & bond registration with 2026 SA rates.',
-    images: ['/images/sa-property-transfer-calculator-og.jpg'],
+    images: ['/api/og?title=Transfer+Cost+Calculator+SA+2026&subtitle=Transfer+Duty+Conveyancing+and+Bond+Registration+Fees'],
   },
 };
 
@@ -106,7 +106,14 @@ export default function SouthAfricaPropertyTransferCalculatorPage() {
 
   return (
     <>
-      <StructuredData type="property-transfer-calculator" />
+      <StructuredData
+        type="property-transfer-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Property Transfer Calculator', url: 'https://www.genius-insights.co.za/south-africa-property-transfer-calculator' },
+        ]}
+      />
       <ToolLayout
         title="Transfer Cost Calculator South Africa 2026"
         category="Property"

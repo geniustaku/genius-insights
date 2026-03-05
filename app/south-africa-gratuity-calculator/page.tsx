@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaGratuityCalculator from '@/components/SouthAfricaGratuityCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Retrenchment Package Calculator SA 2026 | BCEA',
@@ -41,7 +42,19 @@ export const metadata: Metadata = {
 export default function SouthAfricaGratuityCalculatorPage() {
   return (
     <>
-      <StructuredData type="salary-calculator" />
+      <StructuredData
+        type="salary-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Retrenchment Calculator', url: 'https://www.genius-insights.co.za/south-africa-gratuity-calculator' },
+        ]}
+        faqs={[
+          { question: "Can I negotiate a better severance package?", answer: "Yes! The BCEA sets minimums, not maximums. Many employees negotiate 2-4 weeks per year, especially for senior positions or long service. Consider getting advice from a labour lawyer." },
+          { question: "What if I refuse retrenchment?", answer: "You cannot be forced to accept voluntary retrenchment. However, if it's a genuine operational requirement (Section 189), refusal may result in dismissal with severance anyway." },
+          { question: "Do I get UIF on top of severance?", answer: "Yes! UIF is separate from severance. You can claim UIF benefits (up to 365 days based on credits) in addition to your retrenchment package." },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-violet-50 to-purple-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 rounded-b-3xl">
@@ -212,6 +225,7 @@ export default function SouthAfricaGratuityCalculatorPage() {
             </div>
           </div>
         </div>
+        <RelatedCalculators currentSlug="south-africa-gratuity-calculator" />
       </div>
     </>
   );

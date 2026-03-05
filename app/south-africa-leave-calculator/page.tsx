@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaLeaveCalculator from '@/components/SouthAfricaLeaveCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Leave Days Calculator SA 2026 | BCEA Entitlement',
@@ -41,7 +42,19 @@ export const metadata: Metadata = {
 export default function SouthAfricaLeaveCalculatorPage() {
   return (
     <>
-      <StructuredData type="salary-calculator" />
+      <StructuredData
+        type="salary-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Leave Calculator', url: 'https://www.genius-insights.co.za/south-africa-leave-calculator' },
+        ]}
+        faqs={[
+          { question: "Can my employer refuse my leave request?", answer: "Yes, for operational reasons, but they must grant leave within 6 months of end of your leave cycle. They cannot unreasonably refuse or accumulate leave indefinitely." },
+          { question: "What happens to unused leave when I resign?", answer: "Accrued annual leave must be paid out at your daily rate. Sick leave is NOT paid out unless your contract specifically provides for this." },
+          { question: "Is maternity leave paid?", answer: "Employers are not required to pay during maternity leave. However, you can claim UIF benefits (up to 60% of salary) for up to 121 days." },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-sky-50 to-blue-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-sky-600 via-blue-600 to-indigo-600 rounded-b-3xl">
@@ -212,6 +225,7 @@ export default function SouthAfricaLeaveCalculatorPage() {
             </div>
           </div>
         </div>
+        <RelatedCalculators currentSlug="south-africa-leave-calculator" />
       </div>
     </>
   );

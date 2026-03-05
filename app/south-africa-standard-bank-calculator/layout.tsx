@@ -25,11 +25,20 @@ export const metadata: Metadata = {
     description: 'Calculate Standard Bank home loan bond repayment, personal loan & vehicle finance instalments with current 2026 rates.',
     url: 'https://www.genius-insights.co.za/south-africa-standard-bank-calculator',
     type: 'website',
+    images: [
+      {
+        url: '/api/og?title=Standard+Bank+Bond+%26+Loan+Calculator+2026&subtitle=Home+Loan+Personal+Loan+and+Vehicle+Finance',
+        width: 1200,
+        height: 630,
+        alt: 'Standard Bank Bond & Loan Calculator 2026',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Standard Bank Bond & Loan Calculator 2026',
     description: 'Calculate Standard Bank bond repayment & loan instalments with current rates.',
+    images: ['/api/og?title=Standard+Bank+Bond+%26+Loan+Calculator+2026&subtitle=Home+Loan+Personal+Loan+and+Vehicle+Finance'],
   },
 }
 

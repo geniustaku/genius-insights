@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaCreditCardCalculator from '@/components/SouthAfricaCreditCardCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Credit Card Interest Calculator SA 2026 | Payoff',
@@ -42,7 +43,20 @@ export const metadata: Metadata = {
 export default function SouthAfricaCreditCardCalculatorPage() {
   return (
     <>
-      <StructuredData type="loan-calculator" />
+      <StructuredData
+        type="loan-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Credit Card Calculator', url: 'https://www.genius-insights.co.za/south-africa-credit-card-calculator' },
+        ]}
+        faqs={[
+          { question: 'How is credit card interest calculated?', answer: 'Interest is calculated daily on your average daily balance, then charged monthly. If you pay your full balance by the due date, you avoid interest. If not, interest applies to your entire balance including new purchases.' },
+          { question: 'What is the interest-free period?', answer: 'Most SA credit cards offer 55 days interest-free on purchases. This runs from your statement date to your payment due date. If you pay in full, you pay zero interest. Cash advances never have an interest-free period.' },
+          { question: 'Should I do a balance transfer?', answer: 'Balance transfers (0% for 6-12 months) can save money if you\'ll pay off the debt in that period. Watch for transfer fees (usually 2-3%) and revert rates. Only worth it if you stop using the old card and have a payoff plan.' },
+          { question: 'How can I reduce my credit card interest?', answer: 'Pay more than minimum, pay before due date, negotiate a lower rate with your bank, or consider a personal loan to consolidate (usually lower interest). Never miss payments - late fees and penalty rates make things worse.' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-rose-50 to-pink-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-rose-600 via-pink-600 to-purple-600 rounded-b-3xl">
@@ -238,6 +252,11 @@ export default function SouthAfricaCreditCardCalculatorPage() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-credit-card-calculator" />
         </div>
       </div>
     </>

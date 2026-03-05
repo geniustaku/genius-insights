@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     locale: "en_ZA",
     images: [
       {
-        url: '/images/og-south-africa-platform.jpg',
+        url: '/api/og?title=Tax+Calculator+South+Africa+2026&subtitle=Free+SARS+PAYE+%26+Salary+Calculators',
         width: 1200,
         height: 630,
         alt: 'Genius Insights - Free Tax Calculator South Africa with PAYE, Salary and Property Tools',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tax Calculator South Africa | Free PAYE & Salary Tools",
     description: "Free SARS tax calculator, PAYE calculator, salary calculator & property transfer tools for South Africa. Updated with 2026 tax tables.",
-    images: ['/images/twitter-south-africa-platform.jpg'],
+    images: ['/api/og?title=Tax+Calculator+South+Africa+2026&subtitle=Free+SARS+PAYE+%26+Salary+Calculators'],
   },
   robots: {
     index: true,
@@ -80,30 +80,17 @@ export default function RootLayout({
         {/* Meta tag for Google AdSense verification */}
         <meta name="google-adsense-account" content="ca-pub-2849262030162416" />
         
-        {/* Google Analytics Script */}
+        {/* Google Analytics + Google Ads (single gtag.js load) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-PWD6J7ZL1E"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-gtag" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-PWD6J7ZL1E');
-          `}
-        </Script>
-        
-        {/* Google Ads Script */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17042498697"
-          strategy="afterInteractive"
-        />
-        <Script id="google-ads" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
             gtag('config', 'AW-17042498697');
           `}
         </Script>

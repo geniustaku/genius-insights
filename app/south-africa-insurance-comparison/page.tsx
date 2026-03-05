@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import StructuredData from '@/components/StructuredData';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export default function SouthAfricaInsuranceComparison() {
   type InsuranceType = 'life' | 'motor' | 'home' | 'medical' | 'disability' | 'funeral' | 'business' | 'travel';
@@ -362,6 +364,15 @@ export default function SouthAfricaInsuranceComparison() {
   }, [formData]);
 
   return (
+    <>
+    <StructuredData
+      type="investment-calculator"
+      breadcrumbs={[
+        { name: 'Home', url: 'https://www.genius-insights.co.za' },
+        { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+        { name: 'Insurance Comparison', url: 'https://www.genius-insights.co.za/south-africa-insurance-comparison' },
+      ]}
+    />
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-green-50 to-blue-100">
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-to-br from-green-600 to-blue-800 rounded-b-3xl">
@@ -701,6 +712,12 @@ export default function SouthAfricaInsuranceComparison() {
           </div>
         </div>
       </div>
+
+      {/* Related Calculators */}
+      <div className="max-w-6xl mx-auto px-8 pb-16">
+        <RelatedCalculators currentSlug="south-africa-insurance-comparison" />
+      </div>
     </div>
+    </>
   );
 }

@@ -26,11 +26,20 @@ export const metadata: Metadata = {
     description: 'Find the cheapest insurance in SA. Compare life, car, home & funeral cover quotes from Sanlam, Discovery, Old Mutual, OUTsurance side-by-side.',
     url: 'https://www.genius-insights.co.za/south-africa-insurance-comparison',
     type: 'website',
+    images: [
+      {
+        url: '/api/og?title=Compare+Cheapest+Insurance+SA+2026&subtitle=Life+Car+Home+and+Funeral+Cover+Quotes+Compared',
+        width: 1200,
+        height: 630,
+        alt: 'Compare Cheapest Insurance South Africa 2026',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Compare Cheapest Insurance South Africa 2026',
     description: 'Compare insurance quotes side-by-side. Find the cheapest cover from top SA insurers.',
+    images: ['/api/og?title=Compare+Cheapest+Insurance+SA+2026&subtitle=Life+Car+Home+and+Funeral+Cover+Quotes+Compared'],
   },
 }
 

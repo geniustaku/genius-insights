@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-tax-calculator-og.jpg',
+        url: '/api/og?title=SARS+Tax+Calculator+2026&subtitle=Free+PAYE+UIF+and+SDL+Calculator',
         width: 1200,
         height: 630,
         alt: 'South Africa Tax Calculator 2026 - SARS PAYE Calculator',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'SARS Tax Calculator 2026 | Free PAYE Calculator',
     description: 'How much tax will I pay? Free SARS calculator with 2026/2027 PAYE, UIF, SDL rates. Accurate & updated.',
-    images: ['/images/sa-tax-calculator-og.jpg'],
+    images: ['/api/og?title=SARS+Tax+Calculator+2026&subtitle=Free+PAYE+UIF+and+SDL+Calculator'],
   },
 };
 
@@ -89,7 +89,14 @@ export default function SouthAfricaTaxCalculatorPage() {
 
   return (
     <>
-      <StructuredData type="tax-calculator" />
+      <StructuredData
+        type="tax-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Tax Calculator', url: 'https://www.genius-insights.co.za/south-africa-tax-calculator' },
+        ]}
+      />
       <ToolLayout
         title="SARS Tax Calculator South Africa 2026"
         category="Tax & SARS"

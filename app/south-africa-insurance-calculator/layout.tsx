@@ -26,11 +26,20 @@ export const metadata: Metadata = {
     description: 'Get insurance quotes for life, car, home & funeral cover. Compare Sanlam, Discovery, Old Mutual, OUTsurance premiums.',
     url: 'https://www.genius-insights.co.za/south-africa-insurance-calculator',
     type: 'website',
+    images: [
+      {
+        url: '/api/og?title=Insurance+Premium+Calculator+SA+2026&subtitle=Compare+Life+Car+Home+and+Funeral+Cover+Quotes',
+        width: 1200,
+        height: 630,
+        alt: 'Insurance Premium Calculator South Africa 2026',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Insurance Premium Calculator South Africa 2026',
     description: 'Compare life, car, home & funeral cover quotes from top SA insurers.',
+    images: ['/api/og?title=Insurance+Premium+Calculator+SA+2026&subtitle=Compare+Life+Car+Home+and+Funeral+Cover+Quotes'],
   },
 }
 

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaSolarCalculator from '@/components/SouthAfricaSolarCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Solar Calculator SA 2026 | Loadshedding Savings',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-solar-calculator-og.jpg',
+        url: '/api/og?title=Solar+Calculator+SA+2026&subtitle=Loadshedding+Savings+%26+ROI',
         width: 1200,
         height: 630,
         alt: 'Solar Panel and Loadshedding Calculator South Africa 2026',
@@ -44,14 +45,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Solar Calculator SA 2026 | Loadshedding Savings',
     description: 'Calculate solar panel costs and loadshedding savings. Free Eskom alternative planner with ROI and battery sizing.',
-    images: ['/images/sa-solar-calculator-og.jpg'],
+    images: ['/api/og?title=Solar+Calculator+SA+2026&subtitle=Loadshedding+Savings+%26+ROI'],
   },
 };
 
 export default function SouthAfricaSolarLoadsheddingCalculatorPage() {
   return (
     <>
-      <StructuredData type="investment-calculator" />
+      <StructuredData
+        type="investment-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Solar Calculator', url: 'https://www.genius-insights.co.za/south-africa-solar-loadshedding-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-yellow-50 to-orange-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-yellow-500 via-orange-500 to-red-600 rounded-b-3xl">
@@ -213,6 +221,11 @@ export default function SouthAfricaSolarLoadsheddingCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-solar-loadshedding-calculator" />
         </div>
       </div>
     </>

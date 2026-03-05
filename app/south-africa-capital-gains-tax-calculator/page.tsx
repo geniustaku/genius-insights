@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaCapitalGainsTaxCalculator from '@/components/SouthAfricaCapitalGainsTaxCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Capital Gains Tax Calculator SA 2026 | SARS CGT',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-cgt-calculator-og.jpg',
+        url: '/api/og?title=Capital+Gains+Tax+Calculator+SA+2026&subtitle=SARS+CGT+on+Property%2C+Shares+%26+Crypto',
         width: 1200,
         height: 630,
         alt: 'South Africa Capital Gains Tax Calculator 2026',
@@ -44,14 +45,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Capital Gains Tax Calculator SA 2026 | SARS CGT',
     description: 'How much CGT do I pay? Calculate capital gains tax on property & shares in South Africa. R40K exclusion, 40% inclusion.',
-    images: ['/images/sa-cgt-calculator-og.jpg'],
+    images: ['/api/og?title=Capital+Gains+Tax+Calculator+SA+2026&subtitle=SARS+CGT+on+Property%2C+Shares+%26+Crypto'],
   },
 };
 
 export default function SouthAfricaCapitalGainsTaxCalculatorPage() {
   return (
     <>
-      <StructuredData type="tax-calculator" />
+      <StructuredData
+        type="tax-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Capital Gains Tax Calculator', url: 'https://www.genius-insights.co.za/south-africa-capital-gains-tax-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-green-50 to-emerald-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-green-600 via-emerald-600 to-teal-700 rounded-b-3xl">
@@ -214,6 +222,7 @@ export default function SouthAfricaCapitalGainsTaxCalculatorPage() {
             </div>
           </div>
         </div>
+        <RelatedCalculators currentSlug="south-africa-capital-gains-tax-calculator" />
       </div>
     </>
   );

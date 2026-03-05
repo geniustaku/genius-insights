@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import StructuredData from '@/components/StructuredData';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 declare global {
   interface Window {
@@ -122,7 +123,14 @@ export default function SouthAfricaFNBCalculatorPage() {
 
   return (
     <>
-      <StructuredData type="loan-calculator" />
+      <StructuredData
+        type="loan-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'FNB Calculator', url: 'https://www.genius-insights.co.za/south-africa-fnb-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
         <div className="relative overflow-hidden bg-gradient-to-br from-orange-600 to-red-600 rounded-b-3xl">
           <div className="relative max-w-7xl mx-auto px-8 py-20">
@@ -375,6 +383,11 @@ export default function SouthAfricaFNBCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-fnb-calculator" />
         </div>
       </div>
     </>

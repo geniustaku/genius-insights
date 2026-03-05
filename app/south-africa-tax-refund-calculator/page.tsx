@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaTaxRefundCalculator from '@/components/SouthAfricaTaxRefundCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'SARS Tax Refund Calculator 2026 | Check Refund',
@@ -42,7 +43,20 @@ export const metadata: Metadata = {
 export default function SouthAfricaTaxRefundCalculatorPage() {
   return (
     <>
-      <StructuredData type="tax-calculator" />
+      <StructuredData
+        type="tax-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Tax Refund Calculator', url: 'https://www.genius-insights.co.za/south-africa-tax-refund-calculator' },
+        ]}
+        faqs={[
+          { question: "How long until I get my refund?", answer: "SARS aims to pay refunds within 72 hours of assessment if your return is not selected for verification. Audited returns can take 21 business days or longer." },
+          { question: "What if I owe SARS money?", answer: "You must pay within the due date shown on your assessment. Late payment incurs interest and penalties. You can request a payment plan through eFiling if needed." },
+          { question: "Do I need to file if I only have one employer?", answer: "If you earn under R500,000 from one employer with no other income or deductions, you may not need to file. Check if you can accept an auto-assessment instead." },
+          { question: "What documents do I need?", answer: "IRP5 from employer(s), retirement fund certificate (IT3a), medical aid certificate, logbook for travel claims, bank statements for interest earned." },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-emerald-50 to-teal-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 rounded-b-3xl">
@@ -239,6 +253,7 @@ export default function SouthAfricaTaxRefundCalculatorPage() {
             </div>
           </div>
         </div>
+        <RelatedCalculators currentSlug="south-africa-tax-refund-calculator" />
       </div>
     </>
   );

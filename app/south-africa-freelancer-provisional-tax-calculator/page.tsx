@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaFreelancerTaxCalculator from '@/components/SouthAfricaFreelancerTaxCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Provisional Tax Calculator SA 2026 | Freelancer',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-freelancer-tax-calculator-og.jpg',
+        url: '/api/og?title=Provisional+Tax+Calculator+SA+2026&subtitle=Freelancer+%26+Self-Employed+Tax+Tool',
         width: 1200,
         height: 630,
         alt: 'South Africa Freelancer & Provisional Tax Calculator 2026',
@@ -44,14 +45,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Provisional Tax Calculator SA 2026 | Freelancer',
     description: 'Calculate self-employed provisional tax for South Africa. IRP6 payments, business deductions, SARS compliance.',
-    images: ['/images/sa-freelancer-tax-calculator-og.jpg'],
+    images: ['/api/og?title=Provisional+Tax+Calculator+SA+2026&subtitle=Freelancer+%26+Self-Employed+Tax+Tool'],
   },
 };
 
 export default function SouthAfricaFreelancerProvisionalTaxCalculatorPage() {
   return (
     <>
-      <StructuredData type="tax-calculator" />
+      <StructuredData
+        type="tax-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Freelancer Tax Calculator', url: 'https://www.genius-insights.co.za/south-africa-freelancer-provisional-tax-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-purple-600 via-pink-600 to-rose-600 rounded-b-3xl">
@@ -306,6 +314,7 @@ export default function SouthAfricaFreelancerProvisionalTaxCalculatorPage() {
             </div>
           </div>
         </div>
+        <RelatedCalculators currentSlug="south-africa-freelancer-provisional-tax-calculator" />
       </div>
     </>
   );

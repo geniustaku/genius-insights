@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaUIFCalculator from '@/components/SouthAfricaUIFCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'UIF Calculator SA 2026 | How Much Will I Get?',
@@ -42,7 +43,20 @@ export const metadata: Metadata = {
 export default function SouthAfricaUIFCalculatorPage() {
   return (
     <>
-      <StructuredData type="salary-calculator" />
+      <StructuredData
+        type="salary-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'UIF Calculator', url: 'https://www.genius-insights.co.za/south-africa-uif-calculator' },
+        ]}
+        faqs={[
+          { question: "How long after losing my job can I claim UIF?", answer: "You must claim within 6 months of becoming unemployed. Register as a work seeker and apply on uFiling (www.ufiling.co.za) or at your nearest Department of Labour office." },
+          { question: "How are credit days calculated?", answer: "You earn 1 credit day for every 4 days worked while contributing to UIF. Maximum is 365 credit days (about 4 years of continuous employment). Only contributions in the last 4 years count." },
+          { question: "Can domestic workers claim UIF?", answer: "Yes! Since April 2003, domestic workers must be registered for UIF by their employers. They are entitled to the same benefits as other workers." },
+          { question: "What documents do I need to claim?", answer: "ID document, UI-19 form from employer, UI-2.7 form (proof of banking), last payslip, service certificate, and appointment letter for new job seekers." },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-blue-700 via-indigo-600 to-purple-700 rounded-b-3xl">
@@ -231,6 +245,7 @@ export default function SouthAfricaUIFCalculatorPage() {
             </div>
           </div>
         </div>
+        <RelatedCalculators currentSlug="south-africa-uif-calculator" />
       </div>
     </>
   );

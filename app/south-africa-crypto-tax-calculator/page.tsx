@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaCryptoTaxCalculator from '@/components/SouthAfricaCryptoTaxCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Crypto Tax Calculator South Africa 2026 | SARS',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-crypto-tax-calculator-og.jpg',
+        url: '/api/og?title=Crypto+Tax+Calculator+SA+2026&subtitle=Bitcoin+%26+Cryptocurrency+CGT+Calculator',
         width: 1200,
         height: 630,
         alt: 'South Africa Cryptocurrency Tax Calculator 2026',
@@ -44,14 +45,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Crypto Tax Calculator South Africa 2026 | SARS',
     description: 'Do I pay tax on crypto in South Africa? Calculate cryptocurrency CGT or trading income tax. SARS-compliant.',
-    images: ['/images/sa-crypto-tax-calculator-og.jpg'],
+    images: ['/api/og?title=Crypto+Tax+Calculator+SA+2026&subtitle=Bitcoin+%26+Cryptocurrency+CGT+Calculator'],
   },
 };
 
 export default function SouthAfricaCryptoTaxCalculatorPage() {
   return (
     <>
-      <StructuredData type="tax-calculator" />
+      <StructuredData
+        type="tax-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Crypto Tax Calculator', url: 'https://www.genius-insights.co.za/south-africa-crypto-tax-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50 to-amber-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-orange-600 via-amber-600 to-yellow-600 rounded-b-3xl">
@@ -253,6 +261,7 @@ export default function SouthAfricaCryptoTaxCalculatorPage() {
             </div>
           </div>
         </div>
+        <RelatedCalculators currentSlug="south-africa-crypto-tax-calculator" />
       </div>
     </>
   );

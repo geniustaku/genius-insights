@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaRentalYieldCalculator from '@/components/SouthAfricaRentalYieldCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Rental Yield Calculator SA 2026 | Buy to Let',
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-rental-yield-og.jpg',
+        url: '/api/og?title=Rental+Yield+Calculator+SA+2026&subtitle=Buy+to+Let+Property+Investment',
         width: 1200,
         height: 630,
         alt: 'Rental Yield Calculator South Africa 2026 - Buy to Let Property Investment',
@@ -46,14 +47,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Rental Yield Calculator SA 2026 | Buy to Let',
     description: 'Is buy to let worth it in SA? Calculate rental yield, property ROI & cash flow. Free calculator for property investors.',
-    images: ['/images/sa-rental-yield-og.jpg'],
+    images: ['/api/og?title=Rental+Yield+Calculator+SA+2026&subtitle=Buy+to+Let+Property+Investment'],
   },
 };
 
 export default function SouthAfricaRentalYieldCalculatorPage() {
   return (
     <>
-      <StructuredData type="rental-calculator" />
+      <StructuredData
+        type="rental-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Rental Yield Calculator', url: 'https://www.genius-insights.co.za/south-africa-rental-yield-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-green-50 to-emerald-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-green-600 via-emerald-600 to-teal-700 rounded-b-3xl">
@@ -215,6 +223,11 @@ export default function SouthAfricaRentalYieldCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-rental-yield-calculator" />
         </div>
       </div>
     </>

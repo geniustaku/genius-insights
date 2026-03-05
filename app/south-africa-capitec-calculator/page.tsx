@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaCapitecCalculator from '@/components/SouthAfricaCapitecCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Capitec Personal Loan Calculator 2026 | Free',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-capitec-calculator-og.jpg',
+        url: '/api/og?title=Capitec+Personal+Loan+Calculator+2026&subtitle=Calculate+Loan+Repayment+GlobalOne+Fees+and+Rates',
         width: 1200,
         height: 630,
         alt: 'Capitec Personal Loan Calculator 2026',
@@ -44,14 +45,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Capitec Personal Loan Calculator 2026',
     description: 'How much can I borrow from Capitec? Calculate loan repayment, GlobalOne fees & fixed deposits.',
-    images: ['/images/sa-capitec-calculator-og.jpg'],
+    images: ['/api/og?title=Capitec+Personal+Loan+Calculator+2026&subtitle=Calculate+Loan+Repayment+GlobalOne+Fees+and+Rates'],
   },
 };
 
 export default function SouthAfricaCapitecCalculatorPage() {
   return (
     <>
-      <StructuredData type="loan-calculator" />
+      <StructuredData
+        type="loan-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Capitec Calculator', url: 'https://www.genius-insights.co.za/south-africa-capitec-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-800 rounded-b-3xl">
@@ -212,6 +220,11 @@ export default function SouthAfricaCapitecCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-capitec-calculator" />
         </div>
       </div>
     </>

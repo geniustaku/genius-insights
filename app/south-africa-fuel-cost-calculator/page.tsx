@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaFuelCostCalculator from '@/components/SouthAfricaFuelCostCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Fuel Cost Calculator SA | Petrol & Diesel Price',
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-fuel-calculator-og.jpg',
+        url: '/api/og?title=Fuel+Cost+Calculator+SA+2026&subtitle=Petrol+%26+Diesel+Price+Calculator',
         width: 1200,
         height: 630,
         alt: 'Petrol and Diesel Fuel Cost Calculator South Africa 2026',
@@ -30,14 +31,21 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Fuel Cost Calculator SA | Petrol & Diesel Price',
     description: 'Calculate petrol and diesel trip costs with current SA fuel prices. Free fuel levy and consumption calculator for 2026.',
-    images: ['/images/sa-fuel-calculator-og.jpg'],
+    images: ['/api/og?title=Fuel+Cost+Calculator+SA+2026&subtitle=Petrol+%26+Diesel+Price+Calculator'],
   },
 };
 
 export default function SouthAfricaFuelCostCalculatorPage() {
   return (
     <>
-      <StructuredData type="fuel-calculator" />
+      <StructuredData
+        type="fuel-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'Fuel Cost Calculator', url: 'https://www.genius-insights.co.za/south-africa-fuel-cost-calculator' },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50 to-red-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-orange-600 via-red-600 to-pink-700 rounded-b-3xl">
@@ -189,6 +197,11 @@ export default function SouthAfricaFuelCostCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-fuel-cost-calculator" />
         </div>
       </div>
     </>

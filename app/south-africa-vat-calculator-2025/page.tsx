@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import SouthAfricaVATCalculator from '@/components/SouthAfricaVATCalculator';
 import StructuredData from '@/components/StructuredData';
 import AdSenseAd from '@/components/AdSenseAd';
+import RelatedCalculators from '@/components/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'SA VAT Calculator 2025 | Free 15% VAT Add & Remove',
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/sa-vat-calculator-og.jpg',
+        url: '/api/og?title=SA+VAT+Calculator+2025&subtitle=Add+or+Remove+15+Percent+VAT+Instantly',
         width: 1200,
         height: 630,
         alt: 'South Africa VAT Calculator 2025',
@@ -44,14 +45,43 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'SA VAT Calculator 2025 | Add & Remove 15% VAT',
     description: 'Calculate South Africa VAT instantly. Add or remove 15% VAT. SARS-compliant with registration guide.',
-    images: ['/images/sa-vat-calculator-og.jpg'],
+    images: ['/api/og?title=SA+VAT+Calculator+2025&subtitle=Add+or+Remove+15+Percent+VAT+Instantly'],
   },
 };
 
 export default function SouthAfricaVATCalculatorPage() {
   return (
     <>
-      <StructuredData type="tax-calculator" />
+      <StructuredData
+        type="tax-calculator"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.genius-insights.co.za' },
+          { name: 'Calculators', url: 'https://www.genius-insights.co.za/calculators' },
+          { name: 'VAT Calculator 2025', url: 'https://www.genius-insights.co.za/south-africa-vat-calculator-2025' },
+        ]}
+        faqs={[
+          {
+            question: 'When must I register for VAT?',
+            answer: 'You must register for VAT if your taxable turnover exceeds or is likely to exceed R1 million in any consecutive 12-month period. You can register voluntarily if turnover exceeds R50,000/year. Apply via SARS eFiling using the VAT101 form.'
+          },
+          {
+            question: 'What items are zero-rated for VAT?',
+            answer: 'Zero-rated items attract 0% VAT and include: brown bread, maize meal, samp, beans, lentils, rice, vegetables, fruit, milk, eggs, vegetable oil, milk powder, pilchards, sardines, exports, and international passenger transport. Zero-rated means businesses can claim input VAT.'
+          },
+          {
+            question: "What's the difference between zero-rated and exempt?",
+            answer: 'Zero-rated (0% VAT): You can claim input VAT on related expenses. Exempt: No output VAT charged, but you cannot claim input VAT. Exempt items include financial services, residential rent, educational services, and public transport.'
+          },
+          {
+            question: 'How often must I submit VAT returns?',
+            answer: 'Most VAT vendors submit bi-monthly (every 2 months). Payment is due by the 25th of the month following the VAT period end. Large vendors (turnover >R30M) may be on monthly filing category. Returns are submitted via SARS eFiling using the VAT201 form.'
+          },
+          {
+            question: "What happens if I don't register for VAT when required?",
+            answer: 'Non-compliance can result in penalties up to 200% of the tax owed, plus interest at 10.25%/year. SARS can also initiate criminal proceedings. You must register within 21 days of exceeding the R1 million threshold. Backdated VAT liabilities may apply.'
+          },
+        ]}
+      />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-emerald-50 to-green-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-br from-emerald-600 via-green-600 to-teal-700 rounded-b-3xl">
@@ -314,6 +344,11 @@ export default function SouthAfricaVATCalculatorPage() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Related Calculators */}
+        <div className="max-w-6xl mx-auto px-8 pb-16">
+          <RelatedCalculators currentSlug="south-africa-vat-calculator-2025" />
         </div>
       </div>
     </>

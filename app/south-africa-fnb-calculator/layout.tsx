@@ -26,11 +26,20 @@ export const metadata: Metadata = {
     description: 'Calculate FNB home loan bond repayment, personal loan instalments, vehicle finance & eBucks rewards with current 2026 rates.',
     url: 'https://www.genius-insights.co.za/south-africa-fnb-calculator',
     type: 'website',
+    images: [
+      {
+        url: '/api/og?title=FNB+Bond+Repayment+%26+Loan+Calculator+2026&subtitle=Home+Loan+Personal+Loan+and+eBucks+Rewards',
+        width: 1200,
+        height: 630,
+        alt: 'FNB Bond Repayment & Loan Calculator 2026',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'FNB Bond Repayment & Loan Calculator 2026',
     description: 'Calculate FNB home loan, personal loan & vehicle finance repayments with current rates.',
+    images: ['/api/og?title=FNB+Bond+Repayment+%26+Loan+Calculator+2026&subtitle=Home+Loan+Personal+Loan+and+eBucks+Rewards'],
   },
 }
 
